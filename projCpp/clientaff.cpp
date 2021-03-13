@@ -20,7 +20,7 @@ ClientAff::~ClientAff()
     delete ui;
 }
 
-void ClientAff::on_pushButton_clicked()
+void ClientAff::on_pushButton_clicked() //ajouter client
 {
     int cin=ui->LE_cin->text().toInt();
     QString nom=ui->LE_nom->text();
@@ -48,7 +48,7 @@ void ClientAff::on_pushButton_clicked()
     qDebug()<<"button clicked";
 }
 
-void ClientAff::on_pushButton_2_clicked()
+void ClientAff::on_pushButton_2_clicked() //supprimer client
 {
     int cin=ui->LE_CIN_Supp->text().toInt();
     qDebug()<<cin;
@@ -67,7 +67,8 @@ void ClientAff::on_pushButton_2_clicked()
     }
 }
 //Produit::Produit(int id,QString nom,int QTE,float prixProd)
-void ClientAff::on_pushButton_3_clicked()
+
+void ClientAff::on_pushButton_3_clicked() //ajouter produit
 {
     int id=ui->LE_ID1->text().toInt();
     QString nom=ui->LE_NOM1->text();
@@ -93,7 +94,7 @@ void ClientAff::on_pushButton_3_clicked()
 
 }
 
-void ClientAff::on_pushButton_4_clicked()
+void ClientAff::on_pushButton_4_clicked() //supprimer produit
 {
     int id=ui->LE_ID_SUPP->text().toInt();
     qDebug()<<id;
@@ -109,6 +110,76 @@ void ClientAff::on_pushButton_4_clicked()
         //qDebug()<<"connection failed";
         QMessageBox::critical(nullptr,QObject::tr("Not ok"),
                                  QObject::tr("Suppression non effectue\n""click cancel to exit"),QMessageBox::Cancel);
+    }
+
+}
+
+void ClientAff::on_pushButton_5_clicked()
+{
+    int cin=ui->LE_CIN_Supp->text().toInt();
+    Client C;
+   // qDebug()<<id;
+
+    C=C.SelectModif(cin);
+    if(C.Get_cin()!=NULL)
+    {
+
+   ui->LE_cin->setText(QString(QString::number(C.Get_cin())));
+   //int cinn=ui->LE_cin->text().toInt();
+
+   ui->LE_nom->setText(QString(C.Get_nom()));
+   //QString nomm=ui->LE_nom->text();
+
+   ui->LE_prenom->setText(QString(C.Get_prenom()));
+   //QString prenomm=ui->LE_prenom->text();
+
+   ui->LE_adresse->setText(QString(C.Get_adresse()));
+   //QString adresse=ui->LE_adresse->text();
+
+   ui->LE_email->setText(QString(C.Get_email()));
+  // QString email=ui->LE_email->text();
+
+   ui->LE_NumTelephone->setText(QString(QString::number(C.Get_NumTelephone())));
+  // int numTelephone=ui->LE_NumTelephone->text().toInt();
+
+   ui->LE_nbrpt->setText(QString(QString::number(C.Get_nbrpt())));
+   // int nbrPoint=ui->LE_nbrpt->text().toInt();
+
+
+
+
+   // qDebug()<<cinn<<"CinModif1";
+    qDebug()<<C.Get_cin()<<"CinModif";
+}
+    //bool test= etmp.Modif()
+
+}
+
+void ClientAff::on_pushButton_6_clicked() //modification of client
+{
+
+    int cin=ui->LE_cin->text().toInt();
+    QString nom=ui->LE_nom->text();
+    QString prenom=ui->LE_prenom->text();
+    QString adresse=ui->LE_adresse->text();
+    QString email=ui->LE_email->text();
+    int nbrpt=ui->LE_nbrpt->text().toInt();
+    int NumTelephone=ui->LE_NumTelephone->text().toInt();
+
+    Client C(cin,nom,prenom,adresse,email,nbrpt,NumTelephone);
+
+    bool test=C.Modifer(cin);
+    if(test==true)
+    {
+      qDebug()<<"connection reussite";
+      QMessageBox::information(nullptr,QObject::tr("ok"),
+                               QObject::tr("Modifier avec success\n""click ok to exit"),QMessageBox::Ok);
+    }
+    else
+    {
+        qDebug()<<"connection failed";
+        QMessageBox::critical(nullptr,QObject::tr("Not ok"),
+        QObject::tr("modification non effectue\n""click cancel to exit"),QMessageBox::Cancel);
     }
 
 }

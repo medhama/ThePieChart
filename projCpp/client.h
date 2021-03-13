@@ -50,6 +50,8 @@ public:
     bool ajouter();
     QSqlQueryModel * afficher();
     bool supprimer(int);
+    Client SelectModif(int);
+    bool Modifer(int);
 
 
 };
