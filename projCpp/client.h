@@ -52,6 +52,7 @@ public:
     bool supprimer(int);
     Client SelectModif(int);
     bool Modifer(int);
+    QSqlQueryModel * rechercher(QString);
 
 
 };

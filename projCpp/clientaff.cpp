@@ -3,16 +3,20 @@
 #include "client.h"
 #include "produit.h"
 #include <QtDebug>
+#include <QApplication>
 #include <QMessageBox>
 #include<QIntValidator>
+
 ClientAff::ClientAff(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::ClientAff)
 {
     ui->setupUi(this);
-
+     ui->LE_cin->setValidator(new QIntValidator(0, 9999999, this));
      ui->Tab_client->setModel(etmp.afficher());
+     ui->LE_ID1->setValidator(new QIntValidator(0, 9999999, this));
      ui->Tab_produit->setModel(etmp_prod.afficher());
+
 }
 
 ClientAff::~ClientAff()
@@ -38,6 +42,7 @@ void ClientAff::on_pushButton_clicked() //ajouter client
       qDebug()<<"connection reussite";
       QMessageBox::information(nullptr,QObject::tr("ok"),
                                QObject::tr("Ajouter avec success\n""click ok to exit"),QMessageBox::Ok);
+      ui->Tab_client->setModel(etmp.afficher());
     }
     else
     {
@@ -58,6 +63,7 @@ void ClientAff::on_pushButton_2_clicked() //supprimer client
       //qDebug()<<"connection reussite";
       QMessageBox::information(nullptr,QObject::tr("ok"),
                                QObject::tr("Suppression effectuee\n""click ok to exit"),QMessageBox::Ok);
+      ui->Tab_client->setModel(etmp.afficher());
     }
     else
     {
@@ -83,6 +89,7 @@ void ClientAff::on_pushButton_3_clicked() //ajouter produit
       qDebug()<<"connection reussite";
       QMessageBox::information(nullptr,QObject::tr("ok"),
                                QObject::tr("Ajouter avec success\n""click ok to exit"),QMessageBox::Ok);
+      ui->Tab_produit->setModel(etmp_prod.afficher());
     }
     else
     {
@@ -104,6 +111,7 @@ void ClientAff::on_pushButton_4_clicked() //supprimer produit
       //qDebug()<<"connection reussite";
       QMessageBox::information(nullptr,QObject::tr("ok"),
                                QObject::tr("Suppression effectuee\n""click ok to exit"),QMessageBox::Ok);
+      ui->Tab_produit->setModel(etmp_prod.afficher());
     }
     else
     {
@@ -174,6 +182,7 @@ void ClientAff::on_pushButton_6_clicked() //modification of client
       qDebug()<<"connection reussite";
       QMessageBox::information(nullptr,QObject::tr("ok"),
                                QObject::tr("Modifier avec success\n""click ok to exit"),QMessageBox::Ok);
+      ui->Tab_client->setModel(etmp.afficher());
     }
     else
     {
@@ -181,5 +190,13 @@ void ClientAff::on_pushButton_6_clicked() //modification of client
         QMessageBox::critical(nullptr,QObject::tr("Not ok"),
         QObject::tr("modification non effectue\n""click cancel to exit"),QMessageBox::Cancel);
     }
+
+}
+
+void ClientAff::on_Rechercher_Client_button_clicked() //rechercher client
+{
+     QString nom=ui->SearchBar_Client->text();
+     qDebug()<<nom;
+    ui->Tab_client->setModel(etmp.rechercher(nom));
 
 }

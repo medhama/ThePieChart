@@ -30,6 +30,8 @@ private slots:
 
     void on_pushButton_6_clicked();
 
+    void on_Rechercher_Client_button_clicked();
+
 private:
     Ui::ClientAff *ui;
     Client etmp;

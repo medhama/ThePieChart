@@ -38,9 +38,10 @@ QSqlQueryModel * Produit::afficher()
     QSqlQueryModel * model= new QSqlQueryModel();
          model->setQuery("SELECT * FROM produit");
          qDebug()<<"connection";
-       /*  model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
-         model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
-         model->setHeaderData(2, Qt::Horizontal, QObject::tr("Prenom")); */
+         model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
+         model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom produit"));
+         model->setHeaderData(2, Qt::Horizontal, QObject::tr("Prix produit"));
+         model->setHeaderData(3, Qt::Horizontal, QObject::tr("Quantite"));
     return model;
 }
 bool Produit::supprimer(int id)

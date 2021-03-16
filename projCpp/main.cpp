@@ -1,9 +1,10 @@
 #include "mainwindow.h"
+#include "clientaff.h"
 #include <QtDebug>
 #include <QApplication>
 #include "connection.h"
 #include <QMessageBox>
-#include "clientaff.h"
+
 
 int main(int argc, char *argv[])
 {
@@ -15,6 +16,7 @@ int main(int argc, char *argv[])
     ClientAff d;
 if(test==true)
 {
+  d.show();
   qDebug()<<"connection reussite";
   QMessageBox::information(nullptr,QObject::tr("database is open"),
                            QObject::tr("Connection successfull\n""click ok to exit"),QMessageBox::Ok);
@@ -25,7 +27,7 @@ else
     QMessageBox::critical(nullptr,QObject::tr("database is not open"),
                              QObject::tr("Connection failed\n""click cancel to exit"),QMessageBox::Cancel);
 }
-d.show();
+
    // w.show();
     return a.exec();
 }

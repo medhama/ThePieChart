@@ -2,6 +2,7 @@
 #include<QSqlQuery>
 #include<QtDebug>
 #include<QObject>
+#include <QSortFilterProxyModel>
 Client::Client()
 {
 
@@ -47,6 +48,26 @@ QSqlQueryModel * Client::afficher()
          model->setHeaderData(2, Qt::Horizontal, QObject::tr("Prenom")); */
     return model;
 }
+
+QSqlQueryModel * Client::rechercher(QString mot)
+{
+     QSqlQuery query;
+     query.prepare("SELECT * FROM client where ((CHARINDEX(:NOMC, NOM) > 0) or (PRENOM like :NOMC) or (ADRESSE like :NOMC) or "
+        "(NBR_POINT like :NOMC) or (CIN like :NOMC) or (NUM_TELEPHONE like :NOMC) or (EMAIL like :NOMC))");
+     query.bindValue(":NOMC", mot);
+     query.exec();
+
+    QSqlQueryModel * model= new QSqlQueryModel();
+        // model.bindValue(":nomproduit", mot);
+        //model->setFilterRegExp(QRegExp(mot, Qt::CaseInsensitive,QRegExp::FixedString));
+
+         model->setQuery(query);
+        // qDebug()<<"connection recherche";
+
+
+    return model;
+}
+
 bool Client::supprimer(int cin)
 {
     QSqlQuery query;
@@ -96,9 +117,6 @@ bool Client::Modifer(int cin)
     QString nbr_point_string=QString::number(nbr_point);
     QString num_telephone_string=QString::number(num_telephone);
     query.prepare("UPDATE client SET nom= :forename, prenom= :surname,adresse= :adresse,nbr_point= :nbr_point,num_telephone= :num_telephone,email= :email where CIN=:cin");
-
-
-
     query.bindValue(":cin", cin_string);
     query.bindValue(":forename", nom);
     query.bindValue(":surname", prenom);
