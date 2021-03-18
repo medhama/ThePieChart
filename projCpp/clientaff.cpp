@@ -6,6 +6,7 @@
 #include <QApplication>
 #include <QMessageBox>
 #include<QIntValidator>
+#include<QComboBox>
 
 ClientAff::ClientAff(QWidget *parent) :
     QDialog(parent),
@@ -198,5 +199,40 @@ void ClientAff::on_Rechercher_Client_button_clicked() //rechercher client
      QString nom=ui->SearchBar_Client->text();
      qDebug()<<nom;
     ui->Tab_client->setModel(etmp.rechercher(nom));
+
+}
+
+void ClientAff::on_SortButton_clicked()
+{
+    int value=ui->comboBox1->currentIndex();
+
+    //qDebug()<<value;
+    if (value==0)
+    {
+        ui->Tab_client->setModel(etmp.afficherTriNomDesc());
+
+    }
+    else if (value==1)
+    {
+        ui->Tab_client->setModel(etmp.afficherTriNomAsc());
+
+    }
+    else if (value==2)
+    {
+        ui->Tab_client->setModel(etmp.afficherTriPrenomDesc());
+
+    }
+    else if (value==3)
+    {
+        ui->Tab_client->setModel(etmp.afficherTriPrenomAsc());
+    }
+    else if (value==4)
+    {
+        ui->Tab_client->setModel(etmp.afficherTriNbr_PointAsc());
+    }
+    else if (value==5)
+    {
+        ui->Tab_client->setModel(etmp.afficherTriNbr_PointDesc());
+    }
 
 }

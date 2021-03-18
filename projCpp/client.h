@@ -49,6 +49,12 @@ public:
 
     bool ajouter();
     QSqlQueryModel * afficher();
+    QSqlQueryModel * afficherTriNomAsc();
+    QSqlQueryModel * afficherTriNomDesc();
+    QSqlQueryModel * afficherTriPrenomAsc();
+    QSqlQueryModel * afficherTriPrenomDesc();
+    QSqlQueryModel * afficherTriNbr_PointAsc();
+    QSqlQueryModel * afficherTriNbr_PointDesc();
     bool supprimer(int);
     Client SelectModif(int);
     bool Modifer(int);

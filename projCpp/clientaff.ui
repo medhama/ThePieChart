@@ -16,8 +16,8 @@
   <widget class="QTabWidget" name="tabWidget">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>40</y>
+     <x>50</x>
+     <y>30</y>
      <width>691</width>
      <height>391</height>
     </rect>
@@ -265,7 +265,7 @@
     <widget class="QPushButton" name="Rechercher_Client_button">
      <property name="geometry">
       <rect>
-       <x>330</x>
+       <x>280</x>
        <y>60</y>
        <width>71</width>
        <height>23</height>
@@ -278,11 +278,70 @@
     <widget class="QLineEdit" name="SearchBar_Client">
      <property name="geometry">
       <rect>
-       <x>410</x>
+       <x>360</x>
        <y>60</y>
        <width>113</width>
        <height>20</height>
       </rect>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="comboBox1">
+     <property name="geometry">
+      <rect>
+       <x>530</x>
+       <y>60</y>
+       <width>121</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <property name="duplicatesEnabled">
+      <bool>false</bool>
+     </property>
+     <item>
+      <property name="text">
+       <string>Nom descendant</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Nom ascendant</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Prenom descendant</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Prenom ascendant</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Nombre de points desc</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Nombre de points Asc</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QPushButton" name="SortButton">
+     <property name="geometry">
+      <rect>
+       <x>480</x>
+       <y>60</y>
+       <width>41</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Sort</string>
      </property>
     </widget>
    </widget>

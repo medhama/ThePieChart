@@ -48,6 +48,42 @@ QSqlQueryModel * Client::afficher()
          model->setHeaderData(2, Qt::Horizontal, QObject::tr("Prenom")); */
     return model;
 }
+QSqlQueryModel * Client::afficherTriNomAsc()
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+         model->setQuery("SELECT * FROM client order by NOM ASC");
+    return model;
+}
+QSqlQueryModel * Client::afficherTriNomDesc()
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+         model->setQuery("SELECT * FROM client order by NOM DESC");
+    return model;
+}
+QSqlQueryModel * Client::afficherTriPrenomAsc()
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+         model->setQuery("SELECT * FROM client order by PRENOM ASC");
+    return model;
+}
+QSqlQueryModel * Client::afficherTriPrenomDesc()
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+         model->setQuery("SELECT * FROM client order by PRENOM DESC");
+    return model;
+}
+QSqlQueryModel * Client::afficherTriNbr_PointAsc()
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+         model->setQuery("SELECT * FROM client order by NBR_POINT ASC");
+    return model;
+}
+QSqlQueryModel * Client::afficherTriNbr_PointDesc()
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+         model->setQuery("SELECT * FROM client order by NBR_POINT DESC");
+    return model;
+}
 
 QSqlQueryModel * Client::rechercher(QString mot)
 {

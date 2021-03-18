@@ -32,6 +32,8 @@ private slots:
 
     void on_Rechercher_Client_button_clicked();
 
+    void on_SortButton_clicked();
+
 private:
     Ui::ClientAff *ui;
     Client etmp;
