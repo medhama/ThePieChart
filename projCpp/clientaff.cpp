@@ -1,3 +1,4 @@
+#include "mainwindow.h"
 #include "clientaff.h"
 #include "ui_clientaff.h"
 #include "client.h"
@@ -7,6 +8,10 @@
 #include <QMessageBox>
 #include<QIntValidator>
 #include<QComboBox>
+#include<SmtpMime>
+#include <QSslSocket>
+#include <QCoreApplication>
+
 
 ClientAff::ClientAff(QWidget *parent) :
     QDialog(parent),
@@ -17,7 +22,8 @@ ClientAff::ClientAff(QWidget *parent) :
      ui->Tab_client->setModel(etmp.afficher());
      ui->LE_ID1->setValidator(new QIntValidator(0, 9999999, this));
      ui->Tab_produit->setModel(etmp_prod.afficher());
-
+    ui->pushButton_6->setEnabled(false);
+    qDebug()<<QSslSocket::supportsSsl() << QSslSocket::sslLibraryBuildVersionString() << QSslSocket::sslLibraryVersionString();
 }
 
 ClientAff::~ClientAff()
@@ -36,14 +42,21 @@ void ClientAff::on_pushButton_clicked() //ajouter client
     int NumTelephone=ui->LE_NumTelephone->text().toInt();
 
     Client E(cin,nom,prenom,adresse,email,nbrpt,NumTelephone);
-    //Etudiant E(id,nom,prenom);
+    ui->LE_cin->clear();
     bool test=E.ajouter();
     if(test==true)
     {
-      qDebug()<<"connection reussite";
+      qDebug()<<"Ajouter avec success";
       QMessageBox::information(nullptr,QObject::tr("ok"),
                                QObject::tr("Ajouter avec success\n""click ok to exit"),QMessageBox::Ok);
       ui->Tab_client->setModel(etmp.afficher());
+      ui->LE_cin->clear();
+      ui->LE_nom->clear();
+      ui->LE_prenom->clear();
+      ui->LE_adresse->clear();
+      ui->LE_email->clear();
+      ui->LE_nbrpt->clear();
+      ui->LE_NumTelephone->clear();
     }
     else
     {
@@ -123,14 +136,17 @@ void ClientAff::on_pushButton_4_clicked() //supprimer produit
 
 }
 
-void ClientAff::on_pushButton_5_clicked()
+void ClientAff::on_pushButton_5_clicked() //modifier 1 client
 {
     int cin=ui->LE_CIN_Supp->text().toInt();
     Client C;
    // qDebug()<<id;
 
+    ui->pushButton->setEnabled(false);
+    ui->LE_cin->setEnabled(false);
     C=C.SelectModif(cin);
-    if(C.Get_cin()!=NULL)
+    ui->pushButton_6->setEnabled(true);
+    if(C.Get_cin()!=0)
     {
 
    ui->LE_cin->setText(QString(QString::number(C.Get_cin())));
@@ -153,10 +169,6 @@ void ClientAff::on_pushButton_5_clicked()
 
    ui->LE_nbrpt->setText(QString(QString::number(C.Get_nbrpt())));
    // int nbrPoint=ui->LE_nbrpt->text().toInt();
-
-
-
-
    // qDebug()<<cinn<<"CinModif1";
     qDebug()<<C.Get_cin()<<"CinModif";
 }
@@ -164,7 +176,7 @@ void ClientAff::on_pushButton_5_clicked()
 
 }
 
-void ClientAff::on_pushButton_6_clicked() //modification of client
+void ClientAff::on_pushButton_6_clicked() //confirmation modification of client
 {
 
     int cin=ui->LE_cin->text().toInt();
@@ -176,21 +188,31 @@ void ClientAff::on_pushButton_6_clicked() //modification of client
     int NumTelephone=ui->LE_NumTelephone->text().toInt();
 
     Client C(cin,nom,prenom,adresse,email,nbrpt,NumTelephone);
+    ui->pushButton->setEnabled(true);
+    ui->LE_cin->setEnabled(true);
 
     bool test=C.Modifer(cin);
     if(test==true)
     {
-      qDebug()<<"connection reussite";
+     // qDebug()<<"connection reussite";
       QMessageBox::information(nullptr,QObject::tr("ok"),
                                QObject::tr("Modifier avec success\n""click ok to exit"),QMessageBox::Ok);
       ui->Tab_client->setModel(etmp.afficher());
+      ui->LE_cin->clear();
+      ui->LE_nom->clear();
+      ui->LE_prenom->clear();
+      ui->LE_adresse->clear();
+      ui->LE_email->clear();
+      ui->LE_nbrpt->clear();
+      ui->LE_NumTelephone->clear();
     }
     else
     {
-        qDebug()<<"connection failed";
+        //qDebug()<<"connection failed";
         QMessageBox::critical(nullptr,QObject::tr("Not ok"),
         QObject::tr("modification non effectue\n""click cancel to exit"),QMessageBox::Cancel);
     }
+    ui->pushButton_6->setEnabled(false);
 
 }
 
@@ -234,5 +256,58 @@ void ClientAff::on_SortButton_clicked()
     {
         ui->Tab_client->setModel(etmp.afficherTriNbr_PointDesc());
     }
+
+}
+
+void ClientAff::on_SendMail_clicked()
+{
+   // QApplication a(argc, argv);
+
+      // This is a first demo application of the SmtpClient for Qt project
+
+      // First we need to create an SmtpClient object
+      // We will use the Gmail's smtp server (smtp.gmail.com, port 465, ssl)
+
+      SmtpClient smtp("smtp.gmail.com", 465, SmtpClient::SslConnection);
+
+      // We need to set the username (your email address) and the password
+      // for smtp authentification.
+
+      smtp.setUser("visitunisia1@gmail.com");
+      smtp.setPassword("123456789.V");
+
+      // Now we create a MimeMessage object. This will be the email.
+
+      MimeMessage message;
+
+      message.setSender(new EmailAddress("visitunisia1@gmail.com", "Med fath"));
+      message.addRecipient(new EmailAddress("mohamedhamadifathallah@gmail.com", "Carlos"));
+      message.setSubject("SmtpClient for Qt - Demo");
+
+      // Now add some text to the email.
+      // First we create a MimeText object.
+
+      MimeText text;
+
+      text.setText("Hi,\nThis is a test email message.\n");
+
+      // Now add it to the mail
+
+      message.addPart(&text);
+
+      // Now we can send the mail
+
+      smtp.connectToHost();
+      smtp.login();
+      if(smtp.sendMail(message))
+      {
+        QMessageBox::information(this,"OK","Mail Sent !");
+      }
+      else
+      {
+          QMessageBox::critical(this,"error","Mail not sent !");
+
+      }
+      smtp.quit();
 
 }

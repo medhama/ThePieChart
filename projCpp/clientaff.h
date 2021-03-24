@@ -34,6 +34,8 @@ private slots:
 
     void on_SortButton_clicked();
 
+    void on_SendMail_clicked();
+
 private:
     Ui::ClientAff *ui;
     Client etmp;

@@ -88,7 +88,7 @@ QSqlQueryModel * Client::afficherTriNbr_PointDesc()
 QSqlQueryModel * Client::rechercher(QString mot)
 {
      QSqlQuery query;
-     query.prepare("SELECT * FROM client where ((CHARINDEX(:NOMC, NOM) > 0) or (PRENOM like :NOMC) or (ADRESSE like :NOMC) or "
+     query.prepare("SELECT * FROM client where ((NOM like :NOMC) or (PRENOM like :NOMC) or (ADRESSE like :NOMC) or "
         "(NBR_POINT like :NOMC) or (CIN like :NOMC) or (NUM_TELEPHONE like :NOMC) or (EMAIL like :NOMC))");
      query.bindValue(":NOMC", mot);
      query.exec();

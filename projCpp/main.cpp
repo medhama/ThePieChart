@@ -4,7 +4,7 @@
 #include <QApplication>
 #include "connection.h"
 #include <QMessageBox>
-
+#include <QSslSocket>
 
 int main(int argc, char *argv[])
 {
@@ -14,6 +14,7 @@ int main(int argc, char *argv[])
 
     bool test=c.createConnection();
     ClientAff d;
+    qDebug() << "Device supports OpenSSL: " << QSslSocket::supportsSsl();
 if(test==true)
 {
   d.show();
