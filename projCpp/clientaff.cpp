@@ -13,6 +13,8 @@
 #include <QCoreApplication>
 
 
+
+
 ClientAff::ClientAff(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::ClientAff)
@@ -219,7 +221,7 @@ void ClientAff::on_pushButton_6_clicked() //confirmation modification of client
 void ClientAff::on_Rechercher_Client_button_clicked() //rechercher client
 {
      QString nom=ui->SearchBar_Client->text();
-     qDebug()<<nom;
+    // qDebug()<<nom;
     ui->Tab_client->setModel(etmp.rechercher(nom));
 
 }
@@ -282,14 +284,17 @@ void ClientAff::on_SendMail_clicked()
 
       message.setSender(new EmailAddress("visitunisia1@gmail.com", "Med fath"));
       message.addRecipient(new EmailAddress("mohamedhamadifathallah@gmail.com", "Carlos"));
-      message.setSubject("SmtpClient for Qt - Demo");
+      QString subj= ui->LE_Subject_Mail->text();
+      message.setSubject(subj);
+
+      QString MainMessage= ui->PTE_Message_Mail->toPlainText();
 
       // Now add some text to the email.
       // First we create a MimeText object.
 
       MimeText text;
 
-      text.setText("Hi,\nThis is a test email message.\n");
+      text.setText(MainMessage);
 
       // Now add it to the mail
 
@@ -306,8 +311,34 @@ void ClientAff::on_SendMail_clicked()
       else
       {
           QMessageBox::critical(this,"error","Mail not sent !");
-
       }
       smtp.quit();
+
+}
+
+void ClientAff::on_CreatePDF_clicked()
+{
+    int idPDF=ui->LE_ID_SUPP->text().toInt();
+    QString s = QDateTime::currentDateTime().toString();
+    s.replace(" ","_");
+    s.replace(":",".");
+    qDebug() << s;
+
+    Produit p;
+    p.SelectModif(idPDF);
+    p.pdf(s+".pdf",idPDF);
+}
+//
+void ClientAff::on_CreateClientPdfFile_clicked()
+{
+   // int idPDF=ui->LE_ID_SUPP->text().toInt();
+    QString s = QDateTime::currentDateTime().toString();
+    s.replace(" ","_");
+    s.replace(":",".");
+    qDebug() << s;
+    Client C;
+    C.pdf(s+".pdf");
+
+
 
 }

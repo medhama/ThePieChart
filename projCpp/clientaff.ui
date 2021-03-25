@@ -344,17 +344,17 @@
       <string>Sort</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="SendMail">
+    <widget class="QPushButton" name="CreateClientPdfFile">
      <property name="geometry">
       <rect>
-       <x>170</x>
-       <y>30</y>
+       <x>580</x>
+       <y>190</y>
        <width>75</width>
        <height>23</height>
       </rect>
      </property>
      <property name="text">
-      <string>Send Mail</string>
+      <string>Create Pdf</string>
      </property>
     </widget>
    </widget>
@@ -511,6 +511,83 @@
      </property>
      <property name="text">
       <string>Id</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="CreatePDF">
+     <property name="geometry">
+      <rect>
+       <x>220</x>
+       <y>300</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Create PDF</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_3">
+    <attribute name="title">
+     <string>Send Mail</string>
+    </attribute>
+    <widget class="QPushButton" name="SendMail">
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>230</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Send Mail</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="LE_Subject_Mail">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>50</y>
+       <width>221</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPlainTextEdit" name="PTE_Message_Mail">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>80</y>
+       <width>221</width>
+       <height>141</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>50</y>
+       <width>47</width>
+       <height>13</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Subject</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_14">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>90</y>
+       <width>47</width>
+       <height>13</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Message</string>
      </property>
     </widget>
    </widget>

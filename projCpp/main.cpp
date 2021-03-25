@@ -5,6 +5,7 @@
 #include "connection.h"
 #include <QMessageBox>
 #include <QSslSocket>
+#include <QDateTime>
 
 int main(int argc, char *argv[])
 {

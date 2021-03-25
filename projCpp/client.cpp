@@ -3,6 +3,20 @@
 #include<QtDebug>
 #include<QObject>
 #include <QSortFilterProxyModel>
+
+#include <QPrinter>
+#include <QPdfWriter>
+#include <QPainter>
+#include <QTextDocument>
+#include <QTextCharFormat>
+#include<QTextCursor>
+
+#include <QTextStream>
+
+
+#include "QtSql/QtSql"
+#include "QtSql/QSqlRecord"
+
 Client::Client()
 {
 
@@ -161,6 +175,95 @@ bool Client::Modifer(int cin)
     query.bindValue(":num_telephone", num_telephone_string);
     query.bindValue(":email", email);
     return query.exec();
+
+
+}
+
+void Client::pdf(QString filename)
+{
+  //  LE_ID_SUPP
+    Client p;
+   // p=p.SelectModif(id);
+    //qDebug<< p.Get_nom().toString;
+    qDebug()<<QString(this->nom);
+    qDebug()<<QString(p.Get_nom());
+
+    QSqlQuery query;
+    query.exec("SELECT * from Client");
+
+
+  //  const int rowCount = query.size();
+    const int columnCount = query.record().count();
+
+
+
+    QString strStream;
+    QTextStream out(&strStream);
+  QString s = QDate::currentDate().toString();
+  QString t = QTime::currentTime().toString();
+    out <<  "<html>\n"
+          "<head>\n"
+          "<meta Content=\"Text/html; charset=Windows-1251\">\n"
+          <<  QString("<title>%1</title>\n").arg("TITLE OF TABLE")
+          <<  "</head>\n"
+          "<body bgcolor=#ffffff link=#5000A0>\n"
+    "<div align=right>"
+       +s+
+    "</div>"
+    "<div align=left>"
+       +t+
+    "</div>"
+            "<h1 align=center>Client List</h1>"
+          "<table border=1 cellspacing=0 cellpadding=2>\n";
+
+      // headers
+      out << "<thead  align=center><tr bgcolor=#f0f0f0>";
+      for (int column = 0; column < columnCount; column++)
+        out << QString("<th>%1</th>").arg(query.record().fieldName(column));
+      out << "</tr></thead>\n";
+
+      while (query.next()) {
+        out << "<tr>";
+        for (int column = 0; column < columnCount; column++) {
+          QString data = query.value(column).toString();
+          out << QString("<td bkcolor=0>%1</td>").arg((!data.isEmpty()) ? data : QString("&nbsp;"));
+        }
+        out << "</tr>\n";
+      }
+
+
+
+     out <<  "</table>\n"
+         "</body>\n"
+         "</html>\n";
+
+    QString html =
+    "<div align=right>"
+       "City, 11/11/2015"
+    "</div>"
+    "<div align=left>"+p.Get_nom()+
+
+       "Sender Name<br>"
+       "street 34/56A<br>"
+       "121-43 city"
+    "</div>"
+    "<h1 align=center>DOCUMENT TITLE</h1>"
+    "<p align=justify>"
+       "document content document content document content document content document content document content document content document content document content document content "
+       "document content document content document content document content document content document content document content document content document content document content "
+    "</p>"
+    "<div align=right>sincerly</div>";
+
+    QTextDocument document;
+    document.setHtml(strStream);
+
+    QPrinter printer(QPrinter::PrinterResolution);
+    printer.setOutputFormat(QPrinter::PdfFormat);
+    printer.setPaperSize(QPrinter::A4);
+    printer.setOutputFileName("tmpClient/"+filename);
+    printer.setPageMargins(QMarginsF(15, 15, 15, 15));
+
+    document.print(&printer);
 
 
 }

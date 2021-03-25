@@ -59,6 +59,7 @@ public:
     Client SelectModif(int);
     bool Modifer(int);
     QSqlQueryModel * rechercher(QString);
+    void pdf(QString);
 
 
 };

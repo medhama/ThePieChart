@@ -36,6 +36,10 @@ private slots:
 
     void on_SendMail_clicked();
 
+    void on_CreatePDF_clicked();
+
+    void on_CreateClientPdfFile_clicked();
+
 private:
     Ui::ClientAff *ui;
     Client etmp;

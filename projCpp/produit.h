@@ -29,6 +29,8 @@ public:
     bool ajouter();
     QSqlQueryModel * afficher();
     bool supprimer(int);
+    Produit SelectModif(int);
+    void pdf(QString,int);
 };
 
 #endif // PRODUIT_H
