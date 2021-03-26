@@ -1,7 +1,7 @@
 QT       += core gui
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += sql widgets
-
+greaterThan(QT_MAJOR_VERSION, 4): QT +=  network printsupport sql widgets
+TARGET = smtp
 CONFIG += c++11
 
 # You can make your code fail to compile if it uses deprecated APIs.
@@ -13,13 +13,15 @@ SOURCES += \
     gestioncommandes.cpp \
     gestionlivraisons.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    smtp.cpp
 
 HEADERS += \
     connexion.h \
     gestioncommandes.h \
     gestionlivraisons.h \
-    mainwindow.h
+    mainwindow.h \
+    smtp.h
 
 FORMS += \
     gestionlivraisons.ui \

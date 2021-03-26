@@ -49,7 +49,7 @@ QSqlQueryModel* GestionCommandes::afficher()
   QSqlQueryModel* model=new QSqlQueryModel();
 
 
-   model->setQuery("SELECT* FROM commandes");
+   model->setQuery("SELECT* FROM commandes ORDER BY quantité");
    model->setHeaderData(0, Qt::Horizontal, QObject::tr("Id"));
    model->setHeaderData(1, Qt::Horizontal, QObject::tr("Prix"));
    model->setHeaderData(2, Qt::Horizontal, QObject::tr("Quantité"));
@@ -59,5 +59,89 @@ QSqlQueryModel* GestionCommandes::afficher()
 
 
   return  model;
+}
+QSqlQueryModel* GestionCommandes::afficherTrieasc()
+{
+  QSqlQueryModel* model=new QSqlQueryModel();
+
+
+   model->setQuery("SELECT* FROM commandes ORDER BY quantité");
+   model->setHeaderData(0, Qt::Horizontal, QObject::tr("Id"));
+   model->setHeaderData(1, Qt::Horizontal, QObject::tr("Prix"));
+   model->setHeaderData(2, Qt::Horizontal, QObject::tr("Quantité"));
+   model->setHeaderData(3, Qt::Horizontal, QObject::tr("Nomclient"));
+   model->setHeaderData(4, Qt::Horizontal, QObject::tr("Emailclient"));
+
+
+
+  return  model;
+}
+QSqlQueryModel* GestionCommandes::afficherTriedesc()
+{
+  QSqlQueryModel* model=new QSqlQueryModel();
+
+
+   model->setQuery("SELECT* FROM commandes ORDER BY quantité desc");
+   model->setHeaderData(0, Qt::Horizontal, QObject::tr("Id"));
+   model->setHeaderData(1, Qt::Horizontal, QObject::tr("Prix"));
+   model->setHeaderData(2, Qt::Horizontal, QObject::tr("Quantité"));
+   model->setHeaderData(3, Qt::Horizontal, QObject::tr("Nomclient"));
+   model->setHeaderData(4, Qt::Horizontal, QObject::tr("Emailclient"));
+
+
+
+  return  model;
+}
+
+bool GestionCommandes::modifier_com(QString idc_rechercher)
+{   QSqlQuery query;
+    bool Testquery=false;
+    QSqlQuery qry;
+    qry.prepare("SELECT id FROM commandes where id=?;");
+    qry.addBindValue(idc_rechercher);
+    bool exist=false;
+    if(qry.exec())
+        if(qry.next())
+            {
+            QVariant ch=qry.value(0);
+            QString verif = QVariant(ch).toString();
+            qDebug()<<verif;
+            if(verif==idc_rechercher)
+                exist=true;
+             }
+    if(exist)
+       {
+            if(prix_co!=0)
+            {
+                query.prepare("UPDATE commandes SET prix =? WHERE id='"+idc_rechercher+"';");
+                query.addBindValue(prix_co);query.exec();Testquery=true;
+
+            }
+            if(Quantite_co!=0)
+            {
+
+                query.prepare("UPDATE commandes SET quantité =? WHERE id='"+idc_rechercher+"';");
+                query.addBindValue(Quantite_co);query.exec();Testquery=true;
+            }
+            if(nom_cli_co!="")
+            {nom_cli_co=nom_cli_co.toUpper();
+                query.prepare("UPDATE commandes SET nomclient =? WHERE id='"+idc_rechercher+"';");
+                query.addBindValue(nom_cli_co);query.exec();Testquery=true;
+            }
+            if(email_Client_co!="")
+            {email_Client_co=email_Client_co.toUpper();
+                query.prepare("UPDATE commandes SET emailclient =? WHERE id='"+idc_rechercher+"';");
+                query.addBindValue(email_Client_co);query.exec();Testquery=true;
+            }
+
+            if(id!=0)
+             {
+                query.prepare("UPDATE commandes SET id =? WHERE id='"+idc_rechercher+"';");
+                query.addBindValue(id);query.exec();Testquery=true;
+            }
+        }
+
+
+ return Testquery;
 }
 

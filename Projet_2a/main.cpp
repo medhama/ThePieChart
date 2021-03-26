@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "gestionlivraisons.h"
 #include "gestioncommandes.h"
+
 #include <QApplication>
 #include <QMessageBox>
 #include <QDebug>
@@ -18,6 +19,7 @@ int main(int argc, char *argv[])
     {
 
         F.show();
+
         QMessageBox::information(nullptr, QObject::tr("database is open"),
                     QObject::tr("connection successful.\n""Click Cancel to exit."), QMessageBox::Cancel);
 

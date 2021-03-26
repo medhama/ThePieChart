@@ -21,11 +21,13 @@ public:
     void setemail_Client_co(QString);
     bool ajouter();
     QSqlQueryModel* afficher();
+    QSqlQueryModel* afficherTrieasc();
+    QSqlQueryModel* afficherTriedesc();
     bool supprimer(int);
+    bool modifier_com(QString);
 private:
     int id,prix_co,Quantite_co;
     QString nom_cli_co, email_Client_co;
-
 
 
 };
