@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>images/GF.jpg</file>
+        <file>images/signOut.png</file>
+        <file>images/signOutHover.png</file>
+        <file>images/pie.png</file>
+    </qresource>
+</RCC>
