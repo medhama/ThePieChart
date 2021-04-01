@@ -63,6 +63,10 @@ private slots:
         if(status == "Message sent")
             QMessageBox::warning( 0, tr( "E-mail" ), tr( "Le courrier a été envoyé!\n\n" ) );
     }
+    void on_pb_trie_co_2_clicked();
+
+    void on_pb_date_co_2_clicked();
+
 private:
     Ui::GestionLivraisons *ui;
     int id;

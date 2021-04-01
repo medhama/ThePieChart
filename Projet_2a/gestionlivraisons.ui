@@ -23,7 +23,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="La_Livraison">
     <attribute name="title">
@@ -749,6 +749,32 @@
        <string>Modifier</string>
       </property>
      </widget>
+     <widget class="QPushButton" name="pb_trie_co_2">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>50</y>
+        <width>131</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Trie par Prix Des</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pb_date_co_2">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>10</y>
+        <width>131</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Trie par Prix Asc</string>
+      </property>
+     </widget>
      <zorder>groupBox_5</zorder>
      <zorder>groupBox_6</zorder>
      <zorder>label_4</zorder>
@@ -779,6 +805,8 @@
      <zorder>le_Nom_Co_2</zorder>
      <zorder>pb_trie_co</zorder>
      <zorder>pb_date_co</zorder>
+     <zorder>pb_trie_co_2</zorder>
+     <zorder>pb_date_co_2</zorder>
     </widget>
    </widget>
   </widget>

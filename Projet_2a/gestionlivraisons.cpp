@@ -121,7 +121,7 @@ QSqlQueryModel* GestionLivraisons::afficher()
   QSqlQueryModel* model=new QSqlQueryModel();
 
 
-   model->setQuery("SELECT* FROM livraisons");
+   model->setQuery("SELECT* FROM livraisons ORDER BY id");
    model->setHeaderData(0, Qt::Horizontal, QObject::tr("Id"));
    model->setHeaderData(1, Qt::Horizontal, QObject::tr("date"));
    model->setHeaderData(2, Qt::Horizontal, QObject::tr("adresse"));
@@ -139,7 +139,10 @@ void GestionLivraisons::on_pb_ajouterliv_clicked()
  GestionLivraisons L(id,date_liv,adresse_liv,nom_liv);
  bool test=L.ajouter();
  QMessageBox msgBox;
-
+ ui->le_id->clear();
+ ui->la_Dateliv->clear();
+ ui->la_adresseliv->clear();
+ ui->le_nomLiv->clear();
  if(test)
    {  msgBox.setText("Ajout avec succes.");
      ui->tab_Livraisons->setModel(L.afficher());
@@ -175,19 +178,24 @@ void GestionLivraisons::on_pb_ajouterCom_clicked()
  GestionCommandes C(id,prix_co,Quantite_co,nom_cli_co,email_Client_co);
  bool test=C.ajouter();
  QMessageBox msgBox;
+ ui->le_id_2->clear();
+ ui->le_qte_com->clear();
+ ui->le_prix_Com->clear();
+ ui->le_Nom_Co->clear();
+ ui->le_Email_CO->clear();
 
  if(test)
    {  msgBox.setText("Ajout avec succes.");
      ui->tab_Commandes->setModel(C.afficher());
-     /*QString name=ui->lineEdit_10->text().toUpper(),lastname=ui->lineEdit_11->text().toUpper();
+     QString name=ui->le_Nom_Co->text().toUpper();
      QString chaine;
-     chaine=name+" "+lastname;
-     chaine=chaine+"\n Votre congé de '"+ui->dateEdit_2->text();
-     chaine=chaine+"' Au '"+ui->dateEdit_3->text();*/
-     QString chaine;
-     chaine=chaine+"'\nCette Message est automatique merci de ne réponds pas";
+     chaine=name;
+     chaine=chaine+"\n Thanks For Trusting us Your Order Will be delivered Soon'";
+
+
+     chaine=chaine+"'\nCette Message est automatique merci de ne Répondre";
      qDebug() <<chaine;
-     sendMail("Test",chaine);
+     sendMail("Thank you for your gift purchase!",chaine);
 
 
  }
@@ -285,17 +293,32 @@ void GestionLivraisons::on_pb_modifierCom_clicked()
 
 void GestionLivraisons::on_pb_rechercher_liv_clicked()
 { GestionLivraisons A1;
-    QString id= ui->le_id_rech_liv1->text();
-    qDebug()<<id;
-    ui->tab_Livraisons->setModel(A1.afficherLivreur(id));
+    QString Chaine= ui->le_id_rech_liv1->text();
+    qDebug()<<Chaine;
+    ui->tab_Livraisons->setModel(A1.afficherLivreur(Chaine));
 }
 QSqlQueryModel * GestionLivraisons::afficherLivreur(QString chaine)
 {
+    QSqlQuery query;
+         query.prepare("SELECT * FROM livraisons where ((Adresse like :NOMC) or (id like :NOMC) or (datedelalivraison like :NOMC) or "
+            "(nomlivreur like :NOMC) )");
+         query.bindValue(":NOMC", chaine);
+         query.exec();
+
+        QSqlQueryModel * model= new QSqlQueryModel();
+            // model.bindValue(":nomproduit", mot);
+            //model->setFilterRegExp(QRegExp(mot, Qt::CaseInsensitive,QRegExp::FixedString));
+
+             model->setQuery(query);
+            // qDebug()<<"connection recherche";
 
 
-       QSqlQueryModel * model= new QSqlQueryModel();
 
-            model->setQuery("SELECT* FROM livraisons where Adresse='"+chaine+"' OR id='"+chaine+"' OR datedelalivraison ='"+chaine+"' OR nomlivreur ='"+chaine+"' ;");
+
+
+   /*QSqlQueryModel * model= new QSqlQueryModel();
+
+            model->setQuery("SELECT* FROM livraisons where Adresse='"+chaine+"' OR id='"+chaine+"' OR datedelalivraison ='"+chaine+"' OR (nomlivreur like "+chaine+"')  ;");*/
             model->setHeaderData(0, Qt::Horizontal, QObject::tr("Id"));
             model->setHeaderData(1, Qt::Horizontal, QObject::tr("date"));
             model->setHeaderData(2, Qt::Horizontal, QObject::tr("adresse"));
@@ -359,3 +382,15 @@ QString GestionLivraisons::currDate()
     return date.toString("dd.MM.yyyy");
 }
 
+
+void GestionLivraisons::on_pb_trie_co_2_clicked()
+{GestionCommandes r;
+    ui->tab_Commandes->setModel(r.afficherTriedesc1());
+
+}
+
+void GestionLivraisons::on_pb_date_co_2_clicked()
+{
+    GestionCommandes r;
+    ui->tab_Commandes->setModel(r.afficherTrieasc());
+}

@@ -23,6 +23,8 @@ public:
     QSqlQueryModel* afficher();
     QSqlQueryModel* afficherTrieasc();
     QSqlQueryModel* afficherTriedesc();
+    QSqlQueryModel* afficherTrieasc1();
+    QSqlQueryModel* afficherTriedesc1();
     bool supprimer(int);
     bool modifier_com(QString);
 private:
