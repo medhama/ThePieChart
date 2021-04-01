@@ -18,6 +18,7 @@ public:
     explicit GestionLivraisons(QWidget *parent = nullptr);
     ~GestionLivraisons();
     GestionLivraisons(int,QString,QString,QString);
+    GestionLivraisons SelectModif(int);
     int getid();
     QString getdate_liv();
     QString getadresse_liv();
@@ -33,6 +34,7 @@ public:
     bool modifier_liv(QString);
     void pdf(QString);
     QString currDate();
+
 
 private slots:
     void on_pb_ajouterliv_clicked();
@@ -66,6 +68,10 @@ private slots:
     void on_pb_trie_co_2_clicked();
 
     void on_pb_date_co_2_clicked();
+
+    void on_pb_Modifierliv_2_clicked();
+
+    void on_pb_Modifierliv_3_clicked();
 
 private:
     Ui::GestionLivraisons *ui;

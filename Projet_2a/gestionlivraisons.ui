@@ -23,7 +23,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="La_Livraison">
     <attribute name="title">
@@ -238,6 +238,19 @@
        </property>
        <property name="text">
         <string>Modifier</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pb_Modifierliv_2">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>230</y>
+         <width>93</width>
+         <height>28</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Afficher</string>
        </property>
       </widget>
      </widget>
@@ -748,6 +761,19 @@
       <property name="title">
        <string>Modifier</string>
       </property>
+      <widget class="QPushButton" name="pb_Modifierliv_3">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>250</y>
+         <width>93</width>
+         <height>28</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Afficher</string>
+       </property>
+      </widget>
      </widget>
      <widget class="QPushButton" name="pb_trie_co_2">
       <property name="geometry">

@@ -225,7 +225,7 @@ void GestionLivraisons::on_pb_Modifierliv_clicked()
 {
     bool test=true;
 
-
+ui->modifier_liv_id_chercher->setEnabled(true);
     QString id_recherche=ui->modifier_liv_id_chercher->text();
      /*if(id_recherche!= "" && id_recherche.length()==2)
          test=true;
@@ -257,7 +257,7 @@ void GestionLivraisons::on_pb_modifierCom_clicked()
 {
     bool test=true;
 
-
+ui->le_id_3->setEnabled(true);
     QString idc_recherche=ui->le_id_3->text();
      /*if(id_recherche!= "" && id_recherche.length()==2)
          test=true;
@@ -394,3 +394,83 @@ void GestionLivraisons::on_pb_date_co_2_clicked()
     GestionCommandes r;
     ui->tab_Commandes->setModel(r.afficherTrieasc());
 }
+
+void GestionLivraisons::on_pb_Modifierliv_2_clicked()
+{
+
+ int cin=ui->modifier_liv_id_chercher->text().toInt();
+ui->modifier_liv_id_chercher->setEnabled(false);
+   // qDebug()<<id;
+//C=C.SelectModif(cin);
+    //ui->pushButton->setEnabled(false);
+    //ui->LE_cin->setEnabled(false);
+    //C=C.SelectModif(cin);
+    //ui->pushButton_6->setEnabled(true);
+    QSqlQuery query;
+    QString res=QString::number(cin);
+    query.prepare("Select * from livraisons where id=:cin");
+    query.bindValue(":cin",res);
+    query.exec();
+    query.next();
+    int id1=query.value(0).toInt();
+    QString date_liv1=query.value(1).toString();
+    QString adresse_liv1=query.value(2).toString();
+    QString nom_liv1=query.value(3).toString();
+GestionLivraisons C(id1,date_liv1,adresse_liv1,nom_liv1);
+    if(C.getid()!=0)
+    {
+
+
+
+
+   ui->la_Dateliv_Mo->setText(QString(C.getdate_liv()));
+   ui->la_adresseliv_Mo->setText(QString(C.getadresse_liv()));
+   ui->le_nomLiv_Mo->setText(QString(C.getnom_liv()));
+
+
+
+
+
+
+
+}
+
+}
+
+
+
+void GestionLivraisons::on_pb_Modifierliv_3_clicked()
+{
+    int cin=ui->le_id_3->text().toInt();
+
+
+       //ui->pushButton->setEnabled(false);
+       ui->le_id_3->setEnabled(false);
+
+       //ui->pushButton_6->setEnabled(true);
+       QSqlQuery query;
+       QString res=QString::number(cin);
+       query.prepare("Select * from commandes where id=:cin");
+       query.bindValue(":cin",res);
+       query.exec();
+       query.next();
+       int id1=query.value(0).toInt();
+       int id2=query.value(1).toInt();
+       int id3=query.value(2).toInt();
+       QString date_liv1=query.value(3).toString();
+       QString adresse_liv1=query.value(4).toString();
+
+   GestionCommandes C(id1,id2,id3,date_liv1,adresse_liv1);
+       if(C.getid()!=0)
+       {
+
+
+
+
+      ui->le_qte_com_2->setText(QString::number(C.getQuantite_co()));
+      ui->le_prix_Com_2->setText(QString::number(C.getprix_co()));
+      ui->le_Nom_Co_2->setText(QString(C.getnom_cli_co()));
+      ui->le_Email_CO_2->setText(QString(C.getemail_Client_co()));
+
+
+}}
