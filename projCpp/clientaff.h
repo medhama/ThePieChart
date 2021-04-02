@@ -39,6 +39,8 @@ private slots:
     void on_CreatePDF_clicked();
 
     void on_CreateClientPdfFile_clicked();
+    void mailSent(QString);
+     void sendMail();
 
 private:
     Ui::ClientAff *ui;

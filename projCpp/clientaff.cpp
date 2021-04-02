@@ -8,9 +8,10 @@
 #include <QMessageBox>
 #include<QIntValidator>
 #include<QComboBox>
-#include<SmtpMime>
+#include "smtp.h"
 #include <QSslSocket>
 #include <QCoreApplication>
+#include <QtWidgets/QMessageBox>
 
 
 
@@ -26,6 +27,7 @@ ClientAff::ClientAff(QWidget *parent) :
      ui->Tab_produit->setModel(etmp_prod.afficher());
     ui->pushButton_6->setEnabled(false);
     qDebug()<<QSslSocket::supportsSsl() << QSslSocket::sslLibraryBuildVersionString() << QSslSocket::sslLibraryVersionString();
+    connect(ui->SendMail, SIGNAL(clicked()),this, SLOT(sendMail()));
 }
 
 ClientAff::~ClientAff()
@@ -261,8 +263,37 @@ void ClientAff::on_SortButton_clicked()
 
 }
 
+void ClientAff::sendMail()
+{
+
+    Smtp* smtp = new Smtp("visitunisia1@gmail.com", "123456789.V", "smtp.gmail.com", 465);
+    connect(smtp, SIGNAL(status(QString)), this, SLOT(mailSent(QString)));
+
+
+    smtp->sendMail("visitunisia1@gmail.com", "mohamedhamadifathallah@gmail.com" , ui->LE_Subject_Mail->text(),ui->PTE_Message_Mail->toPlainText());
+
+}
+
+
+void ClientAff::mailSent(QString status)
+{
+
+    if(status == "Message sent")
+        QMessageBox::warning( 0, tr( "Qt Simple SMTP client" ), tr( "Message sent!\n\n" ) );
+
+
+
+}
+
 void ClientAff::on_SendMail_clicked()
 {
+    /*
+    Smtp* smtp = new Smtp("visitunisia1@gmail.com", "123456789.V", "smtp.gmail.com", 465);
+    connect(smtp, SIGNAL(status(QString)), this, SLOT(mailSent(QString)));
+
+
+    smtp->sendMail("visitunisia@gmail.com", "mohamedhamadifathallah@gmail.com" , "ui->subject->text()","ui->msg->toPlainText()");
+
    // QApplication a(argc, argv);
 
       // This is a first demo application of the SmtpClient for Qt project
@@ -313,7 +344,7 @@ void ClientAff::on_SendMail_clicked()
           QMessageBox::critical(this,"error","Mail not sent !");
       }
       smtp.quit();
-
+*/
 }
 
 void ClientAff::on_CreatePDF_clicked()

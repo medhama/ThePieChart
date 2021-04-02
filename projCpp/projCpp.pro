@@ -18,42 +18,19 @@ SOURCES += \
     client.cpp \
     clientaff.cpp \
     connection.cpp \
-    emailaddress.cpp \
     main.cpp \
     mainwindow.cpp \
-    mimeattachment.cpp \
-    mimecontentformatter.cpp \
-    mimefile.cpp \
-    mimehtml.cpp \
-    mimeinlinefile.cpp \
-    mimemessage.cpp \
-    mimemultipart.cpp \
-    mimepart.cpp \
-    mimetext.cpp \
     produit.cpp \
-    quotedprintable.cpp \
-    smtpclient.cpp
+    smtp.cpp
 
 HEADERS += \
-    SmtpMime \
     client.h \
     clientaff.h \
     connection.h \
-    emailaddress.h \
     mainwindow.h \
-    mimeattachment.h \
-    mimecontentformatter.h \
-    mimefile.h \
-    mimehtml.h \
-    mimeinlinefile.h \
-    mimemessage.h \
-    mimemultipart.h \
-    mimepart.h \
-    mimetext.h \
     produit.h \
-    quotedprintable.h \
-    smtpclient.h \
-    smtpexports.h
+    smtp.h
+
 
 FORMS += \
     clientaff.ui \
