@@ -73,3 +73,10 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 #################################################################
 
+DISTFILES += \
+    BgPic.jpg \
+    pics/BgPic.jpg
+
+RESOURCES += \
+    pics/picc.qrc
+

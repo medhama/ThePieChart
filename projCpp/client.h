@@ -8,24 +8,7 @@ class Client
 {
     QString nom,prenom,adresse,email;
     int cin,nbr_point,num_telephone;
-    /*
-     QString nom,prenom;
-    int id;
 
-public:
-      Etudiant();
-    Etudiant(int, QString,QString);
-    QString Get_nom(){return nom;}
-    QString Get_prenom(){return prenom;}
-    int Get_id(){return id;}
-    void Set_nom(QString n){nom=n;}
-    void Set_prenom(QString p){prenom=p;}
-    void Set_int(int Nb){id=Nb;}
-
-
-    bool ajouter();
-    QSqlQueryModel * afficher();
-    bool supprimer(int); */
 
 public:
     Client();

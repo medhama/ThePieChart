@@ -108,11 +108,7 @@ QSqlQueryModel * Client::rechercher(QString mot)
      query.exec();
 
     QSqlQueryModel * model= new QSqlQueryModel();
-        // model.bindValue(":nomproduit", mot);
-        //model->setFilterRegExp(QRegExp(mot, Qt::CaseInsensitive,QRegExp::FixedString));
-
          model->setQuery(query);
-        // qDebug()<<"connection recherche";
 
 
     return model;

@@ -283,7 +283,7 @@ void ClientAff::on_SendMail_clicked()
       MimeMessage message;
 
       message.setSender(new EmailAddress("visitunisia1@gmail.com", "Med fath"));
-      message.addRecipient(new EmailAddress("mohamedhamadifathallah@gmail.com", "Carlos"));
+      message.addRecipient(new EmailAddress("Afakhfekh@gmail.com", "Carlos"));
       QString subj= ui->LE_Subject_Mail->text();
       message.setSubject(subj);
 
