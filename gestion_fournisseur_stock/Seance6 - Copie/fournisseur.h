@@ -3,7 +3,7 @@
 #include <QString>
 #include <QSqlQuery>
 #include <QSqlQueryModel>
-
+//class fournisseur
 class FOURNISSEUR
 {
 public:

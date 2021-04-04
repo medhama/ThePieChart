@@ -54,7 +54,7 @@ void FOURNISSEUR::settypeeq(QString typeeq){
 this->typeeq=typeeq;
 }
 
-
+//ajouter
 bool FOURNISSEUR::ajouter(){
     QSqlQuery query;
     QString id_string= QString::number(id);
