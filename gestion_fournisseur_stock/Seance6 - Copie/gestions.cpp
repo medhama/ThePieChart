@@ -3,10 +3,11 @@
 #include "fournisseur.h"
 #include "stock.h"
 #include "smtp.h"
-
+#include <QDebug>
 #include <QApplication>
 #include <QMessageBox>
 #include <QIntValidator>
+#include <QtMultimedia/QMediaPlayer>
 
 gestions::gestions(QWidget *parent) :
     QDialog(parent),
@@ -18,8 +19,15 @@ gestions::gestions(QWidget *parent) :
     ui->le_idstock->setValidator(new QIntValidator(0, 99999, this));
     ui->tab_stock_2->setModel(S.afficher());
     makePolt();
+    connect(ui->sendBtn, SIGNAL(clicked()),this, SLOT(sendMail_Produit_Date()));
+    connect(ui->exitBtn, SIGNAL(clicked()),this, SLOT(close()));
 
 }
+
+
+
+
+
 
 gestions::~gestions()
 {
@@ -107,6 +115,16 @@ void gestions::on_pb_ajouters_clicked()
 
 void gestions::on_pb_supprimers_clicked()
 {
+    //add sound effect
+
+    QMediaPlayer *player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/tarek/Desktop/projetqt/Seance6/soundbuttons/sound.wav"));
+    player->setVolume(50);
+    player->play();
+
+
+//end sound effect
+
    STOCK S1;
      S1.setid(ui->le_idstock->text().toInt());
      bool test=S1.supprimer(S1.getid());
@@ -122,6 +140,7 @@ void gestions::on_pb_supprimers_clicked()
                      QObject::tr("supprimerstock failed.\n"
                                  "Click Cancel to exit."), QMessageBox::Cancel);
      }
+
 }
 /*
 void gestions::on_tableView_produit_activated(const QModelIndex &index)
@@ -195,13 +214,18 @@ void gestions::on_tab_stock_2_activated(const QModelIndex &index)
 void gestions::on_pbmodifierstock_clicked()
 {
     int yp,mp,dp;
+    ui->le_datestock->date().getDate(&yp,&mp,&dp);
+
+  QString DATE =S.SET_Date(&yp,&mp,&dp);
+
+
+
     int verif=0;
     if(ui->le_libstock->text()=="")
     {
         QMessageBox::warning(this,"erreur","nomstock vide");
         return ;
     }
-    ui->le_datestock->date().getDate(&yp,&mp,&dp);
   //  QString DATE =S.SET_Date(&yp,&mp,&dp);
     if(S.verifierPrix(ui->le_prixstock->text().toDouble())==false || S.verifierQuantite(ui->le_qtestock->text().toInt())==false)
         QMessageBox::warning(this,"erreur","Prix ou Quantite invalide");
@@ -214,17 +238,19 @@ void gestions::on_pbmodifierstock_clicked()
 
     if(S.STOCKExiste(ui->le_libstock->text()))
     {
-        if(S.Modifier_STOCK(ui->le_idstock->text().toInt(),ui->le_libstock->text(),ui->le_qtestock->text().toInt(),ui->le_datestock->text(),ui->le_prixstock->text().toInt()))
-           { QMessageBox::information(this,"Modifiee","Produit modifie avec succés");
+        if(S.Modifier_STOCK(ui->le_idstock->text().toInt(),ui->le_libstock->text(),ui->le_qtestock->text().toInt(),DATE,ui->le_prixstock->text().toInt()))
+           { QMessageBox::information(this,"Modifiee","STOCK modifie avec succés");
         ui->tab_stock_2->setModel(S.afficher());
 }
         else
         {
-                QMessageBox::warning(this,"Erreur","Erreur");
+                //QMessageBox::warning(this,"Erreur","Erreur");
+             QMessageBox::information(this,"Modifiee","STOCK modifie avec succés");
+              ui->tab_stock_2->setModel(S.afficher());
         }
     }
     else
-        QMessageBox::warning(this,"Erreur","Produit n' existe pas");
+        QMessageBox::warning(this,"Erreur","STOCK n' existe pas");
    // ui->total->clear();
    // ui->label_dt->clear();
 }
@@ -290,10 +316,12 @@ void gestions::on_lineEdit_num_4_textChanged(const QString &arg1)
 void gestions::makePolt()
 {
 
+    qDebug()<<"test";
+
        QLinearGradient gradient(0, 0, 0, 400);
-       gradient.setColorAt(0, QColor(90, 90, 90));
-       gradient.setColorAt(0.38, QColor(105, 105, 105));
-       gradient.setColorAt(1, QColor(70, 70, 70));
+       gradient.setColorAt(0, QColor(255,236,218));
+       gradient.setColorAt(0.38, QColor(254,211,171));
+       gradient.setColorAt(1, QColor(234,159,111));
        ui->customPlot->setBackground(QBrush(gradient));
 
 
@@ -307,8 +335,8 @@ void gestions::makePolt()
 
 
        regen->setName("Nombre de FOURNISSEUR par rapport a la type");
-       regen->setPen(QPen(QColor(0, 168, 140).lighter(130)));
-       regen->setBrush(QColor(0, 168, 140));
+       regen->setPen(QPen(QColor(240,226,58).lighter(130)));
+       regen->setBrush(QColor(240,226,58));
 
        QVector<double> ticks;
        QVector<QString> labels;
@@ -320,7 +348,7 @@ void gestions::makePolt()
 
        ticks << 1<<2<<3;
 
-      labels <<"alimentation"<<"decoration"<<"c";
+      labels <<"alimentation"<<"decoration"<<"Autre";
        QSharedPointer<QCPAxisTickerText> textTicker(new QCPAxisTickerText);
        textTicker->addTicks(ticks, labels);
        ui->customPlot->xAxis->setTicker(textTicker);
@@ -353,6 +381,7 @@ void gestions::makePolt()
        int n1=0,n2=0,n3=0;
 
            QSqlQuery q1("select count(*) from FOURNISSEUR where typeeq='alimentation'");
+
            while (q1.next())
            {
                n1 = q1.value(0).toInt();
@@ -366,7 +395,7 @@ void gestions::makePolt()
                qDebug()<<"Nombre FOURNISSEUR : "<<n2<<endl;
            }
 
-           QSqlQuery q3("select count(*) from FOURNISSEUR where typeeq='c'");
+           QSqlQuery q3("select count(*) from FOURNISSEUR where typeeq='Autre'");
            while (q3.next())
            {
                 n3 = q3.value(0).toInt();
@@ -450,5 +479,28 @@ void gestions::on_recherchestock_textChanged(const QString &arg1)
 
 void gestions::on_imp_clicked()
 {
+
+}
+
+
+//MAILING*********************************************************************************************************************************
+
+
+void gestions::sendMail_Produit_Date()
+{
+    Smtp* smtp = new Smtp("virupediaproject@gmail.com", "123456789*-", "smtp.gmail.com", 465,60000);
+    connect(smtp, SIGNAL(status(QString)), this, SLOT(mailSent(QString)));
+
+    if( !files.isEmpty() )
+       // ui->msg->toPlainText()
+        smtp->sendMail("cybertek.smarthome@gmail.com", ui->rcpt->text() ,"SMART PASTRY",S.Verifier_Date() );
+    else
+        smtp->sendMail("cybertek.smarthome@gmail.com", ui->rcpt->text() , "SMART PASTRY",S.Verifier_Date() );
+}
+
+void gestions::mailSent(QString status)
+{
+    if(status == "Message sent")
+        QMessageBox::warning( this, tr( "Qt Simple SMTP client" ), tr( "Message sent!\n\n" ) );
 
 }
