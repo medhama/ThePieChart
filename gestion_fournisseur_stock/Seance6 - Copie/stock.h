@@ -4,7 +4,7 @@
 #include <QSqlQuery>
 #include <QSqlQueryModel>
 
-
+//class Stock
 class STOCK
 {
 public:

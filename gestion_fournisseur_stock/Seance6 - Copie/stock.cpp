@@ -1,5 +1,5 @@
 #include "stock.h"
-
+//Constructeur Stock
 STOCK::STOCK()
 {
     id=0;
