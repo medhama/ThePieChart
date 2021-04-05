@@ -12,6 +12,9 @@
 #include <QPainter>
 #include "smtp.h"
 #include <QAbstractSocket>
+#include "QtSql/QtSql"
+#include "QtSql/QSqlRecord"
+#include <QTextDocument>
 GestionLivraisons::GestionLivraisons(QWidget *parent) :
     QDialog(parent),
 
@@ -176,14 +179,19 @@ void GestionLivraisons::on_pb_ajouterCom_clicked()
     QString nom_cli_co=ui->le_Nom_Co->text();
     QString email_Client_co=ui->le_Email_CO->text();
  GestionCommandes C(id,prix_co,Quantite_co,nom_cli_co,email_Client_co);
- bool test=C.ajouter();
+ //bool test=C.ajouter();
+ bool test=false ;
  QMessageBox msgBox;
- ui->le_id_2->clear();
+ /*ui->le_id_2->clear();
  ui->le_qte_com->clear();
  ui->le_prix_Com->clear();
  ui->le_Nom_Co->clear();
- ui->le_Email_CO->clear();
+ ui->le_Email_CO->clear();*/
+ if(id!= 0 && prix_co!= 0 && Quantite_co!= 0 && nom_cli_co!= "" && email_Client_co!= "" )
+     test=C.ajouter();
+ else
 
+     QMessageBox::information(nullptr,QObject::tr("ALERT"),QObject::tr("ECHEC :Il faut remplir tout les cases.\n"),QMessageBox::Ok);
  if(test)
    {  msgBox.setText("Ajout avec succes.");
      ui->tab_Commandes->setModel(C.afficher());
@@ -193,10 +201,14 @@ void GestionLivraisons::on_pb_ajouterCom_clicked()
      chaine=chaine+"\n Thanks For Trusting us Your Order Will be delivered Soon'";
 
 
-     chaine=chaine+"'\nCette Message est automatique merci de ne Répondre";
+     chaine=chaine+"'\nCette Message est automatique merci de ne pas Répondre";
      qDebug() <<chaine;
      sendMail("Thank you for your gift purchase!",chaine);
-
+     ui->le_id_2->clear();
+     ui->le_qte_com->clear();
+     ui->le_prix_Com->clear();
+     ui->le_Nom_Co->clear();
+     ui->le_Email_CO->clear();
 
  }
  else
@@ -224,7 +236,7 @@ void GestionLivraisons::on_pb_supprimer_2_clicked()
 void GestionLivraisons::on_pb_Modifierliv_clicked()
 {
     bool test=true;
-
+ui->pb_ajouterliv->setEnabled(true);
 ui->modifier_liv_id_chercher->setEnabled(true);
     QString id_recherche=ui->modifier_liv_id_chercher->text();
      /*if(id_recherche!= "" && id_recherche.length()==2)
@@ -256,7 +268,7 @@ ui->modifier_liv_id_chercher->setEnabled(true);
 void GestionLivraisons::on_pb_modifierCom_clicked()
 {
     bool test=true;
-
+ui->pb_ajouterCom->setEnabled(true);
 ui->le_id_3->setEnabled(true);
     QString idc_recherche=ui->le_id_3->text();
      /*if(id_recherche!= "" && id_recherche.length()==2)
@@ -349,7 +361,7 @@ void GestionLivraisons::on_pb_date_co_clicked()
 
 void GestionLivraisons::on_pb_pdf_liv_clicked()
 {
-   pdf("test.pdf");
+   pdf("Deliveries.pdf");
 QMessageBox::information(nullptr,QObject::tr("Creation d'un fichier PDF"),QObject::tr("Terminer avec Succès.\n"),QMessageBox::Ok);
 
 }
@@ -370,11 +382,64 @@ void GestionLivraisons::pdf(QString filename){
         painter.drawText(r, Qt::AlignRight, citydate);
 
 
-    QString sender = "The Pie Chart XYZ\n";
+    QString sender = "The Pie Chart \n";
 
 
     painter.drawText(r, Qt::AlignLeft, sender);
         painter.end();
+
+
+GestionLivraisons p;
+
+
+    QSqlQuery query;
+    query.exec("SELECT * from livraisons");
+
+
+
+    const int columnCount = query.record().count();
+
+
+
+    QString strStream;
+    QTextStream out(&strStream);
+  QString s = QDate::currentDate().toString();
+  QString t = QTime::currentTime().toString();
+    out <<  "<html>\n"
+          "<head>\n"
+          "<meta Content=\"Text/html; charset=Windows-1251\">\n"
+          <<  QString("<title>%1</title>\n").arg("TITLE OF TABLE")
+          <<  "</head>\n"
+          "<body bgcolor=#ffffff link=#5000A0>\n"
+    "<div align=right>"
+       +s+
+    "</div>"
+    "<div align=left>"
+       +t+
+    "</div>"
+            "<h1 align=center>Deliveries List</h1>"
+          "<table border=1 cellspacing=0 cellpadding=2>\n";
+
+      // headers
+      out << "<thead  align=center><tr bgcolor=#f0f0f0>";
+      for (int column = 0; column < columnCount; column++)
+        out << QString("<th>%1</th>").arg(query.record().fieldName(column));
+      out << "</tr></thead>\n";
+
+      while (query.next()) {
+        out << "<tr>";
+        for (int column = 0; column < columnCount; column++) {
+          QString data = query.value(column).toString();
+          out << QString("<td bkcolor=0>%1</td>").arg((!data.isEmpty()) ? data : QString("&nbsp;"));
+        }
+        out << "</tr>\n";
+      }
+      QTextDocument document1;
+          document1.setHtml(strStream);
+          document1.print(&writer);
+
+
+
 }
 QString GestionLivraisons::currDate()
 {
@@ -400,6 +465,7 @@ void GestionLivraisons::on_pb_Modifierliv_2_clicked()
 
  int cin=ui->modifier_liv_id_chercher->text().toInt();
 ui->modifier_liv_id_chercher->setEnabled(false);
+ui->pb_ajouterliv->setEnabled(false);
    // qDebug()<<id;
 //C=C.SelectModif(cin);
     //ui->pushButton->setEnabled(false);
@@ -444,7 +510,7 @@ void GestionLivraisons::on_pb_Modifierliv_3_clicked()
     int cin=ui->le_id_3->text().toInt();
 
 
-       //ui->pushButton->setEnabled(false);
+       ui->pb_ajouterCom->setEnabled(false);
        ui->le_id_3->setEnabled(false);
 
        //ui->pushButton_6->setEnabled(true);
