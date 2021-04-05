@@ -1,5 +1,5 @@
 #include "databaseconnection.h"
-
+//verifydatabase
 Connect::Connect()
 {
 
