@@ -19,6 +19,7 @@ SOURCES += \
     clientaff.cpp \
     connection.cpp \
     main.cpp \
+    mainmenu.cpp \
     mainwindow.cpp \
     produit.cpp \
     smtp.cpp
@@ -27,6 +28,7 @@ HEADERS += \
     client.h \
     clientaff.h \
     connection.h \
+    mainmenu.h \
     mainwindow.h \
     produit.h \
     smtp.h
@@ -34,7 +36,13 @@ HEADERS += \
 
 FORMS += \
     clientaff.ui \
+    mainmenu.ui \
     mainwindow.ui
+
+
+RC_ICONS = myappico.ico
+
+
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -52,6 +60,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 DISTFILES += \
     BgPic.jpg \
+    pics/Asset 10.png \
+    pics/Asset 9.png \
     pics/BgPic.jpg
 
 RESOURCES += \

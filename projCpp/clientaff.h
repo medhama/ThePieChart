@@ -42,6 +42,12 @@ private slots:
     void mailSent(QString);
      void sendMail();
 
+     void on_SelectModifProd_clicked();
+
+     void on_SelectModifConfirm_clicked();
+
+     void on_MusicButton_clicked();
+
 private:
     Ui::ClientAff *ui;
     Client etmp;

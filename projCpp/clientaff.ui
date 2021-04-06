@@ -2,12 +2,15 @@
 <ui version="4.0">
  <class>ClientAff</class>
  <widget class="QDialog" name="ClientAff">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>821</width>
-    <height>513</height>
+    <width>817</width>
+    <height>428</height>
    </rect>
   </property>
   <property name="palette">
@@ -458,7 +461,7 @@
   <widget class="QTabWidget" name="tabWidget">
    <property name="geometry">
     <rect>
-     <x>30</x>
+     <x>20</x>
      <y>0</y>
      <width>801</width>
      <height>451</height>
@@ -480,7 +483,7 @@ background-image: url(:/BgPic.jpg);
 }</string>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>3</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
@@ -1231,37 +1234,6 @@ font:12pt &quot;Franklin Gothic Medium&quot;;
       </rect>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_3">
-     <property name="geometry">
-      <rect>
-       <x>84</x>
-       <y>220</y>
-       <width>121</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">#pushButton_3
-{
-border-radius:20px;
-	background:rgb(255, 170, 0);
-
-	/*border:2px solid rgb(255, 170, 0); */
-	color:white;
-	
-font:12pt &quot;Franklin Gothic Medium&quot;;
-}
-
-#pushButton_3:hover
-{
-	background:rgb(255, 85, 0) ;
-}
-</string>
-     </property>
-     <property name="text">
-      <string>Ajouter</string>
-     </property>
-    </widget>
     <widget class="QTableView" name="Tab_produit">
      <property name="geometry">
       <rect>
@@ -1275,37 +1247,6 @@ font:12pt &quot;Franklin Gothic Medium&quot;;
       <font>
        <family>Franklin Gothic Medium</family>
       </font>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="pushButton_4">
-     <property name="geometry">
-      <rect>
-       <x>394</x>
-       <y>250</y>
-       <width>111</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">#pushButton_4
-{
-border-radius:20px;
-	background:rgb(255, 170, 0);
-
-	/*border:2px solid rgb(255, 170, 0); */
-	color:white;
-	
-font:12pt &quot;Franklin Gothic Medium&quot;;
-}
-
-#pushButton_4:hover
-{
-	background:rgb(255, 85, 0) ;
-}
-</string>
-     </property>
-     <property name="text">
-      <string>Supprimer</string>
      </property>
     </widget>
     <widget class="QLineEdit" name="LE_ID_SUPP">
@@ -1340,8 +1281,8 @@ font:12pt &quot;Franklin Gothic Medium&quot;;
     <widget class="QPushButton" name="CreatePDF">
      <property name="geometry">
       <rect>
-       <x>220</x>
-       <y>282</y>
+       <x>340</x>
+       <y>350</y>
        <width>121</width>
        <height>41</height>
       </rect>
@@ -1368,34 +1309,178 @@ font:12pt &quot;Franklin Gothic Medium&quot;;
       <string>Create PDF</string>
      </property>
     </widget>
-    <widget class="QWidget" name="widget_2" native="true">
+    <widget class="QPushButton" name="pushButton_4">
      <property name="geometry">
       <rect>
-       <x>-10</x>
-       <y>0</y>
-       <width>801</width>
-       <height>451</height>
+       <x>480</x>
+       <y>260</y>
+       <width>111</width>
+       <height>41</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-image: url(:/BgPic.jpg);</string>
+      <string notr="true">#pushButton_4
+{
+border-radius:20px;
+	background:rgb(255, 170, 0);
+
+	/*border:2px solid rgb(255, 170, 0); */
+	color:white;
+	
+font:12pt &quot;Franklin Gothic Medium&quot;;
+}
+
+#pushButton_4:hover
+{
+	background:rgb(255, 85, 0) ;
+}
+</string>
+     </property>
+     <property name="text">
+      <string>Supprimer</string>
      </property>
     </widget>
-    <zorder>widget_2</zorder>
-    <zorder>label_9</zorder>
-    <zorder>label_10</zorder>
-    <zorder>label_11</zorder>
-    <zorder>label_12</zorder>
-    <zorder>LE_ID1</zorder>
-    <zorder>LE_NOM1</zorder>
-    <zorder>LE_PRIX1</zorder>
-    <zorder>LE_QT1</zorder>
-    <zorder>pushButton_3</zorder>
-    <zorder>Tab_produit</zorder>
-    <zorder>pushButton_4</zorder>
-    <zorder>LE_ID_SUPP</zorder>
-    <zorder>label_13</zorder>
-    <zorder>CreatePDF</zorder>
+    <widget class="QPushButton" name="SelectModifConfirm">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>320</y>
+       <width>101</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#SelectModifConfirm
+{
+border-radius:20px;
+	background:rgb(255, 170, 0);
+
+	/*border:2px solid rgb(255, 170, 0); */
+	color:white;
+	
+font:12pt &quot;Franklin Gothic Medium&quot;;
+}
+
+#SelectModifConfirm:hover
+{
+	background:rgb(255, 85, 0) ;
+}
+#SelectModifConfirm:disabled
+{
+	background:rgb(255, 170, 127);
+}
+</string>
+     </property>
+     <property name="text">
+      <string>Confirm</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="SelectModifProd">
+     <property name="geometry">
+      <rect>
+       <x>360</x>
+       <y>270</y>
+       <width>101</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#SelectModifProd
+{
+border-radius:20px;
+	background:rgb(255, 170, 0);
+
+	/*border:2px solid rgb(255, 170, 0); */
+	color:white;
+	
+font:12pt &quot;Franklin Gothic Medium&quot;;
+}
+
+#SelectModifProd:hover
+{
+	background:rgb(255, 85, 0) ;
+}
+
+#SelectModifProd:disabled
+{
+	background:rgb(255, 170, 127);
+}
+
+</string>
+     </property>
+     <property name="text">
+      <string>Modifier</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_3">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>320</y>
+       <width>121</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#pushButton_3
+{
+border-radius:20px;
+	background:rgb(255, 170, 0);
+
+	/*border:2px solid rgb(255, 170, 0); */
+	color:white;
+	
+font:12pt &quot;Franklin Gothic Medium&quot;;
+}
+
+#pushButton_3:hover
+{
+	background:rgb(255, 85, 0) ;
+}
+#pushButton_3:disabled
+{
+	background:rgb(255, 170, 127);
+}</string>
+     </property>
+     <property name="text">
+      <string>Ajouter</string>
+     </property>
+    </widget>
+    <widget class="QTextEdit" name="TE_description">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>200</y>
+       <width>111</width>
+       <height>91</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_16">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>210</y>
+       <width>71</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+       <horstretch>1</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="font">
+      <font>
+       <family>Franklin Gothic Medium</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Description</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="tab_3">
     <attribute name="title">
@@ -1525,6 +1610,37 @@ font:12pt &quot;Franklin Gothic Medium&quot;;
        <string>Subject</string>
       </property>
      </widget>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_4">
+    <attribute name="title">
+     <string>Settings</string>
+    </attribute>
+    <widget class="QPushButton" name="MusicButton">
+     <property name="geometry">
+      <rect>
+       <x>370</x>
+       <y>170</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Play Music</string>
+     </property>
+    </widget>
+    <widget class="QSlider" name="horizontalSlider">
+     <property name="geometry">
+      <rect>
+       <x>340</x>
+       <y>140</y>
+       <width>160</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
     </widget>
    </widget>
   </widget>

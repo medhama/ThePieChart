@@ -57,9 +57,14 @@ QSqlQueryModel * Client::afficher()
     QSqlQueryModel * model= new QSqlQueryModel();
          model->setQuery("SELECT * FROM client");
          qDebug()<<"connection";
-       /*  model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
+        // QString g=QString::number()
+         model->setHeaderData(0, Qt::Horizontal, QObject::tr("CIN"));
          model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
-         model->setHeaderData(2, Qt::Horizontal, QObject::tr("Prenom")); */
+         model->setHeaderData(2, Qt::Horizontal, QObject::tr("Prenom"));
+         model->setHeaderData(3, Qt::Horizontal, QObject::tr("Adresse"));
+         model->setHeaderData(4, Qt::Horizontal, QObject::tr("nombre de point"));
+         model->setHeaderData(5, Qt::Horizontal, QObject::tr("Numero de telephone"));
+         model->setHeaderData(6, Qt::Horizontal, QObject::tr("Email"));
     return model;
 }
 QSqlQueryModel * Client::afficherTriNomAsc()

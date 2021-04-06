@@ -12,6 +12,7 @@
 #include <QSslSocket>
 #include <QCoreApplication>
 #include <QtWidgets/QMessageBox>
+#include <QMediaPlayer>
 
 
 
@@ -20,12 +21,15 @@ ClientAff::ClientAff(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::ClientAff)
 {
+   // setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint);
     ui->setupUi(this);
-     ui->LE_cin->setValidator(new QIntValidator(0, 9999999, this));
+
+     ui->LE_cin->setValidator(new QIntValidator(0, 99999999, this));
      ui->Tab_client->setModel(etmp.afficher());
      ui->LE_ID1->setValidator(new QIntValidator(0, 9999999, this));
      ui->Tab_produit->setModel(etmp_prod.afficher());
     ui->pushButton_6->setEnabled(false);
+    ui->SelectModifConfirm->setEnabled(false);
     qDebug()<<QSslSocket::supportsSsl() << QSslSocket::sslLibraryBuildVersionString() << QSslSocket::sslLibraryVersionString();
     connect(ui->SendMail, SIGNAL(clicked()),this, SLOT(sendMail()));
 }
@@ -44,10 +48,16 @@ void ClientAff::on_pushButton_clicked() //ajouter client
     QString email=ui->LE_email->text();
     int nbrpt=ui->LE_nbrpt->text().toInt();
     int NumTelephone=ui->LE_NumTelephone->text().toInt();
+    bool test=false;
+    if((QString::number(cin).size()==8)&&(email.contains("@"))&&(email.contains(".")))
+    {
+        Client E(cin,nom,prenom,adresse,email,nbrpt,NumTelephone);
+        ui->LE_cin->clear();
+        test=E.ajouter();
 
-    Client E(cin,nom,prenom,adresse,email,nbrpt,NumTelephone);
-    ui->LE_cin->clear();
-    bool test=E.ajouter();
+    }
+
+
     if(test==true)
     {
       qDebug()<<"Ajouter avec success";
@@ -98,8 +108,9 @@ void ClientAff::on_pushButton_3_clicked() //ajouter produit
     QString nom=ui->LE_NOM1->text();
     int QTE=ui->LE_QT1->text().toInt();
     float prixProd=ui->LE_PRIX1->text().toFloat();
+     QString Description=ui->TE_description->toPlainText();
 
-    Produit E(id,nom,QTE,prixProd);
+    Produit E(id,nom,QTE,prixProd,Description);
     //Etudiant E(id,nom,prenom);
     bool test=E.ajouter();
     if(test==true)
@@ -285,67 +296,7 @@ void ClientAff::mailSent(QString status)
 
 }
 
-void ClientAff::on_SendMail_clicked()
-{
-    /*
-    Smtp* smtp = new Smtp("visitunisia1@gmail.com", "123456789.V", "smtp.gmail.com", 465);
-    connect(smtp, SIGNAL(status(QString)), this, SLOT(mailSent(QString)));
 
-
-    smtp->sendMail("visitunisia@gmail.com", "mohamedhamadifathallah@gmail.com" , "ui->subject->text()","ui->msg->toPlainText()");
-
-   // QApplication a(argc, argv);
-
-      // This is a first demo application of the SmtpClient for Qt project
-
-      // First we need to create an SmtpClient object
-      // We will use the Gmail's smtp server (smtp.gmail.com, port 465, ssl)
-
-      SmtpClient smtp("smtp.gmail.com", 465, SmtpClient::SslConnection);
-
-      // We need to set the username (your email address) and the password
-      // for smtp authentification.
-
-      smtp.setUser("visitunisia1@gmail.com");
-      smtp.setPassword("123456789.V");
-
-      // Now we create a MimeMessage object. This will be the email.
-
-      MimeMessage message;
-
-      message.setSender(new EmailAddress("visitunisia1@gmail.com", "Med fath"));
-      message.addRecipient(new EmailAddress("Afakhfekh@gmail.com", "Carlos"));
-      QString subj= ui->LE_Subject_Mail->text();
-      message.setSubject(subj);
-
-      QString MainMessage= ui->PTE_Message_Mail->toPlainText();
-
-      // Now add some text to the email.
-      // First we create a MimeText object.
-
-      MimeText text;
-
-      text.setText(MainMessage);
-
-      // Now add it to the mail
-
-      message.addPart(&text);
-
-      // Now we can send the mail
-
-      smtp.connectToHost();
-      smtp.login();
-      if(smtp.sendMail(message))
-      {
-        QMessageBox::information(this,"OK","Mail Sent !");
-      }
-      else
-      {
-          QMessageBox::critical(this,"error","Mail not sent !");
-      }
-      smtp.quit();
-*/
-}
 
 void ClientAff::on_CreatePDF_clicked()
 {
@@ -372,4 +323,95 @@ void ClientAff::on_CreateClientPdfFile_clicked()
 
 
 
+
+      qDebug()<<"connected succefully";
+      QMessageBox::information(nullptr,QObject::tr("ok"),
+                               QObject::tr("Ajouter avec success\n""click ok to exit"),QMessageBox::Ok);
+      ui->Tab_produit->setModel(etmp_prod.afficher());
+
+
+
+}
+void ClientAff::on_SendMail_clicked()
+{
+}
+
+void ClientAff::on_SelectModifProd_clicked()
+{
+    int id=ui->LE_ID_SUPP->text().toInt();
+    Produit P;
+   // qDebug()<<id;
+
+    ui->pushButton_3->setEnabled(false);
+    ui->LE_ID1->setEnabled(false);
+    P=P.SelectModif(id);
+    ui->SelectModifConfirm->setEnabled(true);
+    if(P.Get_id()!=0)
+    {
+
+   ui->LE_ID1->setText(QString(QString::number(P.Get_id())));
+   //int cinn=ui->LE_cin->text().toInt();
+
+   ui->LE_NOM1->setText(QString(P.Get_nom()));
+   //QString nomm=ui->LE_nom->text();
+
+   ui->LE_PRIX1->setText(QString(QString::number(P.Get_prixProd())));
+  // int numTelephone=ui->LE_NumTelephone->text().toInt();
+
+   ui->LE_QT1->setText(QString(QString::number(P.Get_QTE())));
+   // int nbrPoint=ui->LE_nbrpt->text().toInt();
+   // qDebug()<<cinn<<"CinModif1";
+   ui->TE_description->setText(QString(P.Get_DESC()));
+    qDebug()<<P.Get_id()<<"Id Modif";
+    }
+    //bool test= etmp.Modif()
+
+}
+
+void ClientAff::on_SelectModifConfirm_clicked()
+{
+    int id=ui->LE_ID_SUPP->text().toInt();
+    QString nom=ui->LE_NOM1->text();
+    float PRIXX=ui->LE_PRIX1->text().toFloat();
+    int QTE=ui->LE_QT1->text().toInt();
+    QString Description=ui->TE_description->toPlainText();
+
+
+
+    Produit P(id,nom,QTE,PRIXX,Description);
+    ui->pushButton_3->setEnabled(true);
+    ui->LE_ID1->setEnabled(true);
+
+    bool test=P.Modifer(id);
+    if(test==true)
+    {
+     // qDebug()<<"connection reussite";
+      QMessageBox::information(nullptr,QObject::tr("ok"),
+                               QObject::tr("Modifier avec success\n""click ok to exit"),QMessageBox::Ok);
+      ui->Tab_produit->setModel(etmp_prod.afficher());
+      ui->LE_ID_SUPP->clear();
+      ui->LE_NOM1->clear();
+      ui->LE_PRIX1->clear();
+      ui->LE_QT1->clear();
+      ui->TE_description->clear();
+
+    }
+    else
+    {
+        //qDebug()<<"connection failed";
+        QMessageBox::critical(nullptr,QObject::tr("Not ok"),
+        QObject::tr("modification non effectue\n""click cancel to exit"),QMessageBox::Cancel);
+    }
+    ui->SelectModifConfirm->setEnabled(false);
+
+
+}
+
+void ClientAff::on_MusicButton_clicked()
+{
+    player = new QMediaPlayer;
+    // ...
+    player->setMedia(QUrl::fromLocalFile("/Users/me/Music/coolsong.mp3"));
+    player->setVolume(50);
+    player->play();
 }

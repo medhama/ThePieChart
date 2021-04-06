@@ -6,22 +6,26 @@
 #include <QMessageBox>
 #include <QSslSocket>
 #include <QDateTime>
+#include "mainmenu.h"
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     MainWindow w;
     Connection c;
-
+    MainMenu m;
     bool test=c.createConnection();
     ClientAff d;
     qDebug() << "Device supports OpenSSL: " << QSslSocket::supportsSsl();
 if(test==true)
 {
+    //m.show();
   d.show();
+
+
   qDebug()<<"connection reussite";
-  QMessageBox::information(nullptr,QObject::tr("database is open"),
-                           QObject::tr("Connection successfull\n""click ok to exit"),QMessageBox::Ok);
+  //QMessageBox::information(nullptr,QObject::tr("database is open"),
+    //                       QObject::tr("Connection successfull\n""click ok to exit"),QMessageBox::Ok);
 }
 else
 {
