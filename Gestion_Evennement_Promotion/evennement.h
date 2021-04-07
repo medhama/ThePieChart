@@ -33,7 +33,9 @@ public:
     bool verif_champs_vide_nom(QString );
     bool verif_champs_vide2(QString);
     void clear(QTableView *table);
-    void rechercher2(QTableView * table ,QString nom );
+   // void rechercher2(QTableView * table ,QString nom );
+    //void rechercher2(QTableView * table ,int id, QString nom, int dated, int datef );
+
     QSqlQueryModel * afficher_tri_nom();
     QSqlQueryModel * afficher_tri_id();
     QSqlQueryModel * afficher_tri_date_debut();

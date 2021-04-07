@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -38,6 +38,9 @@
         <width>461</width>
         <height>201</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
       </property>
       <property name="title">
        <string>Ajout</string>
@@ -90,6 +93,9 @@
          <height>22</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
       </widget>
       <widget class="QLineEdit" name="le_nom">
        <property name="geometry">
@@ -100,6 +106,9 @@
          <height>22</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
       </widget>
       <widget class="QLineEdit" name="le_Date_Debut">
        <property name="geometry">
@@ -109,6 +118,9 @@
          <width>113</width>
          <height>22</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
        </property>
       </widget>
       <widget class="QPushButton" name="pb_ajouter">
@@ -146,6 +158,9 @@
          <height>22</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
       </widget>
      </widget>
      <widget class="QGroupBox" name="groupBox_Nom_event">
@@ -168,6 +183,9 @@
          <width>501</width>
          <height>311</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="rechercher_event">
@@ -268,6 +286,9 @@
         <height>71</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
       <property name="title">
        <string>Suppression</string>
       </property>
@@ -316,6 +337,9 @@
         <width>461</width>
         <height>201</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
       </property>
       <property name="title">
        <string>Modification</string>
@@ -368,6 +392,9 @@
          <height>22</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
       </widget>
       <widget class="QLineEdit" name="le_nom_modifier">
        <property name="geometry">
@@ -377,6 +404,9 @@
          <width>113</width>
          <height>22</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
        </property>
       </widget>
       <widget class="QLineEdit" name="le_Date_Debut_modifier">
@@ -598,8 +628,8 @@
      <widget class="QGroupBox" name="groupBox_5">
       <property name="geometry">
        <rect>
-        <x>110</x>
-        <y>360</y>
+        <x>230</x>
+        <y>370</y>
         <width>281</width>
         <height>131</height>
        </rect>
@@ -847,8 +877,8 @@
      <widget class="QPushButton" name="PDF">
       <property name="geometry">
        <rect>
-        <x>760</x>
-        <y>440</y>
+        <x>900</x>
+        <y>480</y>
         <width>93</width>
         <height>28</height>
        </rect>
@@ -860,8 +890,8 @@
      <widget class="QLabel" name="label_24">
       <property name="geometry">
        <rect>
-        <x>4</x>
-        <y>5</y>
+        <x>0</x>
+        <y>10</y>
         <width>1071</width>
         <height>511</height>
        </rect>
@@ -878,20 +908,33 @@ border:none;
 background-repeat:none;</string>
       </property>
       <property name="text">
-       <string>TextLabel</string>
+       <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="insert_try">
+     <widget class="QPushButton" name="InsertImage">
       <property name="geometry">
        <rect>
-        <x>540</x>
-        <y>450</y>
-        <width>55</width>
-        <height>16</height>
+        <x>20</x>
+        <y>480</y>
+        <width>93</width>
+        <height>28</height>
        </rect>
       </property>
       <property name="text">
-       <string>TextLabel</string>
+       <string>InsertImage</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lbl_image">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>375</y>
+        <width>171</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
       </property>
      </widget>
      <zorder>label_24</zorder>
@@ -901,7 +944,212 @@ background-repeat:none;</string>
      <zorder>groupBox_8</zorder>
      <zorder>excel</zorder>
      <zorder>PDF</zorder>
-     <zorder>insert_try</zorder>
+     <zorder>InsertImage</zorder>
+     <zorder>lbl_image</zorder>
+    </widget>
+    <widget class="QWidget" name="tab_5">
+     <attribute name="title">
+      <string>Mailing</string>
+     </attribute>
+     <widget class="QLabel" name="label_56">
+      <property name="geometry">
+       <rect>
+        <x>227</x>
+        <y>213</y>
+        <width>48</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Subject:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_57">
+      <property name="geometry">
+       <rect>
+        <x>227</x>
+        <y>182</y>
+        <width>69</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Recipant to:</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="sendBtn">
+      <property name="geometry">
+       <rect>
+        <x>470</x>
+        <y>450</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Send</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="exitBtn">
+      <property name="geometry">
+       <rect>
+        <x>590</x>
+        <y>450</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Exit</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="port_2">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>89</y>
+        <width>377</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>465</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_58">
+      <property name="geometry">
+       <rect>
+        <x>227</x>
+        <y>151</y>
+        <width>60</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Password:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_59">
+      <property name="geometry">
+       <rect>
+        <x>227</x>
+        <y>58</y>
+        <width>76</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Smtp-server:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="rcpt_2">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>182</y>
+        <width>377</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_60">
+      <property name="geometry">
+       <rect>
+        <x>227</x>
+        <y>244</y>
+        <width>55</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Message:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="uname_2">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>120</y>
+        <width>377</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="paswd_2">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>151</y>
+        <width>377</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="inputMask">
+       <string/>
+      </property>
+      <property name="echoMode">
+       <enum>QLineEdit::Password</enum>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="subject_2">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>213</y>
+        <width>377</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="msg_2">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>244</y>
+        <width>377</width>
+        <height>175</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_61">
+      <property name="geometry">
+       <rect>
+        <x>227</x>
+        <y>89</y>
+        <width>70</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Server port:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_62">
+      <property name="geometry">
+       <rect>
+        <x>227</x>
+        <y>120</y>
+        <width>63</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Username:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="server_2">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>58</y>
+        <width>377</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>smtp.gmail.com</string>
+      </property>
+     </widget>
     </widget>
    </widget>
   </widget>

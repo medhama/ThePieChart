@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/img">
+        <file>img/adriantnt_u_click.wav</file>
+        <file>img/done.wav</file>
+        <file>img/error.wav</file>
+    </qresource>
+</RCC>

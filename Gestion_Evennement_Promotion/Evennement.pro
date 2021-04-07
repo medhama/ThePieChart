@@ -1,5 +1,8 @@
 QT       += core gui sql network
 QT       += printsupport
+QT       +=multimedia multimediawidgets
+
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -11,6 +14,7 @@ CONFIG += c++11
 SOURCES += \
     connexion.cpp \
     evennement.cpp \
+    mailling.cpp \
     main.cpp \
     mainwindow.cpp \
     promotion.cpp
@@ -18,6 +22,7 @@ SOURCES += \
 HEADERS += \
     connexion.h \
     evennement.h \
+    mailling.h \
     mainwindow.h \
     promotion.h
 
@@ -30,4 +35,4 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
-    design.qrc
+    resources.qrc

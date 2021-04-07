@@ -7,16 +7,29 @@
 #include <QFileDialog>
 #include <QTextStream>
 #include<QPrinter>
+#include <QFileDialog>
+#include <QSound>
+
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+    //sound
+    son=new QSound(":/img/img/adriantnt_u_click.wav");
+    erreur=new QSound(":/img/img/error.wav");
+    succes=new QSound(":/img/img/done.wav");
+
+    //Menu
     ui->setupUi(this);
     ui->le_id->setValidator(new QIntValidator(100, 999, this));
     ui->le_idpro->setValidator(new QIntValidator(100, 999, this));
     ui->tab_etudiant->setModel(E.afficher());
     ui->tab_promotion->setModel(P.afficher());
+
+    //Mail
+    connect(ui->sendBtn, SIGNAL(clicked()),this, SLOT(sendMail()));
+    connect(ui->exitBtn, SIGNAL(clicked()),this, SLOT(close()));
 }
 
 MainWindow::~MainWindow()
@@ -27,6 +40,10 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pb_ajouter_clicked()
 {
+
+    son->play();
+    //ui->groupBox->setCurrentIndex(0);
+
   int Id_event=ui->le_id->text().toInt();
   QString Nom_event=ui->le_nom->text();
   int Date_debut=ui->le_Date_Debut->text().toInt();
@@ -43,11 +60,12 @@ void MainWindow::on_pb_ajouter_clicked()
   else
      { msgBox.setText("Echec d'ajout");}
       msgBox.exec();
+
 }
 
 void MainWindow::on_pb_supprimer_clicked()
 {
-
+    son->play();
     Evennement E1; E1.setid(ui->le_id_supp->text().toInt());
     bool test=E1.supprimer(E1.getid());
     QMessageBox msgBox;
@@ -70,7 +88,7 @@ void MainWindow::on_pb_ajouterpro_clicked()
    QString Date_Debut=ui->le_date_initiale->text();
    QString Date_Fin=ui->le_date_finale->text();
    int Pourcentage=ui->le_pourcentage->text().toInt();
-
+    son->play();
 
 
   Promotion P(id,Prix_initial,Prix_final,Date_Debut,Date_Fin,Pourcentage);
@@ -102,7 +120,9 @@ void MainWindow::on_pb_supprimer_2_clicked()
     ui->tab_promotion->setModel(P.afficher());
        }
     else
-       { msgBox.setText("Echec de suppression"); }
+       { msgBox.setText("Echec de suppression");
+        erreur->play();
+    }
         msgBox.exec();
 }
 
@@ -227,6 +247,8 @@ void MainWindow::on_pb_modifier_promotion_clicked()
     }
 }
 
+//-------------------------------------------------------------------------------------------------------
+/*
 void MainWindow::on_rechercher_event_textChanged(const QString &)
 {
     Evennement E;
@@ -245,6 +267,7 @@ void MainWindow::on_rechercher_event_textChanged(const QString &)
     QString nom=ui->rechercher_event->text();
 
 
+
      E.rechercher2(ui->tab_etudiant,nom);
 
 
@@ -252,7 +275,42 @@ void MainWindow::on_rechercher_event_textChanged(const QString &)
     {
         ui->tab_etudiant->setModel(E.afficher());
     }
+}*/
+/*
+void MainWindow::on_rechercher_event_textChanged(const QString &)
+{
+    Evennement E;
+    if(ui->rechercher_event->text().isEmpty())
+        {
+            ui->tab_etudiant->setVisible(false);
+            QSqlQuery *query=new QSqlQuery("SELECT * from evennements");
+            QSqlQueryModel *model=new QSqlQueryModel();
+            model->setQuery(*query);
+            ui->tab_etudiant->setModel(model);
+            ui->tab_etudiant->show();
+            ui->tab_etudiant->resizeColumnsToContents();
+            ui->tab_etudiant ->setVisible(true);
+        }
+    E.clear(ui->tab_etudiant);
+   // QString nom=ui->rechercher_event->text();
+    int id=ui->rechercher_event->text().toInt();
+    QString nom=ui->rechercher_event->text();
+    int dated=ui->rechercher_event->text().toInt();
+    int datef=ui->rechercher_event->text().toInt();
+
+
+
+
+     E.rechercher2(ui->tab_etudiant,id,nom,dated,datef);
+
+
+    if(ui->rechercher_event->text().isEmpty())
+    {
+        ui->tab_etudiant->setModel(E.afficher());
+    }
 }
+*/
+//----------------------------------------------------------------------------------------------------------
 
 void MainWindow::on_radioButton_nom_event_clicked()
 {
@@ -372,3 +430,116 @@ void MainWindow::on_insert_try_linkActivated(QLabel *label1)
     label1->setPixmap(QPixmap("pastry.jpg"));
     label1->show();
 }
+
+/*void MainWindow::sendMail()
+{
+    Mailling* mail = new Mailling(ui->uname_2->text(), ui->paswd_2->text(), ui->server_2->text(), ui->port_2->text().toInt());
+    connect(mail, SIGNAL(status(QString)), this, SLOT(mailSent(QString)));
+
+
+    mail->sendMail(ui->uname_2->text(), ui->rcpt_2->text() , ui->subject_2->text(),ui->msg_2->toPlainText());
+}*/
+
+void MainWindow::mailSent(QString status)
+{
+    if(status == "Message sent")
+        QMessageBox::warning( 0, tr( "Qt Simple SMTP client" ), tr( "Message sent!\n\n" ) );
+}
+
+void MainWindow::on_sendBtn_clicked()
+{
+    /*Mailling* mail = new Mailling(ui->uname_2->text(), ui->paswd_2->text(), ui->server_2->text(), ui->port_2->text().toInt());
+    connect(mail, SIGNAL(status(QString)), this, SLOT(mailSent(QString)));
+
+
+    mail->sendMail(ui->uname_2->text(), ui->rcpt_2->text() , ui->subject_2->text(),ui->msg_2->toPlainText());*/
+    Mailling* mail = new Mailling(ui->uname_2->text(), ui->paswd_2->text(), ui->server_2->text(), ui->port_2->text().toInt());
+    connect(mail, SIGNAL(status(QString)), this, SLOT(mailSent(QString)));
+
+
+    mail->sendMail(ui->uname_2->text(), ui->rcpt_2->text() , ui->subject_2->text(),ui->msg_2->toPlainText());
+}
+
+
+void MainWindow::on_InsertImage_clicked()
+{
+    QString fileName = QFileDialog::getOpenFileName(this, tr("Choose"), "", tr("Images (*.png *.jpg)"));
+    if(QString::compare(fileName, QString()) != 0 ){
+        QImage image;
+        bool valid = image.load(fileName);
+        if(valid){
+
+            //image = image.scaledToHeight(ui->lbl_image->height(), Qt::SmoothTransformation);
+            image = image.scaledToWidth(ui->lbl_image->width(), Qt::SmoothTransformation);
+            ui->lbl_image->setPixmap(QPixmap::fromImage(image));        }else {
+}
+    }
+}
+
+
+// Sounds
+
+
+
+void MainWindow::on_tab_promotion_activated(const QModelIndex &index)
+{
+    QString val=ui->tab_promotion->model()->data(index).toString();
+        QSqlQuery query;
+        query.prepare("select * from pro where id LIKE '"+val+"'");
+
+
+        if (query.exec())
+        {
+            while(query.next())
+            {
+                ui->id_modifier_promotion->setText(query.value(0).toString());
+                ui->Prix_initial_modifier->setText(query.value(1).toString());
+                ui->Prix_final_modifier->setText(query.value(2).toString());
+                ui->Date_initiale_modifier->setText(query.value(3).toString());
+                ui->Date_finale_modifier_promotion->setText(query.value(4).toString());
+                ui->pourcentage_modifier_promotion->setText(query.value(5).toString());
+
+
+            }
+        }
+        else
+            QMessageBox::warning(this,"Erreur","Selectionner l'id de la promotion");
+}
+
+
+void MainWindow::on_tab_etudiant_activated(const QModelIndex &index)
+{
+    QString val=ui->tab_etudiant->model()->data(index).toString();
+        QSqlQuery query;
+        query.prepare("select * from evennements where ID_EVENT LIKE '"+val+"'");
+
+
+        if (query.exec())
+        {
+            while(query.next())
+            {
+                ui->le_id_modifier->setText(query.value(0).toString());
+                ui->le_nom_modifier->setText(query.value(1).toString());
+                ui->le_Date_Debut_modifier->setText(query.value(2).toString());
+                ui->le_Date_Fin_modifier->setText(query.value(3).toString());
+            }
+        }
+        else
+            QMessageBox::warning(this,"Erreur","Selectionner l'id de l'evennement");
+}
+
+
+void MainWindow::on_rechercher_event_textChanged(const QString &arg1)
+{
+    QString rech;
+          rech= arg1.toCaseFolded();
+            QSqlQueryModel * model= new QSqlQueryModel();
+        QSqlQuery* qry=new QSqlQuery();
+
+         qry->prepare("SELECT * from evennements where NOM_EVENT like concat (:rech,'%')   or DATE_DEBUT like concat (:rech,'%') or DATE_FIN  like concat (:rech,'%') or Id_EVENT like concat (:rech,'%')    ");
+         qry->bindValue(":rech",rech);
+         qry->exec();
+         model->setQuery(*qry);
+         ui->tab_etudiant->setModel(model);
+}
+

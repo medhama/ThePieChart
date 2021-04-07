@@ -152,7 +152,7 @@ bool Evennement::modifier(int Id_event)
     return qry.exec();
 }
 
-void Evennement :: rechercher2(QTableView * table ,QString nom )
+/*void Evennement :: rechercher2(QTableView * table ,QString nom )
 {
     QSqlQueryModel *model= new QSqlQueryModel();
     QSqlQuery *query=new QSqlQuery;
@@ -162,7 +162,25 @@ void Evennement :: rechercher2(QTableView * table ,QString nom )
     model->setQuery(*query);
     table->setModel(model);
     table->show();
+}*/
+
+/*
+void Evennement :: rechercher2(QTableView * table ,int id, QString nom, int dated, int datef )
+{
+    QSqlQueryModel *model= new QSqlQueryModel();
+    QSqlQuery *query=new QSqlQuery;
+    query->prepare("select * from evennements where regexp_like ( Id_EVENT,:id || NOM_EVENT , :NomE || DATE_DEBUT , :DateD || DATE_FIN , :DateF");
+    query->bindValue(":id",id);
+    query->bindValue(":NomE",nom);
+    query->bindValue(":DateD",dated);
+    query->bindValue(":DateF",datef);
+
+    query->exec();
+    model->setQuery(*query);
+    table->setModel(model);
+    table->show();
 }
+*/
 
 void Evennement ::clear(QTableView *table)
 {
@@ -215,3 +233,23 @@ QSqlQueryModel * Evennement::afficher_tri_date_fin()
     return model;
 }
 
+/*
+bool Evennement:: modifier(int Id_event, QString Nom_event, int Date_debut, int Date_fin)
+{
+    QSqlQuery query;
+    bool result=false;
+    if(lieu>=0)
+    {
+    query.prepare("UPDATE evennements  SET  NOM_EVENT = :NomE , DATE_DEBUT = :DateD , DATE_FIN = :DateF where Id_EVENT=:id");
+    query.bindValue(":id",Id_event);
+    query.bindValue(":NomE",Nom_event);
+    query.bindValue(":DateD",Date_debut);
+    query.bindValue(":DateF",Date_fin);
+    if(query.exec())
+        result=true;
+
+
+    }
+    return result;
+}
+*/

@@ -1,5 +1,6 @@
+#include <QStyleFactory>
+#include<QFile>
 #include "mainwindow.h"
-
 #include <QApplication>
 #include <QMessageBox>
 #include <QDebug>
@@ -11,6 +12,12 @@ int main(int argc, char *argv[])
     Connexion c;
     bool test=c.ouvrirConnexion();
     MainWindow w;
+
+    QFile file("C:/Users/fatma/Desktop/ThePieChart/Gestion_Evennement_Promotion/darkorange.qss");
+        file.open(QFile::ReadOnly);
+        QString styleSheet = QLatin1String(file.readAll());
+        a.setStyle("plastique");
+        a.setStyleSheet(styleSheet);
          if(test)
          {
 
