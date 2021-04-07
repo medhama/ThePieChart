@@ -32,8 +32,16 @@ public:
     QSqlQueryModel * afficher();
     bool supprimer(int);
     Produit SelectModif(int);
+
+    QSqlQueryModel * afficherTriPrixAsc();
+    QSqlQueryModel * afficherTriPrixDesc();
+    QSqlQueryModel * afficherTriQTAsc();
+    QSqlQueryModel * afficherTriQTDesc();
+
+
     bool Modifer(int);
     void pdf(QString,int);
+    QSqlQueryModel * rechercher(QString);
 };
 
 #endif // PRODUIT_H

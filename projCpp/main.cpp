@@ -7,13 +7,34 @@
 #include <QSslSocket>
 #include <QDateTime>
 #include "mainmenu.h"
+#include <QStyleFactory>
+#include<QFile>
+
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     MainWindow w;
     Connection c;
-    MainMenu m;
+
+    QFont f;
+
+    f.setFamily("Segoe MDL2 Assets");
+    a.setFont(f);
+
+
+
+
+    QFile file("C:/Users/Hamadi/Desktop/C++/ThePieChart/projCpp/qss/darkorange.qss");
+    file.open(QFile::ReadOnly);
+    QString styleSheet = QLatin1String(file.readAll());
+    a.setStyle("plastique");
+    a.setStyleSheet(styleSheet);
+
+
+   //qDebug() << QStyleFactory::keys();
+  //  a.setStyle(styleSheet);
+
     bool test=c.createConnection();
     ClientAff d;
     qDebug() << "Device supports OpenSSL: " << QSslSocket::supportsSsl();

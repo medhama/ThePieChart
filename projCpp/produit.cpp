@@ -150,3 +150,45 @@ bool Produit::Modifer(int id)
 
 
 }
+
+QSqlQueryModel * Produit::rechercher(QString mot)
+{
+     QSqlQuery query;
+     query.prepare("SELECT * FROM produit where ((IDPROD like :NOMC) or (NOMPROD like :NOMC) or (PRIXPROD like :NOMC) or "
+        "(QTE like :NOMC) or (DESCRIPTION like :NOMC))");
+     query.bindValue(":NOMC", mot);
+     query.exec();
+
+    QSqlQueryModel * model= new QSqlQueryModel();
+         model->setQuery(query);
+
+
+    return model;
+}
+
+
+QSqlQueryModel * Produit::afficherTriPrixAsc()
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+         model->setQuery("SELECT * FROM produit order by PRIXPROD ASC");
+    return model;
+}
+QSqlQueryModel * Produit::afficherTriPrixDesc()
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+         model->setQuery("SELECT * FROM produit order by PRIXPROD DESC");
+    return model;
+}
+QSqlQueryModel * Produit::afficherTriQTAsc()
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+         model->setQuery("SELECT * FROM produit order by QTE ASC");
+    return model;
+}
+QSqlQueryModel * Produit::afficherTriQTDesc()
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+         model->setQuery("SELECT * FROM produit order by QTE DESC");
+    return model;
+}
+

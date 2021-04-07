@@ -456,15 +456,18 @@
    </palette>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>The Pie Chart</string>
   </property>
   <widget class="QTabWidget" name="tabWidget">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="geometry">
     <rect>
-     <x>20</x>
+     <x>10</x>
      <y>0</y>
-     <width>801</width>
-     <height>451</height>
+     <width>791</width>
+     <height>461</height>
     </rect>
    </property>
    <property name="font">
@@ -483,191 +486,17 @@ background-image: url(:/BgPic.jpg);
 }</string>
    </property>
    <property name="currentIndex">
-    <number>3</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
      <string>Client</string>
     </attribute>
-    <widget class="QLabel" name="label_2">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>110</y>
-       <width>47</width>
-       <height>13</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Franklin Gothic Medium</family>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>Nom</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_3">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>140</y>
-       <width>47</width>
-       <height>13</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Franklin Gothic Medium</family>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>Prenom</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_4">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>170</y>
-       <width>47</width>
-       <height>13</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Franklin Gothic Medium</family>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>Adresse</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_5">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>260</y>
-       <width>91</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Franklin Gothic Medium</family>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>Nombre de points</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_6">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>230</y>
-       <width>111</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Franklin Gothic Medium</family>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>Numero telephone</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_7">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>200</y>
-       <width>47</width>
-       <height>13</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Franklin Gothic Medium</family>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>Email</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="LE_nom">
-     <property name="geometry">
-      <rect>
-       <x>130</x>
-       <y>110</y>
-       <width>113</width>
-       <height>20</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="LE_prenom">
-     <property name="geometry">
-      <rect>
-       <x>130</x>
-       <y>140</y>
-       <width>113</width>
-       <height>20</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="LE_adresse">
-     <property name="geometry">
-      <rect>
-       <x>130</x>
-       <y>170</y>
-       <width>113</width>
-       <height>20</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="LE_email">
-     <property name="geometry">
-      <rect>
-       <x>130</x>
-       <y>200</y>
-       <width>113</width>
-       <height>20</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="LE_NumTelephone">
-     <property name="geometry">
-      <rect>
-       <x>130</x>
-       <y>230</y>
-       <width>113</width>
-       <height>20</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="LE_nbrpt">
-     <property name="geometry">
-      <rect>
-       <x>130</x>
-       <y>260</y>
-       <width>113</width>
-       <height>20</height>
-      </rect>
-     </property>
-    </widget>
     <widget class="QTableView" name="Tab_client">
      <property name="geometry">
       <rect>
        <x>300</x>
-       <y>90</y>
+       <y>70</y>
        <width>471</width>
        <height>192</height>
       </rect>
@@ -678,569 +507,391 @@ background-image: url(:/BgPic.jpg);
       </font>
      </property>
     </widget>
-    <widget class="QLabel" name="label_8">
+    <widget class="QWidget" name="formLayoutWidget">
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>80</y>
-       <width>47</width>
-       <height>13</height>
+       <y>30</y>
+       <width>261</width>
+       <height>231</height>
       </rect>
      </property>
-     <property name="font">
-      <font>
-       <family>Franklin Gothic Medium</family>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>CIN</string>
-     </property>
+     <layout class="QFormLayout" name="formLayout">
+      <property name="verticalSpacing">
+       <number>13</number>
+      </property>
+      <property name="bottomMargin">
+       <number>6</number>
+      </property>
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_8">
+        <property name="font">
+         <font>
+          <family>Franklin Gothic Medium</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>CIN</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="LE_cin"/>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_2">
+        <property name="font">
+         <font>
+          <family>Franklin Gothic Medium</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Nom</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="LE_nom"/>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_3">
+        <property name="font">
+         <font>
+          <family>Franklin Gothic Medium</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Prenom</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLineEdit" name="LE_prenom"/>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="label_4">
+        <property name="font">
+         <font>
+          <family>Franklin Gothic Medium</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Adresse</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QLineEdit" name="LE_adresse"/>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="label_7">
+        <property name="font">
+         <font>
+          <family>Franklin Gothic Medium</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Email</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QLineEdit" name="LE_email"/>
+      </item>
+      <item row="5" column="0">
+       <widget class="QLabel" name="label_6">
+        <property name="font">
+         <font>
+          <family>Franklin Gothic Medium</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Numero telephone</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="1">
+       <widget class="QLineEdit" name="LE_NumTelephone"/>
+      </item>
+      <item row="6" column="0">
+       <widget class="QLabel" name="label_5">
+        <property name="font">
+         <font>
+          <family>Franklin Gothic Medium</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Nombre de points</string>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="1">
+       <widget class="QLineEdit" name="LE_nbrpt"/>
+      </item>
+     </layout>
     </widget>
-    <widget class="QLineEdit" name="LE_cin">
+    <widget class="QWidget" name="horizontalLayoutWidget">
      <property name="geometry">
       <rect>
-       <x>130</x>
-       <y>80</y>
-       <width>113</width>
-       <height>20</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="pushButton_6">
-     <property name="geometry">
-      <rect>
-       <x>130</x>
-       <y>300</y>
-       <width>91</width>
+       <x>510</x>
+       <y>20</y>
+       <width>261</width>
        <height>41</height>
       </rect>
      </property>
-     <property name="styleSheet">
-      <string notr="true">#pushButton_6
-{
-border-radius:20px;
-	background:rgb(255, 170, 0);
-
-	/*border:2px solid rgb(255, 170, 0); */
-	color:white;
-	
-font:12pt &quot;Franklin Gothic Medium&quot;;
-}
-
-#pushButton_6:hover
-{
-	background:rgb(255, 85, 0) ;
-}
-
-#pushButton_6:disabled
-{
-	background:rgb(255, 170, 127);
-}
-
-</string>
-     </property>
-     <property name="text">
-      <string>Confirmer</string>
-     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
+       <widget class="QLineEdit" name="SearchBar_Client"/>
+      </item>
+      <item>
+       <widget class="QPushButton" name="Rechercher_Client_button">
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>Rechercher</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
-    <widget class="QWidget" name="widget" native="true">
+    <widget class="QWidget" name="horizontalLayoutWidget_2">
      <property name="geometry">
       <rect>
-       <x>0</x>
-       <y>-1</y>
-       <width>801</width>
-       <height>441</height>
+       <x>290</x>
+       <y>20</y>
+       <width>218</width>
+       <height>41</height>
       </rect>
      </property>
-     <property name="styleSheet">
-      <string notr="true">#widget
-{
-
-	background-image: url(:/BgPic.jpg);
-}</string>
-     </property>
-     <widget class="QPushButton" name="pushButton_5">
-      <property name="geometry">
-       <rect>
-        <x>500</x>
-        <y>330</y>
-        <width>121</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">#pushButton_5
-{
-border-radius:20px;
-	background:rgb(255, 170, 0);
-
-	/*border:2px solid rgb(255, 170, 0); */
-	color:white;
-	
-font:12pt &quot;Franklin Gothic Medium&quot;;
-}
-
-#pushButton_5:hover
-{
-	background:rgb(255, 85, 0) ;
-}
-
-#pushButton_5:disabled
-{
-	background:rgb(255, 170, 127);
-}
-</string>
-      </property>
-      <property name="text">
-       <string>Modifier</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_2">
-      <property name="geometry">
-       <rect>
-        <x>630</x>
-        <y>330</y>
-        <width>111</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">#pushButton_2
-{
-border-radius:20px;
-	background:rgb(255, 170, 0);
-
-	/*border:2px solid rgb(255, 170, 0); */
-	color:white;
-	
-font:12pt &quot;Franklin Gothic Medium&quot;;
-}
-
-#pushButton_2:hover
-{
-	background:rgb(255, 85, 0) ;
-}
-#pushButton_2:disabled
-{
-	background:rgb(255, 170, 127);
-}
-</string>
-      </property>
-      <property name="text">
-       <string>Supprimer</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>300</y>
-        <width>101</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">#pushButton
-{
-border-radius:20px;
-	background:rgb(255, 170, 0);
-
-	/*border:2px solid rgb(255, 170, 0); */
-	color:white;
-	
-font:12pt &quot;Franklin Gothic Medium&quot;;
-}
-
-#pushButton:hover
-{
-	background:rgb(255, 85, 0) ;
-}
-#pushButton:disabled
-{
-	background:rgb(255, 170, 127);
-}
-</string>
-      </property>
-      <property name="text">
-       <string>Ajouter</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="LE_CIN_Supp">
-      <property name="geometry">
-       <rect>
-        <x>510</x>
-        <y>290</y>
-        <width>231</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="autoFillBackground">
-       <bool>false</bool>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="CreateClientPdfFile">
-      <property name="geometry">
-       <rect>
-        <x>290</x>
-        <y>290</y>
-        <width>111</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">#CreateClientPdfFile
-{
-border-radius:20px;
-	background:rgb(255, 170, 0);
-
-	/*border:2px solid rgb(255, 170, 0); */
-	color:white;
-	
-font:12pt &quot;Franklin Gothic Medium&quot;;
-}
-
-#CreateClientPdfFile:hover
-{
-	background:rgb(255, 85, 0) ;
-}
-</string>
-      </property>
-      <property name="text">
-       <string>Create Pdf</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="Rechercher_Client_button">
-      <property name="geometry">
-       <rect>
-        <x>270</x>
-        <y>30</y>
-        <width>101</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">#Rechercher_Client_button
-{
-border-radius:20px;
-	background:rgb(255, 170, 0);
-
-	/*border:2px solid rgb(255, 170, 0); */
-	color:white;
-	
-font:12pt &quot;Franklin Gothic Medium&quot;;
-}
-
-#Rechercher_Client_button:hover
-{
-	background:rgb(255, 85, 0) ;
-}
-</string>
-      </property>
-      <property name="text">
-       <string>Rechercher</string>
-      </property>
-     </widget>
-     <widget class="QComboBox" name="comboBox1">
-      <property name="geometry">
-       <rect>
-        <x>630</x>
-        <y>30</y>
-        <width>151</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">#comboBox1
-{
-border-radius:20px;
-	background:rgb(255, 170, 0);
-
-	/*border:2px solid rgb(255, 170, 0); */
-	color:white;
-	
-font:12pt &quot;Franklin Gothic Medium&quot;;
-}
-
-#comboBox1:hover
-{
-	background:rgb(255, 85, 0) ;
-}
-</string>
-      </property>
-      <property name="currentIndex">
-       <number>0</number>
-      </property>
-      <property name="duplicatesEnabled">
-       <bool>false</bool>
-      </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_4">
       <item>
-       <property name="text">
-        <string>Nom descendant</string>
-       </property>
+       <widget class="QComboBox" name="comboBox1">
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="currentIndex">
+         <number>0</number>
+        </property>
+        <property name="duplicatesEnabled">
+         <bool>false</bool>
+        </property>
+        <item>
+         <property name="text">
+          <string>Nom descendant</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Nom ascendant</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Prenom descendant</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Prenom ascendant</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Nombre de points desc</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Nombre de points Asc</string>
+         </property>
+        </item>
+       </widget>
       </item>
       <item>
-       <property name="text">
-        <string>Nom ascendant</string>
-       </property>
+       <widget class="QPushButton" name="SortButton">
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>Trier</string>
+        </property>
+       </widget>
       </item>
-      <item>
-       <property name="text">
-        <string>Prenom descendant</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Prenom ascendant</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Nombre de points desc</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Nombre de points Asc</string>
-       </property>
-      </item>
-     </widget>
-     <widget class="QPushButton" name="SortButton">
-      <property name="geometry">
-       <rect>
-        <x>560</x>
-        <y>30</y>
-        <width>61</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">#SortButton
-{
-border-radius:20px;
-	background:rgb(255, 170, 0);
-
-	/*border:2px solid rgb(255, 170, 0); */
-	color:white;
-	
-font:12pt &quot;Franklin Gothic Medium&quot;;
-}
-
-#SortButton:hover
-{
-	background:rgb(255, 85, 0) ;
-}
-</string>
-      </property>
-      <property name="text">
-       <string>Sort</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="SearchBar_Client">
-      <property name="geometry">
-       <rect>
-        <x>380</x>
-        <y>30</y>
-        <width>161</width>
-        <height>31</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_15">
-      <property name="geometry">
-       <rect>
-        <x>460</x>
-        <y>300</y>
-        <width>41</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Franklin Gothic Medium</family>
-        <pointsize>10</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>CIN</string>
-      </property>
-     </widget>
+     </layout>
     </widget>
-    <zorder>widget</zorder>
-    <zorder>label_2</zorder>
-    <zorder>label_3</zorder>
-    <zorder>label_4</zorder>
-    <zorder>label_5</zorder>
-    <zorder>label_6</zorder>
-    <zorder>label_7</zorder>
-    <zorder>LE_nom</zorder>
-    <zorder>LE_prenom</zorder>
-    <zorder>LE_adresse</zorder>
-    <zorder>LE_email</zorder>
-    <zorder>LE_NumTelephone</zorder>
-    <zorder>LE_nbrpt</zorder>
-    <zorder>Tab_client</zorder>
-    <zorder>label_8</zorder>
-    <zorder>LE_cin</zorder>
-    <zorder>pushButton_6</zorder>
+    <widget class="QWidget" name="horizontalLayoutWidget_3">
+     <property name="geometry">
+      <rect>
+       <x>380</x>
+       <y>300</y>
+       <width>331</width>
+       <height>80</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_5">
+      <item>
+       <widget class="QPushButton" name="CreateClientPdfFile">
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>Create Pdf</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_5">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>Modifier</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_2">
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>Supprimer</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="horizontalLayoutWidget_4">
+     <property name="geometry">
+      <rect>
+       <x>390</x>
+       <y>260</y>
+       <width>291</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_6">
+      <item>
+       <widget class="QLabel" name="label_15">
+        <property name="font">
+         <font>
+          <family>Franklin Gothic Medium</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>CIN</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="LE_CIN_Supp">
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="horizontalLayoutWidget_5">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>260</y>
+       <width>261</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_7">
+      <item>
+       <widget class="QPushButton" name="pushButton">
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>Ajouter</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_6">
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>Confirmer</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="horizontalLayoutWidget_10">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>300</y>
+       <width>261</width>
+       <height>101</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_12">
+      <item>
+       <widget class="QFrame" name="frame">
+        <property name="whatsThis">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/Asset 9.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">image: url(:/Asset 9.png);</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_17">
+        <property name="font">
+         <font>
+          <family>Franklin Gothic Book</family>
+          <pointsize>18</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Gestion Clients</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
    </widget>
    <widget class="QWidget" name="tab_2">
     <attribute name="title">
      <string>Produit</string>
     </attribute>
-    <widget class="QLabel" name="label_9">
-     <property name="geometry">
-      <rect>
-       <x>42</x>
-       <y>80</y>
-       <width>47</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-       <horstretch>1</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="font">
-      <font>
-       <family>Franklin Gothic Medium</family>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>Id</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_10">
-     <property name="geometry">
-      <rect>
-       <x>42</x>
-       <y>110</y>
-       <width>47</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-       <horstretch>1</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="font">
-      <font>
-       <family>Franklin Gothic Medium</family>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>Nom</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_11">
-     <property name="geometry">
-      <rect>
-       <x>42</x>
-       <y>140</y>
-       <width>47</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-       <horstretch>1</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="font">
-      <font>
-       <family>Franklin Gothic Medium</family>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>Prix</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_12">
-     <property name="geometry">
-      <rect>
-       <x>42</x>
-       <y>170</y>
-       <width>47</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-       <horstretch>1</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="font">
-      <font>
-       <family>Franklin Gothic Medium</family>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>Quantite</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="LE_ID1">
-     <property name="geometry">
-      <rect>
-       <x>100</x>
-       <y>80</y>
-       <width>113</width>
-       <height>20</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="LE_NOM1">
-     <property name="geometry">
-      <rect>
-       <x>100</x>
-       <y>110</y>
-       <width>113</width>
-       <height>20</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="LE_PRIX1">
-     <property name="geometry">
-      <rect>
-       <x>100</x>
-       <y>140</y>
-       <width>113</width>
-       <height>20</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="LE_QT1">
-     <property name="geometry">
-      <rect>
-       <x>100</x>
-       <y>170</y>
-       <width>113</width>
-       <height>20</height>
-      </rect>
-     </property>
-    </widget>
     <widget class="QTableView" name="Tab_produit">
      <property name="geometry">
       <rect>
        <x>260</x>
-       <y>10</y>
-       <width>421</width>
-       <height>192</height>
+       <y>80</y>
+       <width>461</width>
+       <height>211</height>
       </rect>
      </property>
      <property name="font">
@@ -1249,236 +900,357 @@ font:12pt &quot;Franklin Gothic Medium&quot;;
       </font>
      </property>
     </widget>
-    <widget class="QLineEdit" name="LE_ID_SUPP">
+    <widget class="QWidget" name="formLayoutWidget_2">
      <property name="geometry">
       <rect>
-       <x>380</x>
-       <y>210</y>
-       <width>131</width>
-       <height>31</height>
+       <x>10</x>
+       <y>20</y>
+       <width>241</width>
+       <height>221</height>
       </rect>
      </property>
+     <layout class="QFormLayout" name="formLayout_2">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_9">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>1</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <family>Franklin Gothic Medium</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Id</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="LE_ID1"/>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_10">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>1</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <family>Franklin Gothic Medium</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Nom</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="LE_NOM1"/>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_11">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>1</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <family>Franklin Gothic Medium</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Prix</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLineEdit" name="LE_PRIX1"/>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="label_12">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>1</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <family>Franklin Gothic Medium</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Quantite</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QLineEdit" name="LE_QT1"/>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="label_16">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>1</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <family>Franklin Gothic Medium</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Description</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QTextEdit" name="TE_description">
+        <property name="styleSheet">
+         <string notr="true">  background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #4d4d4d, stop: 0 #646464, stop: 1 #5d5d5d);
+    padding: 1px;
+    border-style: solid;
+    border: 1px solid #1e1e1e;
+    border-radius: 5;</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
-    <widget class="QLabel" name="label_13">
+    <widget class="QWidget" name="horizontalLayoutWidget_6">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>240</y>
+       <width>241</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_8">
+      <item>
+       <widget class="QPushButton" name="pushButton_3">
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>Ajouter</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="SelectModifConfirm">
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>Confirm</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="horizontalLayoutWidget_7">
      <property name="geometry">
       <rect>
        <x>340</x>
-       <y>220</y>
-       <width>31</width>
-       <height>16</height>
+       <y>320</y>
+       <width>301</width>
+       <height>61</height>
       </rect>
      </property>
-     <property name="font">
-      <font>
-       <family>Franklin Gothic Medium</family>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>Id</string>
-     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_9">
+      <item>
+       <widget class="QPushButton" name="CreatePDF">
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>Create PDF</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="SelectModifProd">
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>Modifier</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_4">
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>Supprimer</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
-    <widget class="QPushButton" name="CreatePDF">
+    <widget class="QWidget" name="horizontalLayoutWidget_8">
      <property name="geometry">
       <rect>
        <x>340</x>
-       <y>350</y>
-       <width>121</width>
-       <height>41</height>
+       <y>290</y>
+       <width>301</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_10">
+      <item>
+       <widget class="QLabel" name="label_13">
+        <property name="font">
+         <font>
+          <family>Franklin Gothic Medium</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Id</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="LE_ID_SUPP"/>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="horizontalLayoutWidget_11">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>290</y>
+       <width>261</width>
+       <height>101</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_13">
+      <item>
+       <widget class="QFrame" name="frame_2">
+        <property name="whatsThis">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/Asset 9.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">image: url(:/Asset 9.png);</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_18">
+        <property name="font">
+         <font>
+          <family>Franklin Gothic Book</family>
+          <pointsize>18</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Gestion Produits</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="horizontalLayoutWidget_13">
+     <property name="geometry">
+      <rect>
+       <x>500</x>
+       <y>30</y>
+       <width>231</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_15">
+      <item>
+       <widget class="QLineEdit" name="LE_ProdRecherche"/>
+      </item>
+      <item>
+       <widget class="QPushButton" name="RechercherProduit">
+        <property name="text">
+         <string>Rechercher</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QComboBox" name="comboBox22">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>269</x>
+       <y>41</y>
+       <width>135</width>
+       <height>20</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">#CreatePDF
-{
-border-radius:20px;
-	background:rgb(255, 170, 0);
-
-	/*border:2px solid rgb(255, 170, 0); */
-	color:white;
-	
-font:12pt &quot;Franklin Gothic Medium&quot;;
-}
-
-#CreatePDF:hover
-{
-	background:rgb(255, 85, 0) ;
-}
-</string>
+      <string notr="true"/>
      </property>
-     <property name="text">
-      <string>Create PDF</string>
+     <property name="currentIndex">
+      <number>0</number>
      </property>
+     <property name="duplicatesEnabled">
+      <bool>false</bool>
+     </property>
+     <item>
+      <property name="text">
+       <string>Prix Ascendant</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Prix Descendant</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Quantite Asendant</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Quantite Descendant</string>
+      </property>
+     </item>
     </widget>
-    <widget class="QPushButton" name="pushButton_4">
+    <widget class="QPushButton" name="SortButton_2">
      <property name="geometry">
       <rect>
-       <x>480</x>
-       <y>260</y>
-       <width>111</width>
-       <height>41</height>
+       <x>410</x>
+       <y>40</y>
+       <width>75</width>
+       <height>23</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">#pushButton_4
-{
-border-radius:20px;
-	background:rgb(255, 170, 0);
-
-	/*border:2px solid rgb(255, 170, 0); */
-	color:white;
-	
-font:12pt &quot;Franklin Gothic Medium&quot;;
-}
-
-#pushButton_4:hover
-{
-	background:rgb(255, 85, 0) ;
-}
-</string>
+      <string notr="true"/>
      </property>
      <property name="text">
-      <string>Supprimer</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="SelectModifConfirm">
-     <property name="geometry">
-      <rect>
-       <x>160</x>
-       <y>320</y>
-       <width>101</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">#SelectModifConfirm
-{
-border-radius:20px;
-	background:rgb(255, 170, 0);
-
-	/*border:2px solid rgb(255, 170, 0); */
-	color:white;
-	
-font:12pt &quot;Franklin Gothic Medium&quot;;
-}
-
-#SelectModifConfirm:hover
-{
-	background:rgb(255, 85, 0) ;
-}
-#SelectModifConfirm:disabled
-{
-	background:rgb(255, 170, 127);
-}
-</string>
-     </property>
-     <property name="text">
-      <string>Confirm</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="SelectModifProd">
-     <property name="geometry">
-      <rect>
-       <x>360</x>
-       <y>270</y>
-       <width>101</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">#SelectModifProd
-{
-border-radius:20px;
-	background:rgb(255, 170, 0);
-
-	/*border:2px solid rgb(255, 170, 0); */
-	color:white;
-	
-font:12pt &quot;Franklin Gothic Medium&quot;;
-}
-
-#SelectModifProd:hover
-{
-	background:rgb(255, 85, 0) ;
-}
-
-#SelectModifProd:disabled
-{
-	background:rgb(255, 170, 127);
-}
-
-</string>
-     </property>
-     <property name="text">
-      <string>Modifier</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="pushButton_3">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>320</y>
-       <width>121</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">#pushButton_3
-{
-border-radius:20px;
-	background:rgb(255, 170, 0);
-
-	/*border:2px solid rgb(255, 170, 0); */
-	color:white;
-	
-font:12pt &quot;Franklin Gothic Medium&quot;;
-}
-
-#pushButton_3:hover
-{
-	background:rgb(255, 85, 0) ;
-}
-#pushButton_3:disabled
-{
-	background:rgb(255, 170, 127);
-}</string>
-     </property>
-     <property name="text">
-      <string>Ajouter</string>
-     </property>
-    </widget>
-    <widget class="QTextEdit" name="TE_description">
-     <property name="geometry">
-      <rect>
-       <x>100</x>
-       <y>200</y>
-       <width>111</width>
-       <height>91</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_16">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>210</y>
-       <width>71</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-       <horstretch>1</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="font">
-      <font>
-       <family>Franklin Gothic Medium</family>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>Description</string>
+      <string>Trier</string>
      </property>
     </widget>
    </widget>
@@ -1486,161 +1258,301 @@ font:12pt &quot;Franklin Gothic Medium&quot;;
     <attribute name="title">
      <string>Send Mail</string>
     </attribute>
-    <widget class="QWidget" name="widget_3" native="true">
+    <widget class="QWidget" name="formLayoutWidget_3">
+     <property name="geometry">
+      <rect>
+       <x>210</x>
+       <y>40</y>
+       <width>351</width>
+       <height>281</height>
+      </rect>
+     </property>
+     <layout class="QFormLayout" name="formLayout_3">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label">
+        <property name="font">
+         <font>
+          <family>Franklin Gothic Medium</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Subject</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="LE_Subject_Mail">
+        <property name="font">
+         <font>
+          <family>Franklin Gothic Medium</family>
+         </font>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_14">
+        <property name="font">
+         <font>
+          <family>Franklin Gothic Medium</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Message</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QPlainTextEdit" name="PTE_Message_Mail">
+        <property name="font">
+         <font>
+          <family>Franklin Gothic Medium</family>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">  background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #4d4d4d, stop: 0 #646464, stop: 1 #5d5d5d);
+    padding: 1px;
+    border-style: solid;
+    border: 1px solid #1e1e1e;
+    border-radius: 5;</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="horizontalLayoutWidget_9">
+     <property name="geometry">
+      <rect>
+       <x>210</x>
+       <y>320</y>
+       <width>351</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_11">
+      <item>
+       <widget class="QPushButton" name="SendMail">
+        <property name="font">
+         <font>
+          <family>MS Shell Dlg 2</family>
+          <pointsize>8</pointsize>
+          <weight>50</weight>
+          <italic>false</italic>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>Send Mail</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="ResetButton">
+        <property name="text">
+         <string>Reset</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="horizontalLayoutWidget_14">
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>0</y>
-       <width>801</width>
-       <height>441</height>
+       <y>320</y>
+       <width>211</width>
+       <height>81</height>
       </rect>
      </property>
-     <property name="styleSheet">
-      <string notr="true">#widget_3
-{
-
-background-image: url(:/BgPic.jpg);
-}</string>
-     </property>
-     <widget class="QPushButton" name="SendMail">
-      <property name="geometry">
-       <rect>
-        <x>340</x>
-        <y>350</y>
-        <width>101</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Franklin Gothic Medium</family>
-        <pointsize>12</pointsize>
-        <weight>50</weight>
-        <italic>false</italic>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">#SendMail
-{
-border-radius:20px;
-	background:rgb(255, 170, 0);
-
-	/*border:2px solid rgb(255, 170, 0); */
-	color:white;
-	
-font:12pt &quot;Franklin Gothic Medium&quot;;
-}
-
-#SendMail:hover
-{
-	background:rgb(255, 85, 0) ;
-}
-</string>
-      </property>
-      <property name="text">
-       <string>Send Mail</string>
-      </property>
-     </widget>
-     <widget class="QPlainTextEdit" name="PTE_Message_Mail">
-      <property name="geometry">
-       <rect>
-        <x>230</x>
-        <y>140</y>
-        <width>281</width>
-        <height>211</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Franklin Gothic Medium</family>
-       </font>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="LE_Subject_Mail">
-      <property name="geometry">
-       <rect>
-        <x>230</x>
-        <y>99</y>
-        <width>281</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Franklin Gothic Medium</family>
-       </font>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_14">
-      <property name="geometry">
-       <rect>
-        <x>150</x>
-        <y>150</y>
-        <width>61</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Franklin Gothic Medium</family>
-        <pointsize>10</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Message</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label">
-      <property name="geometry">
-       <rect>
-        <x>150</x>
-        <y>110</y>
-        <width>47</width>
-        <height>13</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Franklin Gothic Medium</family>
-        <pointsize>10</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Subject</string>
-      </property>
-     </widget>
+     <layout class="QHBoxLayout" name="horizontalLayout_16">
+      <item>
+       <widget class="QFrame" name="frame_3">
+        <property name="whatsThis">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/Asset 9.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">image: url(:/Asset 9.png);</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_21">
+        <property name="font">
+         <font>
+          <family>Franklin Gothic Book</family>
+          <pointsize>18</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Send Email</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </widget>
    <widget class="QWidget" name="tab_4">
     <attribute name="title">
      <string>Settings</string>
     </attribute>
-    <widget class="QPushButton" name="MusicButton">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
-       <x>370</x>
-       <y>170</y>
-       <width>75</width>
-       <height>23</height>
+       <x>100</x>
+       <y>40</y>
+       <width>541</width>
+       <height>161</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QPushButton" name="avrir">
+          <property name="text">
+           <string>Import media</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="Play">
+          <property name="text">
+           <string>Play</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pause">
+          <property name="text">
+           <string>Pause</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="stop">
+          <property name="text">
+           <string>Stop</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QProgressBar" name="avance">
+        <property name="value">
+         <number>0</number>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QPushButton" name="mute">
+          <property name="text">
+           <string>Mute</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSlider" name="volumen">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="horizontalLayoutWidget_12">
+     <property name="geometry">
+      <rect>
+       <x>570</x>
+       <y>350</y>
+       <width>160</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_14">
+      <item>
+       <widget class="QLabel" name="label_19">
+        <property name="text">
+         <string>Click Sound</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="ClickSoundOnOff">
+        <property name="text">
+         <string>On</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QLabel" name="label_20">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>20</y>
+       <width>71</width>
+       <height>16</height>
       </rect>
      </property>
      <property name="text">
       <string>Play Music</string>
      </property>
     </widget>
-    <widget class="QSlider" name="horizontalSlider">
+    <widget class="QWidget" name="horizontalLayoutWidget_15">
      <property name="geometry">
       <rect>
-       <x>340</x>
-       <y>140</y>
-       <width>160</width>
-       <height>22</height>
+       <x>0</x>
+       <y>310</y>
+       <width>211</width>
+       <height>81</height>
       </rect>
      </property>
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_17">
+      <item>
+       <widget class="QFrame" name="frame_4">
+        <property name="whatsThis">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/Asset 9.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">image: url(:/Asset 9.png);</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_22">
+        <property name="font">
+         <font>
+          <family>Franklin Gothic Book</family>
+          <pointsize>18</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Settings</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </widget>
   </widget>

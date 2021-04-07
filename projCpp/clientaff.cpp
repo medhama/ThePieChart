@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+
 #include "clientaff.h"
 #include "ui_clientaff.h"
 #include "client.h"
@@ -13,10 +14,12 @@
 #include <QCoreApplication>
 #include <QtWidgets/QMessageBox>
 #include <QMediaPlayer>
+#include<QFileDialog>
+#include <QtMultimedia/QMediaPlayer>
+#include <QWidget>
 
 
-
-
+int onoff;
 ClientAff::ClientAff(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::ClientAff)
@@ -24,14 +27,36 @@ ClientAff::ClientAff(QWidget *parent) :
    // setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint);
     ui->setupUi(this);
 
+
+
+    mMediaPlayer=new QMediaPlayer(this);
+    connect(mMediaPlayer,&QMediaPlayer::positionChanged,[&](qint64 pos)
+    {
+        ui->avance->setValue(pos);
+    });
+    connect(mMediaPlayer,&QMediaPlayer::durationChanged,[&](qint64 dur){
+    ui->avance->setMaximum(dur);
+
+    });
+
      ui->LE_cin->setValidator(new QIntValidator(0, 99999999, this));
      ui->Tab_client->setModel(etmp.afficher());
      ui->LE_ID1->setValidator(new QIntValidator(0, 9999999, this));
      ui->Tab_produit->setModel(etmp_prod.afficher());
+
+     ui->LE_QT1->setValidator(new QIntValidator(0, 9999999, this));
+
+     ui->LE_PRIX1->setValidator(new QDoubleValidator(0, 9999999,3, this));
+
+
+
+
     ui->pushButton_6->setEnabled(false);
     ui->SelectModifConfirm->setEnabled(false);
     qDebug()<<QSslSocket::supportsSsl() << QSslSocket::sslLibraryBuildVersionString() << QSslSocket::sslLibraryVersionString();
     connect(ui->SendMail, SIGNAL(clicked()),this, SLOT(sendMail()));
+
+
 }
 
 ClientAff::~ClientAff()
@@ -41,6 +66,9 @@ ClientAff::~ClientAff()
 
 void ClientAff::on_pushButton_clicked() //ajouter client
 {
+
+    playClick(onoff);
+
     int cin=ui->LE_cin->text().toInt();
     QString nom=ui->LE_nom->text();
     QString prenom=ui->LE_prenom->text();
@@ -74,15 +102,36 @@ void ClientAff::on_pushButton_clicked() //ajouter client
     }
     else
     {
-        qDebug()<<"connection failed";
-        QMessageBox::critical(nullptr,QObject::tr("Not ok"),
-                                 QObject::tr("Ajout non effectue\n""click cancel to exit"),QMessageBox::Cancel);
+        if((QString::number(cin).size()!=8))
+        {
+            QMessageBox::critical(nullptr,QObject::tr("Not ok"),
+                                     QObject::tr("Ajout non effectue\n Le champ de cin doit avoir 8 charactere \n""click cancel to exit"),QMessageBox::Cancel);
+
+        }
+        else if (!(email.contains("@"))&&!(email.contains(".")))
+        {
+            QMessageBox::critical(nullptr,QObject::tr("Not ok"),
+                                     QObject::tr("Ajout non effectue\n Email non valide \n""click cancel to exit"),QMessageBox::Cancel);
+
+        }
+        else
+        {
+            QMessageBox::critical(nullptr,QObject::tr("Not ok"),
+                                     QObject::tr("Ajout non effectue\n""click cancel to exit"),QMessageBox::Cancel);
+
+        }
+
+
     }
     qDebug()<<"button clicked";
 }
 
 void ClientAff::on_pushButton_2_clicked() //supprimer client
 {
+    playClick(onoff);
+
+
+
     int cin=ui->LE_CIN_Supp->text().toInt();
     qDebug()<<cin;
     bool test=etmp.supprimer(cin);
@@ -104,6 +153,8 @@ void ClientAff::on_pushButton_2_clicked() //supprimer client
 
 void ClientAff::on_pushButton_3_clicked() //ajouter produit
 {
+    playClick(onoff);
+
     int id=ui->LE_ID1->text().toInt();
     QString nom=ui->LE_NOM1->text();
     int QTE=ui->LE_QT1->text().toInt();
@@ -132,6 +183,7 @@ void ClientAff::on_pushButton_3_clicked() //ajouter produit
 
 void ClientAff::on_pushButton_4_clicked() //supprimer produit
 {
+    playClick(onoff);
     int id=ui->LE_ID_SUPP->text().toInt();
     qDebug()<<id;
     bool test=etmp_prod.supprimer(id);
@@ -153,6 +205,7 @@ void ClientAff::on_pushButton_4_clicked() //supprimer produit
 
 void ClientAff::on_pushButton_5_clicked() //modifier 1 client
 {
+    playClick(onoff);
     int cin=ui->LE_CIN_Supp->text().toInt();
     Client C;
    // qDebug()<<id;
@@ -193,6 +246,7 @@ void ClientAff::on_pushButton_5_clicked() //modifier 1 client
 
 void ClientAff::on_pushButton_6_clicked() //confirmation modification of client
 {
+    playClick(onoff);
 
     int cin=ui->LE_cin->text().toInt();
     QString nom=ui->LE_nom->text();
@@ -201,12 +255,17 @@ void ClientAff::on_pushButton_6_clicked() //confirmation modification of client
     QString email=ui->LE_email->text();
     int nbrpt=ui->LE_nbrpt->text().toInt();
     int NumTelephone=ui->LE_NumTelephone->text().toInt();
+    bool test=false;
+    if((QString::number(cin).size()==8)&&(email.contains("@"))&&(email.contains(".")))
+    {
 
     Client C(cin,nom,prenom,adresse,email,nbrpt,NumTelephone);
     ui->pushButton->setEnabled(true);
     ui->LE_cin->setEnabled(true);
+    test=C.Modifer(cin);
+    }
 
-    bool test=C.Modifer(cin);
+
     if(test==true)
     {
      // qDebug()<<"connection reussite";
@@ -220,19 +279,41 @@ void ClientAff::on_pushButton_6_clicked() //confirmation modification of client
       ui->LE_email->clear();
       ui->LE_nbrpt->clear();
       ui->LE_NumTelephone->clear();
+
+      ui->pushButton_6->setEnabled(false);
     }
     else
     {
-        //qDebug()<<"connection failed";
-        QMessageBox::critical(nullptr,QObject::tr("Not ok"),
-        QObject::tr("modification non effectue\n""click cancel to exit"),QMessageBox::Cancel);
+        if((QString::number(cin).size()!=8))
+        {
+            QMessageBox::critical(nullptr,QObject::tr("Not ok"),
+                                     QObject::tr("modification non effectue\n Le champ de cin doit avoir 8 charactere \n""click cancel to exit"),QMessageBox::Cancel);
+
+        }
+        else if (!(email.contains("@"))&&!(email.contains(".")))
+        {
+            QMessageBox::critical(nullptr,QObject::tr("Not ok"),
+                                     QObject::tr("modification non effectue\n Email non valide \n""click cancel to exit"),QMessageBox::Cancel);
+
+        }
+        else
+        {
+            QMessageBox::critical(nullptr,QObject::tr("Not ok"),
+                                     QObject::tr("modification non effectue\n""click cancel to exit"),QMessageBox::Cancel);
+
+        }
+
+
+
+
     }
-    ui->pushButton_6->setEnabled(false);
+
 
 }
 
 void ClientAff::on_Rechercher_Client_button_clicked() //rechercher client
 {
+    playClick(onoff);
      QString nom=ui->SearchBar_Client->text();
     // qDebug()<<nom;
     ui->Tab_client->setModel(etmp.rechercher(nom));
@@ -241,6 +322,7 @@ void ClientAff::on_Rechercher_Client_button_clicked() //rechercher client
 
 void ClientAff::on_SortButton_clicked()
 {
+    playClick(onoff);
     int value=ui->comboBox1->currentIndex();
 
     //qDebug()<<value;
@@ -300,6 +382,7 @@ void ClientAff::mailSent(QString status)
 
 void ClientAff::on_CreatePDF_clicked()
 {
+    playClick(onoff);
     int idPDF=ui->LE_ID_SUPP->text().toInt();
     QString s = QDateTime::currentDateTime().toString();
     s.replace(" ","_");
@@ -309,10 +392,17 @@ void ClientAff::on_CreatePDF_clicked()
     Produit p;
     p.SelectModif(idPDF);
     p.pdf(s+".pdf",idPDF);
+
+
+
+    QMessageBox::information(nullptr,QObject::tr("ok"),
+                             QObject::tr("Fichier Pdf cree\n""click ok to exit"),QMessageBox::Ok);
+
 }
 //
 void ClientAff::on_CreateClientPdfFile_clicked()
 {
+    playClick(onoff);
    // int idPDF=ui->LE_ID_SUPP->text().toInt();
     QString s = QDateTime::currentDateTime().toString();
     s.replace(" ","_");
@@ -323,21 +413,19 @@ void ClientAff::on_CreateClientPdfFile_clicked()
 
 
 
-
-      qDebug()<<"connected succefully";
-      QMessageBox::information(nullptr,QObject::tr("ok"),
-                               QObject::tr("Ajouter avec success\n""click ok to exit"),QMessageBox::Ok);
-      ui->Tab_produit->setModel(etmp_prod.afficher());
-
+    QMessageBox::information(nullptr,QObject::tr("ok"),
+                             QObject::tr("Fichier Pdf cree\n""click ok to exit"),QMessageBox::Ok);
 
 
 }
 void ClientAff::on_SendMail_clicked()
 {
+    playClick(onoff);
 }
 
 void ClientAff::on_SelectModifProd_clicked()
 {
+    playClick(onoff);
     int id=ui->LE_ID_SUPP->text().toInt();
     Produit P;
    // qDebug()<<id;
@@ -370,6 +458,7 @@ void ClientAff::on_SelectModifProd_clicked()
 
 void ClientAff::on_SelectModifConfirm_clicked()
 {
+    playClick(onoff);
     int id=ui->LE_ID_SUPP->text().toInt();
     QString nom=ui->LE_NOM1->text();
     float PRIXX=ui->LE_PRIX1->text().toFloat();
@@ -407,11 +496,151 @@ void ClientAff::on_SelectModifConfirm_clicked()
 
 }
 
-void ClientAff::on_MusicButton_clicked()
+
+void ClientAff::on_avrir_clicked()
 {
-    player = new QMediaPlayer;
-    // ...
-    player->setMedia(QUrl::fromLocalFile("/Users/me/Music/coolsong.mp3"));
-    player->setVolume(50);
-    player->play();
+    playClick(onoff);
+
+    QString filename=QFileDialog::getOpenFileName(this,"abrir");
+    if(filename.isEmpty())
+    {
+        return;
+    }
+    mMediaPlayer->setMedia(QUrl::fromLocalFile(filename));
+    mMediaPlayer->setVolume(ui->volumen->value());
+    on_Play_clicked();
+
 }
+void ClientAff::on_Play_clicked()
+{
+    playClick(onoff);
+    mMediaPlayer->play();
+
+}
+
+void ClientAff::on_pause_clicked()
+{
+    playClick(onoff);
+    mMediaPlayer->pause();
+
+}
+
+void ClientAff::on_stop_clicked()
+{
+    playClick(onoff);
+    mMediaPlayer->stop();
+
+}
+
+void ClientAff::on_mute_clicked()
+{
+    playClick(onoff);
+    if(ui->mute->text()=="Mute")
+    {
+        mMediaPlayer->setMuted(true);
+        ui->mute->setText("unmute");
+    }
+    else
+    {
+        mMediaPlayer->setMuted(false);
+        ui->mute->setText("Mute");
+
+    }
+
+}
+
+
+
+void ClientAff::on_volumen_valueChanged(int value)
+{
+    mMediaPlayer->setVolume(value);
+}
+
+void ClientAff::on_Tab_client_clicked(const QModelIndex &index)
+{
+    playClick(onoff);
+    if (index.isValid() && index.column()==0) {
+            QString cellText = index.data().toString();
+           // ui->LE_CIN_Supp
+            ui->LE_CIN_Supp->setText(QString(cellText));
+        }
+
+}
+
+void ClientAff::on_ClickSoundOnOff_clicked()
+{
+    if(ui->ClickSoundOnOff->text()=="On")
+    {
+        //mMediaPlayer->setMuted(true);
+        onoff=1;
+        ui->ClickSoundOnOff->setText("Off");
+    }
+    else
+    {
+       // mMediaPlayer->setMuted(false);
+        onoff=0;
+        ui->ClickSoundOnOff->setText("On");
+    }
+}
+
+void ClientAff::on_RechercherProduit_clicked()
+{
+    playClick(onoff);
+     QString nom=ui->LE_ProdRecherche->text();
+
+    ui->Tab_produit->setModel(etmp_prod.rechercher(nom));
+    if(ui->LE_ProdRecherche->text()=="")
+    {
+        ui->Tab_produit->setModel(etmp_prod.afficher());
+
+    }
+
+}
+
+void ClientAff::on_ResetButton_clicked()
+{
+    ui->PTE_Message_Mail->clear();
+    ui->LE_Subject_Mail->clear();
+
+}
+
+void ClientAff::on_Tab_produit_clicked(const QModelIndex &index)
+{
+    playClick(onoff);
+    if (index.isValid() && index.column()==0) {
+            QString cellText = index.data().toString();
+           // ui->LE_CIN_Supp
+            ui->LE_ID_SUPP->setText(QString(cellText));
+        }
+
+}
+
+void ClientAff::on_SortButton_2_clicked()
+{
+    playClick(onoff);
+   int value=ui->comboBox22->currentIndex();
+
+    //qDebug()<<value;
+    if (value==0)
+    {
+        ui->Tab_produit->setModel(etmp_prod.afficherTriPrixAsc());
+
+    }
+    else if (value==1)
+    {
+        ui->Tab_produit->setModel(etmp_prod.afficherTriPrixDesc());
+
+    }
+    else if (value==2)
+    {
+        ui->Tab_produit->setModel(etmp_prod.afficherTriQTAsc());
+
+    }
+    else if (value==3)
+    {
+        ui->Tab_produit->setModel(etmp_prod.afficherTriQTDesc());
+    }
+
+}
+
+

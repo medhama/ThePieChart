@@ -4,11 +4,12 @@
 #include <QDialog>
 #include<client.h>
 #include<produit.h>
+#include <QtMultimedia/QMediaPlayer>
 
 namespace Ui {
 class ClientAff;
 }
-
+class QMediaPlayer;
 class ClientAff : public QDialog
 {
     Q_OBJECT
@@ -46,12 +47,48 @@ private slots:
 
      void on_SelectModifConfirm_clicked();
 
-     void on_MusicButton_clicked();
+
+     void on_avrir_clicked();
+
+     void on_pause_clicked();
+
+
+     void on_stop_clicked();
+
+     void on_mute_clicked();
+
+     void on_Play_clicked();
+
+     void on_volumen_valueChanged(int value);
+
+     void on_Tab_client_clicked(const QModelIndex &index);
+
+     void on_ClickSoundOnOff_clicked();
+
+     void on_RechercherProduit_clicked();
+
+     void on_ResetButton_clicked();
+
+     void on_Tab_produit_clicked(const QModelIndex &index);
+
+     void on_SortButton_2_clicked();
+
+
 
 private:
     Ui::ClientAff *ui;
     Client etmp;
     Produit etmp_prod;
+    QMediaPlayer *mMediaPlayer;
+    void playClick(int onoff){
+        if (onoff==0)
+        {
+        QMediaPlayer *playerB = new QMediaPlayer;
+        playerB->setMedia(QUrl::fromLocalFile("C:/Users/Hamadi/Desktop/C++/ThePieChart/projCpp/Music/click2.wav"));
+        playerB->setVolume(50);
+        playerB->play();
+        }
+    }
 };
 
 #endif // CLIENTAFF_H

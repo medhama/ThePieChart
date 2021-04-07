@@ -238,22 +238,7 @@ void Client::pdf(QString filename)
          "</body>\n"
          "</html>\n";
 
-    QString html =
-    "<div align=right>"
-       "City, 11/11/2015"
-    "</div>"
-    "<div align=left>"+p.Get_nom()+
 
-       "Sender Name<br>"
-       "street 34/56A<br>"
-       "121-43 city"
-    "</div>"
-    "<h1 align=center>DOCUMENT TITLE</h1>"
-    "<p align=justify>"
-       "document content document content document content document content document content document content document content document content document content document content "
-       "document content document content document content document content document content document content document content document content document content document content "
-    "</p>"
-    "<div align=right>sincerly</div>";
 
     QTextDocument document;
     document.setHtml(strStream);
