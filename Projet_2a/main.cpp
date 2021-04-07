@@ -6,7 +6,8 @@
 #include <QMessageBox>
 #include <QDebug>
 #include "connexion.h"
-
+#include <QStyleFactory>
+#include<QFile>
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -14,7 +15,11 @@ int main(int argc, char *argv[])
     bool test=c.ouvrirConnexion();
     //MainWindow w;
     GestionLivraisons F;
-
+    QFile file("C:/Users/Ahmed/Documents/Projet_2a/pics/darkorange.qss");
+        file.open(QFile::ReadOnly);
+        QString styleSheet = QLatin1String(file.readAll());
+        a.setStyle("plastique");
+        a.setStyleSheet(styleSheet);
     if(test)
     {
 

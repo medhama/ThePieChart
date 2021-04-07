@@ -1,6 +1,6 @@
 QT       += core gui
 
-greaterThan(QT_MAJOR_VERSION, 4): QT +=  network printsupport sql widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT +=  network printsupport sql widgets multimedia
 TARGET = smtp
 CONFIG += c++11
 
@@ -27,7 +27,12 @@ FORMS += \
     gestionlivraisons.ui \
     mainwindow.ui
 
+RC_ICONS = icono.ico
+
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    pics.qrc

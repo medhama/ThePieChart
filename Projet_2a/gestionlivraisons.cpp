@@ -16,10 +16,12 @@
 #include "QtSql/QSqlRecord"
 #include <QTextDocument>
 GestionLivraisons::GestionLivraisons(QWidget *parent) :
-    QDialog(parent),
+    QDialog(parent),ui(new Ui::GestionLivraisons)
+{
 
-    ui(new Ui::GestionLivraisons)
-{   GestionLivraisons A(id,date_liv,adresse_liv,nom_liv);
+    musicClic->setMedia(QUrl("C:/Users/Ahmed/Documents/Projet_2a/Clickbutton.mp3"));
+    musicClic->setVolume(10);
+    GestionLivraisons A(id,date_liv,adresse_liv,nom_liv);
     GestionCommandes r;
     ui->setupUi(this);
     ui->le_id->setValidator(new QIntValidator(100, 999, this));
@@ -135,20 +137,32 @@ QSqlQueryModel* GestionLivraisons::afficher()
 }
 
 void GestionLivraisons::on_pb_ajouterliv_clicked()
-{int id=ui->le_id->text().toInt();
-    QString date_liv=ui->la_Dateliv->text();
-    QString adresse_liv=ui->la_adresseliv->text();
-    QString nom_liv=ui->le_nomLiv->text();
- GestionLivraisons L(id,date_liv,adresse_liv,nom_liv);
- bool test=L.ajouter();
+{ musicClic->stop();
+    musicClic->play();
+bool test=false;
+int id=ui->le_id->text().toInt();
+QString date_liv=ui->la_Dateliv->text();
+QString adresse_liv=ui->la_adresseliv->text();
+QString nom_liv=ui->le_nomLiv->text();
+GestionLivraisons L(id,date_liv,adresse_liv,nom_liv);
+    if(id!= 0 && date_liv!= "" && adresse_liv!= "" && nom_liv!= "")
+        test=L.ajouter();
+    else
+
+        QMessageBox::information(nullptr,QObject::tr("ALERT"),QObject::tr("Il faut remplir Tout les Cases.\n"),QMessageBox::Ok);
+
+
+
+ //bool test=L.ajouter();
  QMessageBox msgBox;
- ui->le_id->clear();
- ui->la_Dateliv->clear();
- ui->la_adresseliv->clear();
- ui->le_nomLiv->clear();
+
  if(test)
    {  msgBox.setText("Ajout avec succes.");
      ui->tab_Livraisons->setModel(L.afficher());
+     ui->le_id->clear();
+     ui->la_Dateliv->clear();
+     ui->la_adresseliv->clear();
+     ui->le_nomLiv->clear();
  }
  else
      msgBox.setText("Echec d'ajout");
@@ -157,7 +171,8 @@ void GestionLivraisons::on_pb_ajouterliv_clicked()
 }
 
 void GestionLivraisons::on_pb_supprimer_liv_clicked()
-{
+{  musicClic->stop();
+    musicClic->play();
     GestionLivraisons E1; E1.setid(ui->le_id_supp_liv->text().toInt());
     bool test=E1.supprimer(E1.getid());
     QMessageBox msgBox;
@@ -173,7 +188,9 @@ void GestionLivraisons::on_pb_supprimer_liv_clicked()
 }
 
 void GestionLivraisons::on_pb_ajouterCom_clicked()
-{   int id=ui->le_id_2->text().toInt();
+{   musicClic->stop();
+    musicClic->play();
+    int id=ui->le_id_2->text().toInt();
     int prix_co=ui->le_qte_com->text().toInt();
     int Quantite_co=ui->le_prix_Com->text().toInt();
     QString nom_cli_co=ui->le_Nom_Co->text();
@@ -187,8 +204,14 @@ void GestionLivraisons::on_pb_ajouterCom_clicked()
  ui->le_prix_Com->clear();
  ui->le_Nom_Co->clear();
  ui->le_Email_CO->clear();*/
- if(id!= 0 && prix_co!= 0 && Quantite_co!= 0 && nom_cli_co!= "" && email_Client_co!= "" )
-     test=C.ajouter();
+ if(id!= 0 && prix_co!= 0 && Quantite_co!= 0 && nom_cli_co!= "" && email_Client_co!= "" ){
+     //test=C.ajouter();
+
+ if( email_Client_co.contains("@") && email_Client_co.contains(".")){test=C.ajouter();}
+ else {QMessageBox::information(nullptr,QObject::tr("ALERT"),QObject::tr("ECHEC :Il faut Verifier l'email.\n"),QMessageBox::Ok);}
+
+ }
+     //test=C.ajouter();
  else
 
      QMessageBox::information(nullptr,QObject::tr("ALERT"),QObject::tr("ECHEC :Il faut remplir tout les cases.\n"),QMessageBox::Ok);
@@ -218,7 +241,8 @@ void GestionLivraisons::on_pb_ajouterCom_clicked()
 }
 
 void GestionLivraisons::on_pb_supprimer_2_clicked()
-{
+{musicClic->stop();
+    musicClic->play();
     GestionCommandes C1; C1.setid(ui->le_id_supp_co->text().toInt());
     bool test=C1.supprimer(C1.getid());
     QMessageBox msgBox;
@@ -234,11 +258,12 @@ void GestionLivraisons::on_pb_supprimer_2_clicked()
 }
 
 void GestionLivraisons::on_pb_Modifierliv_clicked()
-{
+{musicClic->stop();
+    musicClic->play();
     bool test=true;
 ui->pb_ajouterliv->setEnabled(true);
-ui->modifier_liv_id_chercher->setEnabled(true);
-    QString id_recherche=ui->modifier_liv_id_chercher->text();
+ui->le_id->setEnabled(true);
+    QString id_recherche=ui->le_id->text();
      /*if(id_recherche!= "" && id_recherche.length()==2)
          test=true;
      else
@@ -246,19 +271,19 @@ ui->modifier_liv_id_chercher->setEnabled(true);
          QMessageBox::information(nullptr,QObject::tr("ALERT"),QObject::tr("Le ID est obligatoire.\n2 caractères"),QMessageBox::Ok);*/
 
     if(test)
-      {int id = ui->modifier_liv_id_chercher->text().toInt();
-                  QString date_liv=ui->la_Dateliv_Mo->text(),
-                          adresse_liv=ui->la_adresseliv_Mo->text(),
-                          nom_liv=ui->le_nomLiv_Mo->text();
+      {int id = ui->le_id->text().toInt();
+                  QString date_liv=ui->la_Dateliv->text(),
+                          adresse_liv=ui->la_adresseliv->text(),
+                          nom_liv=ui->le_nomLiv->text();
 
                           GestionLivraisons e1(id,date_liv,adresse_liv,nom_liv);
                           bool test_modifier=e1.modifier_liv(id_recherche);
 
                           if(test_modifier)
                              {qDebug()<<"Modification Terminer";
-                              ui->la_Dateliv_Mo->clear();
-                              ui->la_adresseliv_Mo->clear();
-                              ui->le_nomLiv_Mo->clear();
+                              ui->la_Dateliv->clear();
+                              ui->la_adresseliv->clear();
+                              ui->le_nomLiv->clear();
 
                              //QMessageBox::information(nullptr,QObject::tr("Modification d'une livraison"),QObject::tr("Terminer avec Succès.\n"),QMessageBox::Ok);
                              ui->tab_Livraisons->setModel(e1.afficher());
@@ -269,8 +294,8 @@ void GestionLivraisons::on_pb_modifierCom_clicked()
 {
     bool test=true;
 ui->pb_ajouterCom->setEnabled(true);
-ui->le_id_3->setEnabled(true);
-    QString idc_recherche=ui->le_id_3->text();
+ui->le_id_2->setEnabled(true);
+    QString idc_recherche=ui->le_id_2->text();
      /*if(id_recherche!= "" && id_recherche.length()==2)
          test=true;
      else
@@ -278,11 +303,11 @@ ui->le_id_3->setEnabled(true);
          QMessageBox::information(nullptr,QObject::tr("ALERT"),QObject::tr("Le ID est obligatoire.\n2 caractères"),QMessageBox::Ok);*/
 
     if(test)
-      {           int id = ui->le_id_3->text().toInt(),
-                   prix_co=ui->le_prix_Com_2->text().toInt(),
-                   Quantite_co=ui->le_qte_com_2->text().toInt();
-                  QString nom_cli_co=ui->le_Nom_Co_2->text(),
-                  email_Client_co=ui->le_Email_CO_2->text();
+      {           int id = ui->le_id_2->text().toInt(),
+                   prix_co=ui->le_prix_Com->text().toInt(),
+                   Quantite_co=ui->le_qte_com->text().toInt();
+                  QString nom_cli_co=ui->le_Nom_Co->text(),
+                  email_Client_co=ui->le_Email_CO->text();
 
 
                           GestionCommandes C2(id,prix_co,Quantite_co,nom_cli_co,email_Client_co);
@@ -290,16 +315,17 @@ ui->le_id_3->setEnabled(true);
 
                           if(test_modifier)
                              {qDebug()<<"Modification Terminer";
-                              ui->le_prix_Com_2->clear();
-                              ui->le_qte_com_2->clear();
-                              ui->le_Nom_Co_2->clear();
-                              ui->le_Email_CO_2->clear();
+                              ui->le_prix_Com->clear();
+                              ui->le_qte_com->clear();
+                              ui->le_Nom_Co->clear();
+                              ui->le_Email_CO->clear();
 
                               //QMessageBox::information(nullptr,QObject::tr("Modification d'une Commande"),QObject::tr("Terminer avec Succès.\n"),QMessageBox::Ok);
                               ui->tab_Commandes->setModel(C2.afficher());
                               }
 }
-
+    musicClic->stop();
+    musicClic->play();
 
 }
 
@@ -308,6 +334,8 @@ void GestionLivraisons::on_pb_rechercher_liv_clicked()
     QString Chaine= ui->le_id_rech_liv1->text();
     qDebug()<<Chaine;
     ui->tab_Livraisons->setModel(A1.afficherLivreur(Chaine));
+    musicClic->stop();
+    musicClic->play();
 }
 QSqlQueryModel * GestionLivraisons::afficherLivreur(QString chaine)
 {
@@ -348,6 +376,8 @@ QSqlQueryModel * GestionLivraisons::afficherLivreur(QString chaine)
 void GestionLivraisons::on_pb_trie_co_clicked()
 {GestionCommandes r;
 ui->tab_Commandes->setModel(r.afficherTrieasc());
+musicClic->stop();
+musicClic->play();
 
 
 
@@ -357,12 +387,16 @@ void GestionLivraisons::on_pb_date_co_clicked()
 {
     GestionCommandes r;
     ui->tab_Commandes->setModel(r.afficherTriedesc());
+    musicClic->stop();
+    musicClic->play();
 }
 
 void GestionLivraisons::on_pb_pdf_liv_clicked()
 {
    pdf("Deliveries.pdf");
 QMessageBox::information(nullptr,QObject::tr("Creation d'un fichier PDF"),QObject::tr("Terminer avec Succès.\n"),QMessageBox::Ok);
+musicClic->stop();
+musicClic->play();
 
 }
 void GestionLivraisons::pdf(QString filename){
@@ -451,20 +485,25 @@ QString GestionLivraisons::currDate()
 void GestionLivraisons::on_pb_trie_co_2_clicked()
 {GestionCommandes r;
     ui->tab_Commandes->setModel(r.afficherTriedesc1());
+    musicClic->stop();
+    musicClic->play();
 
 }
 
 void GestionLivraisons::on_pb_date_co_2_clicked()
 {
     GestionCommandes r;
-    ui->tab_Commandes->setModel(r.afficherTrieasc());
+    ui->tab_Commandes->setModel(r.afficherTrieasc1());
+    musicClic->stop();
+    musicClic->play();
 }
 
 void GestionLivraisons::on_pb_Modifierliv_2_clicked()
 {
-
- int cin=ui->modifier_liv_id_chercher->text().toInt();
-ui->modifier_liv_id_chercher->setEnabled(false);
+    musicClic->stop();
+    musicClic->play();
+ int cin=ui->le_id->text().toInt();
+ui->le_id->setEnabled(false);
 ui->pb_ajouterliv->setEnabled(false);
    // qDebug()<<id;
 //C=C.SelectModif(cin);
@@ -489,9 +528,9 @@ GestionLivraisons C(id1,date_liv1,adresse_liv1,nom_liv1);
 
 
 
-   ui->la_Dateliv_Mo->setText(QString(C.getdate_liv()));
-   ui->la_adresseliv_Mo->setText(QString(C.getadresse_liv()));
-   ui->le_nomLiv_Mo->setText(QString(C.getnom_liv()));
+   ui->la_Dateliv->setText(QString(C.getdate_liv()));
+   ui->la_adresseliv->setText(QString(C.getadresse_liv()));
+   ui->le_nomLiv->setText(QString(C.getnom_liv()));
 
 
 
@@ -500,18 +539,19 @@ GestionLivraisons C(id1,date_liv1,adresse_liv1,nom_liv1);
 
 
 }
-
+    musicClic->stop();
+    musicClic->play();
 }
 
 
 
 void GestionLivraisons::on_pb_Modifierliv_3_clicked()
 {
-    int cin=ui->le_id_3->text().toInt();
+    int cin=ui->le_id_2->text().toInt();
 
 
        ui->pb_ajouterCom->setEnabled(false);
-       ui->le_id_3->setEnabled(false);
+       ui->le_id_2->setEnabled(false);
 
        //ui->pushButton_6->setEnabled(true);
        QSqlQuery query;
@@ -533,10 +573,16 @@ void GestionLivraisons::on_pb_Modifierliv_3_clicked()
 
 
 
-      ui->le_qte_com_2->setText(QString::number(C.getQuantite_co()));
-      ui->le_prix_Com_2->setText(QString::number(C.getprix_co()));
-      ui->le_Nom_Co_2->setText(QString(C.getnom_cli_co()));
-      ui->le_Email_CO_2->setText(QString(C.getemail_Client_co()));
+      ui->le_qte_com->setText(QString::number(C.getQuantite_co()));
+      ui->le_prix_Com->setText(QString::number(C.getprix_co()));
+      ui->le_Nom_Co->setText(QString(C.getnom_cli_co()));
+      ui->le_Email_CO->setText(QString(C.getemail_Client_co()));
 
 
 }}
+
+void GestionLivraisons::on_pb_Modifierliv_3_pressed()
+{
+    musicClic->stop();
+    musicClic->play();
+}

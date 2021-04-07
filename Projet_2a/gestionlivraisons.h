@@ -6,6 +6,7 @@
 #include <gestioncommandes.h>
 #include "smtp.h"
 #include <QAbstractSocket>
+#include <QMediaPlayer>
 namespace Ui {
 class GestionLivraisons;
 }
@@ -73,8 +74,11 @@ private slots:
 
     void on_pb_Modifierliv_3_clicked();
 
+    void on_pb_Modifierliv_3_pressed();
+
 private:
     Ui::GestionLivraisons *ui;
+    QMediaPlayer *musicClic=new QMediaPlayer;
     int id;
     QString date_liv, adresse_liv,nom_liv;
 
