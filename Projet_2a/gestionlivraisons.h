@@ -76,9 +76,18 @@ private slots:
 
     void on_pb_Modifierliv_3_pressed();
 
+    void on_pushButton_clicked();
+
+    void on_pushButton_2_clicked();
+
+    void on_pushButton_3_clicked();
+
+    void on_pushButton_4_clicked();
+
 private:
     Ui::GestionLivraisons *ui;
     QMediaPlayer *musicClic=new QMediaPlayer;
+    QMediaPlayer *musica=new QMediaPlayer;
     int id;
     QString date_liv, adresse_liv,nom_liv;
 

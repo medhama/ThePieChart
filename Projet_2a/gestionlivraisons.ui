@@ -366,6 +366,40 @@
        <string notr="true">image: url(:/new/prefix1/pics/Jarbou3.png);</string>
       </property>
      </widget>
+     <widget class="QPushButton" name="pushButton_4">
+      <property name="geometry">
+       <rect>
+        <x>690</x>
+        <y>530</y>
+        <width>51</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">image: url(:/new/prefix1/pics/soundOff.jpg);
+background-image: url(:/new/prefix1/pics/soundOff.jpg);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_3">
+      <property name="geometry">
+       <rect>
+        <x>630</x>
+        <y>530</y>
+        <width>51</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-image: url(:/new/prefix1/pics/soundonjpg.jpg);
+image: url(:/new/prefix1/pics/soundonjpg.jpg);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
      <zorder>groupBox_4</zorder>
      <zorder>pb_supprimer_liv</zorder>
      <zorder>le_id_supp_liv</zorder>
@@ -377,6 +411,8 @@
      <zorder>widget</zorder>
      <zorder>label_25</zorder>
      <zorder>widget_4</zorder>
+     <zorder>pushButton_4</zorder>
+     <zorder>pushButton_3</zorder>
     </widget>
    </widget>
    <widget class="QWidget" name="La_commande">
@@ -734,6 +770,40 @@
        <string notr="true">image: url(:/new/prefix1/pics/Jarbou3.png);</string>
       </property>
      </widget>
+     <widget class="QPushButton" name="pushButton">
+      <property name="geometry">
+       <rect>
+        <x>630</x>
+        <y>530</y>
+        <width>51</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-image: url(:/new/prefix1/pics/soundonjpg.jpg);
+image: url(:/new/prefix1/pics/soundonjpg.jpg);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_2">
+      <property name="geometry">
+       <rect>
+        <x>690</x>
+        <y>530</y>
+        <width>51</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">image: url(:/new/prefix1/pics/soundOff.jpg);
+background-image: url(:/new/prefix1/pics/soundOff.jpg);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
      <zorder>groupBox_5</zorder>
      <zorder>pb_ajouterCom</zorder>
      <zorder>tab_Commandes</zorder>
@@ -746,6 +816,8 @@
      <zorder>pb_date_co_2</zorder>
      <zorder>widget_2</zorder>
      <zorder>widget_3</zorder>
+     <zorder>pushButton</zorder>
+     <zorder>pushButton_2</zorder>
     </widget>
    </widget>
   </widget>

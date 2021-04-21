@@ -157,12 +157,12 @@ bool GestionCommandes::modifier_com(QString idc_rechercher)
                 query.addBindValue(Quantite_co);query.exec();Testquery=true;
             }
             if(nom_cli_co!="")
-            {nom_cli_co=nom_cli_co.toUpper();
+            {//nom_cli_co=nom_cli_co.toUpper();
                 query.prepare("UPDATE commandes SET nomclient =? WHERE id='"+idc_rechercher+"';");
                 query.addBindValue(nom_cli_co);query.exec();Testquery=true;
             }
             if(email_Client_co!="")
-            {email_Client_co=email_Client_co.toUpper();
+            {//email_Client_co=email_Client_co.toUpper();
                 query.prepare("UPDATE commandes SET emailclient =? WHERE id='"+idc_rechercher+"';");
                 query.addBindValue(email_Client_co);query.exec();Testquery=true;
             }
