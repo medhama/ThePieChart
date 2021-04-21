@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>817</width>
-    <height>428</height>
+    <height>495</height>
    </rect>
   </property>
   <property name="palette">
@@ -467,7 +467,7 @@
      <x>10</x>
      <y>0</y>
      <width>791</width>
-     <height>461</height>
+     <height>481</height>
     </rect>
    </property>
    <property name="font">
@@ -486,7 +486,7 @@ background-image: url(:/BgPic.jpg);
 }</string>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
@@ -730,10 +730,10 @@ background-image: url(:/BgPic.jpg);
     <widget class="QWidget" name="horizontalLayoutWidget_3">
      <property name="geometry">
       <rect>
-       <x>380</x>
-       <y>300</y>
-       <width>331</width>
-       <height>80</height>
+       <x>350</x>
+       <y>310</y>
+       <width>291</width>
+       <height>41</height>
       </rect>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout_5">
@@ -778,8 +778,8 @@ background-image: url(:/BgPic.jpg);
     <widget class="QWidget" name="horizontalLayoutWidget_4">
      <property name="geometry">
       <rect>
-       <x>390</x>
-       <y>260</y>
+       <x>350</x>
+       <y>270</y>
        <width>291</width>
        <height>41</height>
       </rect>
@@ -842,8 +842,8 @@ background-image: url(:/BgPic.jpg);
     <widget class="QWidget" name="horizontalLayoutWidget_10">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>300</y>
+       <x>0</x>
+       <y>350</y>
        <width>261</width>
        <height>101</height>
       </rect>
@@ -879,6 +879,32 @@ background-image: url(:/BgPic.jpg);
        </widget>
       </item>
      </layout>
+    </widget>
+    <widget class="QWidget" name="widget_4" native="true">
+     <property name="geometry">
+      <rect>
+       <x>640</x>
+       <y>310</y>
+       <width>141</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">image: url(:/picMasc.png);</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="GenWinner">
+     <property name="geometry">
+      <rect>
+       <x>450</x>
+       <y>390</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Winner!</string>
+     </property>
     </widget>
    </widget>
    <widget class="QWidget" name="tab_2">
@@ -1065,8 +1091,8 @@ background-image: url(:/BgPic.jpg);
     <widget class="QWidget" name="horizontalLayoutWidget_7">
      <property name="geometry">
       <rect>
-       <x>340</x>
-       <y>320</y>
+       <x>330</x>
+       <y>330</y>
        <width>301</width>
        <height>61</height>
       </rect>
@@ -1107,8 +1133,8 @@ background-image: url(:/BgPic.jpg);
     <widget class="QWidget" name="horizontalLayoutWidget_8">
      <property name="geometry">
       <rect>
-       <x>340</x>
-       <y>290</y>
+       <x>330</x>
+       <y>300</y>
        <width>301</width>
        <height>51</height>
       </rect>
@@ -1136,7 +1162,7 @@ background-image: url(:/BgPic.jpg);
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>290</y>
+       <y>340</y>
        <width>261</width>
        <height>101</height>
       </rect>
@@ -1253,6 +1279,19 @@ background-image: url(:/BgPic.jpg);
       <string>Trier</string>
      </property>
     </widget>
+    <widget class="QWidget" name="widget" native="true">
+     <property name="geometry">
+      <rect>
+       <x>640</x>
+       <y>310</y>
+       <width>141</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">image: url(:/picMasc.png);</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="tab_3">
     <attribute name="title">
@@ -1363,7 +1402,7 @@ background-image: url(:/BgPic.jpg);
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>320</y>
+       <y>360</y>
        <width>211</width>
        <height>81</height>
       </rect>
@@ -1399,6 +1438,19 @@ background-image: url(:/BgPic.jpg);
        </widget>
       </item>
      </layout>
+    </widget>
+    <widget class="QWidget" name="widget_2" native="true">
+     <property name="geometry">
+      <rect>
+       <x>640</x>
+       <y>310</y>
+       <width>141</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">image: url(:/picMasc.png);</string>
+     </property>
     </widget>
    </widget>
    <widget class="QWidget" name="tab_4">
@@ -1477,8 +1529,8 @@ background-image: url(:/BgPic.jpg);
     <widget class="QWidget" name="horizontalLayoutWidget_12">
      <property name="geometry">
       <rect>
-       <x>570</x>
-       <y>350</y>
+       <x>30</x>
+       <y>300</y>
        <width>160</width>
        <height>41</height>
       </rect>
@@ -1516,8 +1568,8 @@ background-image: url(:/BgPic.jpg);
     <widget class="QWidget" name="horizontalLayoutWidget_15">
      <property name="geometry">
       <rect>
-       <x>0</x>
-       <y>310</y>
+       <x>10</x>
+       <y>360</y>
        <width>211</width>
        <height>81</height>
       </rect>
@@ -1553,6 +1605,19 @@ background-image: url(:/BgPic.jpg);
        </widget>
       </item>
      </layout>
+    </widget>
+    <widget class="QWidget" name="widget_3" native="true">
+     <property name="geometry">
+      <rect>
+       <x>640</x>
+       <y>310</y>
+       <width>141</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">image: url(:/picMasc.png);</string>
+     </property>
     </widget>
    </widget>
   </widget>

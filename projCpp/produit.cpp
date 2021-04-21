@@ -118,7 +118,14 @@ void Produit::pdf(QString filename,int id)
             "<br>"
 "Prix: "
 +QString::number(p.Get_prixProd())+
-"</div>";
+"</div>"
+/*
+"<div width=50%>"
+"<img src='C:/Users/Hamadi/Desktop/C++/ThePieChart/projCpp/pics/asset9.png'/>"
+"</div>"
+        */
+
+;
 
     QTextDocument document;
     document.setHtml(html);

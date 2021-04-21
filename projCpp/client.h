@@ -43,6 +43,8 @@ public:
     bool Modifer(int);
     QSqlQueryModel * rechercher(QString);
     void pdf(QString);
+    void mailing();
+    int NbPtWinner();
 
 
 };

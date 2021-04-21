@@ -77,7 +77,7 @@ void ClientAff::on_pushButton_clicked() //ajouter client
     int nbrpt=ui->LE_nbrpt->text().toInt();
     int NumTelephone=ui->LE_NumTelephone->text().toInt();
     bool test=false;
-    if((QString::number(cin).size()==8)&&(email.contains("@"))&&(email.contains(".")))
+    if((QString::number(cin).size()==8)&&(email.contains("@"))&&(email.contains("."))&&!(ui->LE_cin->text()=="")&&!(ui->LE_nom->text()=="")&&!(ui->LE_prenom->text()=="")&&!(ui->LE_adresse->text()=="")&&!(ui->LE_email->text()=="")&&!(ui->LE_nbrpt->text()=="")&&!(ui->LE_NumTelephone->text()==""))
     {
         Client E(cin,nom,prenom,adresse,email,nbrpt,NumTelephone);
         ui->LE_cin->clear();
@@ -112,6 +112,12 @@ void ClientAff::on_pushButton_clicked() //ajouter client
         {
             QMessageBox::critical(nullptr,QObject::tr("Not ok"),
                                      QObject::tr("Ajout non effectue\n Email non valide \n""click cancel to exit"),QMessageBox::Cancel);
+
+        }
+        else if((ui->LE_cin->text()=="")||(ui->LE_nom->text()=="")||(ui->LE_prenom->text()=="")||(ui->LE_adresse->text()=="")||(ui->LE_email->text()=="")||(ui->LE_nbrpt->text()=="")||(ui->LE_NumTelephone->text()==""))
+        {
+            QMessageBox::critical(nullptr,QObject::tr("Not ok"),
+                                     QObject::tr("Ajout non effectue\n Veuillez remplir tous les champ \n""click cancel to exit"),QMessageBox::Cancel);
 
         }
         else
@@ -161,9 +167,17 @@ void ClientAff::on_pushButton_3_clicked() //ajouter produit
     float prixProd=ui->LE_PRIX1->text().toFloat();
      QString Description=ui->TE_description->toPlainText();
 
-    Produit E(id,nom,QTE,prixProd,Description);
-    //Etudiant E(id,nom,prenom);
-    bool test=E.ajouter();
+     bool test=false;
+    if(!(ui->LE_ID1->text()=="")&&!(ui->LE_NOM1->text()=="")&&!(ui->LE_QT1->text()=="")&&!(ui->LE_PRIX1->text()==""))
+     {
+            Produit E(id,nom,QTE,prixProd,Description);
+            test=E.ajouter();
+
+    }
+
+
+
+
     if(test==true)
     {
       qDebug()<<"connection reussite";
@@ -173,9 +187,22 @@ void ClientAff::on_pushButton_3_clicked() //ajouter produit
     }
     else
     {
-        qDebug()<<"connection failed";
-        QMessageBox::critical(nullptr,QObject::tr("Not ok"),
-                                 QObject::tr("Ajout non effectue\n""click cancel to exit"),QMessageBox::Cancel);
+        if((ui->LE_ID1->text()=="")||(ui->LE_NOM1->text()=="")||(ui->LE_QT1->text()=="")||(ui->LE_PRIX1->text()=="")||(ui->TE_description))
+         {
+            qDebug()<<"connection failed";
+            QMessageBox::critical(nullptr,QObject::tr("Not ok"),
+                                     QObject::tr("Ajout non effectue\n Veuillez remplir tous les champs\n""click cancel to exit"),QMessageBox::Cancel);
+
+
+        }
+        else
+        {
+            QMessageBox::critical(nullptr,QObject::tr("Not ok"),
+                                     QObject::tr("Ajout non effectue\n""click cancel to exit"),QMessageBox::Cancel);
+
+        }
+
+
     }
     qDebug()<<"button clicked";
 
@@ -256,7 +283,7 @@ void ClientAff::on_pushButton_6_clicked() //confirmation modification of client
     int nbrpt=ui->LE_nbrpt->text().toInt();
     int NumTelephone=ui->LE_NumTelephone->text().toInt();
     bool test=false;
-    if((QString::number(cin).size()==8)&&(email.contains("@"))&&(email.contains(".")))
+    if((QString::number(cin).size()==8)&&(email.contains("@"))&&(email.contains("."))&&!(ui->LE_cin->text()=="")&&!(ui->LE_nom->text()=="")&&!(ui->LE_prenom->text()=="")&&!(ui->LE_adresse->text()=="")&&!(ui->LE_email->text()=="")&&!(ui->LE_nbrpt->text()=="")&&!(ui->LE_NumTelephone->text()==""))
     {
 
     Client C(cin,nom,prenom,adresse,email,nbrpt,NumTelephone);
@@ -294,6 +321,12 @@ void ClientAff::on_pushButton_6_clicked() //confirmation modification of client
         {
             QMessageBox::critical(nullptr,QObject::tr("Not ok"),
                                      QObject::tr("modification non effectue\n Email non valide \n""click cancel to exit"),QMessageBox::Cancel);
+
+        }
+        else if((ui->LE_cin->text()=="")||(ui->LE_nom->text()=="")||(ui->LE_prenom->text()=="")||(ui->LE_adresse->text()=="")||(ui->LE_email->text()=="")||(ui->LE_nbrpt->text()=="")||(ui->LE_NumTelephone->text()==""))
+        {
+            QMessageBox::critical(nullptr,QObject::tr("Not ok"),
+                                     QObject::tr("Ajout non effectue\n Veuillez remplir tous les champ \n""click cancel to exit"),QMessageBox::Cancel);
 
         }
         else
@@ -644,3 +677,13 @@ void ClientAff::on_SortButton_2_clicked()
 }
 
 
+
+
+
+
+void ClientAff::on_GenWinner_clicked()
+{
+    Client a;
+    int k=a.NbPtWinner();
+
+}

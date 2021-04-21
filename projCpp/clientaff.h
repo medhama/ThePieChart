@@ -47,11 +47,9 @@ private slots:
 
      void on_SelectModifConfirm_clicked();
 
-
      void on_avrir_clicked();
 
      void on_pause_clicked();
-
 
      void on_stop_clicked();
 
@@ -74,6 +72,8 @@ private slots:
      void on_SortButton_2_clicked();
 
 
+
+     void on_GenWinner_clicked();
 
 private:
     Ui::ClientAff *ui;

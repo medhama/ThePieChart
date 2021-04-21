@@ -17,6 +17,8 @@
 #include "QtSql/QtSql"
 #include "QtSql/QSqlRecord"
 
+#include <QVector>
+
 Client::Client()
 {
 
@@ -251,5 +253,42 @@ void Client::pdf(QString filename)
 
     document.print(&printer);
 
+
+}
+int Client::NbPtWinner()
+{
+    QVector<Client> nbq;
+
+    /*
+    QSqlQuery query;
+    QString res=QString::number(id);
+    qDebug()<<"aaa1"<<res;
+    query.prepare("Select * from PRODUIT where IDPROD=:id");
+    query.bindValue(":id",res);
+    query.exec();
+    query.next();
+    int idVal=query.value(0).toInt();
+    QString NomVal=query.value(1).toString();
+    float PrixProdVal=query.value(2).toFloat();
+    int QTEVal=query.value(3).toInt();
+    QString Description=query.value(4).toString();
+    */
+
+
+
+    QSqlQuery query_fix;
+
+    query_fix.prepare("SELECT * FROM Client");
+
+    int rows= 0;
+    if(query_fix.exec())
+    {
+    while(query_fix.next()) {
+    rows++;
+    }
+    }
+    qDebug()<<rows;
+
+    return 2;
 
 }

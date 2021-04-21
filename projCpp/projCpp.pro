@@ -58,9 +58,11 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 DISTFILES += \
     BgPic.jpg \
+    pics/170033319_768811657404561_3443684265017038110_n.png \
     pics/Asset 10.png \
     pics/Asset 9.png \
-    pics/BgPic.jpg
+    pics/BgPic.jpg \
+    pics/picMasc.png
 
 RESOURCES += \
     pics/picc.qrc
