@@ -4,6 +4,12 @@
 #include <QDialog>
 #include <fournisseur.h>
 #include <stock.h>
+#include <QDate>
+#include <QFileDialog>
+#include "smtp.h"
+#include <QtMultimedia/QMediaPlayer>
+#include <QTimer>
+
 
 namespace Ui {
 class gestions;
@@ -43,8 +49,8 @@ private slots:
     void on_lineEdit_num_4_textChanged(const QString &arg1);
 
     void on_pushButton_date_diifrence_clicked();
-    void sendMail_Produit_Date();
-    void mailSent(QString status);
+    //void sendMail_Produit_Date();
+   // void mailSent(QString status);
 
 
     void on_pushButton_total_clicked();
@@ -53,12 +59,47 @@ private slots:
 
     void on_imp_clicked();
 
+  //  void on_EnvoyerMail_pushButton_clicked();
+
+   // void on_sendBtn_2_clicked();
+
+
+    void sendMail_Produit_Date();
+    void mailSent(QString);
+    void on_sendBtn_clicked();
+
+    void on_lineEdit_num_4_cursorPositionChanged(int arg1, int arg2);
+
+    void on_EnvoyerMail_pushButton_clicked();
+
+    void on_pushButton_12_clicked();
+
+    void on_AccStockpb_clicked();
+
+    void on_AccFournisseurpb_clicked();
+
+    void on_le_typeeq_activated(const QString &arg1);
+
+    void on_pushButton_2_clicked();
+
+    void on_Soundoffpb_clicked();
+
+
+  void on_pushButton_clicked();
+
+  void on_slidervolume_sliderMoved(int position);
+
+  void Pbtime();
+
+  void on_Pbtime_clicked();
+
 private:
     Ui::gestions *ui;
     FOURNISSEUR F;
     STOCK S;
-
-
+    QStringList files;
+ QMediaPlayer *player ;
+ QTimer *timer;
 
 };
 
