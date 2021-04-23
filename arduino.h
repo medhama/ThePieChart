@@ -3,7 +3,7 @@
 #include <QtSerialPort/QSerialPort>
 #include <QtSerialPort/QSerialPortInfo>
 #include <QDebug>
-//
+//hello
 class Arduino
 {
 public:
