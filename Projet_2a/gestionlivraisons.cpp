@@ -619,3 +619,50 @@ void GestionLivraisons::on_pushButton_4_clicked()
         musicClic->play();
         musica->stop();
 }
+
+void GestionLivraisons::on_pb_rechercher_liv_2_clicked()
+{
+    GestionLivraisons A1;
+        QString Chaine= ui->le_id_rech_liv1_2->text();
+        qDebug()<<Chaine;
+        ui->label_7->setText(A1.afficherNumdate(Chaine));
+        musicClic->stop();
+        musicClic->play();
+}
+QString GestionLivraisons::afficherNumdate(QString chaine1)
+{
+    QSqlQuery query;
+         query.prepare("SELECT COUNT(datedelalivraison) FROM livraisons where (datedelalivraison like :NOMC)");
+
+         query.bindValue(":NOMC", chaine1);
+         int nombre=0;
+
+            if(query.exec())
+            {
+                while (query.next())
+                {
+                    nombre=query.value(0).toInt();
+                    qDebug()<<nombre;
+                }
+            }
+            QString nombre1 = QString::number(nombre);
+       return nombre1;
+
+
+
+
+
+
+}
+
+void GestionLivraisons::on_pb_rechercher_liv_5_clicked()
+{
+    GestionCommandes A1;
+        QString Chaine= ui->le_id_rech_liv1_5->text();
+        qDebug()<<Chaine;
+        ui->label_33->setText(A1.afficherSommeQuantite(Chaine));
+        ui->label_34->setText(A1.afficherSommedep(Chaine));
+        ui->label_32->setText(A1.afficherCountdep(Chaine));
+        musicClic->stop();
+        musicClic->play();
+}

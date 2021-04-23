@@ -25,6 +25,9 @@ public:
     QSqlQueryModel* afficherTriedesc();
     QSqlQueryModel* afficherTrieasc1();
     QSqlQueryModel* afficherTriedesc1();
+    QString  afficherSommeQuantite(QString);
+    QString  afficherSommedep(QString);
+    QString  afficherCountdep(QString);
     bool supprimer(int);
     bool modifier_com(QString);
 private:

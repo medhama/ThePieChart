@@ -177,4 +177,81 @@ bool GestionCommandes::modifier_com(QString idc_rechercher)
 
  return Testquery;
 }
+QString GestionCommandes::afficherSommeQuantite(QString chaine1)
+{
+    QSqlQuery query;
+         query.prepare("SELECT SUM(quantité) FROM commandes where (nomclient like :NOMC)");
+
+         query.bindValue(":NOMC", chaine1);
+         int nombre=0;
+
+            if(query.exec())
+            {
+                while (query.next())
+                {
+                    nombre=query.value(0).toInt();
+                    qDebug()<<nombre;
+                }
+            }
+            QString nombre1 = QString::number(nombre);
+       return nombre1;
+
+
+
+
+
+
+}
+QString GestionCommandes::afficherSommedep(QString chaine1)
+{
+    QSqlQuery query;
+         query.prepare("SELECT SUM(prix) FROM commandes where (nomclient like :NOMC)");
+
+         query.bindValue(":NOMC", chaine1);
+         int nombre=0;
+
+            if(query.exec())
+            {
+                while (query.next())
+                {
+                    nombre=query.value(0).toInt();
+                    qDebug()<<nombre;
+                }
+            }
+            QString nombre1 = QString::number(nombre);
+       return nombre1;
+
+
+
+
+
+
+}
+QString GestionCommandes::afficherCountdep(QString chaine1)
+{
+    QSqlQuery query;
+         query.prepare("SELECT COUNT(nomclient) FROM commandes where (nomclient like :NOMC)");
+
+         query.bindValue(":NOMC", chaine1);
+         int nombre=0;
+
+            if(query.exec())
+            {
+                while (query.next())
+                {
+                    nombre=query.value(0).toInt();
+                    qDebug()<<nombre;
+                }
+            }
+            QString nombre1 = QString::number(nombre);
+       return nombre1;
+
+
+
+
+
+
+}
+
+
 

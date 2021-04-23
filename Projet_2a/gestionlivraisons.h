@@ -31,6 +31,7 @@ public:
     bool ajouter();
     QSqlQueryModel* afficher();
     QSqlQueryModel* afficherLivreur(QString);
+    QString  afficherNumdate(QString);
     bool supprimer(int);
     bool modifier_liv(QString);
     void pdf(QString);
@@ -83,6 +84,10 @@ private slots:
     void on_pushButton_3_clicked();
 
     void on_pushButton_4_clicked();
+
+    void on_pb_rechercher_liv_2_clicked();
+
+    void on_pb_rechercher_liv_5_clicked();
 
 private:
     Ui::GestionLivraisons *ui;
