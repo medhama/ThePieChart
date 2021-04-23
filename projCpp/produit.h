@@ -40,7 +40,7 @@ public:
 
 
     bool Modifer(int);
-    void pdf(QString,int);
+    void pdf(QString,int,QString);
     QSqlQueryModel * rechercher(QString);
 };
 

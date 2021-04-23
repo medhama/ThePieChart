@@ -424,7 +424,13 @@ void ClientAff::on_CreatePDF_clicked()
 
     Produit p;
     p.SelectModif(idPDF);
-    p.pdf(s+".pdf",idPDF);
+    QString filepath=QFileDialog::getExistingDirectory(this, "Get Any File");
+    if(filepath.isEmpty())
+    {
+        return;
+    }
+
+    p.pdf(s+".pdf",idPDF,filepath);
 
 
 
@@ -442,7 +448,14 @@ void ClientAff::on_CreateClientPdfFile_clicked()
     s.replace(":",".");
     qDebug() << s;
     Client C;
-    C.pdf(s+".pdf");
+    QString filepath=QFileDialog::getExistingDirectory(this, "Get Any File");
+    if(filepath.isEmpty())
+    {
+        return;
+    }
+
+
+    C.pdf(s+".pdf",filepath);
 
 
 
@@ -683,7 +696,14 @@ void ClientAff::on_SortButton_2_clicked()
 
 void ClientAff::on_GenWinner_clicked()
 {
-    Client a;
+    Client a,C;
     int k=a.NbPtWinner();
+    C=C.SelectModif(k);
+
+    ui->Tab_client->setModel(etmp.rechercher(QString::number(k)));
+
+    C.mailing();
+
+
 
 }

@@ -11,7 +11,8 @@
 #include <QTextDocument>
 #include <QTextCharFormat>
 #include<QTextCursor>
-
+#include<QFileDialog>
+#include <QWidget>
 Produit::Produit()
 {
 
@@ -86,7 +87,7 @@ Produit Produit::SelectModif(int id)
     return P;
 }
 
-void Produit::pdf(QString filename,int id)
+void Produit::pdf(QString filename,int id,QString filepath)
 {
   //  LE_ID_SUPP
     Produit p;
@@ -100,6 +101,11 @@ void Produit::pdf(QString filename,int id)
     "<head>"
         "<meta charset='utf-8' />"
     "</head>"
+"<style>"
+".wrapper{position:relative;}"
+
+".arrow{position:absolute;right:0px;bottom:0px;}"
+"</style>"
 
     "<div align=right>"
        +s+
@@ -119,21 +125,27 @@ void Produit::pdf(QString filename,int id)
 "Prix: "
 +QString::number(p.Get_prixProd())+
 "</div>"
-/*
-"<div width=50%>"
-"<img src='C:/Users/Hamadi/Desktop/C++/ThePieChart/projCpp/pics/asset9.png'/>"
+"<div class='wrapper'>"
+"<div class='arrow'>"
+"<img  src='pics/asset9.png' width='100' height='100'/>"
 "</div>"
-        */
+"</div>"
+
 
 ;
 
     QTextDocument document;
     document.setHtml(html);
 
+
+
+
+
+
     QPrinter printer(QPrinter::PrinterResolution);
     printer.setOutputFormat(QPrinter::PdfFormat);
     printer.setPaperSize(QPrinter::A4);
-    printer.setOutputFileName("tmp/"+filename);
+    printer.setOutputFileName(filepath+"/"+filename);
     printer.setPageMargins(QMarginsF(15, 15, 15, 15));
 
     document.print(&printer);

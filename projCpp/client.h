@@ -42,7 +42,7 @@ public:
     Client SelectModif(int);
     bool Modifer(int);
     QSqlQueryModel * rechercher(QString);
-    void pdf(QString);
+    void pdf(QString,QString);
     void mailing();
     int NbPtWinner();
 

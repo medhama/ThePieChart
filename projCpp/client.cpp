@@ -18,6 +18,11 @@
 #include "QtSql/QSqlRecord"
 
 #include <QVector>
+#include "smtp.h"
+#include <QSslSocket>
+
+
+
 
 Client::Client()
 {
@@ -151,16 +156,9 @@ Client Client::SelectModif(int cinn)
     int Nbr_pointVal=query.value(4).toInt();
     int Num_telephoneVal=query.value(5).toInt();
     QString EmailVal=query.value(6).toString();
-//(int cin,QString nom,QString prenom,QString adresse,QString email,int nbr_point,int num_telephone)
+
     Client C(cinVal,NomVal,PrenomVal,AdresseVal,EmailVal,Nbr_pointVal,Num_telephoneVal);
-  /*  qDebug()<<cinVal<<"vall";
-    qDebug()<<NomVal<<"vallNom";
-    qDebug()<<PrenomVal<<"vallPrenom";
-    qDebug()<<AdresseVal<<"vallAdresse";
-    qDebug()<<Nbr_pointVal<<"vallNbr point";
-    qDebug()<<Num_telephoneVal<<"vallNumero telephone";
-    qDebug()<<EmailVal<<"vall email"; */
-    //C=query.value();
+
     return C;
 }
 bool Client::Modifer(int cin)
@@ -182,7 +180,7 @@ bool Client::Modifer(int cin)
 
 }
 
-void Client::pdf(QString filename)
+void Client::pdf(QString filename,QString filepath)
 {
   //  LE_ID_SUPP
     Client p;
@@ -236,7 +234,8 @@ void Client::pdf(QString filename)
 
 
 
-     out <<  "</table>\n"
+     out <<  "</table>\n";
+    out<<"<img  src='pics/asset9.png' width='100' height='100'/>"
          "</body>\n"
          "</html>\n";
 
@@ -248,33 +247,28 @@ void Client::pdf(QString filename)
     QPrinter printer(QPrinter::PrinterResolution);
     printer.setOutputFormat(QPrinter::PdfFormat);
     printer.setPaperSize(QPrinter::A4);
-    printer.setOutputFileName("tmpClient/"+filename);
+    printer.setOutputFileName(filepath+"/"+filename);
     printer.setPageMargins(QMarginsF(15, 15, 15, 15));
 
     document.print(&printer);
 
 
 }
+void Client::mailing()
+{
+    Smtp* smtp = new Smtp("visitunisia1@gmail.com", "123456789.V", "smtp.gmail.com", 465);
+
+
+
+    smtp->sendMail("visitunisia1@gmail.com", "mohamedhamadifathallah@gmail.com" , "Winner announcment !","Congrats "+this->Get_nom()+" "+this->Get_prenom()+", You are the winner! we will be contacting you shortly to give you more information on this matter.\n\n"+"ThePieChart");
+
+
+
+}
+
 int Client::NbPtWinner()
 {
     QVector<Client> nbq;
-
-    /*
-    QSqlQuery query;
-    QString res=QString::number(id);
-    qDebug()<<"aaa1"<<res;
-    query.prepare("Select * from PRODUIT where IDPROD=:id");
-    query.bindValue(":id",res);
-    query.exec();
-    query.next();
-    int idVal=query.value(0).toInt();
-    QString NomVal=query.value(1).toString();
-    float PrixProdVal=query.value(2).toFloat();
-    int QTEVal=query.value(3).toInt();
-    QString Description=query.value(4).toString();
-    */
-
-
 
     QSqlQuery query_fix;
 
@@ -285,10 +279,32 @@ int Client::NbPtWinner()
     {
     while(query_fix.next()) {
     rows++;
-    }
-    }
-    qDebug()<<rows;
 
-    return 2;
+    int cinVal=query_fix.value(0).toInt();
+    QString NomVal=query_fix.value(1).toString();
+    QString PrenomVal=query_fix.value(2).toString();
+    QString AdresseVal=query_fix.value(3).toString();
+    int Nbr_pointVal=query_fix.value(4).toInt();
+    int Num_telephoneVal=query_fix.value(5).toInt();
+    QString EmailVal=query_fix.value(6).toString();
+    Client C(cinVal,NomVal,PrenomVal,AdresseVal,EmailVal,Nbr_pointVal,Num_telephoneVal);
+
+    for(int i=0;i<Nbr_pointVal;i++)
+    {
+        nbq.push_back(C);
+    }
+
+    }
+    qsrand(QDateTime::currentMSecsSinceEpoch() / 1000);
+    int rand=qrand()%27;
+
+
+    qDebug()<<rand<<endl;
+
+    return nbq[rand].Get_cin();
+
+    }
+
+    return 0;
 
 }
