@@ -9,10 +9,20 @@
 #include <QIntValidator>
 #include <QtMultimedia/QMediaPlayer>
 
+
 gestions::gestions(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::gestions)
 {
+    //add sound effect
+
+    player = new QMediaPlayer(this);
+
+
+
+//end sound effect
+
+
     ui->setupUi(this);
     ui->le_id->setValidator(new QIntValidator(0, 99999, this));
     ui->tab_fournisseur_2->setModel(F.afficher());
@@ -21,6 +31,8 @@ gestions::gestions(QWidget *parent) :
     makePolt();
     connect(ui->sendBtn, SIGNAL(clicked()),this, SLOT(sendMail_Produit_Date()));
     connect(ui->exitBtn, SIGNAL(clicked()),this, SLOT(close()));
+
+
 
 }
 
@@ -37,6 +49,17 @@ gestions::~gestions()
 
 void gestions::on_pb_ajouterf_clicked()
 {
+    //add sound effect
+
+    QMediaPlayer *player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/tarek/Desktop/projetqt/Seance6/soundbuttons/sound.wav"));
+    player->setVolume(50);
+    player->play();
+
+
+//end sound effect
+
+
     int  id=ui->le_id->text().toInt();
     QString nomsoc=ui->le_nomsoc->text();
     QString lieu=ui->le_lieu->text();
@@ -84,6 +107,17 @@ void gestions::on_pb_supprimerf_clicked()
 
 void gestions::on_pb_ajouters_clicked()
 {
+    //add sound effect
+
+    QMediaPlayer *player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/tarek/Desktop/projetqt/Seance6/soundbuttons/sound.wav"));
+    player->setVolume(50);
+    player->play();
+
+
+//end sound effect
+
+
     int  id=ui->le_idstock->text().toInt();
     QString libelle=ui->le_libstock->text();
     int quantite=ui->le_qtestock->text().toInt();
@@ -183,7 +217,7 @@ void gestions::on_tab_fournisseur_2_activated(const QModelIndex &index)
         }
     }
     else
-        QMessageBox::warning(this,"Erreur","Selectionner le nom du produit");
+        QMessageBox::warning(this,"Erreur","Selectionner le id du fournisseur");
 }
 
 void gestions::on_tab_stock_2_activated(const QModelIndex &index)
@@ -208,7 +242,7 @@ void gestions::on_tab_stock_2_activated(const QModelIndex &index)
         }
     }
     else
-        QMessageBox::warning(this,"Erreur","Selectionner le nom du produit");
+        QMessageBox::warning(this,"Erreur","Selectionner le id du stock");
 }
 
 void gestions::on_pbmodifierstock_clicked()
@@ -223,7 +257,7 @@ void gestions::on_pbmodifierstock_clicked()
     int verif=0;
     if(ui->le_libstock->text()=="")
     {
-        QMessageBox::warning(this,"erreur","nomstock vide");
+        QMessageBox::warning(this,"erreur","libelle stock vide");
         return ;
     }
   //  QString DATE =S.SET_Date(&yp,&mp,&dp);
@@ -272,7 +306,7 @@ void gestions::on_pbmodifierfournisseur_2_clicked()
       //ui->le_datestock->date().getDate(&yp,&mp,&dp);
      // QString DATE =tmp0.SET_Date(&yp,&mp,&dp);
       if(F.verifier_vide(ui->le_lieu->text())==false || F.verifier_vide(ui->le_numero->text()) ==false || F.verifier_vide(ui->le_typeeq->currentText())==false)
-          QMessageBox::warning(this,"erreur","Prix ou Quantite invalide");
+          QMessageBox::warning(this,"erreur","lieu ou numero invalide");
        else
           verif=1;
 
@@ -319,9 +353,9 @@ void gestions::makePolt()
     qDebug()<<"test";
 
        QLinearGradient gradient(0, 0, 0, 400);
-       gradient.setColorAt(0, QColor(255,236,218));
-       gradient.setColorAt(0.38, QColor(254,211,171));
-       gradient.setColorAt(1, QColor(234,159,111));
+       gradient.setColorAt(0, QColor(50,50,50));
+       gradient.setColorAt(0.38, QColor(50,50,50));
+       gradient.setColorAt(1, QColor(177,177,177));
        ui->customPlot->setBackground(QBrush(gradient));
 
 
@@ -336,7 +370,7 @@ void gestions::makePolt()
 
        regen->setName("Nombre de FOURNISSEUR par rapport a la type");
        regen->setPen(QPen(QColor(240,226,58).lighter(130)));
-       regen->setBrush(QColor(240,226,58));
+       regen->setBrush(QColor(255,160,47));
 
        QVector<double> ticks;
        QVector<QString> labels;
@@ -493,14 +527,141 @@ void gestions::sendMail_Produit_Date()
 
     if( !files.isEmpty() )
        // ui->msg->toPlainText()
-        smtp->sendMail("cybertek.smarthome@gmail.com", ui->rcpt->text() ,"SMART PASTRY",S.Verifier_Date() );
+        smtp->sendMail("virupediaproject@gmail.com", ui->rcpt->text() ,"SMART PASTRY",S.Verifier_Date() );
     else
-        smtp->sendMail("cybertek.smarthome@gmail.com", ui->rcpt->text() , "SMART PASTRY",S.Verifier_Date() );
+        smtp->sendMail("virupediaproject@gmail.com", ui->rcpt->text() , "SMART PASTRY",S.Verifier_Date() );
 }
 
 void gestions::mailSent(QString status)
 {
     if(status == "Message sent")
         QMessageBox::warning( this, tr( "Qt Simple SMTP client" ), tr( "Message sent!\n\n" ) );
+
+}
+
+void gestions::on_EnvoyerMail_pushButton_clicked()
+{
+     ui->tabWidget->setCurrentIndex(4);
+}
+
+void gestions::on_pushButton_12_clicked()
+{
+    //add sound effect
+
+    QMediaPlayer *player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/tarek/Desktop/projetqt/Seance6/soundbuttons/sound.wav"));
+    player->setVolume(50);
+    player->play();
+
+
+//end sound effect
+    ui->tabWidget->setCurrentIndex(3);
+
+}
+
+void gestions::on_AccStockpb_clicked()
+
+{
+    //add sound effect
+
+    QMediaPlayer *player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/tarek/Desktop/projetqt/Seance6/soundbuttons/sound.wav"));
+    player->setVolume(50);
+    player->play();
+
+
+//end sound effect
+     ui->tabWidget->setCurrentIndex(1);
+}
+
+void gestions::on_AccFournisseurpb_clicked()
+
+{
+    //add sound effect
+
+    QMediaPlayer *player = new QMediaPlayer;
+    player->setMedia(QUrl::fromLocalFile("C:/Users/tarek/Desktop/projetqt/Seance6/soundbuttons/sound.wav"));
+    player->setVolume(50);
+    player->play();
+
+
+//end sound effect
+    ui->tabWidget->setCurrentIndex(2);
+}
+
+
+
+void gestions::on_Soundoffpb_clicked()
+{
+     player->stop();
+}
+
+void gestions::on_pushButton_clicked()
+{
+    player->setMedia(QUrl::fromLocalFile("C:/Users/tarek/Desktop/projetqt/Seance6/soundbuttons/tonyz.mp3"));
+    player->play();
+}
+
+void gestions::on_slidervolume_sliderMoved(int position)
+{
+    player->setVolume(position);
+}
+
+
+
+
+
+void gestions::on_Pbtime_clicked()
+{
+
+    int T=ui->Timer->currentText().toInt();
+    timer=new QTimer(this);
+    connect(timer, SIGNAL(timeout()),this, SLOT(Pbtime()));
+    timer->start(T*1000);
+
+}
+
+
+void gestions::Pbtime()
+{
+
+
+
+    int  id=ui->le_idstock_3->text().toInt();
+    QString libelle=ui->le_libstock_3->text();
+    int quantite=ui->le_qtestock_3->text().toInt();
+
+    int yp,mp,dp;
+
+    ui->le_datestock_3->date().getDate(&yp,&mp,&dp);
+
+
+    int prix=ui->le_prixstock_3->text().toInt();
+    QString datestock =S.SET_Date(&yp,&mp,&dp);
+
+    STOCK S(id,libelle,quantite,datestock,prix);
+
+    bool test=S.ajouter();
+    if(test){
+        QMessageBox::information(nullptr, QObject::tr("OK"),
+                    QObject::tr("ajout de stock succesful.\n"
+                                "Click Cancel to exit."), QMessageBox::Cancel);
+          ui->tab_stock_2->setModel(S.afficher());
+
+          //Clear attributs
+          ui->le_idstock_3->clear();
+          ui->le_libstock_3->clear();
+          ui->le_qtestock_3->clear();
+           ui->le_datestock_3->clear();
+           ui->le_prixstock_3->clear();
+
+    }
+    else{
+
+        QMessageBox::critical(nullptr, QObject::tr("NOT OK"),
+                    QObject::tr("ajoutstock failed.\n"
+                                "Click Cancel to exit."), QMessageBox::Cancel);
+    }
+    timer->stop();
 
 }
