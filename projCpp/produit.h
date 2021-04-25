@@ -7,6 +7,7 @@
 
 class Produit
 {
+protected:
     QString nom,Description;
     int id,QTE;
     float prixProd;
@@ -29,6 +30,7 @@ public:
 
 
     bool ajouter();
+
     QSqlQueryModel * afficher();
     bool supprimer(int);
     Produit SelectModif(int);

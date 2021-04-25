@@ -4,6 +4,8 @@
 #include <QDialog>
 #include<client.h>
 #include<produit.h>
+#include<produit_stock.h>
+#include<rfidmoteur.h>
 #include <QtMultimedia/QMediaPlayer>
 
 namespace Ui {
@@ -71,14 +73,26 @@ private slots:
 
      void on_SortButton_2_clicked();
 
-
-
      void on_GenWinner_clicked();
+
+     void on_Ajouter_Prod_Stock_clicked();
+
+     void on_Afficher_Ingredients_clicked();
+
+     void on_Supprimer_Ingred_clicked();
+
+     void on_Afficher_Ingredients_2_clicked();
+
+     void on_pushButton_7_clicked();
+     void updatelabel();
 
 private:
     Ui::ClientAff *ui;
     Client etmp;
     Produit etmp_prod;
+    Produit_Stock etmp_prod_stock;
+    QByteArray data;
+    RFIDMOTEUR A;
     QMediaPlayer *mMediaPlayer;
     void playClick(int onoff){
         if (onoff==0)

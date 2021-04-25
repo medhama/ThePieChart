@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+#include "produit_stock.h"
 
 #include "clientaff.h"
 #include "ui_clientaff.h"
@@ -18,6 +19,8 @@
 #include <QtMultimedia/QMediaPlayer>
 #include <QWidget>
 
+#include<rfidmoteur.h>
+
 
 int onoff;
 ClientAff::ClientAff(QWidget *parent) :
@@ -26,6 +29,24 @@ ClientAff::ClientAff(QWidget *parent) :
 {
    // setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint);
     ui->setupUi(this);
+
+
+
+    int retA=A.connect_arduino();
+
+    switch(retA)
+    {
+        case(0):qDebug()<<"arduino is available and connected to : "<<A.get_arduino_port_name();
+        break;
+    case(1):qDebug()<<"arduino is available but not connected to : " <<A.get_arduino_port_name();
+        break;
+    case(-1):qDebug()<<"arduino is not available";
+
+    }
+
+
+
+    QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_label()));
 
 
 
@@ -62,6 +83,23 @@ ClientAff::ClientAff(QWidget *parent) :
 ClientAff::~ClientAff()
 {
     delete ui;
+}
+void ClientAff::updatelabel()
+{
+    data=A.read_from_arduino();
+    if(data=="1")
+    {
+            ui->updatelabel->setText("ON");
+}
+            else if(data=="0")
+    {
+            ui->updatelabel->setText("OFF");
+
+}
+
+
+
+
 }
 
 void ClientAff::on_pushButton_clicked() //ajouter client
@@ -700,10 +738,94 @@ void ClientAff::on_GenWinner_clicked()
     int k=a.NbPtWinner();
     C=C.SelectModif(k);
 
-    ui->Tab_client->setModel(etmp.rechercher(QString::number(k)));
+  //  ui->Tab_client->setModel(etmp.rechercher(QString::number(k)));
 
     C.mailing();
 
 
+
+}
+
+void ClientAff::on_Ajouter_Prod_Stock_clicked()
+{
+    playClick(onoff);
+
+    int idStock=ui->LE_IdStock_P->text().toInt();
+    QString idProd=ui->LE_idprod_S->text();
+
+     bool test=false;
+    Produit_Stock E(idProd,idStock);
+            test=E.ajouterSP();
+
+    if(test==true)
+    {
+      qDebug()<<"connection reussite";
+      QMessageBox::information(nullptr,QObject::tr("ok"),
+                               QObject::tr("Ajouter avec success\n""click ok to exit"),QMessageBox::Ok);
+     // ui->Tab_produit->setModel(etmp_prod.afficher());
+    }
+    else
+    {
+
+            QMessageBox::critical(nullptr,QObject::tr("Not ok"),
+                                     QObject::tr("Ajout non effectue\n""click cancel to exit"),QMessageBox::Cancel);
+
+    }
+    qDebug()<<"button clicked";
+
+}
+
+void ClientAff::on_Afficher_Ingredients_clicked()
+{
+     QString idProd=ui->LE_Ingredients->text();
+     int idprodint=idProd.toInt();
+     qDebug()<<idProd;
+     Produit P;
+     P=P.SelectModif(idprodint);
+    ui->labelProdName->setText(P.Get_nom());
+    ui->tab_prod_stock->setModel(etmp_prod_stock.afficherIngredients(idProd));
+
+}
+
+void ClientAff::on_Supprimer_Ingred_clicked()
+{
+
+    playClick(onoff);
+    int idS=ui->LE_IdStock_P_2->text().toInt();
+    int idP=ui->LE_idprod_S_2->text().toInt();
+
+    bool test=etmp_prod_stock.supprimerProd_Stock(idP,idS);
+    if(test==true)
+    {
+
+      QMessageBox::information(nullptr,QObject::tr("ok"),
+                               QObject::tr("Suppression effectuee\n""click ok to exit"),QMessageBox::Ok);
+    }
+    else
+    {
+        QMessageBox::critical(nullptr,QObject::tr("Not ok"),
+                                 QObject::tr("Suppression non effectue\n""click cancel to exit"),QMessageBox::Cancel);
+    }
+
+
+}
+
+
+void ClientAff::on_Afficher_Ingredients_2_clicked()
+{
+    QString idProd=ui->LE_Ingredients->text();
+
+    qDebug()<<idProd;
+
+   ui->tab_prod_stock->setModel(etmp_prod_stock.afficherProduits(idProd));
+
+}
+
+void ClientAff::on_pushButton_7_clicked()
+{
+    QString timeS=ui->SetTimeLE->text();
+    QByteArray br = timeS.toUtf8();
+
+    A.write_to_arduino(br);
 
 }

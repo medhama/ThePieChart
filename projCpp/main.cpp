@@ -11,6 +11,7 @@
 #include<QFile>
 
 
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -21,6 +22,7 @@ int main(int argc, char *argv[])
 
     f.setFamily("Segoe MDL2 Assets");
     a.setFont(f);
+
 
 
 

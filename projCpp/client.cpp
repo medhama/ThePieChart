@@ -295,8 +295,15 @@ int Client::NbPtWinner()
     }
 
     }
+    int rand;
     qsrand(QDateTime::currentMSecsSinceEpoch() / 1000);
-    int rand=qrand()%27;
+    if(rows!=0){
+        rand=qrand()%rows;
+    }
+    else
+    {
+        rand=0;
+    }
 
 
     qDebug()<<rand<<endl;

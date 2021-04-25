@@ -1,4 +1,4 @@
-QT       += network core gui sql printsupport multimedia
+QT       += network core gui sql printsupport multimedia serialport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -21,6 +21,8 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     produit.cpp \
+    produit_stock.cpp \
+    rfidmoteur.cpp \
     smtp.cpp
 
 HEADERS += \
@@ -29,6 +31,8 @@ HEADERS += \
     connection.h \
     mainwindow.h \
     produit.h \
+    produit_stock.h \
+    rfidmoteur.h \
     smtp.h
 
 

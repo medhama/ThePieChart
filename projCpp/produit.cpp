@@ -45,6 +45,9 @@ bool Produit::ajouter()
    // return test;
 
 }
+
+
+
 QSqlQueryModel * Produit::afficher()
 {
     QSqlQueryModel * model= new QSqlQueryModel();
