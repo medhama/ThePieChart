@@ -1,6 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-
+//ajouter la date
+//ajouter le time
 #include <QMainWindow>
 #include <QMessageBox>
 #include <QPropertyAnimation>
