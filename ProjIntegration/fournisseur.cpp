@@ -54,7 +54,7 @@ void FOURNISSEUR::settypeeq(QString typeeq){
 this->typeeq=typeeq;
 }
 
-//ajouter
+
 bool FOURNISSEUR::ajouter(){
     QSqlQuery query;
     QString id_string= QString::number(id);
@@ -134,20 +134,7 @@ bool FOURNISSEUR::FOURNISSEURExiste(QString nomsoc)
     else
         return false;
 }
-bool FOURNISSEUR:: verifierlieu(int   lieu)
-{
 
-    if(lieu>0 && lieu<=5500)
-    { return true;}
-    else return false;
-}
-bool FOURNISSEUR:: verifiertypeeq(int   typeeq)
-{
-
-    if(typeeq>0 && typeeq<=500500)
-    { return true;}
-    else return false;
-}
 bool FOURNISSEUR:: verifier_vide(QString line)
 {
 
