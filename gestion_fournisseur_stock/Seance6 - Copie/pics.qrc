@@ -1,0 +1,23 @@
+<RCC>
+    <qresource prefix="/">
+        <file>pics/image1.jpg</file>
+        <file>pics/image2jpg.jpg</file>
+        <file>pics/EditerStatistiques.png</file>
+        <file>pics/EnvoyerMail.png</file>
+        <file>pics/image3.jpg</file>
+        <file>pics/image4.jpg</file>
+        <file>pics/image5.jpg</file>
+        <file>pics/logo.png</file>
+        <file>pics/cake.png</file>
+        <file>pics/cake1.png</file>
+        <file>pics/thepiechart.png</file>
+        <file>pics/mousealone (1).png</file>
+        <file>pics/biscuit.png</file>
+        <file>pics/finalmiceshelf.png</file>
+        <file>pics/music.png</file>
+        <file>pics/box.png</file>
+        <file>pics/fournisseur.png</file>
+        <file>pics/supplier.png</file>
+        <file>pics/supp.png</file>
+    </qresource>
+</RCC>

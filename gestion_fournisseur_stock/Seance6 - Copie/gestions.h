@@ -9,6 +9,8 @@
 #include "smtp.h"
 #include <QtMultimedia/QMediaPlayer>
 #include <QTimer>
+#include <arduino.h>
+#include <popgas.h>
 
 
 namespace Ui {
@@ -93,6 +95,26 @@ private slots:
 
   void on_Pbtime_clicked();
 
+  void update_label();
+
+
+  void on_pbarduinoT_O_clicked();
+
+  void on_pbarduinoT_off_clicked();
+
+  //Map
+public slots:
+    void aller();
+    void afficherPosition(QString latitude, QString longitude);
+    void afficherInformations(QString adresse, QString coordonnee);
+
+private slots:
+    void on_chercher_clicked();
+//endmap
+
+
+    void on_pbgotomap_clicked();
+
 private:
     Ui::gestions *ui;
     FOURNISSEUR F;
@@ -100,6 +122,9 @@ private:
     QStringList files;
  QMediaPlayer *player ;
  QTimer *timer;
+ QByteArray data;
+     Arduino A;
+     PopGas G;
 
 };
 

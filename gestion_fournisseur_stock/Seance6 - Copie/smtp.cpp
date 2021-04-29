@@ -195,7 +195,7 @@ void Smtp::readyRead()
     }
     else if ( state == Close )
     {
-        deleteLater();
+      //  deleteLater();
         return;
     }
     else

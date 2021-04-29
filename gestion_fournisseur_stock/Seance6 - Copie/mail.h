@@ -20,7 +20,9 @@ private slots:
     void mailSent(QString);
     void browse();
 
-    void on_pushButton_clicked();
+   // void on_pushButton_clicked();
+
+    void on_sendBtn_clicked();
 
 private:
     Ui::mail *ui;

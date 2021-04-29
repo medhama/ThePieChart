@@ -3,7 +3,7 @@
 #include <QString>
 #include <QSqlQuery>
 #include <QSqlQueryModel>
-//class fournisseur
+
 class FOURNISSEUR
 {
 public:
@@ -28,8 +28,7 @@ public:
         bool supprimer(int);
         bool Modifier_FOURNISSEUR(int id,QString nomsoc,QString lieu,QString numero,QString typeeq);
         bool FOURNISSEURExiste(QString nomsoc);
-        bool verifierlieu(int   lieu);
-        bool verifiertypeeq(int   typeeq);
+
         bool verifier_vide(QString line);
 private:
     int id ;
