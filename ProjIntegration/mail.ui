@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>796</width>
+    <height>513</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>1</x>
+     <y>0</y>
+     <width>310</width>
+     <height>436</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_7">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_52">
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_47">
+        <item>
+         <widget class="QLabel" name="label_56">
+          <property name="text">
+           <string>Smtp-server </string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="server">
+          <property name="text">
+           <string>smtp.gmail.com</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_48">
+        <item>
+         <widget class="QLabel" name="label_57">
+          <property name="text">
+           <string>Server port </string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="port">
+          <property name="text">
+           <string>465</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_49">
+        <item>
+         <widget class="QLabel" name="label_58">
+          <property name="text">
+           <string>Nom Utilisateur</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="uname"/>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_50">
+        <item>
+         <widget class="QLabel" name="label_59">
+          <property name="text">
+           <string>Mot de passe</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="paswd">
+          <property name="echoMode">
+           <enum>QLineEdit::Password</enum>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_51">
+        <item>
+         <widget class="QLabel" name="label_60">
+          <property name="text">
+           <string>destinataire à
+</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="rcpt"/>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_52">
+        <item>
+         <widget class="QLabel" name="label_61">
+          <property name="text">
+           <string>Attachement</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_46">
+          <item>
+           <widget class="QLineEdit" name="file"/>
+          </item>
+          <item>
+           <widget class="QPushButton" name="browseBtn">
+            <property name="text">
+             <string>Browse...</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_53">
+        <item>
+         <widget class="QLabel" name="label_62">
+          <property name="text">
+           <string>sujet</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="subject"/>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_54">
+        <item>
+         <widget class="QLabel" name="label_63">
+          <property name="text">
+           <string>Message</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPlainTextEdit" name="msg"/>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_55">
+      <item>
+       <widget class="QPushButton" name="sendBtn">
+        <property name="text">
+         <string>envoyer</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="exitBtn">
+        <property name="text">
+         <string>annuler</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>460</y>
+     <width>589</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>retour</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
