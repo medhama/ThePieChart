@@ -740,7 +740,7 @@ void gestions::on_pbarduinoT_off_clicked()
 }
 
 void gestions::update_label()
-{ /*
+{
     data = A.read_from_arduino();
 
     //taha+tarek
@@ -750,7 +750,7 @@ void gestions::update_label()
     {
         G.setModal(true);
         G.exec();
-    } */
+    }
     //END OF taha+tarek
 }
 
