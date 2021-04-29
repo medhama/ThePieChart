@@ -10,8 +10,10 @@ INPUT(
 ./debug/gestions.o
 ./debug/qcustomplot.o
 ./debug/stock.o
+./debug/arduino.o
 ./debug/smtp.o
 ./debug/qrc_picc.o
+./debug/qrc_qml.o
 ./debug/moc_gestions.o
 ./debug/moc_clientaff.o
 ./debug/moc_mainwindow.o

@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_gestions_t {
-    QByteArrayData data[35];
-    char stringdata0[741];
+    QByteArrayData data[30];
+    char stringdata0[630];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -51,21 +51,16 @@ QT_MOC_LITERAL(16, 339, 29), // "on_recherchestock_textChanged"
 QT_MOC_LITERAL(17, 369, 14), // "on_imp_clicked"
 QT_MOC_LITERAL(18, 384, 21), // "sendMail_Produit_Date"
 QT_MOC_LITERAL(19, 406, 8), // "mailSent"
-QT_MOC_LITERAL(20, 415, 18), // "on_sendBtn_clicked"
-QT_MOC_LITERAL(21, 434, 39), // "on_lineEdit_num_4_cursorPosit..."
-QT_MOC_LITERAL(22, 474, 4), // "arg2"
-QT_MOC_LITERAL(23, 479, 33), // "on_EnvoyerMail_pushButton_cli..."
-QT_MOC_LITERAL(24, 513, 24), // "on_pushButton_12_clicked"
-QT_MOC_LITERAL(25, 538, 21), // "on_AccStockpb_clicked"
-QT_MOC_LITERAL(26, 560, 27), // "on_AccFournisseurpb_clicked"
-QT_MOC_LITERAL(27, 588, 22), // "on_le_typeeq_activated"
-QT_MOC_LITERAL(28, 611, 23), // "on_pushButton_2_clicked"
-QT_MOC_LITERAL(29, 635, 21), // "on_Soundoffpb_clicked"
-QT_MOC_LITERAL(30, 657, 21), // "on_pushButton_clicked"
-QT_MOC_LITERAL(31, 679, 27), // "on_slidervolume_sliderMoved"
-QT_MOC_LITERAL(32, 707, 8), // "position"
-QT_MOC_LITERAL(33, 716, 6), // "Pbtime"
-QT_MOC_LITERAL(34, 723, 17) // "on_Pbtime_clicked"
+QT_MOC_LITERAL(20, 415, 33), // "on_EnvoyerMail_pushButton_cli..."
+QT_MOC_LITERAL(21, 449, 24), // "on_pushButton_12_clicked"
+QT_MOC_LITERAL(22, 474, 21), // "on_AccStockpb_clicked"
+QT_MOC_LITERAL(23, 496, 27), // "on_AccFournisseurpb_clicked"
+QT_MOC_LITERAL(24, 524, 21), // "on_Soundoffpb_clicked"
+QT_MOC_LITERAL(25, 546, 21), // "on_pushButton_clicked"
+QT_MOC_LITERAL(26, 568, 27), // "on_slidervolume_sliderMoved"
+QT_MOC_LITERAL(27, 596, 8), // "position"
+QT_MOC_LITERAL(28, 605, 6), // "Pbtime"
+QT_MOC_LITERAL(29, 612, 17) // "on_Pbtime_clicked"
 
     },
     "gestions\0on_pb_supprimerf_clicked\0\0"
@@ -80,12 +75,9 @@ QT_MOC_LITERAL(34, 723, 17) // "on_Pbtime_clicked"
     "on_pushButton_total_clicked\0"
     "on_recherchestock_textChanged\0"
     "on_imp_clicked\0sendMail_Produit_Date\0"
-    "mailSent\0on_sendBtn_clicked\0"
-    "on_lineEdit_num_4_cursorPositionChanged\0"
-    "arg2\0on_EnvoyerMail_pushButton_clicked\0"
+    "mailSent\0on_EnvoyerMail_pushButton_clicked\0"
     "on_pushButton_12_clicked\0on_AccStockpb_clicked\0"
     "on_AccFournisseurpb_clicked\0"
-    "on_le_typeeq_activated\0on_pushButton_2_clicked\0"
     "on_Soundoffpb_clicked\0on_pushButton_clicked\0"
     "on_slidervolume_sliderMoved\0position\0"
     "Pbtime\0on_Pbtime_clicked"
@@ -98,7 +90,7 @@ static const uint qt_meta_data_gestions[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      29,   14, // methods
+      25,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -106,35 +98,31 @@ static const uint qt_meta_data_gestions[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,  159,    2, 0x08 /* Private */,
-       3,    0,  160,    2, 0x08 /* Private */,
-       4,    0,  161,    2, 0x08 /* Private */,
-       5,    0,  162,    2, 0x08 /* Private */,
-       6,    0,  163,    2, 0x08 /* Private */,
-       7,    1,  164,    2, 0x08 /* Private */,
-       9,    1,  167,    2, 0x08 /* Private */,
-      10,    0,  170,    2, 0x08 /* Private */,
-      11,    0,  171,    2, 0x08 /* Private */,
-      12,    1,  172,    2, 0x08 /* Private */,
-      14,    0,  175,    2, 0x08 /* Private */,
-      15,    0,  176,    2, 0x08 /* Private */,
-      16,    1,  177,    2, 0x08 /* Private */,
-      17,    0,  180,    2, 0x08 /* Private */,
-      18,    0,  181,    2, 0x08 /* Private */,
-      19,    1,  182,    2, 0x08 /* Private */,
-      20,    0,  185,    2, 0x08 /* Private */,
-      21,    2,  186,    2, 0x08 /* Private */,
-      23,    0,  191,    2, 0x08 /* Private */,
-      24,    0,  192,    2, 0x08 /* Private */,
-      25,    0,  193,    2, 0x08 /* Private */,
-      26,    0,  194,    2, 0x08 /* Private */,
-      27,    1,  195,    2, 0x08 /* Private */,
-      28,    0,  198,    2, 0x08 /* Private */,
-      29,    0,  199,    2, 0x08 /* Private */,
-      30,    0,  200,    2, 0x08 /* Private */,
-      31,    1,  201,    2, 0x08 /* Private */,
-      33,    0,  204,    2, 0x08 /* Private */,
-      34,    0,  205,    2, 0x08 /* Private */,
+       1,    0,  139,    2, 0x08 /* Private */,
+       3,    0,  140,    2, 0x08 /* Private */,
+       4,    0,  141,    2, 0x08 /* Private */,
+       5,    0,  142,    2, 0x08 /* Private */,
+       6,    0,  143,    2, 0x08 /* Private */,
+       7,    1,  144,    2, 0x08 /* Private */,
+       9,    1,  147,    2, 0x08 /* Private */,
+      10,    0,  150,    2, 0x08 /* Private */,
+      11,    0,  151,    2, 0x08 /* Private */,
+      12,    1,  152,    2, 0x08 /* Private */,
+      14,    0,  155,    2, 0x08 /* Private */,
+      15,    0,  156,    2, 0x08 /* Private */,
+      16,    1,  157,    2, 0x08 /* Private */,
+      17,    0,  160,    2, 0x08 /* Private */,
+      18,    0,  161,    2, 0x08 /* Private */,
+      19,    1,  162,    2, 0x08 /* Private */,
+      20,    0,  165,    2, 0x08 /* Private */,
+      21,    0,  166,    2, 0x08 /* Private */,
+      22,    0,  167,    2, 0x08 /* Private */,
+      23,    0,  168,    2, 0x08 /* Private */,
+      24,    0,  169,    2, 0x08 /* Private */,
+      25,    0,  170,    2, 0x08 /* Private */,
+      26,    1,  171,    2, 0x08 /* Private */,
+      28,    0,  174,    2, 0x08 /* Private */,
+      29,    0,  175,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -154,16 +142,12 @@ static const uint qt_meta_data_gestions[] = {
     QMetaType::Void,
     QMetaType::Void, QMetaType::QString,    2,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Int, QMetaType::Int,   13,   22,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QString,   13,
     QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void, QMetaType::Int,   32,
+    QMetaType::Void, QMetaType::Int,   27,
     QMetaType::Void,
     QMetaType::Void,
 
@@ -192,19 +176,15 @@ void gestions::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
         case 13: _t->on_imp_clicked(); break;
         case 14: _t->sendMail_Produit_Date(); break;
         case 15: _t->mailSent((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 16: _t->on_sendBtn_clicked(); break;
-        case 17: _t->on_lineEdit_num_4_cursorPositionChanged((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
-        case 18: _t->on_EnvoyerMail_pushButton_clicked(); break;
-        case 19: _t->on_pushButton_12_clicked(); break;
-        case 20: _t->on_AccStockpb_clicked(); break;
-        case 21: _t->on_AccFournisseurpb_clicked(); break;
-        case 22: _t->on_le_typeeq_activated((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 23: _t->on_pushButton_2_clicked(); break;
-        case 24: _t->on_Soundoffpb_clicked(); break;
-        case 25: _t->on_pushButton_clicked(); break;
-        case 26: _t->on_slidervolume_sliderMoved((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 27: _t->Pbtime(); break;
-        case 28: _t->on_Pbtime_clicked(); break;
+        case 16: _t->on_EnvoyerMail_pushButton_clicked(); break;
+        case 17: _t->on_pushButton_12_clicked(); break;
+        case 18: _t->on_AccStockpb_clicked(); break;
+        case 19: _t->on_AccFournisseurpb_clicked(); break;
+        case 20: _t->on_Soundoffpb_clicked(); break;
+        case 21: _t->on_pushButton_clicked(); break;
+        case 22: _t->on_slidervolume_sliderMoved((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 23: _t->Pbtime(); break;
+        case 24: _t->on_Pbtime_clicked(); break;
         default: ;
         }
     }
@@ -235,13 +215,13 @@ int gestions::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 29)
+        if (_id < 25)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 29;
+        _id -= 25;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 29)
+        if (_id < 25)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 29;
+        _id -= 25;
     }
     return _id;
 }

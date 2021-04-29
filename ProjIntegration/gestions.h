@@ -9,6 +9,7 @@
 #include "smtp.h"
 #include <QtMultimedia/QMediaPlayer>
 #include <QTimer>
+#include<arduino.h>
 
 
 namespace Ui {
@@ -99,6 +100,7 @@ private:
     STOCK S;
     QStringList files;
  QMediaPlayer *player ;
+ Arduino A;
  QTimer *timer;
 
 };

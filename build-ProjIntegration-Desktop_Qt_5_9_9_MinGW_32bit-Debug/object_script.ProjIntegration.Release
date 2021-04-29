@@ -10,8 +10,10 @@ INPUT(
 ./release/gestions.o
 ./release/qcustomplot.o
 ./release/stock.o
+./release/arduino.o
 ./release/smtp.o
 ./release/qrc_picc.o
+./release/qrc_qml.o
 ./release/moc_gestions.o
 ./release/moc_clientaff.o
 ./release/moc_mainwindow.o

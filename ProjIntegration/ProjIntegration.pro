@@ -1,4 +1,4 @@
-QT       += network core gui sql printsupport multimedia serialport
+QT       += network core gui sql printsupport multimedia serialport location qml quickwidgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -21,6 +21,7 @@ SOURCES += \
         gestions.cpp \
         qcustomplot.cpp \
             stock.cpp\
+            arduino.cpp\
     smtp.cpp
 
 HEADERS += \
@@ -35,6 +36,7 @@ HEADERS += \
     rfidmoteur.h \
     qcustomplot.h \
        stock.h\
+       arduino.h\
     smtp.h
 
 FORMS += \
@@ -53,7 +55,11 @@ DISTFILES += \
     pics/Asset 10.png \
     pics/Asset 9.png \
     pics/BgPic.jpg \
+    mapview.qml \
     pics/picMasc.png
 
 RESOURCES += \
-    pics/picc.qrc
+    pics/picc.qrc\
+    qml.qrc
+
+

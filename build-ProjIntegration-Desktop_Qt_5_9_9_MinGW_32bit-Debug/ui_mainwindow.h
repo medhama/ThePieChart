@@ -33,6 +33,7 @@ public:
     QPushButton *Clientproduit;
     QPushButton *Clientproduit_2;
     QWidget *tab_2;
+    QPushButton *GestionStock;
     QMenuBar *menubar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -63,6 +64,9 @@ public:
         tab_2 = new QWidget();
         tab_2->setObjectName(QStringLiteral("tab_2"));
         tabWidget->addTab(tab_2, QString());
+        GestionStock = new QPushButton(widget);
+        GestionStock->setObjectName(QStringLiteral("GestionStock"));
+        GestionStock->setGeometry(QRect(270, 310, 161, 71));
         MainWindow->setCentralWidget(widget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QStringLiteral("menubar"));
@@ -85,6 +89,7 @@ public:
         Clientproduit_2->setText(QApplication::translate("MainWindow", "Close Client/produit", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "Tab 1", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("MainWindow", "Tab 2", Q_NULLPTR));
+        GestionStock->setText(QApplication::translate("MainWindow", "Gestion", Q_NULLPTR));
     } // retranslateUi
 
 };

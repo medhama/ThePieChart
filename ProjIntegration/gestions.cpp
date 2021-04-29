@@ -8,29 +8,6 @@
 #include <QMessageBox>
 #include <QIntValidator>
 #include <QtMultimedia/QMediaPlayer>
-#include <arduino.h>
-// include for map
-#include <QGuiApplication>
-#include <QQmlEngine>
-#include <QQmlComponent>
-#include <QQmlContext>
-#include <QQmlListProperty>
-#include "gestions.h"
-#include <QApplication>
-#include <QNetworkAccessManager>
-#include <QNetworkRequest>
-#include <QNetworkReply>
-#include <QUrl>
-#include <QEvent>
-#include <QObject>
-#include <QJsonDocument>
-#include <QJsonObject>
-#include <QJsonArray>
-#include <QQmlEngine>
-#include <QQuickItem>
-
-//include lang
-#include <QFontDialog>
 
 
 gestions::gestions(QWidget *parent) :
@@ -55,42 +32,6 @@ gestions::gestions(QWidget *parent) :
     connect(ui->sendBtn, SIGNAL(clicked()),this, SLOT(sendMail_Produit_Date()));
     connect(ui->exitBtn, SIGNAL(clicked()),this, SLOT(close()));
 
-    int ret = A.connect_arduino();
-        switch (ret)
-        {
-            case(0): qDebug()<<"arduino is avaible and connected to: "<<A.getArduino_port_name();
-            break;
-
-            case(1): qDebug()<<"arduino is avaible but not connected to: "<<A.getArduino_port_name();
-            break;
-
-            case(-1): qDebug()<<"arduino is not avaible";
-            break;
-
-
-        }
-
-        QObject::connect(A.getserial(), SIGNAL(readyRead()), this, SLOT(update_label()));
-
-
-        //Map
-        connect(ui->boutonAller, SIGNAL(clicked(bool)), this, SLOT(aller()));
-
-        QQuickItem *item = ui->quickWidget->rootObject();
-        QObject *objectMouseArea = item->findChild<QObject *>("mouseArea");
-        if(objectMouseArea != nullptr)
-        {
-            connect(objectMouseArea, SIGNAL(afficherPosition(QString,QString)), this, SLOT(afficherPosition(QString,QString)));
-        }
-        QObject *objectGeocodage = item->findChild<QObject *>("geocodage");
-        if(objectGeocodage != nullptr)
-        {
-            connect(objectGeocodage, SIGNAL(afficherInformations(QString,QString)), this, SLOT(afficherInformations(QString,QString)));
-        }
-
-        setWindowTitle("Map v2");
-        showMaximized();
-        //Endmap
 
 
 }
@@ -271,7 +212,6 @@ void gestions::on_tab_fournisseur_2_activated(const QModelIndex &index)
             ui->le_id->setText(query.value(0).toString());
             ui->le_nomsoc->setText(query.value(1).toString());
             ui->le_lieu->setText(query.value(2).toString());
-             ui->le_lieumap->setText(query.value(2).toString());
             ui->le_numero->setText(query.value(3).toString());
             ui->le_typeeq->setCurrentText(query.value(4).toString());
         }
@@ -724,119 +664,4 @@ void gestions::Pbtime()
     }
     timer->stop();
 
-}
-//tarek
-void gestions::on_pbarduinoT_O_clicked()
-{
-    A.write_to_arduino("1");
-
-}
-
-//tarek
-void gestions::on_pbarduinoT_off_clicked()
-{
-    A.write_to_arduino("0");
-
-}
-
-void gestions::update_label()
-{
-    data = A.read_from_arduino();
-
-    //taha+tarek
-    qDebug()<<data;
-
-    if(data == "ON" )
-    {
-        G.setModal(true);
-        G.exec();
-    }
-    //END OF taha+tarek
-}
-
-
-
-//Map
-void gestions::aller()
-{
-    QQuickItem *item = ui->quickWidget->rootObject();
-    QObject *object = item->findChild<QObject *>("indicateurPosition");
-    QVariant latitude = ui->editLatitude->text(); //QVariant(43.8);
-    QVariant longitude = ui->editLongitude->text(); //QVariant(4.8167);
-
-
-
-    if(object != nullptr)
-    {
-        qDebug() << Q_FUNC_INFO << latitude << longitude;
-        QMetaObject::invokeMethod(object, "aller", Q_ARG(QVariant, latitude), Q_ARG(QVariant, longitude));
-    }
-}
-
-void gestions::afficherPosition(QString latitude, QString longitude)
-{
-    qDebug() << Q_FUNC_INFO << latitude << longitude;
-    ui->positionLatitude_2->setText(QString::fromUtf8("%1").arg(latitude.toDouble(), 0, 'f', 5));
-    ui->positionLongitude_2->setText(QString::fromUtf8("%1").arg(longitude.toDouble(), 0, 'f', 5));
-    ui->editLatitude->setText(QString::fromUtf8("%1").arg(latitude.toDouble(), 0, 'f', 5));
-    ui->editLongitude->setText(QString::fromUtf8("%1").arg(longitude.toDouble(), 0, 'f', 5));
-}
-
-void gestions::afficherInformations(QString adresse, QString coordonnee)
-{
-    qDebug() << Q_FUNC_INFO << adresse << coordonnee;
-    ui->labelInformations_2->setText("Informations : " + adresse);
-}
-
-
-
-void gestions::on_chercher_clicked()
-{
-    QString part1="https://nominatim.openstreetmap.org/search?q=";
-    QString part2=ui->le_adresspart2->text();
-    QString part3="&format=json&polygon=1&addressdetails=1&fbclid=IwAR2r_qtxdov_4zZdVKfy6Xx2UXmJd5rR1XddpqCogBeZ_7nv0srbxa9OOW8";
-        QUrl ava_url(part1+part2+part3);
-        QNetworkRequest ava_request(ava_url);
-
-        QNetworkAccessManager *manager = new QNetworkAccessManager();
-        QEventLoop loop;
-
-        QObject::connect(manager,
-                         SIGNAL(finished(QNetworkReply*)),
-                         &loop,
-                         SLOT(quit()));
-
-        QNetworkReply* reply = manager->get(ava_request);
-        loop.exec();
-
-        QString response = (QString)reply->readAll();
-        QJsonDocument doc = QJsonDocument::fromJson(response.toUtf8());
-        QJsonObject obj = doc.object();
-
- // get lat et lon from the array
-        QString x=doc.array()[0].toObject()["lat"].toString();
-        QString y=doc.array()[0].toObject()["lon"].toString();
-
-         qDebug() <<x;
-         qDebug() <<y;
-
-         ui->editLatitude->setText(x);
-         ui->editLongitude->setText(y);
-}
-
-
-void gestions::on_pbgotomap_clicked()
-{
-    //add sound effect
-
-    QMediaPlayer *player = new QMediaPlayer;
-    player->setMedia(QUrl::fromLocalFile("C:/Users/tarek/Desktop/projetqt/Seance6/soundbuttons/sound.wav"));
-    player->setVolume(50);
-    player->play();
-
-//end sound effect
-    ui->tabWidget->setCurrentIndex(7);
-
-    QString loc=ui->le_lieumap->text();
-    ui->le_adresspart2->setText(loc);
 }

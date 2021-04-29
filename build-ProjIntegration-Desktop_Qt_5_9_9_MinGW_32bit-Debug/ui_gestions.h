@@ -10,6 +10,7 @@
 #define UI_GESTIONS_H
 
 #include <QtCore/QVariant>
+#include <QtQuickWidgets/QQuickWidget>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
@@ -23,6 +24,7 @@
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSlider>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QTabWidget>
 #include <QtWidgets/QTableView>
 #include <QtWidgets/QWidget>
@@ -108,6 +110,8 @@ public:
     QPushButton *pbmodifierfournisseur_2;
     QComboBox *le_typeeq;
     QWidget *widget_2;
+    QPushButton *pbgotomap;
+    QLineEdit *le_lieumap;
     QLabel *label_11;
     QWidget *widget_4;
     QWidget *widget_6;
@@ -138,6 +142,27 @@ public:
     QLabel *label_36;
     QLabel *label_37;
     QComboBox *Timer;
+    QWidget *tab_8;
+    QPushButton *pbarduinoT_O;
+    QPushButton *pbarduinoT_off;
+    QWidget *tab_9;
+    QPushButton *chercher;
+    QQuickWidget *quickWidget;
+    QLineEdit *le_adresspart2;
+    QLabel *labelLatitude;
+    QLineEdit *editLongitude;
+    QLineEdit *editLatitude;
+    QLabel *labelLongitude;
+    QLabel *labelInformations_2;
+    QWidget *layoutWidget_4;
+    QHBoxLayout *horizontalLayout_4;
+    QLabel *labelPositionLatitude_2;
+    QLabel *positionLatitude_2;
+    QSpacerItem *horizontalSpacer_5;
+    QLabel *labelPositionLongitude_2;
+    QLabel *positionLongitude_2;
+    QSpacerItem *horizontalSpacer_6;
+    QPushButton *boutonAller;
     QWidget *tab_12;
     QWidget *tab_11;
     QWidget *tab_13;
@@ -613,6 +638,12 @@ public:
         widget_2->setObjectName(QStringLiteral("widget_2"));
         widget_2->setGeometry(QRect(-10, 0, 891, 511));
         widget_2->setStyleSheet(QStringLiteral("/*background-image: url(:/pics/image3.jpg);*/"));
+        pbgotomap = new QPushButton(widget_2);
+        pbgotomap->setObjectName(QStringLiteral("pbgotomap"));
+        pbgotomap->setGeometry(QRect(250, 370, 75, 23));
+        le_lieumap = new QLineEdit(widget_2);
+        le_lieumap->setObjectName(QStringLiteral("le_lieumap"));
+        le_lieumap->setGeometry(QRect(130, 370, 113, 20));
         label_11 = new QLabel(tab_2);
         label_11->setObjectName(QStringLiteral("label_11"));
         label_11->setGeometry(QRect(500, 500, 181, 31));
@@ -758,6 +789,90 @@ public:
         Timer->setObjectName(QStringLiteral("Timer"));
         Timer->setGeometry(QRect(130, 40, 69, 22));
         tabWidget->addTab(tab_7, QString());
+        tab_8 = new QWidget();
+        tab_8->setObjectName(QStringLiteral("tab_8"));
+        pbarduinoT_O = new QPushButton(tab_8);
+        pbarduinoT_O->setObjectName(QStringLiteral("pbarduinoT_O"));
+        pbarduinoT_O->setGeometry(QRect(210, 220, 75, 23));
+        pbarduinoT_off = new QPushButton(tab_8);
+        pbarduinoT_off->setObjectName(QStringLiteral("pbarduinoT_off"));
+        pbarduinoT_off->setGeometry(QRect(390, 220, 75, 23));
+        tabWidget->addTab(tab_8, QString());
+        tab_9 = new QWidget();
+        tab_9->setObjectName(QStringLiteral("tab_9"));
+        chercher = new QPushButton(tab_9);
+        chercher->setObjectName(QStringLiteral("chercher"));
+        chercher->setGeometry(QRect(9, 344, 827, 23));
+        quickWidget = new QQuickWidget(tab_9);
+        quickWidget->setObjectName(QStringLiteral("quickWidget"));
+        quickWidget->setGeometry(QRect(9, 7, 827, 331));
+        QSizePolicy sizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(quickWidget->sizePolicy().hasHeightForWidth());
+        quickWidget->setSizePolicy(sizePolicy);
+        quickWidget->setMinimumSize(QSize(0, 0));
+        quickWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
+        quickWidget->setSource(QUrl(QStringLiteral("qrc:/qml/mapview.qml")));
+        le_adresspart2 = new QLineEdit(tab_9);
+        le_adresspart2->setObjectName(QStringLiteral("le_adresspart2"));
+        le_adresspart2->setGeometry(QRect(9, 373, 827, 20));
+        labelLatitude = new QLabel(tab_9);
+        labelLatitude->setObjectName(QStringLiteral("labelLatitude"));
+        labelLatitude->setGeometry(QRect(20, 400, 46, 23));
+        editLongitude = new QLineEdit(tab_9);
+        editLongitude->setObjectName(QStringLiteral("editLongitude"));
+        editLongitude->setGeometry(QRect(349, 401, 133, 20));
+        editLatitude = new QLineEdit(tab_9);
+        editLatitude->setObjectName(QStringLiteral("editLatitude"));
+        editLatitude->setGeometry(QRect(70, 401, 133, 20));
+        labelLongitude = new QLabel(tab_9);
+        labelLongitude->setObjectName(QStringLiteral("labelLongitude"));
+        labelLongitude->setGeometry(QRect(291, 400, 54, 23));
+        labelInformations_2 = new QLabel(tab_9);
+        labelInformations_2->setObjectName(QStringLiteral("labelInformations_2"));
+        labelInformations_2->setGeometry(QRect(10, 470, 825, 13));
+        labelInformations_2->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop);
+        layoutWidget_4 = new QWidget(tab_9);
+        layoutWidget_4->setObjectName(QStringLiteral("layoutWidget_4"));
+        layoutWidget_4->setGeometry(QRect(20, 430, 821, 22));
+        horizontalLayout_4 = new QHBoxLayout(layoutWidget_4);
+        horizontalLayout_4->setSpacing(4);
+        horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
+        horizontalLayout_4->setSizeConstraint(QLayout::SetDefaultConstraint);
+        horizontalLayout_4->setContentsMargins(0, 0, 0, 0);
+        labelPositionLatitude_2 = new QLabel(layoutWidget_4);
+        labelPositionLatitude_2->setObjectName(QStringLiteral("labelPositionLatitude_2"));
+
+        horizontalLayout_4->addWidget(labelPositionLatitude_2);
+
+        positionLatitude_2 = new QLabel(layoutWidget_4);
+        positionLatitude_2->setObjectName(QStringLiteral("positionLatitude_2"));
+
+        horizontalLayout_4->addWidget(positionLatitude_2);
+
+        horizontalSpacer_5 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_4->addItem(horizontalSpacer_5);
+
+        labelPositionLongitude_2 = new QLabel(layoutWidget_4);
+        labelPositionLongitude_2->setObjectName(QStringLiteral("labelPositionLongitude_2"));
+
+        horizontalLayout_4->addWidget(labelPositionLongitude_2);
+
+        positionLongitude_2 = new QLabel(layoutWidget_4);
+        positionLongitude_2->setObjectName(QStringLiteral("positionLongitude_2"));
+
+        horizontalLayout_4->addWidget(positionLongitude_2);
+
+        horizontalSpacer_6 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_4->addItem(horizontalSpacer_6);
+
+        boutonAller = new QPushButton(tab_9);
+        boutonAller->setObjectName(QStringLiteral("boutonAller"));
+        boutonAller->setGeometry(QRect(730, 400, 75, 23));
+        tabWidget->addTab(tab_9, QString());
         tabWidget_4->addTab(tab_4, QString());
         tab_12 = new QWidget();
         tab_12->setObjectName(QStringLiteral("tab_12"));
@@ -775,7 +890,7 @@ public:
         retranslateUi(gestions);
 
         tabWidget_4->setCurrentIndex(0);
-        tabWidget->setCurrentIndex(5);
+        tabWidget->setCurrentIndex(7);
 
 
         QMetaObject::connectSlotsByName(gestions);
@@ -833,6 +948,7 @@ public:
          << QApplication::translate("gestions", "decoration", Q_NULLPTR)
          << QApplication::translate("gestions", "Autre", Q_NULLPTR)
         );
+        pbgotomap->setText(QApplication::translate("gestions", "GotoMap", Q_NULLPTR));
         label_11->setText(QApplication::translate("gestions", "<html><head/><body><p><span style=\" font-size:18pt; font-weight:600; color:#5500ff;\">Gestion Stock</span></p></body></html>", Q_NULLPTR));
         label_10->setText(QApplication::translate("gestions", "Gestion Fournisseur", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("gestions", "Fournisseur", Q_NULLPTR));
@@ -860,6 +976,19 @@ public:
          << QApplication::translate("gestions", "240", Q_NULLPTR)
         );
         tabWidget->setTabText(tabWidget->indexOf(tab_7), QApplication::translate("gestions", "stock planifier ", Q_NULLPTR));
+        pbarduinoT_O->setText(QApplication::translate("gestions", "TurnOn", Q_NULLPTR));
+        pbarduinoT_off->setText(QApplication::translate("gestions", "TurnOff", Q_NULLPTR));
+        tabWidget->setTabText(tabWidget->indexOf(tab_8), QApplication::translate("gestions", "Arduino", Q_NULLPTR));
+        chercher->setText(QApplication::translate("gestions", "Find Location", Q_NULLPTR));
+        labelLatitude->setText(QApplication::translate("gestions", "Latitude :", Q_NULLPTR));
+        labelLongitude->setText(QApplication::translate("gestions", "Longitude :", Q_NULLPTR));
+        labelInformations_2->setText(QApplication::translate("gestions", "Informations :", Q_NULLPTR));
+        labelPositionLatitude_2->setText(QApplication::translate("gestions", "Latitude :", Q_NULLPTR));
+        positionLatitude_2->setText(QApplication::translate("gestions", "---", Q_NULLPTR));
+        labelPositionLongitude_2->setText(QApplication::translate("gestions", "Longitude :", Q_NULLPTR));
+        positionLongitude_2->setText(QApplication::translate("gestions", "---", Q_NULLPTR));
+        boutonAller->setText(QApplication::translate("gestions", "Aller !", Q_NULLPTR));
+        tabWidget->setTabText(tabWidget->indexOf(tab_9), QApplication::translate("gestions", "Map", Q_NULLPTR));
         tabWidget_4->setTabText(tabWidget_4->indexOf(tab_4), QApplication::translate("gestions", "Fournisseur_stock", Q_NULLPTR));
         tabWidget_4->setTabText(tabWidget_4->indexOf(tab_12), QApplication::translate("gestions", "Client_Produits", Q_NULLPTR));
         tabWidget_4->setTabText(tabWidget_4->indexOf(tab_11), QApplication::translate("gestions", "Livraison", Q_NULLPTR));
