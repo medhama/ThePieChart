@@ -8,7 +8,7 @@
 #include <QPixmap>
 #include "mailling.h"
 #include <QSound>
-
+#include "arduino.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -63,10 +63,26 @@ private slots :
 
     void on_tab_etudiant_activated(const QModelIndex &index);
 
+    // calculator
+   void digit_pressed();
+    void on_pushButton_decimal_released();
+    void unary_operation_pressed();
+    void on_pushButton_clear_released();
+    void on_pushButton_equals_released();
+    void binary_operation_pressed();
+
+    //Arduino
+    void update_label();   // slot permettant la mise à jour du label état de la lampe 1,
+    // ce slot est lancé à chaque réception d'un message de Arduino
+
 private:
     Ui::MainWindow *ui;
     Evennement E;
     Promotion P;
+    QString parsed_data; //variable contenant les données reçues
+        Arduino A; //object temporaire
+        int alertt;
+
 
     //Mail
     void sendMail();

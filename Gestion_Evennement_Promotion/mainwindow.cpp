@@ -9,7 +9,10 @@
 #include<QPrinter>
 #include <QFileDialog>
 #include <QSound>
+#include <QDebug>
 
+double FirstNum;
+bool userIsTypingSecondNumber= false;
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -30,6 +33,46 @@ MainWindow::MainWindow(QWidget *parent)
     //Mail
     connect(ui->sendBtn, SIGNAL(clicked()),this, SLOT(sendMail()));
     connect(ui->exitBtn, SIGNAL(clicked()),this, SLOT(close()));
+
+    // calculator
+    connect(ui->pushButton_0,SIGNAL(released()),this,SLOT(digit_pressed()));
+    connect(ui->pushButton_1,SIGNAL(released()),this,SLOT(digit_pressed()));
+    connect(ui->pushButton_2,SIGNAL(released()),this,SLOT(digit_pressed()));
+    connect(ui->pushButton_3,SIGNAL(released()),this,SLOT(digit_pressed()));
+    connect(ui->pushButton_4,SIGNAL(released()),this,SLOT(digit_pressed()));
+    connect(ui->pushButton_5,SIGNAL(released()),this,SLOT(digit_pressed()));
+    connect(ui->pushButton_6,SIGNAL(released()),this,SLOT(digit_pressed()));
+    connect(ui->pushButton_7,SIGNAL(released()),this,SLOT(digit_pressed()));
+    connect(ui->pushButton_8,SIGNAL(released()),this,SLOT(digit_pressed()));
+    connect(ui->pushButton_9,SIGNAL(released()),this,SLOT(digit_pressed()));
+
+    connect(ui->pushButton_plusMinus,SIGNAL(released()),this,SLOT(unary_operation_pressed()));
+    connect(ui->pushButton_percent,SIGNAL(released()),this,SLOT(unary_operation_pressed()));
+    connect(ui->pushButton_clear,SIGNAL(released()),this,SLOT(binary_operation_pressed()));
+    connect(ui->pushButton_equals,SIGNAL(released()),this,SLOT(binary_operation_pressed()));
+
+    connect(ui->pushButton_add,SIGNAL(released()),this,SLOT(binary_operation_pressed()));
+    connect(ui->pushButton_substract,SIGNAL(released()),this,SLOT(binary_operation_pressed()));
+    connect(ui->pushButton_multiply,SIGNAL(released()),this,SLOT(binary_operation_pressed()));
+    connect(ui->pushButton_divide,SIGNAL(released()),this,SLOT(binary_operation_pressed()));
+
+    ui->pushButton_add->setCheckable(true);
+    ui->pushButton_substract->setCheckable(true);
+    ui->pushButton_multiply->setCheckable(true);
+    ui->pushButton_divide->setCheckable(true);
+
+    //Arduino
+    int ret=A.connect_arduino(); // lancer la connexion à arduino
+    switch(ret){
+    case(0):qDebug()<< "arduino is available and connected to : "<< A.getarduino_port_name();
+        break;
+    case(1):qDebug() << "arduino is available but not connected to :" <<A.getarduino_port_name();
+       break;
+    case(-1):qDebug() << "arduino is not available";
+    }
+     QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_label())); // permet de lancer
+     //le slot update_label suite à la reception du signal readyRead (reception des données).
+
 }
 
 MainWindow::~MainWindow()
@@ -543,3 +586,144 @@ void MainWindow::on_rechercher_event_textChanged(const QString &arg1)
          ui->tab_etudiant->setModel(model);
 }
 
+// calculator
+void MainWindow::digit_pressed()
+{
+    QPushButton * Button = (QPushButton*)sender();
+    double labelNumber;
+    QString NewLabel;
+
+    if(( ui->pushButton_add->isChecked() || ui->pushButton_substract->isChecked()
+            || ui->pushButton_multiply->isChecked() || ui->pushButton_divide->isChecked()) && (!userIsTypingSecondNumber))
+    {
+        labelNumber = Button->text().toDouble();
+        userIsTypingSecondNumber = true;
+        NewLabel = QString::number(labelNumber,'g',15);
+    }
+    else
+    {
+        if (ui->label_25->text().contains('.') && Button->text() == "0")
+        {
+            NewLabel = ui->label_25->text() + Button->text();
+        }
+        else
+        {
+            labelNumber = (ui->label_25->text() + Button->text()).toDouble();   //on peut cliquer bcp de chiffres
+            NewLabel = QString::number(labelNumber,'g',15);
+
+        }
+    }
+
+   // labelNumber = (ui->label->text() + Button->text()).toDouble();    //on peut cliquer bcp de chiffres
+    NewLabel = QString::number(labelNumber,'g',15);  // on peut cliquer 15 chiffres
+    ui->label_25->setText(NewLabel);
+}
+
+
+void MainWindow::on_pushButton_decimal_released()
+{
+    ui->label_25->setText(ui->label_25->text() + ".");
+}
+
+void MainWindow::unary_operation_pressed()
+{
+    QPushButton * Button = (QPushButton*)sender();
+    double labelNumber;
+    QString NewLabel;
+    if(Button->text() == "+/-")
+    {
+        labelNumber = ui->label_25->text().toDouble();  // 1 click elle persiste - 2 clicks elle disparait
+        labelNumber = labelNumber * -1;
+        NewLabel = QString::number(labelNumber,'g',15);
+        ui->label_25->setText(NewLabel);
+    }
+    if(Button->text() == "%")
+    {
+        labelNumber = ui->label_25->text().toDouble();  // 1 click elle persiste - 2 clicks elle disparait
+        labelNumber = labelNumber * 0.01;
+        NewLabel = QString::number(labelNumber,'g',15);
+        ui->label_25->setText(NewLabel);
+    }
+
+}
+
+void MainWindow::on_pushButton_clear_released()
+{
+      ui->pushButton_add->setChecked(false);
+      ui->pushButton_substract->setChecked(false);
+      ui->pushButton_multiply->setChecked(false);
+      ui->pushButton_divide->setChecked(false);
+
+      userIsTypingSecondNumber = false;
+
+      ui->label_25->setText("0");
+
+}
+
+void MainWindow::on_pushButton_equals_released()
+{
+    double labelNumber , secondNum;
+    QString newLabel;
+
+    secondNum = ui->label_25->text().toDouble();
+
+    if(ui->pushButton_add->isChecked())
+        {
+             labelNumber = FirstNum + secondNum;
+             newLabel = QString::number(labelNumber,'g',15);
+             ui->label_25->setText(newLabel);
+             ui->pushButton_add->setChecked(false);
+        }
+    else if(ui->pushButton_substract->isChecked())
+        {
+        labelNumber = FirstNum - secondNum;
+        newLabel = QString::number(labelNumber,'g',15);
+        ui->label_25->setText(newLabel);
+        ui->pushButton_substract->setChecked(false);
+        }
+
+   else if(ui->pushButton_multiply->isChecked())
+        {
+        labelNumber = FirstNum * secondNum;
+        newLabel = QString::number(labelNumber,'g',15);
+        ui->label_25->setText(newLabel);
+        ui->pushButton_multiply->setChecked(false);
+        }
+
+    else if(ui->pushButton_divide->isChecked())
+        {
+        labelNumber = FirstNum / secondNum;
+        newLabel = QString::number(labelNumber,'g',15);
+        ui->label_25->setText(newLabel);
+        ui->pushButton_divide->setChecked(false);
+        }
+
+    userIsTypingSecondNumber = false;
+}
+
+void MainWindow::binary_operation_pressed()
+{
+    QPushButton * Button = (QPushButton*)sender();
+    FirstNum = ui->label_25->text().toDouble();
+    Button->setChecked(true);
+}
+
+
+//arduino
+void MainWindow::update_label()
+{
+     //qDebug()<<"Test";
+     parsed_data=A.read_from_arduino();
+
+       ui->temp_lcdNumber->display(parsed_data);
+
+       alertt=parsed_data.toFloat();
+
+       if (alertt>24)
+       {
+           ui->label_alert->setText("Temperature Elevée !!");
+       }
+       else {
+            ui->label_alert->setText(" ");
+       }
+}
