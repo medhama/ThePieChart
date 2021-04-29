@@ -89,6 +89,8 @@ private slots:
 
     void on_pb_rechercher_liv_5_clicked();
 
+    void on_pb_rechercher_liv_6_clicked();
+
 private:
     Ui::GestionLivraisons *ui;
     QMediaPlayer *musicClic=new QMediaPlayer;

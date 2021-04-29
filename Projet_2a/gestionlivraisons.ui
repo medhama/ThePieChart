@@ -1030,6 +1030,22 @@ background-image: url(:/new/prefix1/pics/soundOff.jpg);</string>
        <string>Nombre d'articles Commandé</string>
       </property>
      </widget>
+     <widget class="QPushButton" name="pb_rechercher_liv_6">
+      <property name="geometry">
+       <rect>
+        <x>880</x>
+        <y>370</y>
+        <width>71</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="text">
+       <string>Mailing</string>
+      </property>
+     </widget>
      <zorder>groupBox_5</zorder>
      <zorder>pb_ajouterCom</zorder>
      <zorder>tab_Commandes</zorder>
@@ -1053,6 +1069,7 @@ background-image: url(:/new/prefix1/pics/soundOff.jpg);</string>
      <zorder>label_35</zorder>
      <zorder>label_36</zorder>
      <zorder>label_37</zorder>
+     <zorder>pb_rechercher_liv_6</zorder>
     </widget>
    </widget>
   </widget>

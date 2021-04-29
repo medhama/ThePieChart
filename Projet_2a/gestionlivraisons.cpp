@@ -663,6 +663,35 @@ void GestionLivraisons::on_pb_rechercher_liv_5_clicked()
         ui->label_33->setText(A1.afficherSommeQuantite(Chaine));
         ui->label_34->setText(A1.afficherSommedep(Chaine));
         ui->label_32->setText(A1.afficherCountdep(Chaine));
+
         musicClic->stop();
         musicClic->play();
+}
+
+void GestionLivraisons::on_pb_rechercher_liv_6_clicked()
+{
+
+
+     QString name=ui->le_id_rech_liv1_5->text();
+     QString n1=ui->label_32->text();
+     QString n2=ui->label_34->text();
+     QString n3=ui->label_33->text();
+     QString chaine;
+     QString chaine1=name+" Nombre de commandes= "+n1+" Somme Depensé== "+n2+" Nombre d'articles Commandé= "+n3;
+
+
+
+     chaine=chaine+"'"+"\nNom du client est "+chaine1;
+     qDebug() <<chaine;
+     sendMail(" This are the Stats For the Requested Customer'" ,chaine);
+    /* ui->le_id_2->clear();
+     ui->le_qte_com->clear();
+     ui->le_prix_Com->clear();
+     ui->le_Nom_Co->clear();
+     ui->le_Email_CO->clear();*/
+
+
+
+
+
 }
