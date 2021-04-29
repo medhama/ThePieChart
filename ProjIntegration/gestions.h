@@ -68,7 +68,7 @@ private slots:
     void mailSent(QString);
 
 
-    void on_lineEdit_num_4_cursorPositionChanged(int arg1, int arg2);
+
 
     void on_EnvoyerMail_pushButton_clicked();
 
@@ -78,7 +78,7 @@ private slots:
 
     void on_AccFournisseurpb_clicked();
 
-    void on_le_typeeq_activated(const QString &arg1);
+
 
 
 

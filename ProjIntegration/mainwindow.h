@@ -21,6 +21,8 @@ private slots:
 
     void on_Clientproduit_2_clicked();
 
+    void on_GestionStock_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

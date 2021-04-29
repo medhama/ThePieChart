@@ -1,7 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "clientaff.h"
-
+#include "gestions.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -29,4 +29,11 @@ void MainWindow::on_Clientproduit_2_clicked()
 {
     ClientAff d;
     d.close();
+}
+
+void MainWindow::on_GestionStock_clicked()
+{
+    gestions G;
+    G.exec();
+
 }
