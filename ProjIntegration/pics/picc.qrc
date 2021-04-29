@@ -5,5 +5,25 @@
         <file>Asset 10.png</file>
         <file>Asset 9.png</file>
         <file>picMasc.png</file>
+        <file>biscuit.png</file>
+        <file>box.png</file>
+        <file>cake.png</file>
+        <file>cake1.png</file>
+        <file>EditerStatistiques.png</file>
+        <file>EnvoyerMail.png</file>
+        <file>finalmiceshelf.png</file>
+        <file>fournisseur.png</file>
+        <file>icono.ico</file>
+        <file>image1.jpg</file>
+        <file>image2jpg.jpg</file>
+        <file>image3.jpg</file>
+        <file>image4.jpg</file>
+        <file>image5.jpg</file>
+        <file>logo.png</file>
+        <file>mousealone (1).png</file>
+        <file>music.png</file>
+        <file>supp.png</file>
+        <file>supplier.png</file>
+        <file>thepiechart.png</file>
     </qresource>
 </RCC>

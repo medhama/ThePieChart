@@ -1,5 +1,5 @@
-#include "popgas.h"
-#include "ui_popgas.h"
+/*#include "popgas.h"
+
 
 PopGas::PopGas(QWidget *parent) :
     QDialog(parent),
@@ -12,3 +12,4 @@ PopGas::~PopGas()
 {
     delete ui;
 }
+*/

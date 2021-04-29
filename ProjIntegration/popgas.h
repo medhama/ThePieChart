@@ -1,6 +1,6 @@
 #ifndef POPGAS_H
 #define POPGAS_H
-
+/*
 #include <QDialog>
 
 namespace Ui {
@@ -18,5 +18,5 @@ public:
 private:
     Ui::PopGas *ui;
 };
-
+*/
 #endif // POPGAS_H

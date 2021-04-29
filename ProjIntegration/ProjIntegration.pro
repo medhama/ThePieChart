@@ -22,6 +22,7 @@ SOURCES += \
         qcustomplot.cpp \
             stock.cpp\
             arduino.cpp\
+            popgas.cpp\
     smtp.cpp
 
 HEADERS += \
@@ -37,6 +38,7 @@ HEADERS += \
     qcustomplot.h \
        stock.h\
        arduino.h\
+       popgas.h\
     smtp.h
 
 FORMS += \
@@ -53,12 +55,37 @@ DISTFILES += \
     BgPic.jpg \
     pics/170033319_768811657404561_3443684265017038110_n.png \
     pics/Asset 10.png \
+    pics/Asset 10.png \
+    pics/Asset 9.png \
     pics/Asset 9.png \
     pics/BgPic.jpg \
     mapview.qml \
-    pics/picMasc.png
+    pics/EditerStatistiques.png \
+    pics/EnvoyerMail.png \
+    pics/arrow.png \
+    pics/asset9.png \
+    pics/biscuit.png \
+    pics/box.png \
+    pics/cake.png \
+    pics/cake1.png \
+    pics/finalmiceshelf.png \
+    pics/fournisseur.png \
+    pics/icono.ico \
+    pics/image1.jpg \
+    pics/image2jpg.jpg \
+    pics/image3.jpg \
+    pics/image4.jpg \
+    pics/image5.jpg \
+    pics/logo.png \
+    pics/mousealone (1).png \
+    pics/music.png \
+    pics/picMasc.png \
+    pics/supp.png \
+    pics/supplier.png \
+    pics/thepiechart.png
 
 RESOURCES += \
+    pics/picc.qrc \
     pics/picc.qrc\
     qml.qrc
 
