@@ -36,6 +36,10 @@ public:
     bool verif_champs_vide1(QString );
     bool verif_champs_vide2(QString);
 
+    QString nbrePromo(QString chaine1);
+
+
+
 private:
     int id;
    int Prix_initial;

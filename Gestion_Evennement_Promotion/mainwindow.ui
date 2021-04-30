@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1141</width>
-    <height>638</height>
+    <width>1171</width>
+    <height>702</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,13 +18,13 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>20</y>
-      <width>1081</width>
+      <y>30</y>
+      <width>1111</width>
       <height>551</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>4</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -168,7 +168,7 @@
        <rect>
         <x>520</x>
         <y>20</y>
-        <width>521</width>
+        <width>561</width>
         <height>471</height>
        </rect>
       </property>
@@ -274,16 +274,6 @@
        </property>
        <property name="text">
         <string>Date Fin</string>
-       </property>
-      </widget>
-      <widget class="QLCDNumber" name="lcdNumber">
-       <property name="geometry">
-        <rect>
-         <x>410</x>
-         <y>420</y>
-         <width>64</width>
-         <height>23</height>
-        </rect>
        </property>
       </widget>
      </widget>
@@ -947,6 +937,33 @@ background-repeat:none;</string>
        <string/>
       </property>
      </widget>
+     <widget class="QLabel" name="label_26">
+      <property name="geometry">
+       <rect>
+        <x>790</x>
+        <y>460</y>
+        <width>55</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);
+font: 75 12pt &quot;MS Shell Dlg 2&quot;;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="rechercher_promo">
+      <property name="geometry">
+       <rect>
+        <x>640</x>
+        <y>470</y>
+        <width>131</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
      <zorder>label_24</zorder>
      <zorder>groupBox_4</zorder>
      <zorder>groupBox_5</zorder>
@@ -956,6 +973,8 @@ background-repeat:none;</string>
      <zorder>PDF</zorder>
      <zorder>InsertImage</zorder>
      <zorder>lbl_image</zorder>
+     <zorder>label_26</zorder>
+     <zorder>rechercher_promo</zorder>
     </widget>
     <widget class="QWidget" name="tab_5">
      <attribute name="title">
@@ -1871,13 +1890,51 @@ QPushButton:pressed{
      </widget>
     </widget>
    </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>880</x>
+      <y>610</y>
+      <width>228</width>
+      <height>38</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QLabel" name="label_28">
+       <property name="styleSheet">
+        <string notr="true">font: 75 10pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(255, 255, 255);
+background-color: rgb(255, 158, 61);</string>
+       </property>
+       <property name="text">
+        <string>Current time</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="lbl_time">
+       <property name="styleSheet">
+        <string notr="true">font: 75 11pt &quot;MS Shell Dlg 2&quot;;
+font: 16pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(38, 38, 38);
+background-color: rgb(195, 195, 195);
+font: 8pt &quot;MS Shell Dlg 2&quot;;</string>
+       </property>
+       <property name="text">
+        <string>00:00:00</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1141</width>
+     <width>1171</width>
      <height>26</height>
     </rect>
    </property>

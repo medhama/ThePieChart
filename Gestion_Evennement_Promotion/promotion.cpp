@@ -184,4 +184,18 @@ bool Promotion::modifier(int id )
 }
 
 
+QString Promotion::nbrePromo(QString ch)
+{
+    QSqlQuery query;
+         query.prepare("SELECT COUNT(id) FROM pro where (Date_Debut like :Date_Debut)");
+         query.bindValue(":Date_Debut", ch);
+         int n=0;
+            if(query.exec())
+            {  while (query.next())
+                {  n=query.value(0).toInt();
+                    qDebug()<<n; } }
+            QString S = QString::number(n);
+       return S;
+}
+
 

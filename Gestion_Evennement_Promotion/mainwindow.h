@@ -75,6 +75,11 @@ private slots :
     void update_label();   // slot permettant la mise à jour du label état de la lampe 1,
     // ce slot est lancé à chaque réception d'un message de Arduino
 
+    void on_rechercher_promo_textChanged(const QString &arg1);
+
+    //Timer
+    void UpdateTime();
+
 private:
     Ui::MainWindow *ui;
     Evennement E;
@@ -83,6 +88,8 @@ private:
         Arduino A; //object temporaire
         int alertt;
 
+    //Timer
+        QTimer * timer_1s;
 
     //Mail
     void sendMail();

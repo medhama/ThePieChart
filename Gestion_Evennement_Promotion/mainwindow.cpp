@@ -10,6 +10,8 @@
 #include <QFileDialog>
 #include <QSound>
 #include <QDebug>
+#include <QTimer>
+#include <QTime>
 
 double FirstNum;
 bool userIsTypingSecondNumber= false;
@@ -73,6 +75,12 @@ MainWindow::MainWindow(QWidget *parent)
      QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_label())); // permet de lancer
      //le slot update_label suite à la reception du signal readyRead (reception des données).
 
+
+
+     //Timer
+     timer_1s = new QTimer(this);
+     QObject::connect(timer_1s, SIGNAL(timeout()), this, SLOT(UpdateTime()));
+     timer_1s->start(1000);
 }
 
 MainWindow::~MainWindow()
@@ -727,3 +735,29 @@ void MainWindow::update_label()
             ui->label_alert->setText(" ");
        }
 }
+
+
+
+void MainWindow::on_rechercher_promo_textChanged(const QString &arg1)
+{
+    QString rech;
+          rech= arg1.toCaseFolded();
+            QSqlQueryModel * model= new QSqlQueryModel();
+        QSqlQuery* qry=new QSqlQuery();
+
+         qry->prepare("SELECT * from pro where Date_Debut like concat (:rech,'%') ");
+         qry->bindValue(":rech",rech);
+         qry->exec();
+         model->setQuery(*qry);
+         //ui->tab_promotion->setModel(model);
+
+           ui->label_26->setText(P.nbrePromo(rech));
+}
+
+//Timer
+void MainWindow::UpdateTime()
+{
+    ui->lbl_time->setText(QTime::currentTime().toString("hh:mm:ss"));
+}
+
+
