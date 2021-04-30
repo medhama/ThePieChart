@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_gestions_t {
-    QByteArrayData data[30];
-    char stringdata0[630];
+    QByteArrayData data[42];
+    char stringdata0[816];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -60,7 +60,19 @@ QT_MOC_LITERAL(25, 546, 21), // "on_pushButton_clicked"
 QT_MOC_LITERAL(26, 568, 27), // "on_slidervolume_sliderMoved"
 QT_MOC_LITERAL(27, 596, 8), // "position"
 QT_MOC_LITERAL(28, 605, 6), // "Pbtime"
-QT_MOC_LITERAL(29, 612, 17) // "on_Pbtime_clicked"
+QT_MOC_LITERAL(29, 612, 17), // "on_Pbtime_clicked"
+QT_MOC_LITERAL(30, 630, 12), // "update_label"
+QT_MOC_LITERAL(31, 643, 23), // "on_pbarduinoT_O_clicked"
+QT_MOC_LITERAL(32, 667, 25), // "on_pbarduinoT_off_clicked"
+QT_MOC_LITERAL(33, 693, 5), // "aller"
+QT_MOC_LITERAL(34, 699, 16), // "afficherPosition"
+QT_MOC_LITERAL(35, 716, 8), // "latitude"
+QT_MOC_LITERAL(36, 725, 9), // "longitude"
+QT_MOC_LITERAL(37, 735, 20), // "afficherInformations"
+QT_MOC_LITERAL(38, 756, 7), // "adresse"
+QT_MOC_LITERAL(39, 764, 10), // "coordonnee"
+QT_MOC_LITERAL(40, 775, 19), // "on_chercher_clicked"
+QT_MOC_LITERAL(41, 795, 20) // "on_pbgotomap_clicked"
 
     },
     "gestions\0on_pb_supprimerf_clicked\0\0"
@@ -80,7 +92,12 @@ QT_MOC_LITERAL(29, 612, 17) // "on_Pbtime_clicked"
     "on_AccFournisseurpb_clicked\0"
     "on_Soundoffpb_clicked\0on_pushButton_clicked\0"
     "on_slidervolume_sliderMoved\0position\0"
-    "Pbtime\0on_Pbtime_clicked"
+    "Pbtime\0on_Pbtime_clicked\0update_label\0"
+    "on_pbarduinoT_O_clicked\0"
+    "on_pbarduinoT_off_clicked\0aller\0"
+    "afficherPosition\0latitude\0longitude\0"
+    "afficherInformations\0adresse\0coordonnee\0"
+    "on_chercher_clicked\0on_pbgotomap_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -90,7 +107,7 @@ static const uint qt_meta_data_gestions[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      25,   14, // methods
+      33,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -98,31 +115,39 @@ static const uint qt_meta_data_gestions[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,  139,    2, 0x08 /* Private */,
-       3,    0,  140,    2, 0x08 /* Private */,
-       4,    0,  141,    2, 0x08 /* Private */,
-       5,    0,  142,    2, 0x08 /* Private */,
-       6,    0,  143,    2, 0x08 /* Private */,
-       7,    1,  144,    2, 0x08 /* Private */,
-       9,    1,  147,    2, 0x08 /* Private */,
-      10,    0,  150,    2, 0x08 /* Private */,
-      11,    0,  151,    2, 0x08 /* Private */,
-      12,    1,  152,    2, 0x08 /* Private */,
-      14,    0,  155,    2, 0x08 /* Private */,
-      15,    0,  156,    2, 0x08 /* Private */,
-      16,    1,  157,    2, 0x08 /* Private */,
-      17,    0,  160,    2, 0x08 /* Private */,
-      18,    0,  161,    2, 0x08 /* Private */,
-      19,    1,  162,    2, 0x08 /* Private */,
-      20,    0,  165,    2, 0x08 /* Private */,
-      21,    0,  166,    2, 0x08 /* Private */,
-      22,    0,  167,    2, 0x08 /* Private */,
-      23,    0,  168,    2, 0x08 /* Private */,
-      24,    0,  169,    2, 0x08 /* Private */,
-      25,    0,  170,    2, 0x08 /* Private */,
-      26,    1,  171,    2, 0x08 /* Private */,
-      28,    0,  174,    2, 0x08 /* Private */,
-      29,    0,  175,    2, 0x08 /* Private */,
+       1,    0,  179,    2, 0x08 /* Private */,
+       3,    0,  180,    2, 0x08 /* Private */,
+       4,    0,  181,    2, 0x08 /* Private */,
+       5,    0,  182,    2, 0x08 /* Private */,
+       6,    0,  183,    2, 0x08 /* Private */,
+       7,    1,  184,    2, 0x08 /* Private */,
+       9,    1,  187,    2, 0x08 /* Private */,
+      10,    0,  190,    2, 0x08 /* Private */,
+      11,    0,  191,    2, 0x08 /* Private */,
+      12,    1,  192,    2, 0x08 /* Private */,
+      14,    0,  195,    2, 0x08 /* Private */,
+      15,    0,  196,    2, 0x08 /* Private */,
+      16,    1,  197,    2, 0x08 /* Private */,
+      17,    0,  200,    2, 0x08 /* Private */,
+      18,    0,  201,    2, 0x08 /* Private */,
+      19,    1,  202,    2, 0x08 /* Private */,
+      20,    0,  205,    2, 0x08 /* Private */,
+      21,    0,  206,    2, 0x08 /* Private */,
+      22,    0,  207,    2, 0x08 /* Private */,
+      23,    0,  208,    2, 0x08 /* Private */,
+      24,    0,  209,    2, 0x08 /* Private */,
+      25,    0,  210,    2, 0x08 /* Private */,
+      26,    1,  211,    2, 0x08 /* Private */,
+      28,    0,  214,    2, 0x08 /* Private */,
+      29,    0,  215,    2, 0x08 /* Private */,
+      30,    0,  216,    2, 0x08 /* Private */,
+      31,    0,  217,    2, 0x08 /* Private */,
+      32,    0,  218,    2, 0x08 /* Private */,
+      33,    0,  219,    2, 0x0a /* Public */,
+      34,    2,  220,    2, 0x0a /* Public */,
+      37,    2,  225,    2, 0x0a /* Public */,
+      40,    0,  230,    2, 0x08 /* Private */,
+      41,    0,  231,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -148,6 +173,14 @@ static const uint qt_meta_data_gestions[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void, QMetaType::Int,   27,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::QString, QMetaType::QString,   35,   36,
+    QMetaType::Void, QMetaType::QString, QMetaType::QString,   38,   39,
     QMetaType::Void,
     QMetaType::Void,
 
@@ -185,6 +218,14 @@ void gestions::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
         case 22: _t->on_slidervolume_sliderMoved((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 23: _t->Pbtime(); break;
         case 24: _t->on_Pbtime_clicked(); break;
+        case 25: _t->update_label(); break;
+        case 26: _t->on_pbarduinoT_O_clicked(); break;
+        case 27: _t->on_pbarduinoT_off_clicked(); break;
+        case 28: _t->aller(); break;
+        case 29: _t->afficherPosition((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2]))); break;
+        case 30: _t->afficherInformations((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2]))); break;
+        case 31: _t->on_chercher_clicked(); break;
+        case 32: _t->on_pbgotomap_clicked(); break;
         default: ;
         }
     }
@@ -215,13 +256,13 @@ int gestions::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 25)
+        if (_id < 33)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 25;
+        _id -= 33;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 25)
+        if (_id < 33)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 25;
+        _id -= 33;
     }
     return _id;
 }

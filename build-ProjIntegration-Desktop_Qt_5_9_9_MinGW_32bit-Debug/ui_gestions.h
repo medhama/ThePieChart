@@ -163,10 +163,6 @@ public:
     QLabel *positionLongitude_2;
     QSpacerItem *horizontalSpacer_6;
     QPushButton *boutonAller;
-    QWidget *tab_12;
-    QWidget *tab_11;
-    QWidget *tab_13;
-    QWidget *tab_14;
 
     void setupUi(QDialog *gestions)
     {
@@ -193,11 +189,11 @@ public:
         imagemail = new QWidget(tab_6);
         imagemail->setObjectName(QStringLiteral("imagemail"));
         imagemail->setGeometry(QRect(100, 100, 101, 101));
-        imagemail->setStyleSheet(QStringLiteral("image: url(:/pics/EnvoyerMail.png);"));
+        imagemail->setStyleSheet(QStringLiteral("image: url(:/EnvoyerMail.png);"));
         imagestat = new QWidget(tab_6);
         imagestat->setObjectName(QStringLiteral("imagestat"));
         imagestat->setGeometry(QRect(300, 99, 120, 101));
-        imagestat->setStyleSheet(QStringLiteral("image: url(:/pics/EditerStatistiques.png);"));
+        imagestat->setStyleSheet(QStringLiteral("image: url(:/EditerStatistiques.png);"));
         AccStockpb = new QPushButton(tab_6);
         AccStockpb->setObjectName(QStringLiteral("AccStockpb"));
         AccStockpb->setGeometry(QRect(90, 380, 121, 23));
@@ -222,7 +218,7 @@ public:
         widget_9 = new QWidget(widget_7);
         widget_9->setObjectName(QStringLiteral("widget_9"));
         widget_9->setGeometry(QRect(130, 300, 120, 80));
-        widget_9->setStyleSheet(QStringLiteral("image: url(:/pics/box.png);"));
+        widget_9->setStyleSheet(QStringLiteral(""));
         widget_10 = new QWidget(widget_7);
         widget_10->setObjectName(QStringLiteral("widget_10"));
         widget_10->setGeometry(QRect(329, 299, 131, 81));
@@ -874,23 +870,11 @@ public:
         boutonAller->setGeometry(QRect(730, 400, 75, 23));
         tabWidget->addTab(tab_9, QString());
         tabWidget_4->addTab(tab_4, QString());
-        tab_12 = new QWidget();
-        tab_12->setObjectName(QStringLiteral("tab_12"));
-        tabWidget_4->addTab(tab_12, QString());
-        tab_11 = new QWidget();
-        tab_11->setObjectName(QStringLiteral("tab_11"));
-        tabWidget_4->addTab(tab_11, QString());
-        tab_13 = new QWidget();
-        tab_13->setObjectName(QStringLiteral("tab_13"));
-        tabWidget_4->addTab(tab_13, QString());
-        tab_14 = new QWidget();
-        tab_14->setObjectName(QStringLiteral("tab_14"));
-        tabWidget_4->addTab(tab_14, QString());
 
         retranslateUi(gestions);
 
         tabWidget_4->setCurrentIndex(0);
-        tabWidget->setCurrentIndex(7);
+        tabWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(gestions);
@@ -899,6 +883,7 @@ public:
     void retranslateUi(QDialog *gestions)
     {
         gestions->setWindowTitle(QApplication::translate("gestions", "The Pie Chart", Q_NULLPTR));
+        gestions->setStyleSheet(QApplication::translate("gestions", "image: url(:/box.png);", Q_NULLPTR));
         EnvoyerMail_pushButton->setText(QApplication::translate("gestions", "Envoyer Mail", Q_NULLPTR));
         pushButton_12->setText(QApplication::translate("gestions", "Consulter Statistiques", Q_NULLPTR));
         AccStockpb->setText(QApplication::translate("gestions", "Stock", Q_NULLPTR));
@@ -949,7 +934,7 @@ public:
          << QApplication::translate("gestions", "Autre", Q_NULLPTR)
         );
         pbgotomap->setText(QApplication::translate("gestions", "GotoMap", Q_NULLPTR));
-        label_11->setText(QApplication::translate("gestions", "<html><head/><body><p><span style=\" font-size:18pt; font-weight:600; color:#5500ff;\">Gestion Stock</span></p></body></html>", Q_NULLPTR));
+        label_11->setText(QApplication::translate("gestions", "<html><head/><body><p><span style=\" font-size:6pt; font-weight:10; color:#5500ff;\">.</span></p></body></html>", Q_NULLPTR));
         label_10->setText(QApplication::translate("gestions", "Gestion Fournisseur", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("gestions", "Fournisseur", Q_NULLPTR));
         imp->setText(QApplication::translate("gestions", "imprimer", Q_NULLPTR));
@@ -990,10 +975,6 @@ public:
         boutonAller->setText(QApplication::translate("gestions", "Aller !", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab_9), QApplication::translate("gestions", "Map", Q_NULLPTR));
         tabWidget_4->setTabText(tabWidget_4->indexOf(tab_4), QApplication::translate("gestions", "Fournisseur_stock", Q_NULLPTR));
-        tabWidget_4->setTabText(tabWidget_4->indexOf(tab_12), QApplication::translate("gestions", "Client_Produits", Q_NULLPTR));
-        tabWidget_4->setTabText(tabWidget_4->indexOf(tab_11), QApplication::translate("gestions", "Livraison", Q_NULLPTR));
-        tabWidget_4->setTabText(tabWidget_4->indexOf(tab_13), QApplication::translate("gestions", "Employee", Q_NULLPTR));
-        tabWidget_4->setTabText(tabWidget_4->indexOf(tab_14), QApplication::translate("gestions", "Evenement_Promotions", Q_NULLPTR));
     } // retranslateUi
 
 };

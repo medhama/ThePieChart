@@ -100,7 +100,7 @@ private:
         if (onoff==0)
         {
         QMediaPlayer *playerB = new QMediaPlayer;
-        playerB->setMedia(QUrl::fromLocalFile("C:/Users/Hamadi/Desktop/C++/ThePieChart/projCpp/Music/click2.wav"));
+        playerB->setMedia(QUrl::fromLocalFile("C:/Users/Hamadi/Desktop/C++/ThePieChartIntegration/ThePieChart/ProjIntegration/Music/click2.wav"));
         playerB->setVolume(50);
         playerB->play();
         }

@@ -89,7 +89,6 @@ int Produit_Stock::maxProd(QString idProd)
     {
     while(query.next())
     {
-
         int Quantitee=query.value(2).toInt();
         int besoinn=query.value(7).toInt();
         int k=Quantitee;

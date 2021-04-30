@@ -975,7 +975,7 @@ public:
 
         retranslateUi(ClientAff);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(5);
         comboBox1->setCurrentIndex(0);
         comboBox22->setCurrentIndex(0);
 

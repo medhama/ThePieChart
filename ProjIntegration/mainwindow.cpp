@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "clientaff.h"
 #include "gestions.h"
+#include "gestionlivraisons.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -9,7 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    qDebug()<<"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+   // qDebug()<<"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
 }
 
 MainWindow::~MainWindow()
@@ -36,4 +37,10 @@ void MainWindow::on_GestionStock_clicked()
     gestions G;
     G.exec();
 
+}
+
+void MainWindow::on_LivraisonCommande_clicked()
+{
+    GestionLivraisons F;
+    F.exec();
 }

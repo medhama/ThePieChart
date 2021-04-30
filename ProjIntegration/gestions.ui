@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>The Pie Chart</string>
   </property>
+  <property name="styleSheet">
+   <string>image: url(:/box.png);</string>
+  </property>
   <widget class="QTabWidget" name="tabWidget_4">
    <property name="geometry">
     <rect>
@@ -42,7 +45,7 @@
       <string notr="true"/>
      </property>
      <property name="currentIndex">
-      <number>7</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tab_6">
       <attribute name="title">
@@ -84,7 +87,7 @@
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">image: url(:/pics/EnvoyerMail.png);</string>
+        <string notr="true">image: url(:/EnvoyerMail.png);</string>
        </property>
       </widget>
       <widget class="QWidget" name="imagestat" native="true">
@@ -97,7 +100,7 @@
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">image: url(:/pics/EditerStatistiques.png);</string>
+        <string notr="true">image: url(:/EditerStatistiques.png);</string>
        </property>
       </widget>
       <widget class="QPushButton" name="AccStockpb">
@@ -190,7 +193,7 @@
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">image: url(:/pics/box.png);</string>
+         <string notr="true"/>
         </property>
        </widget>
        <widget class="QWidget" name="widget_10" native="true">
@@ -1172,7 +1175,7 @@ border-radius:20px;
         </rect>
        </property>
        <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt; font-weight:600; color:#5500ff;&quot;&gt;Gestion Stock&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:6pt; font-weight:10; color:#5500ff;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
       <widget class="QWidget" name="widget_4" native="true">
@@ -1774,26 +1777,6 @@ border-radius:20px;
       </widget>
      </widget>
     </widget>
-   </widget>
-   <widget class="QWidget" name="tab_12">
-    <attribute name="title">
-     <string>Client_Produits</string>
-    </attribute>
-   </widget>
-   <widget class="QWidget" name="tab_11">
-    <attribute name="title">
-     <string>Livraison</string>
-    </attribute>
-   </widget>
-   <widget class="QWidget" name="tab_13">
-    <attribute name="title">
-     <string>Employee</string>
-    </attribute>
-   </widget>
-   <widget class="QWidget" name="tab_14">
-    <attribute name="title">
-     <string>Evenement_Promotions</string>
-    </attribute>
    </widget>
   </widget>
  </widget>

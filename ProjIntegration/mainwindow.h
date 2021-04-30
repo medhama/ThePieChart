@@ -23,6 +23,8 @@ private slots:
 
     void on_GestionStock_clicked();
 
+    void on_LivraisonCommande_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

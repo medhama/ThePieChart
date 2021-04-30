@@ -23,6 +23,8 @@ SOURCES += \
             stock.cpp\
             arduino.cpp\
             popgas.cpp\
+            gestioncommandes.cpp \
+            gestionlivraisons.cpp \
     smtp.cpp
 
 HEADERS += \
@@ -39,11 +41,14 @@ HEADERS += \
        stock.h\
        arduino.h\
        popgas.h\
+       gestioncommandes.h \
+       gestionlivraisons.h \
     smtp.h
 
 FORMS += \
     clientaff.ui \
     gestions.ui \
+    gestionlivraisons.ui \
     mainwindow.ui
 
 # Default rules for deployment.
@@ -65,7 +70,6 @@ DISTFILES += \
     pics/arrow.png \
     pics/asset9.png \
     pics/biscuit.png \
-    pics/box.png \
     pics/cake.png \
     pics/cake1.png \
     pics/finalmiceshelf.png \
@@ -82,11 +86,14 @@ DISTFILES += \
     pics/picMasc.png \
     pics/supp.png \
     pics/supplier.png \
-    pics/thepiechart.png
+    pics/thepiechart.png \
+    russian.qm
 
 RESOURCES += \
     pics/picc.qrc \
     pics/picc.qrc\
-    qml.qrc
+    qml.qrc \
+    pics.qrc\
+    translations.qrc
 
 

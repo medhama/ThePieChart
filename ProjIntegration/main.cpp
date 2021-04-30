@@ -10,15 +10,41 @@
 #include <QStyleFactory>
 #include<QFile>
 
+#include <QTranslator>
+#include <QInputDialog>
 
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-    Connection c;
-    MainWindow MW;
-    QFont f;
+
+
+    // Translate
+                  QTranslator t;
+
+                  QStringList Languages;
+                  Languages << "French" << "English"<< "Russian" ;
+                  QString lang = QInputDialog::getItem(NULL,"Select language","language",Languages);
+                  if(lang=="English"){
+                      t.load("C:/Users/Hamadi/Desktop/C++/ThePieChartIntegration/ThePieChart/ProjIntegration/english.qm");
+                  }
+                  else if(lang=="Russian"){
+                         t.load("C:/Users/Hamadi/Desktop/C++/ThePieChartIntegration/ThePieChart/ProjIntegration/russian.qm");
+                  }
+                  if(lang != "French"){
+                      a.installTranslator(&t);
+                  }
+
+        // end translate
+
+
+
+                  Connection c;
+                  MainWindow MW;
+                  QFont f;
+
+
 
     f.setFamily("Segoe MDL2 Assets");
     a.setFont(f);
