@@ -18,6 +18,7 @@ class ClientAff : public QDialog
 
 public:
     explicit ClientAff(QWidget *parent = nullptr);
+    void recup();
     ~ClientAff();
 
 private slots:
@@ -85,6 +86,8 @@ private slots:
 
      void on_pushButton_7_clicked();
      void updatelabel();
+
+     void on_MaxProd_clicked();
 
 private:
     Ui::ClientAff *ui;

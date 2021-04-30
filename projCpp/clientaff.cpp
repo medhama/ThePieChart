@@ -23,6 +23,11 @@
 
 
 int onoff;
+
+
+
+
+
 ClientAff::ClientAff(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::ClientAff)
@@ -46,8 +51,8 @@ ClientAff::ClientAff(QWidget *parent) :
 
 
 
-    QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_label()));
-
+ //   QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(updatelabel()));
+   QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(recup()));
 
 
     mMediaPlayer=new QMediaPlayer(this);
@@ -85,7 +90,7 @@ ClientAff::~ClientAff()
     delete ui;
 }
 void ClientAff::updatelabel()
-{
+{/*
     data=A.read_from_arduino();
     if(data=="1")
     {
@@ -95,9 +100,28 @@ void ClientAff::updatelabel()
     {
             ui->updatelabel->setText("OFF");
 
+} */
+  /*  QMessageBox msgBox;
+
+
+    data=A.read_from_arduino();
+    if(data=="1"){msgBox.setText("Acces Granted");
+    msgBox.exec();}
+    qDebug()<<data;
+
+
+*/
 }
 
+void ClientAff::recup(){
 
+    QMessageBox msgBox;
+
+
+    data=A.read_from_arduino();
+if(data=="1"){msgBox.setText("Acces Granted");
+    msgBox.exec();}
+    qDebug()<<data;
 
 
 }
@@ -752,9 +776,9 @@ void ClientAff::on_Ajouter_Prod_Stock_clicked()
 
     int idStock=ui->LE_IdStock_P->text().toInt();
     QString idProd=ui->LE_idprod_S->text();
-
+    int QT_NE=ui->LE_QT_NE->text().toInt();
      bool test=false;
-    Produit_Stock E(idProd,idStock);
+    Produit_Stock E(idProd,idStock,QT_NE);
             test=E.ajouterSP();
 
     if(test==true)
@@ -771,7 +795,7 @@ void ClientAff::on_Ajouter_Prod_Stock_clicked()
                                      QObject::tr("Ajout non effectue\n""click cancel to exit"),QMessageBox::Cancel);
 
     }
-    qDebug()<<"button clicked";
+
 
 }
 
@@ -779,7 +803,7 @@ void ClientAff::on_Afficher_Ingredients_clicked()
 {
      QString idProd=ui->LE_Ingredients->text();
      int idprodint=idProd.toInt();
-     qDebug()<<idProd;
+   //  qDebug()<<idProd;
      Produit P;
      P=P.SelectModif(idprodint);
     ui->labelProdName->setText(P.Get_nom());
@@ -813,13 +837,27 @@ void ClientAff::on_Supprimer_Ingred_clicked()
 
 void ClientAff::on_Afficher_Ingredients_2_clicked()
 {
-    QString idProd=ui->LE_Ingredients->text();
+    QString idStock=ui->LE_Ingredients->text();
 
-    qDebug()<<idProd;
 
-   ui->tab_prod_stock->setModel(etmp_prod_stock.afficherProduits(idProd));
+
+   ui->tab_prod_stock->setModel(etmp_prod_stock.afficherProduits(idStock));
+  QString NomStock=etmp_prod_stock.SelectStock(idStock.toInt());
+  ui->labelProdName->setText(NomStock);
+
 
 }
+
+void ClientAff::on_MaxProd_clicked()
+{
+    QString idProd=ui->LE_Ingredients->text();
+
+    int a=etmp_prod_stock.maxProd(idProd);
+
+    ui->maxProdLabel->setText(QString::number(a)+" Produit");
+
+}
+
 
 void ClientAff::on_pushButton_7_clicked()
 {
@@ -829,3 +867,4 @@ void ClientAff::on_pushButton_7_clicked()
     A.write_to_arduino(br);
 
 }
+

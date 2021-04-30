@@ -486,7 +486,7 @@ background-image: url(:/BgPic.jpg);
 }</string>
    </property>
    <property name="currentIndex">
-    <number>4</number>
+    <number>3</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
@@ -1507,7 +1507,7 @@ background-image: url(:/BgPic.jpg);
      <property name="geometry">
       <rect>
        <x>140</x>
-       <y>160</y>
+       <y>190</y>
        <width>75</width>
        <height>23</height>
       </rect>
@@ -1529,8 +1529,8 @@ background-image: url(:/BgPic.jpg);
     <widget class="QLabel" name="labelProdName">
      <property name="geometry">
       <rect>
-       <x>330</x>
-       <y>310</y>
+       <x>340</x>
+       <y>320</y>
        <width>171</width>
        <height>31</height>
       </rect>
@@ -1607,7 +1607,7 @@ background-image: url(:/BgPic.jpg);
        <x>330</x>
        <y>230</y>
        <width>381</width>
-       <height>80</height>
+       <height>85</height>
       </rect>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout_18">
@@ -1627,12 +1627,58 @@ background-image: url(:/BgPic.jpg);
           </property>
          </widget>
         </item>
+        <item>
+         <widget class="QPushButton" name="MaxProd">
+          <property name="text">
+           <string>Afficher max Produit</string>
+          </property>
+         </widget>
+        </item>
        </layout>
       </item>
       <item>
        <widget class="QLineEdit" name="LE_Ingredients"/>
       </item>
      </layout>
+    </widget>
+    <widget class="QLineEdit" name="LE_QT_NE">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>150</y>
+       <width>113</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_27">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>150</y>
+       <width>121</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Quantité necessaire</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="maxProdLabel">
+     <property name="geometry">
+      <rect>
+       <x>350</x>
+       <y>350</y>
+       <width>101</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 16pt &quot;MS Shell Dlg 2&quot;;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
     </widget>
    </widget>
    <widget class="QWidget" name="tab_6">

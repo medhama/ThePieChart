@@ -288,7 +288,7 @@ int Client::NbPtWinner()
     int Num_telephoneVal=query_fix.value(5).toInt();
     QString EmailVal=query_fix.value(6).toString();
     Client C(cinVal,NomVal,PrenomVal,AdresseVal,EmailVal,Nbr_pointVal,Num_telephoneVal);
-
+qDebug()<<PrenomVal;
     for(int i=0;i<Nbr_pointVal;i++)
     {
         nbq.push_back(C);
