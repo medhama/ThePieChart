@@ -7,6 +7,8 @@
 #include "smtp.h"
 #include <QAbstractSocket>
 #include <QMediaPlayer>
+#include <QFontDialog>
+#include <QFont>
 namespace Ui {
 class GestionLivraisons;
 }
@@ -33,6 +35,8 @@ public:
     QSqlQueryModel* afficherLivreur(QString);
     QString  afficherNumdate(QString);
     bool supprimer(int);
+    void Loadsettings();
+    void Savesettings();
     bool modifier_liv(QString);
     void pdf(QString);
     QString currDate();
@@ -91,11 +95,36 @@ private slots:
 
     void on_pb_rechercher_liv_6_clicked();
 
+    void on_pushButton_5_clicked();
+
+    void on_pushButton_6_clicked();
+
+    void on_pushButton_7_clicked();
+
+    void on_pushButton_8_clicked();
+
+    void on_pushButton_9_clicked();
+
+    void on_pushButton_25_clicked();
+
+    void on_pushButton_26_clicked();
+
+    void on_pushButton_27_clicked();
+
+    void on_pushButton_28_clicked();
+
+    void on_pushButton_29_clicked();
+
+    void on_pushButton_10_clicked();
+
+    void on_pushButton_11_clicked();
+
 private:
     Ui::GestionLivraisons *ui;
     QMediaPlayer *musicClic=new QMediaPlayer;
     QMediaPlayer *musica=new QMediaPlayer;
     int id;
+    QFont font;
     QString date_liv, adresse_liv,nom_liv;
 
 };

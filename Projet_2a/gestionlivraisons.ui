@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1122</width>
-    <height>664</height>
+    <width>1114</width>
+    <height>657</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,10 +23,10 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 11pt &quot;Franklin Gothic Medium&quot;;</string>
+    <string notr="true"/>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>2</number>
    </property>
    <widget class="QWidget" name="La_Livraison">
     <attribute name="title">
@@ -42,7 +42,7 @@
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">font: 11pt &quot;Franklin Gothic Medium&quot;;</string>
+      <string notr="true"/>
      </property>
      <property name="title">
       <string>Gestion Des Livraisons</string>
@@ -107,7 +107,7 @@
        <rect>
         <x>980</x>
         <y>40</y>
-        <width>93</width>
+        <width>91</width>
         <height>28</height>
        </rect>
       </property>
@@ -144,7 +144,7 @@
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">font: 11pt &quot;Franklin Gothic Medium&quot;;</string>
+       <string notr="true"/>
       </property>
       <property name="title">
        <string>Ajouter et Modifier</string>
@@ -159,7 +159,7 @@
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">font: 11pt &quot;Franklin Gothic Medium&quot;;</string>
+        <string notr="true"/>
        </property>
        <property name="text">
         <string>Identifiant</string>
@@ -214,7 +214,7 @@
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">font: 11pt &quot;Franklin Gothic Medium&quot;;</string>
+        <string notr="true"/>
        </property>
        <property name="text">
         <string>Date de la Livraison</string>
@@ -230,7 +230,7 @@
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">font: 11pt &quot;Franklin Gothic Medium&quot;;</string>
+        <string notr="true"/>
        </property>
        <property name="text">
         <string>NomLivreur</string>
@@ -259,7 +259,7 @@
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">font: 11pt &quot;Franklin Gothic Medium&quot;;</string>
+        <string notr="true"/>
        </property>
        <property name="text">
         <string>Adresse</string>
@@ -455,7 +455,7 @@ image: url(:/new/prefix1/pics/soundonjpg.jpg);</string>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">font: 11pt &quot;Franklin Gothic Medium&quot;;</string>
+       <string notr="true"/>
       </property>
       <property name="text">
        <string>Calcul du nombre de livraisons par date </string>
@@ -471,7 +471,7 @@ image: url(:/new/prefix1/pics/soundonjpg.jpg);</string>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">font: 11pt &quot;Franklin Gothic Medium&quot;;</string>
+       <string notr="true"/>
       </property>
       <property name="text">
        <string>Le nombre de livraisons est</string>
@@ -511,7 +511,7 @@ image: url(:/new/prefix1/pics/soundonjpg.jpg);</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">font: 11pt &quot;Franklin Gothic Medium&quot;;</string>
+      <string notr="true"/>
      </property>
      <property name="title">
       <string>Gestion Des Commandes</string>
@@ -896,7 +896,7 @@ background-image: url(:/new/prefix1/pics/soundOff.jpg);</string>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">font: 11pt &quot;Franklin Gothic Medium&quot;;</string>
+       <string notr="true"/>
       </property>
       <property name="text">
        <string>Détails du Client</string>
@@ -992,7 +992,7 @@ background-image: url(:/new/prefix1/pics/soundOff.jpg);</string>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">font: 11pt &quot;Franklin Gothic Medium&quot;;</string>
+       <string notr="true"/>
       </property>
       <property name="text">
        <string>Nombre de commandes</string>
@@ -1008,7 +1008,7 @@ background-image: url(:/new/prefix1/pics/soundOff.jpg);</string>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">font: 11pt &quot;Franklin Gothic Medium&quot;;</string>
+       <string notr="true"/>
       </property>
       <property name="text">
        <string>Somme Depensé</string>
@@ -1024,7 +1024,7 @@ background-image: url(:/new/prefix1/pics/soundOff.jpg);</string>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">font: 11pt &quot;Franklin Gothic Medium&quot;;</string>
+       <string notr="true"/>
       </property>
       <property name="text">
        <string>Nombre d'articles Commandé</string>
@@ -1071,6 +1071,371 @@ background-image: url(:/new/prefix1/pics/soundOff.jpg);</string>
      <zorder>label_37</zorder>
      <zorder>pb_rechercher_liv_6</zorder>
     </widget>
+   </widget>
+   <widget class="QWidget" name="tab">
+    <attribute name="title">
+     <string>Settings</string>
+    </attribute>
+    <widget class="QGroupBox" name="groupBox_3">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>381</width>
+       <height>331</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Window Settings</string>
+     </property>
+     <widget class="QPushButton" name="pushButton_6">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>30</y>
+        <width>75</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Load</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_5">
+      <property name="geometry">
+       <rect>
+        <x>169</x>
+        <y>30</y>
+        <width>75</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Save</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_7">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>96</y>
+        <width>119</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">image: url(:/new/prefix1/pics/Fullscreen.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_8">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>230</y>
+        <width>119</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">image: url(:/new/prefix1/pics/Maximize.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_9">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>163</y>
+        <width>119</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">image: url(:/new/prefix1/pics/Minimize.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_10">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>40</y>
+        <width>71</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Preset</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_12">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>100</y>
+        <width>71</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Fullscreen</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_16">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>170</y>
+        <width>121</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Minimize Window</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_17">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>240</y>
+        <width>121</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Maximize Window</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QGroupBox" name="groupBox_6">
+     <property name="geometry">
+      <rect>
+       <x>390</x>
+       <y>0</y>
+       <width>341</width>
+       <height>331</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>SoundSettings</string>
+     </property>
+     <widget class="QPushButton" name="pushButton_26">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>60</y>
+        <width>75</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_25">
+      <property name="geometry">
+       <rect>
+        <x>181</x>
+        <y>60</y>
+        <width>75</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_39">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>70</y>
+        <width>101</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Button Volume</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_40">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>70</y>
+        <width>20</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_27">
+      <property name="geometry">
+       <rect>
+        <x>181</x>
+        <y>110</y>
+        <width>75</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_41">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>120</y>
+        <width>21</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_28">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>110</y>
+        <width>75</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_42">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>120</y>
+        <width>101</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Music Volume</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_11">
+      <property name="geometry">
+       <rect>
+        <x>270</x>
+        <y>180</y>
+        <width>51</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">image: url(:/new/prefix1/pics/soundOff.jpg);
+background-image: url(:/new/prefix1/pics/soundOff.jpg);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_10">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>180</y>
+        <width>51</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-image: url(:/new/prefix1/pics/soundonjpg.jpg);
+image: url(:/new/prefix1/pics/soundonjpg.jpg);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_43">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>200</y>
+        <width>101</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Music On/Off</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="widget_5" native="true">
+     <property name="geometry">
+      <rect>
+       <x>890</x>
+       <y>480</y>
+       <width>211</width>
+       <height>151</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">image: url(:/new/prefix1/pics/Jarbou3.png);</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="widget_6" native="true">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>550</y>
+       <width>120</width>
+       <height>80</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">image: url(:/new/prefix1/pics/Logo1.png);</string>
+     </property>
+    </widget>
+    <widget class="QGroupBox" name="groupBox_7">
+     <property name="geometry">
+      <rect>
+       <x>740</x>
+       <y>0</y>
+       <width>351</width>
+       <height>331</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Font Settings</string>
+     </property>
+     <widget class="QPushButton" name="pushButton_29">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>60</y>
+        <width>121</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Change Font</string>
+      </property>
+     </widget>
+    </widget>
+    <zorder>groupBox_7</zorder>
+    <zorder>groupBox_3</zorder>
+    <zorder>groupBox_6</zorder>
+    <zorder>widget_5</zorder>
+    <zorder>widget_6</zorder>
    </widget>
   </widget>
  </widget>

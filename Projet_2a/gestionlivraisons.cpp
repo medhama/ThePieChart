@@ -15,20 +15,29 @@
 #include "QtSql/QtSql"
 #include "QtSql/QSqlRecord"
 #include <QTextDocument>
+#include <QSettings>
+#include <QRect>
+#include <QFontDialog>
+#include <QFont>
+
 GestionLivraisons::GestionLivraisons(QWidget *parent) :
     QDialog(parent),ui(new Ui::GestionLivraisons)
 {
 
     musicClic->setMedia(QUrl("C:/Users/Ahmed/Documents/Projet_2a/Clickbutton.mp3"));
     musicClic->setVolume(10);
+    //ui->label_40->setText("10");
     musica->setMedia(QUrl("C:/Users/Ahmed/Documents/Projet_2a/musica.mp3"));
     musica->setVolume(20);
+    //ui->label_41->setText("20");
     GestionLivraisons A(id,date_liv,adresse_liv,nom_liv);
     GestionCommandes r;
     ui->setupUi(this);
     ui->le_id->setValidator(new QIntValidator(100, 999, this));
     ui->tab_Livraisons->setModel(A.afficher());
     ui->tab_Commandes->setModel(r.afficher());
+    ui->label_40->setText("10");
+    ui->label_41->setText("20");
 
 }
 
@@ -694,4 +703,133 @@ void GestionLivraisons::on_pb_rechercher_liv_6_clicked()
 
 
 
+}
+
+void GestionLivraisons::Savesettings()
+{
+QSettings setting("MyCompany","MyApp");
+setting.beginGroup("MainWindow");
+setting.setValue("position",this->geometry());
+
+//setting.setValue("position1",this->geometry());
+setting.endGroup();
+qDebug()<<"Saved";
+}
+void GestionLivraisons::Loadsettings()
+{
+    QSettings setting("MyCompany","MyApp");
+    setting.beginGroup("MainWindow");
+    QRect myrect = setting.value("position").toRect();
+    qDebug()<<myrect;
+    setGeometry(myrect);
+    setting.endGroup();
+    qDebug()<<"loaded";
+}
+
+void GestionLivraisons::on_pushButton_5_clicked()
+{ musicClic->stop();
+    musicClic->play();
+Savesettings();
+}
+
+void GestionLivraisons::on_pushButton_6_clicked()
+{ musicClic->stop();
+    musicClic->play();
+Loadsettings();
+}
+
+void GestionLivraisons::on_pushButton_7_clicked()
+{ musicClic->stop();
+    musicClic->play();
+    this->setWindowState(Qt::WindowFullScreen);}
+
+void GestionLivraisons::on_pushButton_8_clicked()
+{
+   this->setWindowState(Qt::WindowMaximized);
+    musicClic->stop();
+    musicClic->play();
+}
+
+void GestionLivraisons::on_pushButton_9_clicked()
+{
+    QSettings setting("MyCompany","MyApp");
+    setting.beginGroup("MainWindow");
+    QRect myrect = setting.value("position1").toRect();
+    qDebug()<<myrect;
+    setGeometry(myrect);
+    setting.endGroup();
+    qDebug()<<"loaded";
+    musicClic->stop();
+    musicClic->play();
+}
+
+void GestionLivraisons::on_pushButton_25_clicked()
+{int a;
+    musicClic->stop();
+    musicClic->play();
+a=musicClic->volume()+10;
+musicClic->setVolume(a);
+ QString nombre1 = QString::number(a);
+ui->label_40->setText(nombre1);
+}
+
+void GestionLivraisons::on_pushButton_26_clicked()
+{int a;
+    musicClic->stop();
+    musicClic->play();
+    a=musicClic->volume()-10;
+    musicClic->setVolume(a);
+     QString nombre1 = QString::number(a);
+    ui->label_40->setText(nombre1);
+}
+
+void GestionLivraisons::on_pushButton_27_clicked()
+{
+    int a;
+    musicClic->stop();
+    musicClic->play();
+        a=musica->volume()+10;
+        musica->setVolume(a);
+         QString nombre1 = QString::number(a);
+        ui->label_41->setText(nombre1);
+}
+
+void GestionLivraisons::on_pushButton_28_clicked()
+{
+    int a;
+    musicClic->stop();
+    musicClic->play();
+        a=musica->volume()-10;
+        musica->setVolume(a);
+         QString nombre1 = QString::number(a);
+        ui->label_41->setText(nombre1);
+
+}
+
+void GestionLivraisons::on_pushButton_29_clicked()
+{musicClic->stop();
+    musicClic->play();
+//11pt "Franklin Gothic Medium";
+    bool ok;
+    font = QFontDialog::getFont(&ok, QFont("Franklin Gothic Medium", 11), this);
+    if (ok) {
+    } else {
+    }
+
+QApplication::setFont(font);
+qDebug()<<font;
+}
+
+void GestionLivraisons::on_pushButton_10_clicked()
+{
+    musicClic->stop();
+        musicClic->play();
+        musica->play();
+}
+
+void GestionLivraisons::on_pushButton_11_clicked()
+{
+    musicClic->stop();
+        musicClic->play();
+        musica->stop();
 }
