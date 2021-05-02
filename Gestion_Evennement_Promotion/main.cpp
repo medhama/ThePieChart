@@ -5,6 +5,8 @@
 #include <QMessageBox>
 #include <QDebug>
 #include "connexion.h"
+#include "gestioneventpromo.h"
+
 
 int main(int argc, char *argv[])
 {
@@ -12,6 +14,8 @@ int main(int argc, char *argv[])
     Connexion c;
     bool test=c.ouvrirConnexion();
     MainWindow w;
+    GestionEventPromo G;
+
 
     QFile file("C:/Users/fatma/Desktop/ThePieChart/Gestion_Evennement_Promotion/darkorange.qss");
         file.open(QFile::ReadOnly);
@@ -21,7 +25,9 @@ int main(int argc, char *argv[])
          if(test)
          {
 
-             w.show();
+             //w.show();
+             G.show();
+
              QMessageBox::information(nullptr, QObject::tr("database is open"),
                          QObject::tr("connection successful.\n""Click Cancel to exit."), QMessageBox::Cancel);
 

@@ -16,6 +16,7 @@ SOURCES += \
     arduino.cpp \
     connexion.cpp \
     evennement.cpp \
+    gestioneventpromo.cpp \
     mailling.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -25,11 +26,13 @@ HEADERS += \
     arduino.h \
     connexion.h \
     evennement.h \
+    gestioneventpromo.h \
     mailling.h \
     mainwindow.h \
     promotion.h
 
 FORMS += \
+    gestioneventpromo.ui \
     mainwindow.ui
 
 # Default rules for deployment.
