@@ -25,6 +25,10 @@ private slots:
 
     void on_LivraisonCommande_clicked();
 
+
+
+    void on_PromotionEvenement_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

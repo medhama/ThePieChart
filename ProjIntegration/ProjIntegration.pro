@@ -25,6 +25,10 @@ SOURCES += \
             popgas.cpp\
             gestioncommandes.cpp \
             gestionlivraisons.cpp \
+            evennement.cpp \
+            gestioneventpromo.cpp \
+            mailling.cpp \
+            promotion.cpp\
     smtp.cpp
 
 HEADERS += \
@@ -43,12 +47,17 @@ HEADERS += \
        popgas.h\
        gestioncommandes.h \
        gestionlivraisons.h \
+       promotion.h\
+       evennement.h \
+       gestioneventpromo.h \
+       mailling.h \
     smtp.h
 
 FORMS += \
     clientaff.ui \
     gestions.ui \
     gestionlivraisons.ui \
+    gestioneventpromo.ui \
     mainwindow.ui
 
 # Default rules for deployment.

@@ -105,6 +105,19 @@
      <string>Gestion livraison/commande</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="PromotionEvenement">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>480</y>
+      <width>191</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Gestion promotion/evenement</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

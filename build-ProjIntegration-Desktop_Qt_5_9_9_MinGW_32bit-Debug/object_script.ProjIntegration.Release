@@ -14,6 +14,10 @@ INPUT(
 ./release/popgas.o
 ./release/gestioncommandes.o
 ./release/gestionlivraisons.o
+./release/evennement.o
+./release/gestioneventpromo.o
+./release/mailling.o
+./release/promotion.o
 ./release/smtp.o
 ./release/qrc_picc.o
 ./release/qrc_qml.o
@@ -24,5 +28,7 @@ INPUT(
 ./release/moc_mainwindow.o
 ./release/moc_qcustomplot.o
 ./release/moc_gestionlivraisons.o
+./release/moc_gestioneventpromo.o
+./release/moc_mailling.o
 ./release/moc_smtp.o
 );

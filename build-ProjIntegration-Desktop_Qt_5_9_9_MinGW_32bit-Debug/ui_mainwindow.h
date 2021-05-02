@@ -35,6 +35,7 @@ public:
     QWidget *tab_2;
     QPushButton *GestionStock;
     QPushButton *LivraisonCommande;
+    QPushButton *PromotionEvenement;
     QMenuBar *menubar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -71,6 +72,9 @@ public:
         LivraisonCommande = new QPushButton(widget);
         LivraisonCommande->setObjectName(QStringLiteral("LivraisonCommande"));
         LivraisonCommande->setGeometry(QRect(240, 370, 191, 91));
+        PromotionEvenement = new QPushButton(widget);
+        PromotionEvenement->setObjectName(QStringLiteral("PromotionEvenement"));
+        PromotionEvenement->setGeometry(QRect(240, 480, 191, 71));
         MainWindow->setCentralWidget(widget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QStringLiteral("menubar"));
@@ -95,6 +99,7 @@ public:
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("MainWindow", "Tab 2", Q_NULLPTR));
         GestionStock->setText(QApplication::translate("MainWindow", "Gestion", Q_NULLPTR));
         LivraisonCommande->setText(QApplication::translate("MainWindow", "Gestion livraison/commande", Q_NULLPTR));
+        PromotionEvenement->setText(QApplication::translate("MainWindow", "Gestion promotion/evenement", Q_NULLPTR));
     } // retranslateUi
 
 };
