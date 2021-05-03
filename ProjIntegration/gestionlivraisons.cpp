@@ -720,6 +720,7 @@ void GestionLivraisons::Loadsettings()
     QSettings setting("MyCompany","MyApp");
     setting.beginGroup("MainWindow");
     QRect myrect = setting.value("position").toRect();
+  //  QRect myrect = setting.value("position1").toRect();
     qDebug()<<myrect;
     setGeometry(myrect);
     setting.endGroup();

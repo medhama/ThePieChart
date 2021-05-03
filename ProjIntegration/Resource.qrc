@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/pics">
+        <file>pics/GF.jpg</file>
+        <file>pics/signOut.png</file>
+        <file>pics/signOutHover.png</file>
+        <file>pics/pie.png</file>
+        <file>pics/profileIcon.png</file>
+        <file>pics/profileIconHover.png</file>
+    </qresource>
+</RCC>

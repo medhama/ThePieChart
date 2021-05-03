@@ -1,4 +1,4 @@
-QT       += network core gui sql printsupport multimedia serialport location qml quickwidgets
+QT       += network core gui sql printsupport multimedia serialport location qml quickwidgets multimediawidgets widgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -29,6 +29,15 @@ SOURCES += \
             gestioneventpromo.cpp \
             mailling.cpp \
             promotion.cpp\
+            chatconnection.cpp \
+            Clients.cpp \
+             employee.cpp \
+             historique1.cpp \
+             mainwindowvideo.cpp \
+             notif.cpp \
+             peermanager.cpp \
+             profile.cpp \
+             server.cpp\
     smtp.cpp
 
 HEADERS += \
@@ -51,6 +60,15 @@ HEADERS += \
        evennement.h \
        gestioneventpromo.h \
        mailling.h \
+       chatconnection.h \
+       mainwindowvideo.h\
+       Clients.h \
+       employee.h \
+       historique1.h \
+       notif.h \
+       peermanager.h \
+       profile.h \
+       server.h\
     smtp.h
 
 FORMS += \
@@ -58,6 +76,7 @@ FORMS += \
     gestions.ui \
     gestionlivraisons.ui \
     gestioneventpromo.ui \
+    mainwindowvideo.ui\
     mainwindow.ui
 
 # Default rules for deployment.
@@ -103,6 +122,7 @@ RESOURCES += \
     pics/picc.qrc\
     qml.qrc \
     pics.qrc\
+    Resource.qrc\
     translations.qrc
 
 

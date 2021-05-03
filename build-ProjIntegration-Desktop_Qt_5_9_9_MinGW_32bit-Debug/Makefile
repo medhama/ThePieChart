@@ -237,6 +237,7 @@ Makefile: ../ProjIntegration/ProjIntegration.pro C:/Qt/5.9.9/mingw53_32/mkspecs/
 		C:/Qt/5.9.9/mingw53_32/lib/qtmaind.prl \
 		C:/Qt/5.9.9/mingw53_32/lib/Qt5PrintSupport.prl \
 		C:/Qt/5.9.9/mingw53_32/lib/Qt5QuickWidgets.prl \
+		C:/Qt/5.9.9/mingw53_32/lib/Qt5MultimediaWidgets.prl \
 		C:/Qt/5.9.9/mingw53_32/lib/Qt5Widgets.prl \
 		C:/Qt/5.9.9/mingw53_32/lib/Qt5Multimedia.prl \
 		C:/Qt/5.9.9/mingw53_32/lib/Qt5Location.prl \
@@ -425,6 +426,7 @@ C:/Qt/5.9.9/mingw53_32/mkspecs/features/lex.prf:
 C:/Qt/5.9.9/mingw53_32/lib/qtmaind.prl:
 C:/Qt/5.9.9/mingw53_32/lib/Qt5PrintSupport.prl:
 C:/Qt/5.9.9/mingw53_32/lib/Qt5QuickWidgets.prl:
+C:/Qt/5.9.9/mingw53_32/lib/Qt5MultimediaWidgets.prl:
 C:/Qt/5.9.9/mingw53_32/lib/Qt5Widgets.prl:
 C:/Qt/5.9.9/mingw53_32/lib/Qt5Multimedia.prl:
 C:/Qt/5.9.9/mingw53_32/lib/Qt5Location.prl:
