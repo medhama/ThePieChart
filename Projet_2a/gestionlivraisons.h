@@ -9,6 +9,7 @@
 #include <QMediaPlayer>
 #include <QFontDialog>
 #include <QFont>
+#include <dialog.h>
 namespace Ui {
 class GestionLivraisons;
 }
@@ -119,6 +120,8 @@ private slots:
 
     void on_pushButton_11_clicked();
 
+    void on_pushButton_12_clicked();
+
 private:
     Ui::GestionLivraisons *ui;
     QMediaPlayer *musicClic=new QMediaPlayer;
@@ -126,6 +129,7 @@ private:
     int id;
     QFont font;
     QString date_liv, adresse_liv,nom_liv;
+    //Dialog A;
 
 };
 

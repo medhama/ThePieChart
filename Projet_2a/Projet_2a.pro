@@ -1,6 +1,6 @@
 QT       += core gui widgets
 
-greaterThan(QT_MAJOR_VERSION, 4): QT +=  network printsupport sql widgets multimedia
+greaterThan(QT_MAJOR_VERSION, 4): QT +=  network printsupport sql widgets multimedia serialport
 TARGET = smtp
 CONFIG += c++11
 
@@ -10,6 +10,7 @@ CONFIG += c++11
 
 SOURCES += \
     connexion.cpp \
+    dialog.cpp \
     gestioncommandes.cpp \
     gestionlivraisons.cpp \
     main.cpp \
@@ -18,12 +19,14 @@ SOURCES += \
 
 HEADERS += \
     connexion.h \
+    dialog.h \
     gestioncommandes.h \
     gestionlivraisons.h \
     mainwindow.h \
     smtp.h
 
 FORMS += \
+    dialog.ui \
     gestionlivraisons.ui \
     mainwindow.ui
 

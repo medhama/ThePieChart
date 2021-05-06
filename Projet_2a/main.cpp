@@ -7,13 +7,15 @@
 #include <QDebug>
 #include "connexion.h"
 #include <QStyleFactory>
-#include<QFile>
+#include <QFile>
+#include <dialog.h>
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     Connexion c;
     bool test=c.ouvrirConnexion();
-    //MainWindow w;
+    Dialog A;
     GestionLivraisons F;
     QFile file("C:/Users/Ahmed/Documents/Projet_2a/pics/darkorange.qss");
         file.open(QFile::ReadOnly);

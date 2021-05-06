@@ -19,6 +19,7 @@
 #include <QRect>
 #include <QFontDialog>
 #include <QFont>
+#include <dialog.h>
 
 GestionLivraisons::GestionLivraisons(QWidget *parent) :
     QDialog(parent),ui(new Ui::GestionLivraisons)
@@ -832,4 +833,11 @@ void GestionLivraisons::on_pushButton_11_clicked()
     musicClic->stop();
         musicClic->play();
         musica->stop();
+}
+
+void GestionLivraisons::on_pushButton_12_clicked()
+{
+Dialog A;
+
+//A.exec();
 }
