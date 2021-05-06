@@ -15,6 +15,8 @@ namespace Ui {
 class GestionEventPromo;
 }
 
+class QMediaPlayer;
+
 class GestionEventPromo : public QDialog
 {
     Q_OBJECT
@@ -83,9 +85,23 @@ private slots :
     void UpdateTime();
 
 
+    //vente flash
+
     void on_VenteFlash_clicked();
 
-   // void on_PlayVideo_clicked();
+   //play music
+
+    void on_selection_clicked();
+
+    void on_play_clicked();
+
+    void on_pause_clicked();
+
+    void on_stop_clicked();
+
+    void on_mute_clicked();
+
+    void on_volume_valueChanged(int value);
 
 private:
     Ui::GestionEventPromo *ui;
@@ -106,6 +122,9 @@ private:
     QSound* son;
     QSound* erreur;
     QSound* succes;
+
+    //music
+    QMediaPlayer *mMediaPlayer;
 };
 
 #endif // GESTIONEVENTPROMO_H

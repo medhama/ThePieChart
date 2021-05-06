@@ -12,6 +12,7 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+    //a.setStyle("fusion");
     Connexion c;
     bool test=c.ouvrirConnexion();
     MainWindow w;

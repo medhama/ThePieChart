@@ -6,6 +6,7 @@ QT       += core gui multimedia multimediawidgets
 
 
 
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -44,3 +45,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     resources.qrc
+
+QMAKE_CXXFLAGS += -std=gnu++11

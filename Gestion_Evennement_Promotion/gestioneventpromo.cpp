@@ -15,7 +15,7 @@
 #include <QFile>
 #include <QStyleFactory>
 #include <QMediaPlayer>
-#include <QVideoWidget>
+//#include <QVideoWidget>
 
 
 double FirstNum;
@@ -87,6 +87,18 @@ GestionEventPromo::GestionEventPromo(QWidget *parent) :
      timer_1s = new QTimer(this);
      QObject::connect(timer_1s, SIGNAL(timeout()), this, SLOT(UpdateTime()));
      timer_1s->start(1000);
+
+     //music
+     mMediaPlayer = new QMediaPlayer(this);
+     connect(mMediaPlayer, &QMediaPlayer::positionChanged , [&](qint64 pos) {
+            ui->avance->setValue(pos);
+     });
+
+     connect (mMediaPlayer , &QMediaPlayer::durationChanged , [&](qint64 dur) {
+         ui->avance->setMaximum(dur);
+     } );
+
+
 
 }
 
@@ -783,12 +795,50 @@ void GestionEventPromo::on_VenteFlash_clicked()
         model->setQuery(*qry);
         ui->tab_promotion->setModel(model);
 }
-/*
-void GestionEventPromo::on_PlayVideo_clicked()
-{
-    QMediaPlayer * player = new QMediaPlayer;
-    QVideoWidget * VW = new QVideoWidget;
 
-    player->setVideoOutput(VW);
+
+//play music
+
+void GestionEventPromo::on_selection_clicked()
+{
+    QString fileName =  QFileDialog::getOpenFileName(this , "Selection");
+    if(fileName.isEmpty())
+    {
+        return;
+    }
+    mMediaPlayer->setMedia(QUrl::fromLocalFile(fileName));
+    mMediaPlayer->setVolume(ui->volume->value());
+    on_play_clicked();
 }
-*/
+
+void GestionEventPromo::on_play_clicked()
+{
+   mMediaPlayer->play();
+}
+
+void GestionEventPromo::on_pause_clicked()
+{
+    mMediaPlayer->pause();
+}
+
+void GestionEventPromo::on_stop_clicked()
+{
+    mMediaPlayer->stop();
+}
+
+void GestionEventPromo::on_mute_clicked()
+{
+    if(ui->mute->text() == "Mute"){
+    mMediaPlayer->setMuted(true);
+    ui->mute->setText("Unmute");
+    }else
+    {
+        mMediaPlayer->setMuted(false);
+        ui->mute->setText("Mute");
+    }
+}
+
+void GestionEventPromo::on_volume_valueChanged(int value)
+{
+  mMediaPlayer->setVolume(value);
+}
