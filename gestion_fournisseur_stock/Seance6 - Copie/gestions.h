@@ -9,8 +9,8 @@
 #include "smtp.h"
 #include <QtMultimedia/QMediaPlayer>
 #include <QTimer>
-#include <arduino.h>
-#include <popgas.h>
+#include "arduino.h"
+
 
 
 namespace Ui {
@@ -68,9 +68,8 @@ private slots:
 
     void sendMail_Produit_Date();
     void mailSent(QString);
-    void on_sendBtn_clicked();
 
-    void on_lineEdit_num_4_cursorPositionChanged(int arg1, int arg2);
+
 
     void on_EnvoyerMail_pushButton_clicked();
 
@@ -80,9 +79,7 @@ private slots:
 
     void on_AccFournisseurpb_clicked();
 
-    void on_le_typeeq_activated(const QString &arg1);
 
-    void on_pushButton_2_clicked();
 
     void on_Soundoffpb_clicked();
 
@@ -115,6 +112,8 @@ private slots:
 
     void on_pbgotomap_clicked();
 
+    void on_sonore_clicked();
+
 private:
     Ui::gestions *ui;
     FOURNISSEUR F;
@@ -124,7 +123,7 @@ private:
  QTimer *timer;
  QByteArray data;
      Arduino A;
-     PopGas G;
+
 
 };
 
