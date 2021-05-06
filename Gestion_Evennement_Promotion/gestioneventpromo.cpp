@@ -12,6 +12,11 @@
 #include <QDebug>
 #include <QTimer>
 #include <QTime>
+#include <QFile>
+#include <QStyleFactory>
+#include <QMediaPlayer>
+#include <QVideoWidget>
+
 
 double FirstNum;
 bool userIsTypingSecondNumber= false;
@@ -762,3 +767,28 @@ void GestionEventPromo::UpdateTime()
 }
 
 
+
+// Vente flash
+void GestionEventPromo::on_VenteFlash_clicked()
+{
+    QString arg = P.VenteFlash();
+   ui->label_Vente_Flash->setText(arg);
+   QString rech;
+         rech= arg.toCaseFolded();
+           QSqlQueryModel * model= new QSqlQueryModel();
+       QSqlQuery* qry=new QSqlQuery();
+        qry->prepare("SELECT * from pro where Pourcentage like concat (:rech,'%')");
+        qry->bindValue(":rech",rech);
+        qry->exec();
+        model->setQuery(*qry);
+        ui->tab_promotion->setModel(model);
+}
+/*
+void GestionEventPromo::on_PlayVideo_clicked()
+{
+    QMediaPlayer * player = new QMediaPlayer;
+    QVideoWidget * VW = new QVideoWidget;
+
+    player->setVideoOutput(VW);
+}
+*/

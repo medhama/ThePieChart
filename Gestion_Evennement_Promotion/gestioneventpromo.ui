@@ -23,7 +23,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
@@ -273,6 +273,23 @@
       </property>
       <property name="text">
        <string>Date Fin</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="PlayVideo">
+      <property name="geometry">
+       <rect>
+        <x>410</x>
+        <y>420</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 170, 0);
+color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>PlayVideo</string>
       </property>
      </widget>
     </widget>
@@ -939,10 +956,10 @@ background-repeat:none;</string>
     <widget class="QLabel" name="label_26">
      <property name="geometry">
       <rect>
-       <x>790</x>
-       <y>460</y>
+       <x>720</x>
+       <y>440</y>
        <width>55</width>
-       <height>41</height>
+       <height>31</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -956,11 +973,45 @@ font: 75 12pt &quot;MS Shell Dlg 2&quot;;</string>
     <widget class="QLineEdit" name="rechercher_promo">
      <property name="geometry">
       <rect>
-       <x>640</x>
-       <y>470</y>
+       <x>560</x>
+       <y>440</y>
        <width>131</width>
        <height>22</height>
       </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_Vente_Flash">
+     <property name="geometry">
+      <rect>
+       <x>720</x>
+       <y>480</y>
+       <width>55</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);
+font: 75 12pt &quot;MS Shell Dlg 2&quot;;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="VenteFlash">
+     <property name="geometry">
+      <rect>
+       <x>580</x>
+       <y>480</y>
+       <width>93</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(197, 0, 0);
+color: rgb(255, 255, 255);</string>
+     </property>
+     <property name="text">
+      <string>Vente Flash !!</string>
      </property>
     </widget>
     <zorder>label_24</zorder>
@@ -974,6 +1025,8 @@ font: 75 12pt &quot;MS Shell Dlg 2&quot;;</string>
     <zorder>lbl_image</zorder>
     <zorder>label_26</zorder>
     <zorder>rechercher_promo</zorder>
+    <zorder>label_Vente_Flash</zorder>
+    <zorder>VenteFlash</zorder>
    </widget>
    <widget class="QWidget" name="tab_5">
     <attribute name="title">

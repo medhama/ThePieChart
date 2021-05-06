@@ -83,6 +83,10 @@ private slots :
     void UpdateTime();
 
 
+    void on_VenteFlash_clicked();
+
+   // void on_PlayVideo_clicked();
+
 private:
     Ui::GestionEventPromo *ui;
     Evennement E;

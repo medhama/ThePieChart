@@ -6,6 +6,7 @@
 #include <QDebug>
 #include "connexion.h"
 #include "gestioneventpromo.h"
+#include <QDialog>
 
 
 int main(int argc, char *argv[])
@@ -17,7 +18,7 @@ int main(int argc, char *argv[])
     GestionEventPromo G;
 
 
-    QFile file("C:/Users/fatma/Desktop/ThePieChart/Gestion_Evennement_Promotion/darkorange.qss");
+    QFile file("C:/Users/fatma/Desktop/projet_Qt/ThePieChart/Gestion_Evennement_Promotion/darkorange.qss");
         file.open(QFile::ReadOnly);
         QString styleSheet = QLatin1String(file.readAll());
         a.setStyle("plastique");
