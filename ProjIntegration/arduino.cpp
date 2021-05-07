@@ -107,9 +107,7 @@ int Arduino::write_to_arduino2(QByteArray d){
 //nessrine
 QByteArray Arduino::read_from_arduino2()
 {
-
    //if(serial->isReadable())
-
        if(serial->isReadable()&& !data.contains('n') && !data.contains('r') )
         data = serial->readAll();
         float nb = data.toFloat();

@@ -20,6 +20,7 @@
 #include "gestionlivraisons.h"
 #include "gestioneventpromo.h"
 
+
 //hello
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -212,7 +213,7 @@ void MainWindow::on_signUpButton_clicked()
          }
              foreach(QLineEdit* le, findChildren<QLineEdit*>()) {
                           le->clear();}
-                     QFile file("C:/Users/TAHATOU/Desktop/historique/historique.txt");
+                     QFile file("C:/Users/Hamadi/Desktop/C++/ThePieChartIntegration/ThePieChart/ProjIntegration/Historique/historique.txt");
                      if(!file.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text))
                          return;
                      QTextStream cout(&file);
@@ -375,8 +376,9 @@ void MainWindow::on_addButton_clicked()
 void MainWindow::loadData()
 {
     Employee E;
-    QSqlQueryModel *model=new QSqlQueryModel();
-    model=E.loadData();
+   // QSqlQueryModel *model=new QSqlQueryModel();
+
+     QSqlQueryModel *model=E.loadData();
     ui->listView->setModel(model);
 
 }
@@ -528,7 +530,7 @@ void MainWindow::on_deleteAccountButton_clicked()
     }
     foreach(QLineEdit* le, findChildren<QLineEdit*>()) {
                  le->clear();}
-            QFile file("C:/Users/TAHATOU/Desktop/historique/historique.txt");
+            QFile file("C:/Users/Hamadi/Desktop/C++/ThePieChartIntegration/ThePieChart/ProjIntegration/Historique/historique.txt");
             if(!file.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text))
                 return;
             QTextStream cout(&file);
@@ -743,7 +745,7 @@ void MainWindow::on_saveButton_clicked()
         }
         foreach(QLineEdit* le, findChildren<QLineEdit*>()) {
                      le->clear();}
-                QFile file("C:/Users/TAHATOU/Desktop/historique/historique.txt");
+                QFile file("C:/Users/Hamadi/Desktop/C++/ThePieChartIntegration/ThePieChart/ProjIntegration/Historique/historique.txt");
                 if(!file.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text))
                     return;
                 QTextStream cout(&file);
@@ -1044,7 +1046,7 @@ void MainWindow::on_logOutButton_9_clicked()
 
 void MainWindow::ouvriremploye()
 {
-    QFile file ("C:/Users/TAHATOU/Desktop/historique/historique.txt");
+    QFile file ("C:/Users/Hamadi/Desktop/C++/ThePieChartIntegration/ThePieChart/ProjIntegration/Historique/historique.txt");
     if (!file.open(QIODevice::ReadOnly))
     {
         QMessageBox::information(0,"info",file.errorString());

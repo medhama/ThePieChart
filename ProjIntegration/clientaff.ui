@@ -486,7 +486,7 @@ background-image: url(:/BgPic.jpg);
 }</string>
    </property>
    <property name="currentIndex">
-    <number>5</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
@@ -893,18 +893,45 @@ background-image: url(:/BgPic.jpg);
       <string notr="true">image: url(:/picMasc.png);</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="GenWinner">
+    <widget class="QWidget" name="verticalLayoutWidget">
      <property name="geometry">
       <rect>
-       <x>450</x>
-       <y>390</y>
-       <width>75</width>
-       <height>23</height>
+       <x>440</x>
+       <y>360</y>
+       <width>121</width>
+       <height>82</height>
       </rect>
      </property>
-     <property name="text">
-      <string>Winner!</string>
-     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_3">
+      <item>
+       <widget class="QPushButton" name="GenWinner">
+        <property name="text">
+         <string>Winner!</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="CinLabel">
+        <property name="text">
+         <string>Cin</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="NomLabel">
+        <property name="text">
+         <string>Nom</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="PrenomLabel">
+        <property name="text">
+         <string>Prenom</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </widget>
    <widget class="QWidget" name="tab_2">
@@ -1526,22 +1553,6 @@ background-image: url(:/BgPic.jpg);
       </rect>
      </property>
     </widget>
-    <widget class="QLabel" name="labelProdName">
-     <property name="geometry">
-      <rect>
-       <x>340</x>
-       <y>320</y>
-       <width>171</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
     <widget class="QLabel" name="label_25">
      <property name="geometry">
       <rect>
@@ -1639,6 +1650,13 @@ background-image: url(:/BgPic.jpg);
       <item>
        <widget class="QLineEdit" name="LE_Ingredients"/>
       </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_8">
+        <property name="text">
+         <string>Export ingredients</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </widget>
     <widget class="QLineEdit" name="LE_QT_NE">
@@ -1664,21 +1682,63 @@ background-image: url(:/BgPic.jpg);
       <string>Quantité necessaire</string>
      </property>
     </widget>
-    <widget class="QLabel" name="maxProdLabel">
+    <widget class="QWidget" name="horizontalLayoutWidget_18">
      <property name="geometry">
       <rect>
-       <x>230</x>
-       <y>290</y>
-       <width>101</width>
+       <x>260</x>
+       <y>360</y>
+       <width>261</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_20">
+      <item>
+       <widget class="QLabel" name="label_29">
+        <property name="text">
+         <string>Nombre de produit possible:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="maxProdLabel">
+        <property name="styleSheet">
+         <string notr="true">font: 16pt &quot;MS Shell Dlg 2&quot;;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="horizontalLayoutWidget_17">
+     <property name="geometry">
+      <rect>
+       <x>260</x>
+       <y>330</y>
+       <width>241</width>
        <height>31</height>
       </rect>
      </property>
-     <property name="styleSheet">
-      <string notr="true">font: 16pt &quot;MS Shell Dlg 2&quot;;</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_19">
+      <item>
+       <widget class="QLabel" name="label_28">
+        <property name="text">
+         <string>Nom Produit/stock:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="labelProdName">
+        <property name="styleSheet">
+         <string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </widget>
    <widget class="QWidget" name="tab_6">
@@ -1889,6 +1949,23 @@ background-image: url(:/BgPic.jpg);
      </property>
      <property name="styleSheet">
       <string notr="true">image: url(:/picMasc.png);</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="currentTime">
+     <property name="geometry">
+      <rect>
+       <x>650</x>
+       <y>10</y>
+       <width>121</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 16pt;
+</string>
+     </property>
+     <property name="text">
+      <string>00:00:00</string>
      </property>
     </widget>
    </widget>

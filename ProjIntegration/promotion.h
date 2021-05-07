@@ -37,6 +37,8 @@ public:
     bool verif_champs_vide2(QString);
 
     QString nbrePromo(QString chaine1);
+    QString VenteFlash();
+
 
 
 

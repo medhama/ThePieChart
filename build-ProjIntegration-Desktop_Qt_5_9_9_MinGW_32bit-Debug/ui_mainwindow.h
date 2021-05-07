@@ -88,7 +88,6 @@ public:
     QPushButton *chatt;
     QPushButton *ClientProduit;
     QPushButton *StockFourni;
-    QPushButton *ClientProduit_3;
     QPushButton *CommandeLivraison;
     QPushButton *StockFourni_2;
     QWidget *page_4;
@@ -253,7 +252,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(1001, 600);
+        MainWindow->resize(1001, 604);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
         stackedWidget = new QStackedWidget(centralwidget);
@@ -657,9 +656,6 @@ public:
         StockFourni = new QPushButton(page_3);
         StockFourni->setObjectName(QStringLiteral("StockFourni"));
         StockFourni->setGeometry(QRect(400, 510, 141, 61));
-        ClientProduit_3 = new QPushButton(page_3);
-        ClientProduit_3->setObjectName(QStringLiteral("ClientProduit_3"));
-        ClientProduit_3->setGeometry(QRect(600, 590, 141, 61));
         CommandeLivraison = new QPushButton(page_3);
         CommandeLivraison->setObjectName(QStringLiteral("CommandeLivraison"));
         CommandeLivraison->setGeometry(QRect(560, 510, 171, 61));
@@ -1816,7 +1812,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(2);
+        stackedWidget->setCurrentIndex(10);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -1824,7 +1820,7 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", Q_NULLPTR));
+        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "The Pie Chart", Q_NULLPTR));
         goToSignUpButton->setText(QApplication::translate("MainWindow", "S'inscrire", Q_NULLPTR));
         pushButton_2->setText(QString());
         loginTitle->setText(QApplication::translate("MainWindow", "Se connecter a The Pie Shart", Q_NULLPTR));
@@ -1863,7 +1859,6 @@ public:
         chatt->setText(QApplication::translate("MainWindow", "Chat", Q_NULLPTR));
         ClientProduit->setText(QApplication::translate("MainWindow", "Gestion Client/Produit", Q_NULLPTR));
         StockFourni->setText(QApplication::translate("MainWindow", "Gestion Stock/fournisseur", Q_NULLPTR));
-        ClientProduit_3->setText(QApplication::translate("MainWindow", "Gestion Stpck/founisseur", Q_NULLPTR));
         CommandeLivraison->setText(QApplication::translate("MainWindow", "Gestion Commande/Livraison", Q_NULLPTR));
         StockFourni_2->setText(QApplication::translate("MainWindow", "Gestion Evenement/promotion", Q_NULLPTR));
         label_19->setText(QApplication::translate("MainWindow", "Change Password", Q_NULLPTR));

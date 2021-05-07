@@ -21,8 +21,10 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPlainTextEdit>
+#include <QtWidgets/QProgressBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QRadioButton>
+#include <QtWidgets/QSlider>
 #include <QtWidgets/QTabWidget>
 #include <QtWidgets/QTableView>
 #include <QtWidgets/QWidget>
@@ -109,6 +111,8 @@ public:
     QLabel *lbl_image;
     QLabel *label_26;
     QLineEdit *rechercher_promo;
+    QLabel *label_Vente_Flash;
+    QPushButton *VenteFlash;
     QWidget *tab_5;
     QLabel *label_56;
     QLabel *label_57;
@@ -153,6 +157,18 @@ public:
     QHBoxLayout *horizontalLayout;
     QLCDNumber *temp_lcdNumber;
     QLabel *label_alert;
+    QWidget *tab_6;
+    QProgressBar *avance;
+    QWidget *layoutWidget;
+    QHBoxLayout *horizontalLayout_5;
+    QPushButton *mute;
+    QSlider *volume;
+    QWidget *layoutWidget1;
+    QHBoxLayout *horizontalLayout_4;
+    QPushButton *selection;
+    QPushButton *play;
+    QPushButton *pause;
+    QPushButton *stop;
     QWidget *layoutWidget_3;
     QHBoxLayout *horizontalLayout_3;
     QLabel *label_29;
@@ -165,7 +181,7 @@ public:
         GestionEventPromo->resize(1240, 658);
         tabWidget = new QTabWidget(GestionEventPromo);
         tabWidget->setObjectName(QStringLiteral("tabWidget"));
-        tabWidget->setGeometry(QRect(50, 20, 1111, 551));
+        tabWidget->setGeometry(QRect(10, 20, 1191, 551));
         tab = new QWidget();
         tab->setObjectName(QStringLiteral("tab"));
         groupBox = new QGroupBox(tab);
@@ -408,12 +424,22 @@ public:
         lbl_image->setGeometry(QRect(30, 375, 171, 81));
         label_26 = new QLabel(tab_2);
         label_26->setObjectName(QStringLiteral("label_26"));
-        label_26->setGeometry(QRect(790, 460, 55, 41));
+        label_26->setGeometry(QRect(720, 440, 55, 31));
         label_26->setStyleSheet(QLatin1String("background-color: rgb(255, 255, 255);\n"
 "font: 75 12pt \"MS Shell Dlg 2\";"));
         rechercher_promo = new QLineEdit(tab_2);
         rechercher_promo->setObjectName(QStringLiteral("rechercher_promo"));
-        rechercher_promo->setGeometry(QRect(640, 470, 131, 22));
+        rechercher_promo->setGeometry(QRect(560, 440, 131, 22));
+        label_Vente_Flash = new QLabel(tab_2);
+        label_Vente_Flash->setObjectName(QStringLiteral("label_Vente_Flash"));
+        label_Vente_Flash->setGeometry(QRect(720, 480, 55, 31));
+        label_Vente_Flash->setStyleSheet(QLatin1String("background-color: rgb(255, 255, 255);\n"
+"font: 75 12pt \"MS Shell Dlg 2\";"));
+        VenteFlash = new QPushButton(tab_2);
+        VenteFlash->setObjectName(QStringLiteral("VenteFlash"));
+        VenteFlash->setGeometry(QRect(580, 480, 93, 28));
+        VenteFlash->setStyleSheet(QLatin1String("background-color: rgb(197, 0, 0);\n"
+"color: rgb(255, 255, 255);"));
         tabWidget->addTab(tab_2, QString());
         label_24->raise();
         groupBox_4->raise();
@@ -426,6 +452,8 @@ public:
         lbl_image->raise();
         label_26->raise();
         rechercher_promo->raise();
+        label_Vente_Flash->raise();
+        VenteFlash->raise();
         tab_5 = new QWidget();
         tab_5->setObjectName(QStringLiteral("tab_5"));
         label_56 = new QLabel(tab_5);
@@ -753,6 +781,56 @@ public:
         label_alert->setFont(font);
         label_alert->setStyleSheet(QStringLiteral("color:RED;"));
         tabWidget->addTab(tab_4, QString());
+        tab_6 = new QWidget();
+        tab_6->setObjectName(QStringLiteral("tab_6"));
+        avance = new QProgressBar(tab_6);
+        avance->setObjectName(QStringLiteral("avance"));
+        avance->setGeometry(QRect(160, 170, 511, 31));
+        avance->setValue(0);
+        layoutWidget = new QWidget(tab_6);
+        layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
+        layoutWidget->setGeometry(QRect(210, 230, 371, 30));
+        horizontalLayout_5 = new QHBoxLayout(layoutWidget);
+        horizontalLayout_5->setObjectName(QStringLiteral("horizontalLayout_5"));
+        horizontalLayout_5->setContentsMargins(0, 0, 0, 0);
+        mute = new QPushButton(layoutWidget);
+        mute->setObjectName(QStringLiteral("mute"));
+
+        horizontalLayout_5->addWidget(mute);
+
+        volume = new QSlider(layoutWidget);
+        volume->setObjectName(QStringLiteral("volume"));
+        volume->setOrientation(Qt::Horizontal);
+
+        horizontalLayout_5->addWidget(volume);
+
+        layoutWidget1 = new QWidget(tab_6);
+        layoutWidget1->setObjectName(QStringLiteral("layoutWidget1"));
+        layoutWidget1->setGeometry(QRect(190, 110, 395, 30));
+        horizontalLayout_4 = new QHBoxLayout(layoutWidget1);
+        horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
+        horizontalLayout_4->setContentsMargins(0, 0, 0, 0);
+        selection = new QPushButton(layoutWidget1);
+        selection->setObjectName(QStringLiteral("selection"));
+
+        horizontalLayout_4->addWidget(selection);
+
+        play = new QPushButton(layoutWidget1);
+        play->setObjectName(QStringLiteral("play"));
+
+        horizontalLayout_4->addWidget(play);
+
+        pause = new QPushButton(layoutWidget1);
+        pause->setObjectName(QStringLiteral("pause"));
+
+        horizontalLayout_4->addWidget(pause);
+
+        stop = new QPushButton(layoutWidget1);
+        stop->setObjectName(QStringLiteral("stop"));
+
+        horizontalLayout_4->addWidget(stop);
+
+        tabWidget->addTab(tab_6, QString());
         layoutWidget_3 = new QWidget(GestionEventPromo);
         layoutWidget_3->setObjectName(QStringLiteral("layoutWidget_3"));
         layoutWidget_3->setGeometry(QRect(950, 590, 228, 38));
@@ -780,7 +858,7 @@ public:
 
         retranslateUi(GestionEventPromo);
 
-        tabWidget->setCurrentIndex(1);
+        tabWidget->setCurrentIndex(5);
 
 
         QMetaObject::connectSlotsByName(GestionEventPromo);
@@ -838,6 +916,8 @@ public:
         InsertImage->setText(QApplication::translate("GestionEventPromo", "InsertImage", Q_NULLPTR));
         lbl_image->setText(QString());
         label_26->setText(QString());
+        label_Vente_Flash->setText(QString());
+        VenteFlash->setText(QApplication::translate("GestionEventPromo", "Vente Flash !!", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("GestionEventPromo", "Promotions", Q_NULLPTR));
         label_56->setText(QApplication::translate("GestionEventPromo", "Subject:", Q_NULLPTR));
         label_57->setText(QApplication::translate("GestionEventPromo", "Recipant to:", Q_NULLPTR));
@@ -903,6 +983,12 @@ public:
         temp_label->setText(QApplication::translate("GestionEventPromo", "<html><head/><body><p><span style=\" font-size:22pt; font-weight:600; color:#ff0000;\">Temperature \302\260C:</span></p></body></html>", Q_NULLPTR));
         label_alert->setText(QString());
         tabWidget->setTabText(tabWidget->indexOf(tab_4), QApplication::translate("GestionEventPromo", "Arduino", Q_NULLPTR));
+        mute->setText(QApplication::translate("GestionEventPromo", "Mute", Q_NULLPTR));
+        selection->setText(QApplication::translate("GestionEventPromo", "Selection", Q_NULLPTR));
+        play->setText(QApplication::translate("GestionEventPromo", "Play", Q_NULLPTR));
+        pause->setText(QApplication::translate("GestionEventPromo", "Pause", Q_NULLPTR));
+        stop->setText(QApplication::translate("GestionEventPromo", "Stop", Q_NULLPTR));
+        tabWidget->setTabText(tabWidget->indexOf(tab_6), QApplication::translate("GestionEventPromo", "Music", Q_NULLPTR));
         label_29->setText(QApplication::translate("GestionEventPromo", "Current time", Q_NULLPTR));
         lbl_time_2->setText(QApplication::translate("GestionEventPromo", "00:00:00", Q_NULLPTR));
     } // retranslateUi

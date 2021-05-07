@@ -87,6 +87,9 @@ private slots:
      void updatelabel();
 
      void on_MaxProd_clicked();
+     void UpdateTime();
+
+     void on_pushButton_8_clicked();
 
 private:
     Ui::ClientAff *ui;
@@ -95,6 +98,7 @@ private:
     Produit_Stock etmp_prod_stock;
     QByteArray data;
     RFIDMOTEUR A;
+    QTimer * timer_1s;
     QMediaPlayer *mMediaPlayer;
     void playClick(int onoff){
         if (onoff==0)

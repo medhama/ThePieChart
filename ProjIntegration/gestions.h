@@ -9,8 +9,8 @@
 #include "smtp.h"
 #include <QtMultimedia/QMediaPlayer>
 #include <QTimer>
-#include <arduino.h>
-#include <popgas.h>
+#include "arduino.h"
+
 
 
 namespace Ui {
@@ -97,7 +97,6 @@ private slots:
 
   void on_pbarduinoT_O_clicked();
 
-  void on_pbarduinoT_off_clicked();
 
   //Map
 public slots:
@@ -112,6 +111,8 @@ private slots:
 
     void on_pbgotomap_clicked();
 
+    void on_sonore_clicked();
+
 private:
     Ui::gestions *ui;
     FOURNISSEUR F;
@@ -121,7 +122,7 @@ private:
  QTimer *timer;
  QByteArray data;
      Arduino A;
-   //  PopGas G;
+
 
 };
 

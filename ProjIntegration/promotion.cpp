@@ -184,6 +184,7 @@ bool Promotion::modifier(int id )
 }
 
 
+// nbre de promo
 QString Promotion::nbrePromo(QString ch)
 {
     QSqlQuery query;
@@ -197,5 +198,23 @@ QString Promotion::nbrePromo(QString ch)
             QString S = QString::number(n);
        return S;
 }
+
+//Vente flash
+QString Promotion::VenteFlash()
+{
+    QString ch;
+    QSqlQuery query;
+         query.prepare("SELECT MAX(Pourcentage) FROM pro");
+         query.bindValue(":Pourcentage", ch);
+         int n=0;
+            if(query.exec())
+            {  while (query.next())
+                {  n=query.value(0).toInt();
+                    qDebug()<<n; } }
+            QString S = QString::number(n);
+
+       return S;
+}
+
 
 

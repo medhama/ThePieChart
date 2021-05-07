@@ -39,9 +39,10 @@ int main(int argc, char *argv[])
         // end translate
 
 
-
-                  Connection c;
+    Connection c;
+    bool test=c.createConnection();
                   MainWindow MW;
+
                   QFont f;
 
 
@@ -59,7 +60,7 @@ int main(int argc, char *argv[])
    //qDebug() << QStyleFactory::keys();
   //  a.setStyle(styleSheet);
 
-    bool test=c.createConnection();
+
     ClientAff d;
 
     qDebug() << "Device supports OpenSSL: " << QSslSocket::supportsSsl();

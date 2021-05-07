@@ -28,7 +28,6 @@
 #include <QJsonArray>
 #include <QQmlEngine>
 #include <QQuickItem>
-
 //include lang
 #include <QFontDialog>
 
@@ -37,6 +36,10 @@ gestions::gestions(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::gestions)
 {
+
+
+
+
     //add sound effect
 
     player = new QMediaPlayer(this);
@@ -47,6 +50,24 @@ gestions::gestions(QWidget *parent) :
 
 
     ui->setupUi(this);
+
+    //arduino
+    int ret=A.connect_arduino(); // lancer la connexion à arduino
+    switch(ret){
+    case(0):qDebug()<< "arduino is available and connected to : "<< A.getArduino_port_name();
+        break;
+    case(1):qDebug() << "arduino is available but not connected to :" <<A.getArduino_port_name();
+       break;
+    case(-1):qDebug() << "arduino is not available";
+    }
+     QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_label())); // permet de lancer
+     //le slot update_label suite à la reception du signal readyRead (reception des données).
+
+    // end arduino
+
+
+
+
     ui->le_id->setValidator(new QIntValidator(0, 99999, this));
     ui->tab_fournisseur_2->setModel(F.afficher());
     ui->le_idstock->setValidator(new QIntValidator(0, 99999, this));
@@ -55,22 +76,7 @@ gestions::gestions(QWidget *parent) :
     connect(ui->sendBtn, SIGNAL(clicked()),this, SLOT(sendMail_Produit_Date()));
     connect(ui->exitBtn, SIGNAL(clicked()),this, SLOT(close()));
 
-    int ret = A.connect_arduino();
-        switch (ret)
-        {
-            case(0): qDebug()<<"arduino is avaible and connected to: "<<A.getArduino_port_name();
-            break;
 
-            case(1): qDebug()<<"arduino is avaible but not connected to: "<<A.getArduino_port_name();
-            break;
-
-            case(-1): qDebug()<<"arduino is not avaible";
-            break;
-
-
-        }
-
-        QObject::connect(A.getserial(), SIGNAL(readyRead()), this, SLOT(update_label()));
 
 
         //Map
@@ -88,8 +94,8 @@ gestions::gestions(QWidget *parent) :
             connect(objectGeocodage, SIGNAL(afficherInformations(QString,QString)), this, SLOT(afficherInformations(QString,QString)));
         }
 
-        setWindowTitle("Map v2");
-        showMaximized();
+        //setWindowTitle("Map v2");
+        //showMaximized();
         //Endmap
 
 
@@ -587,9 +593,9 @@ void gestions::sendMail_Produit_Date()
 
     if( !files.isEmpty() )
        // ui->msg->toPlainText()
-        smtp->sendMail("virupediaproject@gmail.com", ui->rcpt->text() ,"SMART PASTRY",S.Verifier_Date() );
+        smtp->sendMail("", ui->rcpt->text() ,"SMART PASTRY",S.Verifier_Date() );
     else
-        smtp->sendMail("virupediaproject@gmail.com", ui->rcpt->text() , "SMART PASTRY",S.Verifier_Date() );
+        smtp->sendMail("mohamedhamadifathallah@gmail.com", ui->rcpt->text() , "SMART PASTRY",S.Verifier_Date() );
 }
 
 void gestions::mailSent(QString status)
@@ -674,10 +680,27 @@ void gestions::on_slidervolume_sliderMoved(int position)
 void gestions::on_Pbtime_clicked()
 {
 
-    int T=ui->Timer->currentText().toInt();
-    timer=new QTimer(this);
-    connect(timer, SIGNAL(timeout()),this, SLOT(Pbtime()));
-    timer->start(T*1000);
+    QString mode=ui->TimerMode->currentText();
+    int T=ui->Timer->text().toInt();
+    qDebug()<<mode;
+     qDebug()<<T;
+
+    if(mode=="secondes"){
+        timer=new QTimer(this);
+   connect(timer, SIGNAL(timeout()),this, SLOT(Pbtime()));
+        timer->start(T*1000);
+
+    }else if(mode=="minutes"){
+         timer=new QTimer(this);
+           connect(timer, SIGNAL(timeout()),this, SLOT(Pbtime()));
+      timer->start((T*1000)*60);
+
+    }
+    else{
+         timer=new QTimer(this);
+           connect(timer, SIGNAL(timeout()),this, SLOT(Pbtime()));
+         timer->start(((T*1000)*60)*60);
+    }
 
 }
 
@@ -733,14 +756,47 @@ void gestions::on_pbarduinoT_O_clicked()
 }
 
 //tarek
+/*
 void gestions::on_pbarduinoT_off_clicked()
 {
     A.write_to_arduino("0");
 
 }
+*/
+
+
 
 void gestions::update_label()
-{/*
+{
+     data =A.read_from_arduino();
+     QString DataAsString = QString(data);
+         qDebug()<< "this is data:"<< data;
+    if (data =="1")
+    {ui->label->setText("alarme activée");
+        ui->label_14->setText("alarm activée");
+        player->setMedia(QUrl::fromLocalFile("C:/Users/tarek/Desktop/projetqt/Seance6/soundbuttons/alarm.mp3"));
+        player->play();
+         QMessageBox::warning(this,"Warning","Attention il ya un fuite de GAZ detecte !! ");
+    }
+    else if (data =="0")
+    {ui->label->setText("alarme désactivée");
+        ui->label_14->setText("alarme désactivée");
+     player->stop();
+    }
+}
+
+void gestions::on_sonore_clicked()
+{
+
+    A.write_to_arduino("0");
+
+}
+
+
+
+/*
+void gestions::update_label()
+{
     data = A.read_from_arduino();
 
     //taha+tarek
@@ -752,9 +808,8 @@ void gestions::update_label()
         G.exec();
     }
     //END OF taha+tarek
-    */
 }
-
+*/
 
 
 //Map
@@ -841,3 +896,4 @@ void gestions::on_pbgotomap_clicked()
     QString loc=ui->le_lieumap->text();
     ui->le_adresspart2->setText(loc);
 }
+

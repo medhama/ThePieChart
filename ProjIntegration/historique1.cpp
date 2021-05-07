@@ -4,12 +4,12 @@
 historique1::historique1(QObject *parent)
 
 {
-    mFilename="C:/Users/TAHATOU/Desktop/historique";
-    mFilename1="C:/Users/TAHATOU/Desktop/historique";
-    mFilename2="C:/Users/TAHATOU/Desktop/historique";
-    mFilename3="C:/Users/TAHATOU/Desktop/historique";
-    mFilename4="C:/Users/TAHATOU/Desktop/historique";
-    mFilename5="C:/Users/TAHATOU/Desktop/historique";
+    mFilename="C:/Users/Hamadi/Desktop/C++/ThePieChartIntegration/ThePieChart/ProjIntegration/Historique";
+    mFilename1="C:/Users/Hamadi/Desktop/C++/ThePieChartIntegration/ThePieChart/ProjIntegration/Historique";
+    mFilename2="C:/Users/Hamadi/Desktop/C++/ThePieChartIntegration/ThePieChart/ProjIntegration/Historique";
+    mFilename3="C:/Users/Hamadi/Desktop/C++/ThePieChartIntegration/ThePieChart/ProjIntegration/Historique";
+    mFilename4="C:/Users/Hamadi/Desktop/C++/ThePieChartIntegration/ThePieChart/ProjIntegration/Historique";
+    mFilename5="C:/Users/Hamadi/Desktop/C++/ThePieChartIntegration/ThePieChart/ProjIntegration/Historique";
 }
 
 QString historique1::read()

@@ -141,10 +141,15 @@ public:
     QLabel *label_35;
     QLabel *label_36;
     QLabel *label_37;
-    QComboBox *Timer;
+    QComboBox *TimerMode;
+    QLineEdit *Timer;
     QWidget *tab_8;
     QPushButton *pbarduinoT_O;
-    QPushButton *pbarduinoT_off;
+    QPushButton *sonore;
+    QWidget *layoutWidget1;
+    QHBoxLayout *horizontalLayout_2;
+    QLabel *label_16;
+    QLabel *label_14;
     QWidget *tab_9;
     QPushButton *chercher;
     QQuickWidget *quickWidget;
@@ -163,6 +168,10 @@ public:
     QLabel *positionLongitude_2;
     QSpacerItem *horizontalSpacer_6;
     QPushButton *boutonAller;
+    QWidget *tab_12;
+    QWidget *tab_11;
+    QWidget *tab_13;
+    QWidget *tab_14;
 
     void setupUi(QDialog *gestions)
     {
@@ -189,11 +198,11 @@ public:
         imagemail = new QWidget(tab_6);
         imagemail->setObjectName(QStringLiteral("imagemail"));
         imagemail->setGeometry(QRect(100, 100, 101, 101));
-        imagemail->setStyleSheet(QStringLiteral("image: url(:/EnvoyerMail.png);"));
+        imagemail->setStyleSheet(QStringLiteral("image: url(:/pics/EnvoyerMail.png);"));
         imagestat = new QWidget(tab_6);
         imagestat->setObjectName(QStringLiteral("imagestat"));
         imagestat->setGeometry(QRect(300, 99, 120, 101));
-        imagestat->setStyleSheet(QStringLiteral("image: url(:/EditerStatistiques.png);"));
+        imagestat->setStyleSheet(QStringLiteral("image: url(:/pics/EditerStatistiques.png);"));
         AccStockpb = new QPushButton(tab_6);
         AccStockpb->setObjectName(QStringLiteral("AccStockpb"));
         AccStockpb->setGeometry(QRect(90, 380, 121, 23));
@@ -218,7 +227,7 @@ public:
         widget_9 = new QWidget(widget_7);
         widget_9->setObjectName(QStringLiteral("widget_9"));
         widget_9->setGeometry(QRect(130, 300, 120, 80));
-        widget_9->setStyleSheet(QStringLiteral(""));
+        widget_9->setStyleSheet(QStringLiteral("image: url(:/pics/box.png);"));
         widget_10 = new QWidget(widget_7);
         widget_10->setObjectName(QStringLiteral("widget_10"));
         widget_10->setGeometry(QRect(329, 299, 131, 81));
@@ -723,10 +732,10 @@ public:
         tab_7->setObjectName(QStringLiteral("tab_7"));
         label_13 = new QLabel(tab_7);
         label_13->setObjectName(QStringLiteral("label_13"));
-        label_13->setGeometry(QRect(70, 40, 47, 13));
+        label_13->setGeometry(QRect(90, 40, 47, 13));
         Pbtime = new QPushButton(tab_7);
         Pbtime->setObjectName(QStringLiteral("Pbtime"));
-        Pbtime->setGeometry(QRect(220, 40, 121, 23));
+        Pbtime->setGeometry(QRect(270, 40, 121, 23));
         le_datestock_3 = new QDateEdit(tab_7);
         le_datestock_3->setObjectName(QStringLiteral("le_datestock_3"));
         le_datestock_3->setGeometry(QRect(140, 160, 110, 22));
@@ -781,18 +790,38 @@ public:
         label_37 = new QLabel(tab_7);
         label_37->setObjectName(QStringLiteral("label_37"));
         label_37->setGeometry(QRect(70, 80, 41, 16));
-        Timer = new QComboBox(tab_7);
+        TimerMode = new QComboBox(tab_7);
+        TimerMode->setObjectName(QStringLiteral("TimerMode"));
+        TimerMode->setGeometry(QRect(190, 40, 69, 22));
+        Timer = new QLineEdit(tab_7);
         Timer->setObjectName(QStringLiteral("Timer"));
-        Timer->setGeometry(QRect(130, 40, 69, 22));
+        Timer->setGeometry(QRect(140, 40, 31, 20));
         tabWidget->addTab(tab_7, QString());
         tab_8 = new QWidget();
         tab_8->setObjectName(QStringLiteral("tab_8"));
         pbarduinoT_O = new QPushButton(tab_8);
         pbarduinoT_O->setObjectName(QStringLiteral("pbarduinoT_O"));
-        pbarduinoT_O->setGeometry(QRect(210, 220, 75, 23));
-        pbarduinoT_off = new QPushButton(tab_8);
-        pbarduinoT_off->setObjectName(QStringLiteral("pbarduinoT_off"));
-        pbarduinoT_off->setGeometry(QRect(390, 220, 75, 23));
+        pbarduinoT_O->setGeometry(QRect(150, 42, 111, 121));
+        sonore = new QPushButton(tab_8);
+        sonore->setObjectName(QStringLiteral("sonore"));
+        sonore->setGeometry(QRect(270, 40, 111, 121));
+        sonore->setStyleSheet(QStringLiteral(""));
+        layoutWidget1 = new QWidget(tab_8);
+        layoutWidget1->setObjectName(QStringLiteral("layoutWidget1"));
+        layoutWidget1->setGeometry(QRect(140, 170, 251, 16));
+        horizontalLayout_2 = new QHBoxLayout(layoutWidget1);
+        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+        horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
+        label_16 = new QLabel(layoutWidget1);
+        label_16->setObjectName(QStringLiteral("label_16"));
+
+        horizontalLayout_2->addWidget(label_16);
+
+        label_14 = new QLabel(layoutWidget1);
+        label_14->setObjectName(QStringLiteral("label_14"));
+
+        horizontalLayout_2->addWidget(label_14);
+
         tabWidget->addTab(tab_8, QString());
         tab_9 = new QWidget();
         tab_9->setObjectName(QStringLiteral("tab_9"));
@@ -870,11 +899,23 @@ public:
         boutonAller->setGeometry(QRect(730, 400, 75, 23));
         tabWidget->addTab(tab_9, QString());
         tabWidget_4->addTab(tab_4, QString());
+        tab_12 = new QWidget();
+        tab_12->setObjectName(QStringLiteral("tab_12"));
+        tabWidget_4->addTab(tab_12, QString());
+        tab_11 = new QWidget();
+        tab_11->setObjectName(QStringLiteral("tab_11"));
+        tabWidget_4->addTab(tab_11, QString());
+        tab_13 = new QWidget();
+        tab_13->setObjectName(QStringLiteral("tab_13"));
+        tabWidget_4->addTab(tab_13, QString());
+        tab_14 = new QWidget();
+        tab_14->setObjectName(QStringLiteral("tab_14"));
+        tabWidget_4->addTab(tab_14, QString());
 
         retranslateUi(gestions);
 
         tabWidget_4->setCurrentIndex(0);
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(5);
 
 
         QMetaObject::connectSlotsByName(gestions);
@@ -883,7 +924,6 @@ public:
     void retranslateUi(QDialog *gestions)
     {
         gestions->setWindowTitle(QApplication::translate("gestions", "The Pie Chart", Q_NULLPTR));
-        gestions->setStyleSheet(QApplication::translate("gestions", "image: url(:/box.png);", Q_NULLPTR));
         EnvoyerMail_pushButton->setText(QApplication::translate("gestions", "Envoyer Mail", Q_NULLPTR));
         pushButton_12->setText(QApplication::translate("gestions", "Consulter Statistiques", Q_NULLPTR));
         AccStockpb->setText(QApplication::translate("gestions", "Stock", Q_NULLPTR));
@@ -934,7 +974,7 @@ public:
          << QApplication::translate("gestions", "Autre", Q_NULLPTR)
         );
         pbgotomap->setText(QApplication::translate("gestions", "GotoMap", Q_NULLPTR));
-        label_11->setText(QApplication::translate("gestions", "<html><head/><body><p><span style=\" font-size:6pt; font-weight:10; color:#5500ff;\">.</span></p></body></html>", Q_NULLPTR));
+        label_11->setText(QApplication::translate("gestions", "<html><head/><body><p><span style=\" font-size:18pt; font-weight:600; color:#5500ff;\">.</span></p></body></html>", Q_NULLPTR));
         label_10->setText(QApplication::translate("gestions", "Gestion Fournisseur", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("gestions", "Fournisseur", Q_NULLPTR));
         imp->setText(QApplication::translate("gestions", "imprimer", Q_NULLPTR));
@@ -951,18 +991,17 @@ public:
         label_35->setText(QApplication::translate("gestions", "Quantit\303\251", Q_NULLPTR));
         label_36->setText(QApplication::translate("gestions", "id", Q_NULLPTR));
         label_37->setText(QApplication::translate("gestions", "Libelle", Q_NULLPTR));
-        Timer->clear();
-        Timer->insertItems(0, QStringList()
-         << QApplication::translate("gestions", "1", Q_NULLPTR)
-         << QApplication::translate("gestions", "5", Q_NULLPTR)
-         << QApplication::translate("gestions", "30", Q_NULLPTR)
-         << QApplication::translate("gestions", "60", Q_NULLPTR)
-         << QApplication::translate("gestions", "120", Q_NULLPTR)
-         << QApplication::translate("gestions", "240", Q_NULLPTR)
+        TimerMode->clear();
+        TimerMode->insertItems(0, QStringList()
+         << QApplication::translate("gestions", "secondes", Q_NULLPTR)
+         << QApplication::translate("gestions", "minutes", Q_NULLPTR)
+         << QApplication::translate("gestions", "heurs", Q_NULLPTR)
         );
         tabWidget->setTabText(tabWidget->indexOf(tab_7), QApplication::translate("gestions", "stock planifier ", Q_NULLPTR));
         pbarduinoT_O->setText(QApplication::translate("gestions", "TurnOn", Q_NULLPTR));
-        pbarduinoT_off->setText(QApplication::translate("gestions", "TurnOff", Q_NULLPTR));
+        sonore->setText(QApplication::translate("gestions", "desactiver alarme", Q_NULLPTR));
+        label_16->setText(QApplication::translate("gestions", "Etat:", Q_NULLPTR));
+        label_14->setText(QString());
         tabWidget->setTabText(tabWidget->indexOf(tab_8), QApplication::translate("gestions", "Arduino", Q_NULLPTR));
         chercher->setText(QApplication::translate("gestions", "Find Location", Q_NULLPTR));
         labelLatitude->setText(QApplication::translate("gestions", "Latitude :", Q_NULLPTR));
@@ -975,6 +1014,10 @@ public:
         boutonAller->setText(QApplication::translate("gestions", "Aller !", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab_9), QApplication::translate("gestions", "Map", Q_NULLPTR));
         tabWidget_4->setTabText(tabWidget_4->indexOf(tab_4), QApplication::translate("gestions", "Fournisseur_stock", Q_NULLPTR));
+        tabWidget_4->setTabText(tabWidget_4->indexOf(tab_12), QApplication::translate("gestions", "Client_Produits", Q_NULLPTR));
+        tabWidget_4->setTabText(tabWidget_4->indexOf(tab_11), QApplication::translate("gestions", "Livraison", Q_NULLPTR));
+        tabWidget_4->setTabText(tabWidget_4->indexOf(tab_13), QApplication::translate("gestions", "Employee", Q_NULLPTR));
+        tabWidget_4->setTabText(tabWidget_4->indexOf(tab_14), QApplication::translate("gestions", "Evenement_Promotions", Q_NULLPTR));
     } // retranslateUi
 
 };

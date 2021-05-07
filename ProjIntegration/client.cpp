@@ -272,6 +272,7 @@ int Client::NbPtWinner()
 
     QSqlQuery query_fix;
 
+    int totalvect=0;
     query_fix.prepare("SELECT * FROM Client");
 
     int rows= 0;
@@ -292,13 +293,14 @@ qDebug()<<PrenomVal;
     for(int i=0;i<Nbr_pointVal;i++)
     {
         nbq.push_back(C);
+        totalvect++;
     }
 
     }
     int rand;
     qsrand(QDateTime::currentMSecsSinceEpoch() / 1000);
     if(rows!=0){
-        rand=qrand()%rows;
+        rand=qrand()%(totalvect-1);
     }
     else
     {

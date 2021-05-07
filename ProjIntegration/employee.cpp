@@ -63,7 +63,7 @@ QSqlQueryModel * Employee::loadData()
 {
     QSqlQueryModel *model=new QSqlQueryModel();
     QSqlQuery query;
-    query.prepare("select id from Employee");
+    query.prepare("select * from Employee");
     query.exec();
     model->setQuery(query);
     return model;

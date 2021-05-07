@@ -143,7 +143,6 @@ public:
     QLabel *label_24;
     QPushButton *Ajouter_Prod_Stock;
     QTableView *tab_prod_stock;
-    QLabel *labelProdName;
     QLabel *label_25;
     QLabel *label_26;
     QLineEdit *LE_idprod_S_2;
@@ -158,7 +157,14 @@ public:
     QLineEdit *LE_Ingredients;
     QLineEdit *LE_QT_NE;
     QLabel *label_27;
+    QWidget *horizontalLayoutWidget_18;
+    QHBoxLayout *horizontalLayout_20;
+    QLabel *label_29;
     QLabel *maxProdLabel;
+    QWidget *horizontalLayoutWidget_17;
+    QHBoxLayout *horizontalLayout_19;
+    QLabel *label_28;
+    QLabel *labelProdName;
     QWidget *tab_6;
     QPushButton *pushButton_7;
     QLineEdit *SetTimeLE;
@@ -800,10 +806,6 @@ public:
         tab_prod_stock = new QTableView(tab_5);
         tab_prod_stock->setObjectName(QStringLiteral("tab_prod_stock"));
         tab_prod_stock->setGeometry(QRect(330, 20, 421, 211));
-        labelProdName = new QLabel(tab_5);
-        labelProdName->setObjectName(QStringLiteral("labelProdName"));
-        labelProdName->setGeometry(QRect(340, 320, 171, 31));
-        labelProdName->setStyleSheet(QStringLiteral("font: 12pt \"MS Shell Dlg 2\";"));
         label_25 = new QLabel(tab_5);
         label_25->setObjectName(QStringLiteral("label_25"));
         label_25->setGeometry(QRect(540, 350, 47, 13));
@@ -856,10 +858,40 @@ public:
         label_27 = new QLabel(tab_5);
         label_27->setObjectName(QStringLiteral("label_27"));
         label_27->setGeometry(QRect(10, 150, 121, 20));
-        maxProdLabel = new QLabel(tab_5);
+        horizontalLayoutWidget_18 = new QWidget(tab_5);
+        horizontalLayoutWidget_18->setObjectName(QStringLiteral("horizontalLayoutWidget_18"));
+        horizontalLayoutWidget_18->setGeometry(QRect(260, 360, 261, 41));
+        horizontalLayout_20 = new QHBoxLayout(horizontalLayoutWidget_18);
+        horizontalLayout_20->setObjectName(QStringLiteral("horizontalLayout_20"));
+        horizontalLayout_20->setContentsMargins(0, 0, 0, 0);
+        label_29 = new QLabel(horizontalLayoutWidget_18);
+        label_29->setObjectName(QStringLiteral("label_29"));
+
+        horizontalLayout_20->addWidget(label_29);
+
+        maxProdLabel = new QLabel(horizontalLayoutWidget_18);
         maxProdLabel->setObjectName(QStringLiteral("maxProdLabel"));
-        maxProdLabel->setGeometry(QRect(230, 290, 101, 31));
         maxProdLabel->setStyleSheet(QStringLiteral("font: 16pt \"MS Shell Dlg 2\";"));
+
+        horizontalLayout_20->addWidget(maxProdLabel);
+
+        horizontalLayoutWidget_17 = new QWidget(tab_5);
+        horizontalLayoutWidget_17->setObjectName(QStringLiteral("horizontalLayoutWidget_17"));
+        horizontalLayoutWidget_17->setGeometry(QRect(260, 330, 241, 31));
+        horizontalLayout_19 = new QHBoxLayout(horizontalLayoutWidget_17);
+        horizontalLayout_19->setObjectName(QStringLiteral("horizontalLayout_19"));
+        horizontalLayout_19->setContentsMargins(0, 0, 0, 0);
+        label_28 = new QLabel(horizontalLayoutWidget_17);
+        label_28->setObjectName(QStringLiteral("label_28"));
+
+        horizontalLayout_19->addWidget(label_28);
+
+        labelProdName = new QLabel(horizontalLayoutWidget_17);
+        labelProdName->setObjectName(QStringLiteral("labelProdName"));
+        labelProdName->setStyleSheet(QStringLiteral("font: 12pt \"MS Shell Dlg 2\";"));
+
+        horizontalLayout_19->addWidget(labelProdName);
+
         tabWidget->addTab(tab_5, QString());
         tab_6 = new QWidget();
         tab_6->setObjectName(QStringLiteral("tab_6"));
@@ -975,7 +1007,7 @@ public:
 
         retranslateUi(ClientAff);
 
-        tabWidget->setCurrentIndex(5);
+        tabWidget->setCurrentIndex(3);
         comboBox1->setCurrentIndex(0);
         comboBox22->setCurrentIndex(0);
 
@@ -1053,7 +1085,6 @@ public:
         label_23->setText(QApplication::translate("ClientAff", "Id Produit", Q_NULLPTR));
         label_24->setText(QApplication::translate("ClientAff", "Id Stock", Q_NULLPTR));
         Ajouter_Prod_Stock->setText(QApplication::translate("ClientAff", "Ajouter", Q_NULLPTR));
-        labelProdName->setText(QString());
         label_25->setText(QApplication::translate("ClientAff", "Id Stock", Q_NULLPTR));
         label_26->setText(QApplication::translate("ClientAff", "Id Produit", Q_NULLPTR));
         Supprimer_Ingred->setText(QApplication::translate("ClientAff", "Supprimer", Q_NULLPTR));
@@ -1061,7 +1092,10 @@ public:
         Afficher_Ingredients_2->setText(QApplication::translate("ClientAff", "Afficher Ingredient => Produits", Q_NULLPTR));
         MaxProd->setText(QApplication::translate("ClientAff", "Afficher max Produit", Q_NULLPTR));
         label_27->setText(QApplication::translate("ClientAff", "Quantit\303\251 necessaire", Q_NULLPTR));
+        label_29->setText(QApplication::translate("ClientAff", "Nombre de produit possible:", Q_NULLPTR));
         maxProdLabel->setText(QString());
+        label_28->setText(QApplication::translate("ClientAff", "Nom Produit/stock:", Q_NULLPTR));
+        labelProdName->setText(QString());
         tabWidget->setTabText(tabWidget->indexOf(tab_5), QApplication::translate("ClientAff", "Stock_Produit", Q_NULLPTR));
         pushButton_7->setText(QApplication::translate("ClientAff", "Open", Q_NULLPTR));
         SetTimeLE->setText(QString());

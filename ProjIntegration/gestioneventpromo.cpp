@@ -12,6 +12,11 @@
 #include <QDebug>
 #include <QTimer>
 #include <QTime>
+#include <QFile>
+#include <QStyleFactory>
+#include <QMediaPlayer>
+//#include <QVideoWidget>
+
 
 double FirstNum;
 bool userIsTypingSecondNumber= false;
@@ -23,9 +28,9 @@ GestionEventPromo::GestionEventPromo(QWidget *parent) :
     ui->setupUi(this);
 
     //sound
-    son=new QSound("C:/Users/Hamadi/Desktop/C++/ThePieChartIntegration/ThePieChart/ProjIntegration/Music/cadriantnt_u_click.wav");
-    erreur=new QSound("C:/Users/Hamadi/Desktop/C++/ThePieChartIntegration/ThePieChart/ProjIntegration/Music/error.wav");
-    succes=new QSound("C:/Users/Hamadi/Desktop/C++/ThePieChartIntegration/ThePieChart/ProjIntegration/Music/done.wav");
+    son=new QSound(":/img/img/adriantnt_u_click.wav");
+    erreur=new QSound(":/img/img/error.wav");
+    succes=new QSound(":/img/img/done.wav");
 
     //Menu
     ui->le_id->setValidator(new QIntValidator(100, 999, this));
@@ -82,6 +87,18 @@ GestionEventPromo::GestionEventPromo(QWidget *parent) :
      timer_1s = new QTimer(this);
      QObject::connect(timer_1s, SIGNAL(timeout()), this, SLOT(UpdateTime()));
      timer_1s->start(1000);
+
+     //music
+     mMediaPlayer = new QMediaPlayer(this);
+     connect(mMediaPlayer, &QMediaPlayer::positionChanged , [&](qint64 pos) {
+            ui->avance->setValue(pos);
+     });
+
+     connect (mMediaPlayer , &QMediaPlayer::durationChanged , [&](qint64 dur) {
+         ui->avance->setMaximum(dur);
+     } );
+
+
 
 }
 
@@ -762,3 +779,66 @@ void GestionEventPromo::UpdateTime()
 }
 
 
+
+// Vente flash
+void GestionEventPromo::on_VenteFlash_clicked()
+{
+    QString arg = P.VenteFlash();
+   ui->label_Vente_Flash->setText(arg);
+   QString rech;
+         rech= arg.toCaseFolded();
+           QSqlQueryModel * model= new QSqlQueryModel();
+       QSqlQuery* qry=new QSqlQuery();
+        qry->prepare("SELECT * from pro where Pourcentage like concat (:rech,'%')");
+        qry->bindValue(":rech",rech);
+        qry->exec();
+        model->setQuery(*qry);
+        ui->tab_promotion->setModel(model);
+}
+
+
+//play music
+
+void GestionEventPromo::on_selection_clicked()
+{
+    QString fileName =  QFileDialog::getOpenFileName(this , "Selection");
+    if(fileName.isEmpty())
+    {
+        return;
+    }
+    mMediaPlayer->setMedia(QUrl::fromLocalFile(fileName));
+    mMediaPlayer->setVolume(ui->volume->value());
+    on_play_clicked();
+}
+
+void GestionEventPromo::on_play_clicked()
+{
+   mMediaPlayer->play();
+}
+
+void GestionEventPromo::on_pause_clicked()
+{
+    mMediaPlayer->pause();
+}
+
+void GestionEventPromo::on_stop_clicked()
+{
+    mMediaPlayer->stop();
+}
+
+void GestionEventPromo::on_mute_clicked()
+{
+    if(ui->mute->text() == "Mute"){
+    mMediaPlayer->setMuted(true);
+    ui->mute->setText("Unmute");
+    }else
+    {
+        mMediaPlayer->setMuted(false);
+        ui->mute->setText("Mute");
+    }
+}
+
+void GestionEventPromo::on_volume_valueChanged(int value)
+{
+  mMediaPlayer->setVolume(value);
+}

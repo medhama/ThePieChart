@@ -22,7 +22,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_gestions_t {
     QByteArrayData data[42];
-    char stringdata0[816];
+    char stringdata0[808];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -63,16 +63,16 @@ QT_MOC_LITERAL(28, 605, 6), // "Pbtime"
 QT_MOC_LITERAL(29, 612, 17), // "on_Pbtime_clicked"
 QT_MOC_LITERAL(30, 630, 12), // "update_label"
 QT_MOC_LITERAL(31, 643, 23), // "on_pbarduinoT_O_clicked"
-QT_MOC_LITERAL(32, 667, 25), // "on_pbarduinoT_off_clicked"
-QT_MOC_LITERAL(33, 693, 5), // "aller"
-QT_MOC_LITERAL(34, 699, 16), // "afficherPosition"
-QT_MOC_LITERAL(35, 716, 8), // "latitude"
-QT_MOC_LITERAL(36, 725, 9), // "longitude"
-QT_MOC_LITERAL(37, 735, 20), // "afficherInformations"
-QT_MOC_LITERAL(38, 756, 7), // "adresse"
-QT_MOC_LITERAL(39, 764, 10), // "coordonnee"
-QT_MOC_LITERAL(40, 775, 19), // "on_chercher_clicked"
-QT_MOC_LITERAL(41, 795, 20) // "on_pbgotomap_clicked"
+QT_MOC_LITERAL(32, 667, 5), // "aller"
+QT_MOC_LITERAL(33, 673, 16), // "afficherPosition"
+QT_MOC_LITERAL(34, 690, 8), // "latitude"
+QT_MOC_LITERAL(35, 699, 9), // "longitude"
+QT_MOC_LITERAL(36, 709, 20), // "afficherInformations"
+QT_MOC_LITERAL(37, 730, 7), // "adresse"
+QT_MOC_LITERAL(38, 738, 10), // "coordonnee"
+QT_MOC_LITERAL(39, 749, 19), // "on_chercher_clicked"
+QT_MOC_LITERAL(40, 769, 20), // "on_pbgotomap_clicked"
+QT_MOC_LITERAL(41, 790, 17) // "on_sonore_clicked"
 
     },
     "gestions\0on_pb_supprimerf_clicked\0\0"
@@ -93,11 +93,11 @@ QT_MOC_LITERAL(41, 795, 20) // "on_pbgotomap_clicked"
     "on_Soundoffpb_clicked\0on_pushButton_clicked\0"
     "on_slidervolume_sliderMoved\0position\0"
     "Pbtime\0on_Pbtime_clicked\0update_label\0"
-    "on_pbarduinoT_O_clicked\0"
-    "on_pbarduinoT_off_clicked\0aller\0"
+    "on_pbarduinoT_O_clicked\0aller\0"
     "afficherPosition\0latitude\0longitude\0"
     "afficherInformations\0adresse\0coordonnee\0"
-    "on_chercher_clicked\0on_pbgotomap_clicked"
+    "on_chercher_clicked\0on_pbgotomap_clicked\0"
+    "on_sonore_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -142,10 +142,10 @@ static const uint qt_meta_data_gestions[] = {
       29,    0,  215,    2, 0x08 /* Private */,
       30,    0,  216,    2, 0x08 /* Private */,
       31,    0,  217,    2, 0x08 /* Private */,
-      32,    0,  218,    2, 0x08 /* Private */,
-      33,    0,  219,    2, 0x0a /* Public */,
-      34,    2,  220,    2, 0x0a /* Public */,
-      37,    2,  225,    2, 0x0a /* Public */,
+      32,    0,  218,    2, 0x0a /* Public */,
+      33,    2,  219,    2, 0x0a /* Public */,
+      36,    2,  224,    2, 0x0a /* Public */,
+      39,    0,  229,    2, 0x08 /* Private */,
       40,    0,  230,    2, 0x08 /* Private */,
       41,    0,  231,    2, 0x08 /* Private */,
 
@@ -178,9 +178,9 @@ static const uint qt_meta_data_gestions[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
+    QMetaType::Void, QMetaType::QString, QMetaType::QString,   34,   35,
+    QMetaType::Void, QMetaType::QString, QMetaType::QString,   37,   38,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QString, QMetaType::QString,   35,   36,
-    QMetaType::Void, QMetaType::QString, QMetaType::QString,   38,   39,
     QMetaType::Void,
     QMetaType::Void,
 
@@ -220,12 +220,12 @@ void gestions::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
         case 24: _t->on_Pbtime_clicked(); break;
         case 25: _t->update_label(); break;
         case 26: _t->on_pbarduinoT_O_clicked(); break;
-        case 27: _t->on_pbarduinoT_off_clicked(); break;
-        case 28: _t->aller(); break;
-        case 29: _t->afficherPosition((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2]))); break;
-        case 30: _t->afficherInformations((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2]))); break;
-        case 31: _t->on_chercher_clicked(); break;
-        case 32: _t->on_pbgotomap_clicked(); break;
+        case 27: _t->aller(); break;
+        case 28: _t->afficherPosition((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2]))); break;
+        case 29: _t->afficherInformations((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2]))); break;
+        case 30: _t->on_chercher_clicked(); break;
+        case 31: _t->on_pbgotomap_clicked(); break;
+        case 32: _t->on_sonore_clicked(); break;
         default: ;
         }
     }

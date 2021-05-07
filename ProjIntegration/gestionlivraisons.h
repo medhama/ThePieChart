@@ -65,7 +65,7 @@ private slots:
     void sendMail(QString subject , QString msg){
             Smtp* smtp = new Smtp("visitunisia1@gmail.com","123456789.V","smtp.gmail.com", 465);
             connect(smtp, SIGNAL(status(QString)), this, SLOT(mailSent(QString)));
-            smtp->sendMail("visitunisia1@gmail.com", "ahmed.fakhfakh2@esprit.tn" , subject,msg);}
+            smtp->sendMail("visitunisia1@gmail.com", "mohamedhamadifathallah@gmail.com" , subject,msg);}
     void mailSent(QString status)
     {
         if(status == "Message sent")

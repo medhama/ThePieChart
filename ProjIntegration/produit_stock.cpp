@@ -14,6 +14,8 @@
 #include<QTextCursor>
 #include<QFileDialog>
 #include <QWidget>
+#include"client.h"
+#include <QSqlRecord>
 Produit_Stock::Produit_Stock()
 {
 
@@ -107,9 +109,6 @@ int Produit_Stock::maxProd(QString idProd)
             mini=count;
         }
 
-
-
-
         qDebug()<<besoinn;
     }
 
@@ -127,4 +126,96 @@ bool Produit_Stock::supprimerProd_Stock(int idProd,int idStock)
     query.bindValue(":id",res);
     query.bindValue(":id2",res2);
     return query.exec();
+}
+
+
+
+void Produit_Stock::pdfProdStock(QString filename,int id,QString filepath)
+{
+    //  LE_ID_SUPP
+     // p=p.SelectModif(id);
+      //qDebug<< p.Get_nom().toString;
+
+        QString id1=QString::number(id);
+
+      QSqlQuery query;
+      query.prepare("SELECT * FROM STOCK inner join Stock_Prod on STOCK.ID=Stock_Prod.IDSTOCK where (Stock_Prod.IDPROD like :idProd)");
+      query.bindValue(":idProd", id1);
+
+      query.exec();
+
+
+
+    //  const int rowCount = query.size();
+      const int columnCount = query.record().count();
+
+
+        Produit P;
+        P=P.SelectModif(id);
+
+        int valueA=this->maxProd(id1);
+
+      QString strStream;
+      QTextStream out(&strStream);
+    QString s = QDate::currentDate().toString();
+    QString t = QTime::currentTime().toString();
+      out <<  "<html>\n"
+            "<head>\n"
+            "<meta Content=\"Text/html; charset=Windows-1251\">\n"
+            <<  QString("<title>%1</title>\n").arg("TITLE OF TABLE")
+            <<  "</head>\n"
+            "<body bgcolor=#ffffff link=#5000A0>\n"
+      "<div align=right>"
+         +s+
+      "</div>"
+      "<div align=left>"
+         +t+
+      "</div>"
+              "<h1 align=center>Produit: "
++ P.Get_nom() +
+"</h1>"
+            "<table border=1 cellspacing=0 cellpadding=2>\n";
+
+        // headers
+        out << "<thead  align=center><tr bgcolor=#f0f0f0>";
+        for (int column = 0; column < columnCount; column++)
+          out << QString("<th>%1</th>").arg(query.record().fieldName(column));
+        out << "</tr></thead>\n";
+
+        while (query.next()) {
+          out << "<tr>";
+          for (int column = 0; column < columnCount; column++) {
+            QString data = query.value(column).toString();
+            out << QString("<td bkcolor=0>%1</td>").arg((!data.isEmpty()) ? data : QString("&nbsp;"));
+          }
+          out << "</tr>\n";
+        }
+
+
+
+       out <<  "</table>\n";
+
+       out<< "<h2>Max produit possible: "
++ QString::number(valueA) +
+"</h2>"
+"<br><br>";
+      out<<"<img  src='pics/asset9.png' width='100' height='100'/>"
+           "</body>\n"
+           "</html>\n";
+
+
+
+      QTextDocument document;
+      document.setHtml(strStream);
+
+      QPrinter printer(QPrinter::PrinterResolution);
+      printer.setOutputFormat(QPrinter::PdfFormat);
+      printer.setPaperSize(QPrinter::A4);
+      printer.setOutputFileName(filepath+"/"+filename);
+      printer.setPageMargins(QMarginsF(15, 15, 15, 15));
+
+      document.print(&printer);
+
+
+
 }

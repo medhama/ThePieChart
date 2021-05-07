@@ -7,11 +7,11 @@
     <x>0</x>
     <y>0</y>
     <width>1001</width>
-    <height>600</height>
+    <height>604</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>The Pie Chart</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QStackedWidget" name="stackedWidget">
@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QWidget" name="widget_3" native="true">
@@ -1029,19 +1029,6 @@ border:2px solid rgb(255, 170, 0);
       </property>
       <property name="text">
        <string>Gestion Stock/fournisseur</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="ClientProduit_3">
-      <property name="geometry">
-       <rect>
-        <x>600</x>
-        <y>590</y>
-        <width>141</width>
-        <height>61</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Gestion Stpck/founisseur</string>
       </property>
      </widget>
      <widget class="QPushButton" name="CommandeLivraison">

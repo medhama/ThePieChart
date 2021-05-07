@@ -70,6 +70,10 @@ ClientAff::ClientAff(QWidget *parent) :
      ui->LE_PRIX1->setValidator(new QDoubleValidator(0, 9999999,3, this));
 
 
+//time
+     timer_1s = new QTimer(this);
+     QObject::connect(timer_1s, SIGNAL(timeout()), this, SLOT(UpdateTime()));
+     timer_1s->start(1000);
 
 
     ui->pushButton_6->setEnabled(false);
@@ -101,6 +105,13 @@ void ClientAff::updatelabel()
 
 
 }
+
+
+void ClientAff::UpdateTime()
+{
+    ui->currentTime->setText(QTime::currentTime().toString("hh:mm:ss"));
+}
+
 
 void ClientAff::on_pushButton_clicked() //ajouter client
 {
@@ -737,8 +748,12 @@ void ClientAff::on_GenWinner_clicked()
     Client a,C;
     int k=a.NbPtWinner();
     C=C.SelectModif(k);
-
+    qDebug()<<"id is"+QString::number(k);
   //  ui->Tab_client->setModel(etmp.rechercher(QString::number(k)));
+
+    ui->CinLabel->setText("Cin: " + QString::number(C.Get_cin()));
+    ui->NomLabel->setText("Nom: " + C.Get_nom());
+    ui->PrenomLabel->setText("Prenom: " + C.Get_prenom());
 
     C.mailing();
 
@@ -835,7 +850,7 @@ void ClientAff::on_MaxProd_clicked()
 }
 
 
-void ClientAff::on_pushButton_7_clicked()
+void ClientAff::on_pushButton_7_clicked() //yekteb l arduino
 {
     QString timeS=ui->SetTimeLE->text();
     QByteArray br = timeS.toUtf8();
@@ -844,3 +859,36 @@ void ClientAff::on_pushButton_7_clicked()
 
 }
 
+
+void ClientAff::on_pushButton_8_clicked() //export ingredients for product
+{
+
+            playClick(onoff);
+            int idPDF=ui->LE_Ingredients->text().toInt();
+            QString s = QDateTime::currentDateTime().toString();
+            s.replace(" ","_");
+            s.replace(":",".");
+
+            qDebug() << s;
+            Produit_Stock p;
+
+
+            p.SelectModif(idPDF);
+
+            s=p.Get_nom()+s;
+            qDebug()<<s;
+            QString filepath=QFileDialog::getExistingDirectory(this, "Get Any File");
+            if(filepath.isEmpty())
+            {
+                return;
+            }
+
+            p.pdfProdStock(s+".pdf",idPDF,filepath);
+
+
+
+            QMessageBox::information(nullptr,QObject::tr("ok"),
+                                     QObject::tr("Fichier Pdf cree\n""click ok to exit"),QMessageBox::Ok);
+
+
+}

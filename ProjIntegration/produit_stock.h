@@ -21,6 +21,7 @@ public:
     QSqlQueryModel * afficherProduits(QString);
     bool supprimerProd_Stock(int,int);
     int maxProd(QString);
+    void pdfProdStock(QString,int,QString);
     QString SelectStock(int);
 };
 
